@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MongoDB.Driver;
 using StartFolio.Models;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StartFolio.DAL
 {
@@ -17,6 +18,8 @@ namespace StartFolio.DAL
         {
             context = new DatabaseContext(settings);
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task AddPage(Page item)
         {
             await context.Pages.InsertOneAsync(item);
@@ -30,12 +33,14 @@ namespace StartFolio.DAL
                                  .FirstOrDefaultAsync();
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<DeleteResult> RemovePage(string id)
         {
             return await context.Pages.DeleteOneAsync(
                      Builders<Page>.Filter.Eq("Id", id));
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<UpdateResult> UpdatePagePosition(string id, int position)
         {
             var filter = Builders<Page>.Filter.Eq(s => s.Id, id);
@@ -44,6 +49,7 @@ namespace StartFolio.DAL
             return await context.Pages.UpdateOneAsync(filter, update);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<UpdateResult> UpdatePageDetails(string id, string details)
         {
             var filter = Builders<Page>.Filter.Eq(s => s.Id, id);

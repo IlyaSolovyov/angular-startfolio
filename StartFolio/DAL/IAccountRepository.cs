@@ -8,9 +8,6 @@ namespace StartFolio.DAL
 {
     interface IAccountRepository
     {
-        Task<Account> GetPage(string id);
-        Task AddPage(Page item);
-        Task<DeleteResult> RemovePage(string id);
-        Task<UpdateResult> UpdatePage(string id, string body);
+
     }
 }
