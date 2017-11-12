@@ -4,6 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.IdentityModel.Tokens.Jwt;
+using StartFolio.Models;
+using Microsoft.IdentityModel.Tokens;
+using StartFolio.DAL;
 
 namespace StartFolio.Controllers
 {
@@ -11,36 +16,67 @@ namespace StartFolio.Controllers
     [Route("api/Account")]
     public class AccountController : Controller
     {
-        // GET: api/Account
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IAccountRepository accountRepository;
+
+        public AccountController(IAccountRepository repository)
         {
-            return new string[] { "value1", "value2" };
+            accountRepository = repository;
         }
 
-        // GET: api/Account/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET: api/Account/Token
+        [HttpPost("/token")]
+        public async Task Token()
         {
-            return "value";
+            string password = Request.Form["password"];
+
+            ClaimsIdentity identity = GetIdentityAsync(password);
+            if (identity == null)
+            {
+                Response.StatusCode = 400;
+                await Response.WriteAsync("Invalid password.");
+                return;
+            }
+
+            DateTime now = DateTime.UtcNow;
+            // создаем JWT-токен
+            JwtSecurityToken jwt = new JwtSecurityToken(
+                    issuer: AuthOptions.ISSUER,
+                    audience: AuthOptions.AUDIENCE,
+                    notBefore: now,
+                    claims: identity.Claims,
+                    expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
+                    signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+            string encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+
+            var response = new
+            {
+                access_token = encodedJwt,
+                username = identity.Name
+            };
         }
-        
-        // POST: api/Account
-        [HttpPost]
-        public void Post([FromBody]string value)
+        private async Task<ClaimsIdentity> GetIdentityAsync(string password)
         {
+            Account account = await GetAdminAccountInternal();
+            if (account != null)
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimsIdentity.DefaultNameClaimType, account.Id),
+                    new Claim(ClaimsIdentity.DefaultRoleClaimType, account.Role)
+                };
+                ClaimsIdentity claimsIdentity =
+                new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
+                    ClaimsIdentity.DefaultRoleClaimType);
+                return claimsIdentity;
+            }
+
+            // если пользователя не найдено
+            return null;
         }
-        
-        // PUT: api/Account/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+
+        private async Task<Account> GetAdminAccountInternal()
         {
-        }
-        
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return await accountRepository.GetAccount("1");
         }
     }
 }
