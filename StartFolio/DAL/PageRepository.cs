@@ -11,7 +11,6 @@ namespace StartFolio.DAL
 {
     public class PageRepository : IPageRepository
     {
-
         private readonly DatabaseContext context = null;
 
         public PageRepository(IOptions<DbConnectionSettings> settings)

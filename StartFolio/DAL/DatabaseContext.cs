@@ -22,7 +22,7 @@ namespace StartFolio.DAL
             gridFS = new GridFSBucket(database);
         }
 
-        public IMongoCollection<Account> Account
+        public IMongoCollection<Account> Accounts
         {
             get
             {

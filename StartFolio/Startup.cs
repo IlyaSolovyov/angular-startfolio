@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using StartFolio.DAL;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using StartFolio.Models;
 
 namespace StartFolio
 {
