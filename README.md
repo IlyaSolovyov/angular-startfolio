@@ -43,7 +43,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Authors
 
 * **Ilya Solovyov** - *Backend, database and architecture design* - [IlyaSolovyov](https://github.com/IlyaSolovyov)
-* **Denis Baghin** - *Frontend, clientside design and documentation* - [Denis Baghin](https://github.com/idontknowyourlink)
+* **Denis Baghin** - *Frontend, clientside design and documentation* - [Denis Baghin](https://github.com/Denis1697)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
