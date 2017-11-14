@@ -35,6 +35,7 @@
     "isomorphic-fetch": "2.2.1",
     "jquery": "3.2.1",
     "json-loader": "0.5.4",
+    "ngx-fullpage": "^4.0.6",
     "preboot": "4.5.2",
     "raw-loader": "0.5.1",
     "reflect-metadata": "0.1.10",
@@ -46,8 +47,7 @@
     "webpack": "2.5.1",
     "webpack-hot-middleware": "2.18.2",
     "webpack-merge": "4.1.0",
-    "zone.js": "0.8.12",
-    "ngx-fullpage": "4.0.6"
+    "zone.js": "0.8.12"
   },
   "devDependencies": {
     "@types/chai": "4.0.1",

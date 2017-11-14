@@ -1,10 +1,11 @@
-﻿import { Component } from '@angular/core'
-import { MnFullpageModule } from 'ngx-fullpage'
+﻿import { Component, Output } from '@angular/core';
+import { MnFullpageOptions, MnFullpageService } from 'ngx-fullpage';
 
 @Component({
     selector: 'some',
-    templateUrl: './some.component.html',
-    styleUrls: ['./some.component.css']
+    templateUrl: `./some.component.html`
 })
 export class SomeComponent {
+    constructor(public fullpageService: MnFullpageService) {
+    }
 }
