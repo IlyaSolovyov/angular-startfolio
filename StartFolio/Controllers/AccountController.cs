@@ -29,7 +29,7 @@ namespace StartFolio.Controllers
         {
             string password = Request.Form["password"];
 
-            ClaimsIdentity identity = GetIdentityAsync(password);
+            ClaimsIdentity identity = await GetIdentityAsync(password);
             if (identity == null)
             {
                 Response.StatusCode = 400;
