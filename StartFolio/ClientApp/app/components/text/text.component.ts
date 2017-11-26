@@ -1,6 +1,7 @@
 ﻿import { Component, Output } from '@angular/core';
 
 @Component({
+    selector: 'my-text',
     styleUrls: [ './text.component.css' ],
     templateUrl: './text.component.html'
 })
