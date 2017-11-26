@@ -13,6 +13,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { TextComponent } from './components/text/text.component';
 import { TeamComponent } from './components/team/team.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { TeamComponent } from './components/team/team.component';
         CounterComponent,
         FetchDataComponent,
         TextComponent,
-        TeamComponent
+        TeamComponent,
+        FooterComponent
     ],
     imports: [
         BrowserModule,
@@ -37,6 +39,7 @@ import { TeamComponent } from './components/team/team.component';
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'text', component: TextComponent },
             { path: 'team', component: TeamComponent },
+            { path: 'footer', component: FooterComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
