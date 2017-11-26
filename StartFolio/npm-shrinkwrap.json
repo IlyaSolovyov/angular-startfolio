@@ -12,6 +12,14 @@
         "tslib": "1.7.1"
       }
     },
+    "@angular/cdk": {
+      "version": "5.0.0-rc.1",
+      "resolved": "https://registry.npmjs.org/@angular/cdk/-/cdk-5.0.0-rc.1.tgz",
+      "integrity": "sha512-thVOUphT2cpKaFQcBFfueWaNU8+C0g4FPWhanzXbT239tFJQzp76ynvq17ePrGiJNomm8H3YHYkMNiaiYX98dg==",
+      "requires": {
+        "tslib": "1.7.1"
+      }
+    },
     "@angular/common": {
       "version": "4.2.5",
       "resolved": "https://registry.npmjs.org/@angular/common/-/common-4.2.5.tgz",
@@ -65,6 +73,14 @@
       "version": "4.2.5",
       "resolved": "https://registry.npmjs.org/@angular/http/-/http-4.2.5.tgz",
       "integrity": "sha1-P/+OXPjogmK6zRyZYwQxLDxaOu8=",
+      "requires": {
+        "tslib": "1.7.1"
+      }
+    },
+    "@angular/material": {
+      "version": "5.0.0-rc.1",
+      "resolved": "https://registry.npmjs.org/@angular/material/-/material-5.0.0-rc.1.tgz",
+      "integrity": "sha512-PQAVyJX6oUnMo+rb4Q06gMCtzFuDAhmhu7rVSUv9gKHWPI6GHgw9h4eM9pThCH7bpXjfrtGRA7ZP8tBLSJqNRA==",
       "requires": {
         "tslib": "1.7.1"
       }
@@ -232,6 +248,30 @@
       "version": "1.0.1",
       "resolved": "https://registry.npmjs.org/amdefine/-/amdefine-1.0.1.tgz",
       "integrity": "sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU="
+    },
+    "angular": {
+      "version": "1.6.6",
+      "resolved": "https://registry.npmjs.org/angular/-/angular-1.6.6.tgz",
+      "integrity": "sha1-/Vo8+0N844LYVO4BEgeXl4Uny2Q="
+    },
+    "angular-fullpage.js": {
+      "version": "0.2.6",
+      "resolved": "https://registry.npmjs.org/angular-fullpage.js/-/angular-fullpage.js-0.2.6.tgz",
+      "integrity": "sha1-ncBsfzZmdwRJd4CoZrSIUkrg27g=",
+      "requires": {
+        "angular": "1.6.6",
+        "fullpage.js": "2.7.9"
+      },
+      "dependencies": {
+        "fullpage.js": {
+          "version": "2.7.9",
+          "resolved": "https://registry.npmjs.org/fullpage.js/-/fullpage.js-2.7.9.tgz",
+          "integrity": "sha1-251CJIXc1fTIIFlG+6ZHN2ebJZs=",
+          "requires": {
+            "jquery": "3.2.1"
+          }
+        }
+      }
     },
     "angular2-template-loader": {
       "version": "0.6.2",
@@ -2115,6 +2155,11 @@
       "version": "1.0.1",
       "resolved": "https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz",
       "integrity": "sha1-TK+tdrxi8C+gObL5Tpo906ORpyU="
+    },
+    "hammerjs": {
+      "version": "2.0.8",
+      "resolved": "https://registry.npmjs.org/hammerjs/-/hammerjs-2.0.8.tgz",
+      "integrity": "sha1-BO93hiz/K7edMPdpIJWTAiK/YPE="
     },
     "has": {
       "version": "1.0.1",
