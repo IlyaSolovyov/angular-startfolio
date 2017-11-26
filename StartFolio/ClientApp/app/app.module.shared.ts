@@ -4,39 +4,41 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from "@angular/platform-browser";
-import { MnFullpageModule } from "ngx-fullpage";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { SomeComponent } from './components/some/some.component';
+import { TextComponent } from './components/text/text.component';
+import { TeamComponent } from './components/team/team.component';
+
 
 @NgModule({
-    bootstrap: [SomeComponent],
     declarations: [
         AppComponent,
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent,
-        SomeComponent
+        TextComponent,
+        TeamComponent
     ],
     imports: [
         BrowserModule,
         CommonModule,
         HttpModule,
         FormsModule,
+        BrowserAnimationsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
+            { path: 'home', component: TextComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'some', component: SomeComponent },
+            { path: 'text', component: TextComponent },
+            { path: 'team', component: TeamComponent },
             { path: '**', redirectTo: 'home' }
-        ]),
-        MnFullpageModule.forRoot()
+        ])
     ]
 })
 export class AppModuleShared {
