@@ -31,12 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\components\some\some.component.ts" />
+    <None Remove="ClientApp\app\components\footer\footer.component.ts" />
     <None Remove="ClientApp\app\components\team\team.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\components\some\some.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\footer\footer.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\team\team.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\text\text.component.ts" />
   </ItemGroup>
