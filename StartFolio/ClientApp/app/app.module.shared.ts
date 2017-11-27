@@ -14,6 +14,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { TextComponent } from './components/text/text.component';
 import { TeamComponent } from './components/team/team.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FabComponent } from './fab/fab.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/footer/footer.component';
         FetchDataComponent,
         TextComponent,
         TeamComponent,
-        FooterComponent
+        FooterComponent,
+        FabComponent
     ],
     imports: [
         BrowserModule,
