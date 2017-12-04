@@ -11,6 +11,8 @@ using StartFolio.DAL;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using StartFolio.Models;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace StartFolio
 {
@@ -62,6 +64,9 @@ namespace StartFolio
 
             services.AddTransient<IPageRepository, PageRepository>();
             services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddSingleton<IFileProvider>(
+                new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
