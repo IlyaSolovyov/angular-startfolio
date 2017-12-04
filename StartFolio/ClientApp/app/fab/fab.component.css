@@ -7,14 +7,14 @@
     cursor: pointer;
 }
 
-    .fab:hover .fab-buttons {
-        opacity: 1;
-        visibility: visible;
-    }
+.fab:hover .fab-buttons {
+    opacity: 1;
+    visibility: visible;
+}
 
-    .fab:hover .fab-buttons__link {
-        transform: scaleY(1) scaleX(1) translateY(-16px) translateX(0px);
-    }
+.fab:hover .fab-buttons__link {
+    transform: scaleY(1) scaleX(1) translateY(-16px) translateX(0px);
+}
 
 .fab-action-button:hover + .fab-buttons .fab-buttons__link:before {
     visibility: visible;

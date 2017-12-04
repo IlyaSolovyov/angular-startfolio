@@ -39,6 +39,7 @@
     "isomorphic-fetch": "2.2.1",
     "jquery": "3.2.1",
     "json-loader": "0.5.4",
+    "materialize": "^1.0.0",
     "ngx-fullpage": "^4.0.6",
     "preboot": "4.5.2",
     "raw-loader": "0.5.1",

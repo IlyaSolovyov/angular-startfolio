@@ -15,6 +15,9 @@ import { TextComponent } from './components/text/text.component';
 import { TeamComponent } from './components/team/team.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FabComponent } from './fab/fab.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { PersonComponent } from './components/person/person.component';
+import { ProductComponent } from './components/product/product.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { FabComponent } from './fab/fab.component';
         TextComponent,
         TeamComponent,
         FooterComponent,
-        FabComponent
+        FabComponent,
+        PersonComponent,
+        ProductComponent,
+        SidebarComponent
     ],
     imports: [
         BrowserModule,
@@ -35,14 +41,16 @@ import { FabComponent } from './fab/fab.component';
         FormsModule,
         BrowserAnimationsModule,
         RouterModule.forRoot([
-            { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: TextComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'text', component: TextComponent },
-            { path: 'team', component: TeamComponent },
-            { path: 'footer', component: FooterComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: '',             redirectTo: 'home', pathMatch: 'full' },
+            { path: 'home',         component: TextComponent },
+            { path: 'counter',      component: CounterComponent },
+            { path: 'fetch-data',   component: FetchDataComponent },
+            { path: 'text',         component: TextComponent },
+            { path: 'team',         component: TeamComponent },
+            { path: 'footer',       component: FooterComponent },
+            { path: 'person',       component: PersonComponent },
+            { path: 'product',      component: ProductComponent },
+            { path: '**',           redirectTo: 'home' }
         ])
     ]
 })
