@@ -7,76 +7,89 @@ using Microsoft.AspNetCore.Mvc;
 using StartFolio.DAL;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using StartFolio.Models;
 
 namespace StartFolio.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Page")]
+    [Route("api/Pages")]
     public class PageController : Controller
     {
         private readonly IPageRepository pageRepository;
         IHostingEnvironment appEnvironment;
 
-        public PageController(IPageRepository repository, IHostingEnvironment appEnvironment)
+        public PageController(IPageRepository repository, IHostingEnvironment environment)
         {
             pageRepository = repository;
-            appEnvironment = appEnvironment;
+            appEnvironment = environment;
         }
 
-        // GET: api/Page
+        // GET: api/Pages
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<Page>> GetAsync()
         {
-            return new string[] { "value1", "value2" };
+            return await pageRepository.GetPagesAsync();
         }
 
-        // GET: api/Page/5
+        // GET: api/Pages/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<Page> GetPage(int id)
         {
-            return "value";
+            return await pageRepository.GetPage(id.ToString());
         }
         
-        // POST: api/Page
+        // POST: api/Pages
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]Page page)
         {
+            if (page == null)
+            {
+                return BadRequest();
+            }         
+            pageRepository.AddPage(page);
+            return Ok(page);
         }
 
-        // POST: api/Page/Images
-        [HttpPost]
+        // POST: api/Pages/Images
+        [HttpPost("/Images")]
         public async Task<IActionResult> UploadImagesAsync(IFormFileCollection uploads)
         {
             foreach (var uploadedFile in uploads)
             {
                 // путь к папке Files
-                string path = "/Files/" + uploadedFile.FileName;
+                string path = "/Images/" + uploadedFile.FileName;
                 // сохраняем файл в папку Files в каталоге wwwroot
                 using (var fileStream = new FileStream(appEnvironment.WebRootPath + path, FileMode.Create))
                 {
                     await uploadedFile.CopyToAsync(fileStream);
                 }
             }
-            return;
+            return Ok();
         }
 
-        // GET: api/Page/Images
-        [HttpGet]
-        public IEnumerable<string> GetImages(int id)
+
+        // PUT: api/Pages/5/Position
+        [HttpPut("{id}/Position")]
+        public IActionResult UpdatePosition(int id, int position)
         {
-            return new string[] { "image1", "image2" };
+            pageRepository.UpdatePagePosition(id.ToString(), position);
+            return Ok();
         }
 
-        // PUT: api/Page/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        // PUT: api/Pages/5/Details
+        [HttpPut("{id}/Details")]
+        public IActionResult UpdateDetails(int id, string details)
         {
+            pageRepository.UpdatePageDetails(id.ToString(), details);
+            return Ok();
         }
-        
-        // DELETE: api/Page/Delete/5
+
+        // DELETE: api/Pages/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            pageRepository.RemovePage(id.ToString());
+            return Ok();
         }
     }
 }
