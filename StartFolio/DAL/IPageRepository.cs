@@ -9,6 +9,7 @@ namespace StartFolio.DAL
 {
     public interface IPageRepository
     {
+        Task<IEnumerable<Page>> GetPagesAsync();
         Task<Page> GetPage(string id);
         Task AddPage(Page item);
         Task<DeleteResult> RemovePage(string id);
