@@ -13,7 +13,7 @@ using StartFolio.DAL;
 namespace StartFolio.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Account")]
+    [Route("api/Accounts")]
     public class AccountController : Controller
     {
         private readonly IAccountRepository accountRepository;
@@ -21,9 +21,13 @@ namespace StartFolio.Controllers
         public AccountController(IAccountRepository repository)
         {
             accountRepository = repository;
+            if (accountRepository.GetAccount("1") == null)
+            {
+                accountRepository.AddAccount(new Account());
+            }
         }
 
-        // GET: api/Account/Token
+        // GET: api/Accounts/Token
         [HttpPost("/token")]
         public async Task Token()
         {
@@ -61,7 +65,7 @@ namespace StartFolio.Controllers
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimsIdentity.DefaultNameClaimType, account.Id),
+                    new Claim(ClaimsIdentity.DefaultNameClaimType, account.Id.ToString()),
                     new Claim(ClaimsIdentity.DefaultRoleClaimType, account.Role)
                 };
                 ClaimsIdentity claimsIdentity =

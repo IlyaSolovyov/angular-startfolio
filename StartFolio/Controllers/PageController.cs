@@ -12,7 +12,7 @@ using StartFolio.Models;
 namespace StartFolio.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Pages")]
+    [Route("api/[controller]")]
     public class PageController : Controller
     {
         private readonly IPageRepository pageRepository;
@@ -24,21 +24,29 @@ namespace StartFolio.Controllers
             appEnvironment = environment;
         }
 
-        // GET: api/Pages
+        // GET: api/Page/Test
+        [HttpGet("/Test")]
+        public string Test()
+        {
+            return "success";
+        }
+
+        // GET: api/Page
         [HttpGet]
         public async Task<IEnumerable<Page>> GetAsync()
         {
             return await pageRepository.GetPagesAsync();
         }
 
-        // GET: api/Pages/5
+        // GET: api/Page/5
         [HttpGet("{id}")]
         public async Task<Page> GetPage(int id)
         {
+            //return new Page();
             return await pageRepository.GetPage(id.ToString());
         }
         
-        // POST: api/Pages
+        // POST: api/Page
         [HttpPost]
         public IActionResult Post([FromBody]Page page)
         {
@@ -50,7 +58,7 @@ namespace StartFolio.Controllers
             return Ok(page);
         }
 
-        // POST: api/Pages/Images
+        // POST: api/Page/Images
         [HttpPost("/Images")]
         public async Task<IActionResult> UploadImagesAsync(IFormFileCollection uploads)
         {
@@ -68,7 +76,7 @@ namespace StartFolio.Controllers
         }
 
 
-        // PUT: api/Pages/5/Position
+        // PUT: api/Page/5/Position
         [HttpPut("{id}/Position")]
         public IActionResult UpdatePosition(int id, int position)
         {
@@ -76,7 +84,7 @@ namespace StartFolio.Controllers
             return Ok();
         }
 
-        // PUT: api/Pages/5/Details
+        // PUT: api/Page/5/Details
         [HttpPut("{id}/Details")]
         public IActionResult UpdateDetails(int id, string details)
         {
@@ -84,7 +92,7 @@ namespace StartFolio.Controllers
             return Ok();
         }
 
-        // DELETE: api/Pages/5
+        // DELETE: api/Page/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
