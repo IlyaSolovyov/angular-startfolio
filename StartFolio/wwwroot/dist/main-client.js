@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d4cede58daf9a82f89d8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "39358debaa7f7c19a526"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -7557,7 +7557,7 @@ var PersonComponent = (function () {
     function PersonComponent() {
         this.title = "Вердикт";
         this.backgroundColorClass = "material-indigo";
-        this.personImgUrl = "dist//SO.jpg";
+        this.personImgUrl = "Images//SO.jpg";
         this.personImgAlt = "alternative content";
         this.opinion = "Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра.";
         this.Name = "Папа";
@@ -7595,7 +7595,7 @@ var ProductComponent = (function () {
     function ProductComponent() {
         this.title = "Денчик";
         this.backgroundColorClass = "material-red";
-        this.productImgUrl = "dist//BA.jpg";
+        this.productImgUrl = "Images//BA.jpg";
         this.productImgAlt = "alternative content";
         this.mainText = "Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра.";
         this.subText = "Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра.";
@@ -7632,7 +7632,7 @@ var TeamComponent = (function () {
         this.mainText = "Компания CоБа динамично развивается и растет с каждым годом. Сейчас в нашей семье работает около 1.75 квалифицированных разработчика. Ежеквартально все сотрудники компании проходят обязательную аттестацию для подтверждения или повышения своего квалификационного уровня, что также обеспечивает им карьерный рост и развитие. Мы активно работаем над совершенствованием наших коммуникативных, языковых и профессиональных навыков для обеспечения качественной обратной связи и взаимопонимания с клиентами. Большинство наших сотрудников владеют английским языком на высоком уровне. Мы любим персональное общение с клиентами и не только о работе! Двери компании СоБа всегда открыты для наших клиентов и гостей. Мы рады новым знакомствам и встречам. Приглашаем и вас познакомиться поближе с нашей командой!";
         this.backgroundColorClass = "material-orange";
         this.teammates_Name = ["Ilya Solovyov", "Baghin Denis"];
-        this.teammates_Photo = ["dist//SO.jpg", "dist//BA.jpg"];
+        this.teammates_Photo = ["Images//SO.jpg", "Images//BA.jpg"];
         this.teammates_Description = ["make oXXXymiron great again...", "make ui in luxoft..."];
         this.button_text = ["oXXXymiron", "meh..."];
     }

@@ -11,7 +11,7 @@ export class TeamComponent {
     public backgroundColorClass = "material-orange";
 
     public teammates_Name        = ["Ilya Solovyov", "Baghin Denis"];
-    public teammates_Photo       = ["dist//SO.jpg", "dist//BA.jpg"];
+    public teammates_Photo       = ["Images//SO.jpg", "Images//BA.jpg"];
     public teammates_Description = ["make oXXXymiron great again...", "make ui in luxoft..."];
     public button_text           = ["oXXXymiron", "meh..."];
 }
