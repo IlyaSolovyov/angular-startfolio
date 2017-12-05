@@ -9,11 +9,13 @@ using System.IdentityModel.Tokens.Jwt;
 using StartFolio.Models;
 using Microsoft.IdentityModel.Tokens;
 using StartFolio.DAL;
+using StartFolio.Services;
+using Newtonsoft.Json;
 
 namespace StartFolio.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Accounts")]
+    [Route("api/[controller]")]
     public class AccountController : Controller
     {
         private readonly IAccountRepository accountRepository;
@@ -21,18 +23,17 @@ namespace StartFolio.Controllers
         public AccountController(IAccountRepository repository)
         {
             accountRepository = repository;
-            if (accountRepository.GetAccount("1") == null)
+            if (accountRepository.GetAccount() == null)
             {
                 accountRepository.AddAccount(new Account());
             }
         }
 
         // GET: api/Accounts/Token
-        [HttpPost("/token")]
+        [HttpPost("token")]
         public async Task Token()
         {
             string password = Request.Form["password"];
-
             ClaimsIdentity identity = await GetIdentityAsync(password);
             if (identity == null)
             {
@@ -57,30 +58,37 @@ namespace StartFolio.Controllers
                 access_token = encodedJwt,
                 username = identity.Name
             };
+
+            // сериализация ответа
+            Response.ContentType = "application/json";
+            await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }
+
         private async Task<ClaimsIdentity> GetIdentityAsync(string password)
         {
-            Account account = await GetAdminAccountInternal();
+            // Account account = await GetAdminAccountInternal();
+            Account account = new Account();
             if (account != null)
             {
-                var claims = new List<Claim>
+                if (SecurePasswordHasher.Verify(password, account.Password))
                 {
-                    new Claim(ClaimsIdentity.DefaultNameClaimType, account.Id.ToString()),
-                    new Claim(ClaimsIdentity.DefaultRoleClaimType, account.Role)
-                };
-                ClaimsIdentity claimsIdentity =
-                new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
-                    ClaimsIdentity.DefaultRoleClaimType);
-                return claimsIdentity;
+                    var claims = new List<Claim>();
+                    claims.Add(new Claim(ClaimsIdentity.DefaultNameClaimType, account.Id.ToString()));
+                    claims.Add(new Claim(ClaimsIdentity.DefaultRoleClaimType, account.Role));
+                    ClaimsIdentity claimsIdentity =
+                    new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
+                        ClaimsIdentity.DefaultRoleClaimType);
+                    return claimsIdentity;
+                }
+               
             }
-
             // если пользователя не найдено
             return null;
         }
 
         private async Task<Account> GetAdminAccountInternal()
         {
-            return await accountRepository.GetAccount("1");
+            return await accountRepository.GetAccount();
         }
     }
 }

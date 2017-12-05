@@ -12,7 +12,7 @@ namespace StartFolio.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public string Id { get; set; } = "1";
         public string Password { get; set; } = SecurePasswordHasher.Hash("Admin");
         public string Role { get; set; } = "Admin";
         public DateTime LastPasswordUpdate { get; set; } = DateTime.Now;

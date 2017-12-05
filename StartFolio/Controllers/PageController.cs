@@ -24,13 +24,6 @@ namespace StartFolio.Controllers
             appEnvironment = environment;
         }
 
-        // GET: api/Page/Test
-        [HttpGet("/Test")]
-        public string Test()
-        {
-            return "success";
-        }
-
         // GET: api/Page
         [HttpGet]
         public async Task<IEnumerable<Page>> GetAsync()
@@ -42,8 +35,8 @@ namespace StartFolio.Controllers
         [HttpGet("{id}")]
         public async Task<Page> GetPage(int id)
         {
-            //return new Page();
-            return await pageRepository.GetPage(id.ToString());
+            return new Page();
+            //return await pageRepository.GetPage(id.ToString());
         }
         
         // POST: api/Page
@@ -59,7 +52,7 @@ namespace StartFolio.Controllers
         }
 
         // POST: api/Page/Images
-        [HttpPost("/Images")]
+        [HttpPost("Images")]
         public async Task<IActionResult> UploadImagesAsync(IFormFileCollection uploads)
         {
             foreach (var uploadedFile in uploads)

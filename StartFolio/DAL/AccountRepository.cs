@@ -22,13 +22,14 @@ namespace StartFolio.DAL
             await context.Accounts.InsertOneAsync(item);
         }
 
-        public async Task<Account> GetAccount(string id)
+        public async Task<Account> GetAccount()
         {
-            var filter = Builders<Account>.Filter.Eq("Id", id);
             return await context.Accounts
-                                 .Find(filter)
+                                 .Find(_ => true)
                                  .FirstOrDefaultAsync();
         }
+
+
 
         public async Task<DeleteResult> RemoveAccount(string id)
         {
