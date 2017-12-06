@@ -34,11 +34,6 @@ Obj/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
-wwwroot/dist/main-client.js.map
-wwwroot/dist/main-client.js
-wwwroot/dist/vendor.js
-wwwroot/dist/vendor.css
-wwwroot/dist/vendor-manifest.json
 
 # NUNIT
 *.VisualState.xml
