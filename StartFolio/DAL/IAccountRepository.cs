@@ -9,7 +9,7 @@ namespace StartFolio.DAL
 {
     public interface IAccountRepository
     {
-        Task<Account> GetAccount(string id);
+        Task<Account> GetAccount();
         Task AddAccount(Account item);
         Task<DeleteResult> RemoveAccount(string id);
         Task<UpdateResult> UpdatePassword(string id, string password);

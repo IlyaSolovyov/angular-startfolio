@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using StartFolio.Services;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ namespace StartFolio.Models
     public class Account
     {
         [BsonId]
-        public string Id { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; } = "1";
         public string Password { get; set; } = SecurePasswordHasher.Hash("Admin");
         public string Role { get; set; } = "Admin";
         public DateTime LastPasswordUpdate { get; set; } = DateTime.Now;
