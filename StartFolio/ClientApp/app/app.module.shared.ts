@@ -22,7 +22,10 @@ import { ProductComponent } from './components/product/product.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { LoginComponent } from './components/login/login.component';
 import { DevButtonComponent } from './devbutton/devbutton.component';
-import { EditButtonComponent } from './components/editbtn/editbtn.component';
+import { EditButtonComponent } from './components/btns/editbtn/editbtn.component';
+import { TrashButtonComponent } from './components/btns/trash-btn/trashbtn.component';
+import { UpButtonComponent } from './components/btns/up-btn/upbtn.component';
+import { DownButtonComponent } from './components/btns/down-btn/downbtn.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +44,10 @@ import { EditButtonComponent } from './components/editbtn/editbtn.component';
         GalleryComponent,
         LoginComponent,
         DevButtonComponent,
-        EditButtonComponent
+        EditButtonComponent,
+        TrashButtonComponent,
+        UpButtonComponent,
+        DownButtonComponent
     ],
     imports: [
         BrowserModule,

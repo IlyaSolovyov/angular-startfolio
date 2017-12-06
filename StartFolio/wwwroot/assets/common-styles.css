@@ -141,7 +141,7 @@ input[type="checkbox"] {
     right: 0;
     top: 0;
     bottom: 0;
-    /*transform: translateX(300px);*/
+    transform: translateX(300px);
     transition: 0.3s transform;
     background-color: white;
     z-index: 8;
@@ -192,4 +192,31 @@ input[type="checkbox"] {
 
 .fullViewPort .ng-sidebar__content {
     overflow: hidden;
+}
+
+.round-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    border-radius: 100%;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+    transition: 0.3s transform;
+}
+
+.round-btn img {
+    transition: 0.3s transform;
+}
+
+.round-btn:hover {
+    transform: scale(1.3, 1.3);
 }
