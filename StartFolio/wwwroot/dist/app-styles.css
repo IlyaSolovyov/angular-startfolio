@@ -145,3 +145,24 @@ button {
     cursor: pointer;
 }
 
+input[type="checkbox"] {
+    /*unvisible options*/
+}
+
+.button-mimic {
+    width: 125px;
+    height: 50px;
+    cursor: pointer;
+    line-height: 3.5;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.developerButton {
+    left: 100px;
+    bottom: 100px;
+}
+
+#showEditButton:not(:checked) ~ .editButton {
+    display: none;
+}

@@ -5,6 +5,7 @@
     bottom: 15px;
     margin-left: -28px;
     cursor: pointer;
+    z-index: 5;
 }
 
 .fab:hover .fab-buttons {

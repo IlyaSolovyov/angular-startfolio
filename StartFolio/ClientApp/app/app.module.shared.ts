@@ -13,11 +13,14 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { TextComponent } from './components/text/text.component';
 import { TeamComponent } from './components/team/team.component';
+import { TeammateComponent } from './components/teammate/teammate.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FabComponent } from './fab/fab.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PersonComponent } from './components/person/person.component';
 import { ProductComponent } from './components/product/product.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -28,11 +31,14 @@ import { ProductComponent } from './components/product/product.component';
         FetchDataComponent,
         TextComponent,
         TeamComponent,
+        TeammateComponent,
         FooterComponent,
         FabComponent,
         PersonComponent,
         ProductComponent,
-        SidebarComponent
+        SidebarComponent,
+        GalleryComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,

@@ -4,34 +4,12 @@
 
     <article class="team-component-content main-text body-2 text-large">{{mainText}}</article>
 
-    <!--<img src="/dist/SO.jpg" width="200px" height="200px"/>
-    <img src="/dist/BA.jpg" width="200px" height="200px"/>-->
-
     <ul class="cards">
-        <li class="cards__item">
-            <div class="card">
-                <div class="card__image">
-                    <img src="{{teammates_Photo[0]}}" alt="0" />
-                </div>
-                <div class="card__content">
-                    <div class="card__title">{{teammates_Name[0]}}</div>
-                    <div class="card__text">{{teammates_Description[0]}}</div>
-                    <button class="btn button">{{button_text[0]}}</button>
-                </div>
-            </div>
-        </li>
-        <li class="cards__item">
-            <div class="card">
-                <div class="card__image">
-                    <img src="{{teammates_Photo[1]}}" alt="1"/>
-                </div>
-                <div class="card__content">
-                    <div class="card__title">{{teammates_Name[1]}}</div>
-                    <div class="card__text">{{teammates_Description[1]}}</div>
-                    <button class="btn button">{{button_text[1]}}</button>
-                </div>
-            </div>
-        </li>
+        <teammate></teammate>
+        <teammate></teammate>
+        <teammate></teammate>
+        <teammate></teammate>
+        <teammate></teammate>
     </ul>
 
 </section>
