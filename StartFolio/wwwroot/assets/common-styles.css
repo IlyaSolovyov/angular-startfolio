@@ -27,13 +27,13 @@ app {
     justify-content: center;
 }
 
-    app > ng-component {
-        width: 100%;
-        max-width: 100%;
-        height: 100vh;
-        min-height: 100%;
-        max-height: 100%;
-    }
+app > ng-component {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    min-height: 100%;
+    max-height: 100%;
+}
 
 .button-section {
     display: flex;
@@ -165,6 +165,11 @@ input[type="checkbox"] {
     height: 100%;
 }
 
+.sidebar-content form {
+    display: flex;
+    flex-direction: column;
+}
+
 .text-component,
 .team-component {
     display: flex;
@@ -179,4 +184,12 @@ input[type="checkbox"] {
     height: 1px;
     margin: 20px 0;
     background-color: rgba(0,0,0, 0.3);
+}
+
+.fullViewPort {
+    height: 100vh;
+}
+
+.fullViewPort .ng-sidebar__content {
+    overflow: hidden;
 }
