@@ -22,6 +22,7 @@ import { ProductComponent } from './components/product/product.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { LoginComponent } from './components/login/login.component';
 import { DevButtonComponent } from './devbutton/devbutton.component';
+import { EditButtonComponent } from './components/editbtn/editbtn.component';
 
 @NgModule({
     declarations: [
@@ -39,7 +40,8 @@ import { DevButtonComponent } from './devbutton/devbutton.component';
         TextSidebarComponent,
         GalleryComponent,
         LoginComponent,
-        DevButtonComponent
+        DevButtonComponent,
+        EditButtonComponent
     ],
     imports: [
         BrowserModule,
