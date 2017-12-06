@@ -36,7 +36,6 @@ import { DevButtonComponent } from './devbutton/devbutton.component';
         FabComponent,
         PersonComponent,
         ProductComponent,
-        TextSidebarComponent,
         GalleryComponent,
         LoginComponent,
         DevButtonComponent

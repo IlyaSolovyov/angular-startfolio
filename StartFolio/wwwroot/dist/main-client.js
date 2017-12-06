@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "70af89bfa91e84a64360"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a3035be65166c4bd229d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -7312,19 +7312,17 @@ function getBaseUrl() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_teammate_teammate_component__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_footer_footer_component__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__fab_fab_component__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__textsidebar_textsidebar_component__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_person_person_component__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_product_product_component__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_gallery_gallery_component__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_login_login_component__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__devbutton_devbutton_component__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_person_person_component__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_product_product_component__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_gallery_gallery_component__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_login_login_component__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__devbutton_devbutton_component__ = __webpack_require__(29);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -7361,12 +7359,11 @@ var AppModuleShared = (function () {
                 __WEBPACK_IMPORTED_MODULE_13__components_teammate_teammate_component__["a" /* TeammateComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__components_footer_footer_component__["a" /* FooterComponent */],
                 __WEBPACK_IMPORTED_MODULE_15__fab_fab_component__["a" /* FabComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__components_person_person_component__["a" /* PersonComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__components_product_product_component__["a" /* ProductComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__textsidebar_textsidebar_component__["a" /* TextSidebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__components_gallery_gallery_component__["a" /* GalleryComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__components_login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__devbutton_devbutton_component__["a" /* DevButtonComponent */]
+                __WEBPACK_IMPORTED_MODULE_16__components_person_person_component__["a" /* PersonComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__components_product_product_component__["a" /* ProductComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__components_gallery_gallery_component__["a" /* GalleryComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__components_login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__devbutton_devbutton_component__["a" /* DevButtonComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["BrowserModule"],
@@ -7382,8 +7379,8 @@ var AppModuleShared = (function () {
                     { path: 'text', component: __WEBPACK_IMPORTED_MODULE_11__components_text_text_component__["a" /* TextComponent */] },
                     { path: 'team', component: __WEBPACK_IMPORTED_MODULE_12__components_team_team_component__["a" /* TeamComponent */] },
                     { path: 'footer', component: __WEBPACK_IMPORTED_MODULE_14__components_footer_footer_component__["a" /* FooterComponent */] },
-                    { path: 'person', component: __WEBPACK_IMPORTED_MODULE_17__components_person_person_component__["a" /* PersonComponent */] },
-                    { path: 'product', component: __WEBPACK_IMPORTED_MODULE_18__components_product_product_component__["a" /* ProductComponent */] },
+                    { path: 'person', component: __WEBPACK_IMPORTED_MODULE_16__components_person_person_component__["a" /* PersonComponent */] },
+                    { path: 'product', component: __WEBPACK_IMPORTED_MODULE_17__components_product_product_component__["a" /* ProductComponent */] },
                     { path: '**', redirectTo: 'home' }
                 ])
             ]
@@ -7872,35 +7869,7 @@ var FabComponent = (function () {
 
 
 /***/ }),
-/* 31 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TextSidebarComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var TextSidebarComponent = (function () {
-    function TextSidebarComponent() {
-    }
-    TextSidebarComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'my-textsidebar',
-            template: __webpack_require__(62),
-            styles: [__webpack_require__(80)]
-        })
-    ], TextSidebarComponent);
-    return TextSidebarComponent;
-}());
-
-
-
-/***/ }),
+/* 31 */,
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8069,20 +8038,7 @@ exports.push([module.i, ".fab {\r\n    position: fixed;\r\n    width: 56px;\r\n 
 
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/***/ }),
+/* 44 */,
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8412,7 +8368,7 @@ module.exports = XmlEntities;
 /* 48 */
 /***/ (function(module, exports) {
 
-module.exports = "<!--<router-outlet></router-outlet>-->\r\n<devbutton></devbutton>\r\n<my-fab></my-fab>\r\n<login></login>\r\n<my-textsidebar class=\"sidebar\"></my-textsidebar>\r\n<my-text    class=\"component\"></my-text>\r\n<my-team    class=\"component\"></my-team>\r\n<my-person  class=\"component\"></my-person>\r\n<my-product class=\"component\"></my-product>\r\n<my-gallery class=\"component\"></my-gallery>\r\n<my-footer></my-footer>";
+module.exports = "<!--<router-outlet></router-outlet>-->\r\n<devbutton></devbutton>\r\n<my-fab></my-fab>\r\n<login></login>\r\n<my-text    class=\"component\"></my-text>\r\n<my-team    class=\"component\"></my-team>\r\n<my-person  class=\"component\"></my-person>\r\n<my-product class=\"component\"></my-product>\r\n<my-gallery class=\"component\"></my-gallery>\r\n<my-footer></my-footer>";
 
 /***/ }),
 /* 49 */
@@ -8493,12 +8449,7 @@ module.exports = "<label for=\"showSignIn\" class=\"btn button developerButton b
 module.exports = "<input type=\"checkbox\" id=\"showEditButton\"/>\r\n<div class=\"fab editButton\">\r\n    <span class=\"fab-action-button\">\r\n        <i class=\"fab-action-button__icon\"></i>\r\n    </span>\r\n</div>";
 
 /***/ }),
-/* 62 */
-/***/ (function(module, exports) {
-
-module.exports = "<section class=\"sidebar-header\">\r\n\r\n</section>";
-
-/***/ }),
+/* 62 */,
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10005,20 +9956,7 @@ module.exports = function (str) {
     
 
 /***/ }),
-/* 80 */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-        var result = __webpack_require__(44);
-
-        if (typeof result === "string") {
-            module.exports = result;
-        } else {
-            module.exports = result.toString();
-        }
-    
-
-/***/ }),
+/* 80 */,
 /* 81 */
 /***/ (function(module, exports) {
 

@@ -51,7 +51,6 @@
     <TypeScriptCompile Include="ClientApp\app\components\text\text.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\devbutton\devbutton.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\fab\fab.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\textsidebar\textsidebar.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
