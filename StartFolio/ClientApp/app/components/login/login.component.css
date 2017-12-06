@@ -4,7 +4,7 @@
     align-items: center;
     position: fixed;
     width: 400px;
-    height: 212px;
+    height: 155px;
     left: calc(50% - 200px);
     top: calc(50% - 106px);
     background: #edeff1;
@@ -82,7 +82,7 @@ a {
     height: 32px;
     top: -15px;
     right: -37px;
-    background-image: url("../../../../wwwroot/dist/icons/close.svg");
+    background-image: url("../../../../wwwroot/assets/icons/close.svg");
     background-repeat: round;
     cursor: pointer;
     transition: 0.2s transform ;

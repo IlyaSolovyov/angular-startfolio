@@ -53,7 +53,7 @@
     display: inline-block;
     width: 56px;
     height: 56px;
-    background: url("~/dist/icons/edit.svg") center no-repeat;
+    background: url("~/assets/icons/edit.svg") center no-repeat;
 }
 
 .fab-buttons__item {

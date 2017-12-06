@@ -21,11 +21,11 @@ export class FooterComponent {
     public gp_url = "https://plus.google.com";
 
 
-    public vk_icon = 'dist//icons//vk.svg';
-    public fb_icon = 'dist//icons//fb.svg';
-    public tg_icon = 'dist//icons//tg.svg';
-    public tw_icon = 'dist//icons//tw.svg';
-    public gp_icon = 'dist//icons//gp.svg';
+    public vk_icon = 'assets//icons//vk.svg';
+    public fb_icon = 'assets//icons//fb.svg';
+    public tg_icon = 'assets//icons//tg.svg';
+    public tw_icon = 'assets//icons//tw.svg';
+    public gp_icon = 'assets//icons//gp.svg';
     
     public phoneNumber = "+380123456789";
     public email       = "papa_peja322@opu.ua";
