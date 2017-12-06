@@ -1,4 +1,7 @@
 ﻿.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: fixed;
     width: 400px;
     height: 212px;
@@ -11,6 +14,12 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     z-index: 7;
+
+    transition: 0.5s transform ease;
+
+    -webkit-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);
+    box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);
 }
 
 .form a {
@@ -38,24 +47,18 @@ input[type="text"]:focus {
 }
 
 input[type="submit"] {
-    display: block;
-    background: #1abc9d;
     width: 314px;
+    height: 40px;
     padding: 12px;
     cursor: pointer;
-    color: #fff;
-    border: 0px;
     margin: auto;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
     font-size: 17px;
     transition: all 0.3s ease;
 }
 
-input[type="submit"]:hover {
+/*input[type="submit"]:hover {
     background: #09cca6
-}
+}*/
 
 a {
     transition: all 0.3s ease;
@@ -77,9 +80,26 @@ a {
     color: gray;
 }
 
-.close-window {
+.closeWindow {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    width: 32px;
+    height: 32px;
+    top: -15px;
+    right: -37px;
+    background-image: url("../../../../wwwroot/dist/icons/close.svg");
+    background-repeat: round;
+    cursor: pointer;
+    transition: 0.2s transform ;
 }
 
+.closeWindow:hover {
+    transform: scale(1.25, 1.25);
+}
+
+#showSignIn:not(:checked) ~ .form {
+    transform: translateY(-100vh);
+}
+
+#showSignIn:checked ~ .form {
+    transform: translateY(0);
+}

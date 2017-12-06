@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "96684e27abc5dbf7a7c5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0d8501e09ab7e65f8ec9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -7317,12 +7317,14 @@ function getBaseUrl() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_product_product_component__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_gallery_gallery_component__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_login_login_component__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__devbutton_devbutton_component__ = __webpack_require__(90);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -7363,7 +7365,8 @@ var AppModuleShared = (function () {
                 __WEBPACK_IMPORTED_MODULE_18__components_product_product_component__["a" /* ProductComponent */],
                 __WEBPACK_IMPORTED_MODULE_16__sidebar_sidebar_component__["a" /* SidebarComponent */],
                 __WEBPACK_IMPORTED_MODULE_19__components_gallery_gallery_component__["a" /* GalleryComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__components_login_login_component__["a" /* LoginComponent */]
+                __WEBPACK_IMPORTED_MODULE_20__components_login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__devbutton_devbutton_component__["a" /* DevButtonComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["BrowserModule"],
@@ -8205,7 +8208,7 @@ module.exports = XmlEntities;
 /* 41 */
 /***/ (function(module, exports) {
 
-module.exports = "<!--<router-outlet></router-outlet>-->\r\n<label for=\"showEditButton\" class=\"btn button developerButton button-mimic\">Developer?</label>\r\n<my-fab></my-fab>\r\n<login></login>\r\n<my-text    class=\"component\"></my-text>\r\n<my-team    class=\"component\"></my-team>\r\n<my-person  class=\"component\"></my-person>\r\n<my-product class=\"component\"></my-product>\r\n<my-gallery class=\"component\"></my-gallery>\r\n<my-footer></my-footer>";
+module.exports = "<!--<router-outlet></router-outlet>-->\r\n<devbutton></devbutton>\r\n<my-fab></my-fab>\r\n<login></login>\r\n<my-text    class=\"component\"></my-text>\r\n<my-team    class=\"component\"></my-team>\r\n<my-person  class=\"component\"></my-person>\r\n<my-product class=\"component\"></my-product>\r\n<my-gallery class=\"component\"></my-gallery>\r\n<my-footer></my-footer>";
 
 /***/ }),
 /* 42 */
@@ -10211,7 +10214,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".form {\r\n    position: fixed;\r\n    width: 400px;\r\n    height: 212px;\r\n    left: calc(50% - 200px);\r\n    top: calc(50% - 106px);\r\n    background: #edeff1;\r\n    margin: 0px auto;\r\n    padding-top: 20px;\r\n    border-radius: 10px;\r\n    -moz-border-radius: 10px;\r\n    -webkit-border-radius: 10px;\r\n    z-index: 7;\r\n}\r\n\r\n.form a {\r\n    text-align: center;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    display: block;\r\n    width: 309px;\r\n    height: 35px;\r\n    margin: 15px auto;\r\n    background: #fff;\r\n    border: 0px;\r\n    padding: 5px;\r\n    font-size: 16px;\r\n    border: 2px solid #fff;\r\n    transition: all 0.3s ease;\r\n    border-radius: 5px;\r\n    -moz-border-radius: 5px;\r\n    -webkit-border-radius: 5px;\r\n}\r\n\r\ninput[type=\"text\"]:focus {\r\n    border: 2px solid #1abc9d\r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    display: block;\r\n    background: #1abc9d;\r\n    width: 314px;\r\n    padding: 12px;\r\n    cursor: pointer;\r\n    color: #fff;\r\n    border: 0px;\r\n    margin: auto;\r\n    border-radius: 5px;\r\n    -moz-border-radius: 5px;\r\n    -webkit-border-radius: 5px;\r\n    font-size: 17px;\r\n    transition: all 0.3s ease;\r\n}\r\n\r\ninput[type=\"submit\"]:hover {\r\n    background: #09cca6\r\n}\r\n\r\na {\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n::-webkit-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n:-moz-placeholder { /* Firefox 18- */\r\n    color: gray;\r\n}\r\n\r\n::-moz-placeholder { /* Firefox 19+ */\r\n    color: gray;\r\n}\r\n\r\n:-ms-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n.close-window {\r\n    position: absolute;\r\n    right: 10px;\r\n    top: 10px;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    position: fixed;\r\n    width: 400px;\r\n    height: 212px;\r\n    left: calc(50% - 200px);\r\n    top: calc(50% - 106px);\r\n    background: #edeff1;\r\n    margin: 0px auto;\r\n    padding-top: 20px;\r\n    border-radius: 10px;\r\n    -moz-border-radius: 10px;\r\n    -webkit-border-radius: 10px;\r\n    z-index: 7;\r\n\r\n    transition: 0.5s transform ease;\r\n\r\n    -webkit-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n}\r\n\r\n.form a {\r\n    text-align: center;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    display: block;\r\n    width: 309px;\r\n    height: 35px;\r\n    margin: 15px auto;\r\n    background: #fff;\r\n    border: 0px;\r\n    padding: 5px;\r\n    font-size: 16px;\r\n    border: 2px solid #fff;\r\n    transition: all 0.3s ease;\r\n    border-radius: 5px;\r\n    -moz-border-radius: 5px;\r\n    -webkit-border-radius: 5px;\r\n}\r\n\r\ninput[type=\"text\"]:focus {\r\n    border: 2px solid #1abc9d\r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    width: 314px;\r\n    height: 40px;\r\n    padding: 12px;\r\n    cursor: pointer;\r\n    margin: auto;\r\n    font-size: 17px;\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n/*input[type=\"submit\"]:hover {\r\n    background: #09cca6\r\n}*/\r\n\r\na {\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n::-webkit-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n:-moz-placeholder { /* Firefox 18- */\r\n    color: gray;\r\n}\r\n\r\n::-moz-placeholder { /* Firefox 19+ */\r\n    color: gray;\r\n}\r\n\r\n:-ms-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n.closeWindow {\r\n    position: absolute;\r\n    width: 32px;\r\n    height: 32px;\r\n    top: -15px;\r\n    right: -37px;\r\n    background-image: url(" + __webpack_require__(94) + ");\r\n    background-repeat: round;\r\n    cursor: pointer;\r\n    transition: 0.2s transform ;\r\n}\r\n\r\n.closeWindow:hover {\r\n    transform: scale(1.25, 1.25);\r\n}\r\n\r\n#showSignIn:not(:checked) ~ .form {\r\n    transform: translateY(-100vh);\r\n}\r\n\r\n#showSignIn:checked ~ .form {\r\n    transform: translateY(0);\r\n}\r\n", ""]);
 
 // exports
 
@@ -10220,7 +10223,7 @@ exports.push([module.i, ".form {\r\n    position: fixed;\r\n    width: 400px;\r\
 /* 88 */
 /***/ (function(module, exports) {
 
-module.exports = "<input type=\"checkbox\" id=\"showSignIn\"/>\r\n<div class=\"form\">\r\n    <div style=\"position: relative\">\r\n        <input type=\"text\" class=\"zocial-dribbble\" placeholder=\"Enter your email\" />\r\n        <input type=\"text\" placeholder=\"Password\" />\r\n        <input type=\"submit\" value=\"Login\" class=\"button btn\"/>\r\n        <div class=\"closeWindow\"></div>\r\n    </div>\r\n</div>";
+module.exports = "<input type=\"checkbox\" id=\"showSignIn\"/>\r\n<div class=\"form signIn\">\r\n    <div style=\"position: relative\">\r\n        <input type=\"text\" class=\"zocial-dribbble\" placeholder=\"Enter your email\" />\r\n        <input type=\"text\" placeholder=\"Password\" />\r\n        <input type=\"submit\" value=\"Login\" class=\"button btn\" />\r\n        <label for=\"showSignIn\" class=\"closeWindow\"></label>\r\n    </div>\r\n</div>";
 
 /***/ }),
 /* 89 */
@@ -10235,6 +10238,100 @@ module.exports = "<input type=\"checkbox\" id=\"showSignIn\"/>\r\n<div class=\"f
             module.exports = result.toString();
         }
     
+
+/***/ }),
+/* 90 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DevButtonComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DevButtonComponent = (function () {
+    function DevButtonComponent() {
+    }
+    DevButtonComponent.prototype.onWindowScroll = function () {
+        //In chrome and some browser scroll is given to body tag
+        var pos = (document.documentElement.scrollTop || document.body.scrollTop) + 662;
+        var bottom = document.documentElement.offsetHeight;
+        var devButton = document.getElementById("devButton");
+        if (devButton != null) {
+            if (pos == bottom) {
+                devButton.classList.remove("hidden-devBtn");
+                devButton.classList.add("visible-devBtn");
+            }
+            else {
+                devButton.classList.remove("visible-devBtn");
+                devButton.classList.add("hidden-devBtn");
+            }
+        }
+    };
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])("window:scroll", ["$event"]),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], DevButtonComponent.prototype, "onWindowScroll", null);
+    DevButtonComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'devbutton',
+            styles: [__webpack_require__(93)],
+            template: __webpack_require__(92)
+        })
+    ], DevButtonComponent);
+    return DevButtonComponent;
+}());
+
+
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".hidden-devBtn {\r\n    /*display: none;*/\r\n    transform: translateY(100px);\r\n}\r\n\r\n.visible-devBtn {\r\n    /*display: block;*/\r\n    transform: translateY(20px);\r\n}\r\n\r\n.developerButton {\r\n    position: fixed;\r\n    bottom: 0;\r\n    z-index: 7;\r\n    transition: 0.2s transform ease;\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports) {
+
+module.exports = "<label for=\"showSignIn\" class=\"btn button developerButton button-mimic hidden\" id=\"devButton\" onclick=\"developerCheck()\">\r\n    Developer?\r\n</label>";
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+        var result = __webpack_require__(91);
+
+        if (typeof result === "string") {
+            module.exports = result;
+        } else {
+            module.exports = result.toString();
+        }
+    
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMjdBRTYwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgICA8cGF0aCBkPSJNMTkgNi40MUwxNy41OSA1IDEyIDEwLjU5IDYuNDEgNSA1IDYuNDEgMTAuNTkgMTIgNSAxNy41OSA2LjQxIDE5IDEyIDEzLjQxIDE3LjU5IDE5IDE5IDE3LjU5IDEzLjQxIDEyeiIvPg0KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4NCjwvc3ZnPg=="
 
 /***/ })
 /******/ ]);

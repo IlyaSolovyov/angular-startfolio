@@ -37,6 +37,7 @@
     <None Remove="ClientApp\app\components\product\product.component.ts" />
     <None Remove="ClientApp\app\components\teammate\teammate.component.ts" />
     <None Remove="ClientApp\app\components\team\team.component.ts" />
+    <None Remove="ClientApp\app\devbutton\devbutton.component.ts" />
     <None Remove="ClientApp\app\fab\fab.component.ts" />
   </ItemGroup>
 
@@ -48,6 +49,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\teammate\teammate.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\team\team.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\text\text.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\devbutton\devbutton.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\fab\fab.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\sidebar\sidebar.component.ts" />
   </ItemGroup>

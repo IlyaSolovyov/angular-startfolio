@@ -21,6 +21,7 @@ import { PersonComponent } from './components/person/person.component';
 import { ProductComponent } from './components/product/product.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { LoginComponent } from './components/login/login.component';
+import { DevButtonComponent } from './devbutton/devbutton.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { LoginComponent } from './components/login/login.component';
         ProductComponent,
         SidebarComponent,
         GalleryComponent,
-        LoginComponent
+        LoginComponent,
+        DevButtonComponent
     ],
     imports: [
         BrowserModule,
