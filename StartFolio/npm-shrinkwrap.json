@@ -15,7 +15,7 @@
     "@angular/cdk": {
       "version": "5.0.0-rc.1",
       "resolved": "https://registry.npmjs.org/@angular/cdk/-/cdk-5.0.0-rc.1.tgz",
-      "integrity": "sha512-thVOUphT2cpKaFQcBFfueWaNU8+C0g4FPWhanzXbT239tFJQzp76ynvq17ePrGiJNomm8H3YHYkMNiaiYX98dg==",
+      "integrity": "sha1-fW2Tf+pQB0li24zgJmSxZEAdGX0=",
       "requires": {
         "tslib": "1.7.1"
       }
@@ -80,7 +80,7 @@
     "@angular/material": {
       "version": "5.0.0-rc.1",
       "resolved": "https://registry.npmjs.org/@angular/material/-/material-5.0.0-rc.1.tgz",
-      "integrity": "sha512-PQAVyJX6oUnMo+rb4Q06gMCtzFuDAhmhu7rVSUv9gKHWPI6GHgw9h4eM9pThCH7bpXjfrtGRA7ZP8tBLSJqNRA==",
+      "integrity": "sha1-Y0VrdWjBAra7eYOig3zDFzUP4nA=",
       "requires": {
         "tslib": "1.7.1"
       }
@@ -3164,6 +3164,11 @@
       "integrity": "sha1-KzJxhOiZIQEXeyhWP7XnECrNDKk=",
       "dev": true
     },
+    "ng-sidebar": {
+      "version": "6.0.4",
+      "resolved": "https://registry.npmjs.org/ng-sidebar/-/ng-sidebar-6.0.4.tgz",
+      "integrity": "sha1-QtxRdV6FPBiBs7iFg1T0yEWpbzM="
+    },
     "ngx-fullpage": {
       "version": "4.0.6",
       "resolved": "https://registry.npmjs.org/ngx-fullpage/-/ngx-fullpage-4.0.6.tgz",
@@ -5110,7 +5115,7 @@
     "typescript-collections": {
       "version": "1.2.5",
       "resolved": "https://registry.npmjs.org/typescript-collections/-/typescript-collections-1.2.5.tgz",
-      "integrity": "sha512-883q9lMiC5J2HDIDXZEQwzA49RsthNxkf/q30qdUtBBGlmSPmNjDjctliVteTjkVcABB4pRxFUXbmXoMcPZJAA=="
+      "integrity": "sha1-GSl48vQyFxIipSSGY/RdpKDfPxg="
     },
     "uglify-js": {
       "version": "3.0.23",

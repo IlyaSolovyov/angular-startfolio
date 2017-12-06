@@ -22,7 +22,7 @@ import { ProductComponent } from './components/product/product.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { LoginComponent } from './components/login/login.component';
 import { DevButtonComponent } from './devbutton/devbutton.component';
-
+import { SidebarModule } from 'ng-sidebar';
 
 @NgModule({
     declarations: [
@@ -59,7 +59,9 @@ import { DevButtonComponent } from './devbutton/devbutton.component';
             { path: 'person',       component: PersonComponent },
             { path: 'product',      component: ProductComponent },
             { path: '**',           redirectTo: 'home' }
-        ])
+        ]
+        ),
+        SidebarModule.forRoot()
     ]
 })
 export class AppModuleShared {
