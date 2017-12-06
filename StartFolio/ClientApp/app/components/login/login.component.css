@@ -56,10 +56,6 @@ input[type="submit"] {
     transition: all 0.3s ease;
 }
 
-/*input[type="submit"]:hover {
-    background: #09cca6
-}*/
-
 a {
     transition: all 0.3s ease;
 }
