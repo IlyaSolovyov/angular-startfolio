@@ -8,7 +8,7 @@
     height: 45px;
     padding-left: 40px;
     font-size: 20px;
-    background-color: #DCEDC8; 
+    background-color: #DCEDC8;
     border: none;
     border-radius: 5px;
 }
@@ -21,9 +21,9 @@
     transition: 0.3s transform;
 }
 
-.searchBtn:hover {
-    transform: scale(1.3, 1.3);
-}
+    .searchBtn:hover {
+        transform: scale(1.3, 1.3);
+    }
 
 .textOptions {
     display: flex;
@@ -31,10 +31,10 @@
     padding: 0 16px;
 }
 
-.textOptions textarea {
-    resize: none;
-    height: 120px;
-}
+    .textOptions textarea {
+        resize: none;
+        height: 120px;
+    }
 
 .optionTitle {
     font-family: Unineue-Light;
@@ -42,9 +42,9 @@
     margin-top: 10px;
 }
 
-.optionTitle:first-child {
-    margin-top: 0;
-}
+    .optionTitle:first-child {
+        margin-top: 0;
+    }
 
 input[type="color"] {
     height: 30px;

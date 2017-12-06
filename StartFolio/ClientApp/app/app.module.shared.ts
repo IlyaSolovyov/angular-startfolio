@@ -36,6 +36,7 @@ import { DevButtonComponent } from './devbutton/devbutton.component';
         FabComponent,
         PersonComponent,
         ProductComponent,
+        TextSidebarComponent,
         GalleryComponent,
         LoginComponent,
         DevButtonComponent
@@ -47,16 +48,16 @@ import { DevButtonComponent } from './devbutton/devbutton.component';
         FormsModule,
         BrowserAnimationsModule,
         RouterModule.forRoot([
-            { path: '',             redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home',         component: TextComponent },
-            { path: 'counter',      component: CounterComponent },
-            { path: 'fetch-data',   component: FetchDataComponent },
-            { path: 'text',         component: TextComponent },
-            { path: 'team',         component: TeamComponent },
-            { path: 'footer',       component: FooterComponent },
-            { path: 'person',       component: PersonComponent },
-            { path: 'product',      component: ProductComponent },
-            { path: '**',           redirectTo: 'home' }
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: 'home', component: TextComponent },
+            { path: 'counter', component: CounterComponent },
+            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'text', component: TextComponent },
+            { path: 'team', component: TeamComponent },
+            { path: 'footer', component: FooterComponent },
+            { path: 'person', component: PersonComponent },
+            { path: 'product', component: ProductComponent },
+            { path: '**', redirectTo: 'home' }
         ]
         )
     ]
