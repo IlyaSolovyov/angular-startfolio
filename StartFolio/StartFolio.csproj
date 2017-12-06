@@ -32,6 +32,10 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\account.service.ts" />
+    <None Remove="ClientApp\app\components\btns\down-btn\downbtn.component.ts" />
+    <None Remove="ClientApp\app\components\btns\trash-btn\trashbtn.component.ts" />
+    <None Remove="ClientApp\app\components\btns\up-btn\upbtn.component.ts" />
+    <None Remove="ClientApp\app\components\btns\editbtn\editbtn.component.ts" />
     <None Remove="ClientApp\app\components\footer\footer.component.ts" />
     <None Remove="ClientApp\app\components\login\login.component.ts" />
     <None Remove="ClientApp\app\components\person\person.component.ts" />
@@ -44,6 +48,10 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\account.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\btns\down-btn\downbtn.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\btns\trash-btn\trashbtn.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\btns\up-btn\upbtn.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\btns\editbtn\editbtn.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\footer\footer.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\login\login.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\person\person.component.ts" />
