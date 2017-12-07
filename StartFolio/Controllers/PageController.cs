@@ -71,9 +71,14 @@ namespace StartFolio.Controllers
 
         // PUT: api/Page/5/Position
         [HttpPut("{id}/Position")]
-        public IActionResult UpdatePosition(int id, int position)
+        public async Task<IActionResult> UpdatePositionAsync(string currentId, string swappedId)
         {
-            pageRepository.UpdatePagePosition(id.ToString(), position);
+            int newCurrentPosition = (await pageRepository.GetPage(swappedId)).Position;
+            int newSwappedPosition = (await pageRepository.GetPage(currentId)).Position;
+
+            await pageRepository.UpdatePagePosition(currentId.ToString(), newCurrentPosition);
+            await pageRepository.UpdatePagePosition(swappedId.ToString(), newSwappedPosition);
+
             return Ok();
         }
 
