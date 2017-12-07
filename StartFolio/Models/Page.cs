@@ -9,11 +9,10 @@ namespace StartFolio.Models
 {
     public class Page
     {
-        static int pageCount=0;
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; } = pageCount++.ToString();
+        public string Id { get; set; }
         public int Position { get; set; }
         public string PageTemplate { get; set; }
         public string Details { get; set; }

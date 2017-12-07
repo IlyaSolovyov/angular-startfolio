@@ -33,41 +33,36 @@ namespace StartFolio.Controllers
 
         // GET: api/Page/5
         [HttpGet("{id}")]
-        public async Task<Page> GetPage(int id)
+        public Page GetPage(int id)
         {
             return new Page();
             //return await pageRepository.GetPage(id.ToString());
         }
-        
-        // POST: api/Page
+
+        // POST: api/Page/
         [HttpPost]
-        public IActionResult Post([FromBody]Page page)
+        public async Task<IActionResult> UploadMultipart([FromForm]Page page, IFormFileCollection uploads)
         {
             if (page == null)
             {
                 return BadRequest();
-            }         
-            pageRepository.AddPage(page);
-            return Ok(page);
-        }
-
-        // POST: api/Page/Images
-        [HttpPost("Images")]
-        public async Task<IActionResult> UploadImagesAsync(IFormFileCollection uploads)
-        {
+            }
             foreach (var uploadedFile in uploads)
             {
-                // путь к папке Files
-                string path = "/Images/" + uploadedFile.FileName;
+                string oldFilename = uploadedFile.FileName;
+                string newFilename = Guid.NewGuid().ToString();
+                page.Details = page.Details.Replace(oldFilename, newFilename);
+                // путь к папке Files             
+                string path = "/Images/" + newFilename;
                 // сохраняем файл в папку Files в каталоге wwwroot
                 using (var fileStream = new FileStream(appEnvironment.WebRootPath + path, FileMode.Create))
                 {
                     await uploadedFile.CopyToAsync(fileStream);
                 }
-            }
-            return Ok();
+            }          
+            await pageRepository.AddPage(page);
+            return Ok(uploads.Count);
         }
-
 
         // PUT: api/Page/5/Position
         [HttpPut("{id}/Position")]
