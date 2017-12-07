@@ -51,6 +51,7 @@ app > ng-component {
 }
 
 .block-component {
+    position: relative;
     height: 100vh;
     width: 100%;
     min-height: 100vh;
@@ -71,41 +72,41 @@ app > ng-component {
     transition: background-color .3s;
 }
 
-    .btn:hover, .btn:focus {
-        background-color: #27ae60;
-    }
+.btn:hover, .btn:focus {
+    background-color: #27ae60;
+}
 
-    .btn > * {
-        position: relative;
-    }
+.btn > * {
+    position: relative;
+}
 
-    .btn span {
-        display: block;
-        padding: 12px 24px;
-    }
+.btn span {
+    display: block;
+    padding: 12px 24px;
+}
 
-    .btn:before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: block;
-        width: 0;
-        padding-top: 0;
-        border-radius: 100%;
-        background-color: rgba(236, 240, 241, .3);
-        -webkit-transform: translate(-50%, -50%);
-        -moz-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -o-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-    }
+.btn:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba(236, 240, 241, .3);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
 
-    .btn:active:before {
-        width: 120%;
-        padding-top: 120%;
-        transition: width .2s ease-out, padding-top .2s ease-out;
-    }
+.btn:active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width .2s ease-out, padding-top .2s ease-out;
+}
 
 h2 {
     font-weight: normal;
@@ -130,10 +131,6 @@ input[type="checkbox"] {
     font-family: sans-serif;
 }
 
-#showEditButton:not(:checked) ~ .editButton {
-    display: none;
-}
-
 .sidebar {
     position: fixed;
     height: 100vh;
@@ -150,11 +147,11 @@ input[type="checkbox"] {
     box-shadow: -5px 3px 33px -11px rgba(0,0,0,0.75);
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .sidebar-header {
     height: 128px;
-    background-color: #0E9D57;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -188,10 +185,6 @@ input[type="checkbox"] {
 
 .fullViewPort {
     height: 100vh;
-}
-
-.fullViewPort .ng-sidebar__content {
-    overflow: hidden;
 }
 
 .btnSection {
@@ -238,11 +231,12 @@ input[type="checkbox"] {
     background-image: url('icons/trash-opened.svg');
 }
 
-#showTextSidebar:checked + .sidebar {
-    transform: translateX(0);
-}
-
-.grayout {
+.grayout1, 
+.grayout2,
+.grayout3, 
+.grayout4, 
+.grayout5,
+.grayout6 {
     background-color: rgba(0, 0,0, 0.5);
     position: fixed;
     top: 0;
@@ -250,11 +244,94 @@ input[type="checkbox"] {
     right: 0;
     bottom: 0;
     cursor: pointer;
-    transition: 0.3s transform;
-    transform: translateX(100%);
+    z-index: -1;
+    opacity: 0;
+    transition: 0.5s opacity;
+}
+
+#showTextSidebar:checked + .sidebar,
+#showTeamSidebar:checked + .sidebar,
+#showPersonSidebar:checked + .sidebar,
+#showProductSidebar:checked + .sidebar,
+#showGallerySidebar:checked + .sidebar,
+#showSearchSidebar:checked + .sidebar {
+    transform: translateX(0);
+}
+
+#showTextSidebar:checked ~ .grayout1,
+#showTeamSidebar:checked ~ .grayout2,
+#showPersonSidebar:checked ~ .grayout3, 
+#showProductSidebar:checked ~ .grayout4, 
+#showGallerySidebar:checked ~ .grayout5,
+#showSearchSidebar:checked ~ .grayout6 {
+    opacity: 1;
     z-index: 7;
 }
 
-input[type="checkbox"]:checked ~ .grayout {
-    transform: translateX(0%);
+.sidebar-content form {
+    width: 90%;
+    margin: 16px;
+}
+
+.componentSearch {
+    position: relative;
+    width: 90%;
+    height: 45px;
+    padding-left: 40px;
+    border-radius: 5px;
+    margin: 16px;
+    background-color: #DCEDC8;
+}
+
+.searchField {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    background-color: #DCEDC8;
+    border: none;
+    outline: none
+}
+
+.searchBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    transition: 0.3s transform;
+}
+
+.searchBtn:hover {
+    transform: scale(1.3, 1.3);
+}
+
+.Options {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+}
+
+.Options textarea {
+    resize: none;
+    height: 70px;
+}
+
+.optionTitle {
+    font-family: Unineue-Light;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.optionTitle:first-child {
+    margin-top: 0;
+}
+
+input[type="color"] {
+    height: 30px;
+    width: 100%;
+}
+
+.Options .btn {
+    width: 100%;
+    height: 45px;
+    margin: 30px 0;
 }

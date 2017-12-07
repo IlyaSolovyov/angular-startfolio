@@ -6,6 +6,11 @@
     margin-left: -28px;
     cursor: pointer;
     z-index: 5;
+    transition: all 0.3s;
+}
+
+.fab:active {
+    filter: brightness(50%);
 }
 
 .fab:hover .fab-buttons {
@@ -53,7 +58,7 @@
     display: inline-block;
     width: 56px;
     height: 56px;
-    background: url("~/assets/icons/edit.svg") center no-repeat;
+    background: url("~/assets/icons/plus.svg") center no-repeat;
 }
 
 .fab-buttons__item {

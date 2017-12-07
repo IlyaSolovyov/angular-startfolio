@@ -40,6 +40,11 @@
     <None Remove="ClientApp\app\components\login\login.component.ts" />
     <None Remove="ClientApp\app\components\person\person.component.ts" />
     <None Remove="ClientApp\app\components\product\product.component.ts" />
+    <None Remove="ClientApp\app\components\sidebars\gallerysidebar\gallerysidebar.component.ts" />
+    <None Remove="ClientApp\app\components\sidebars\personsidebar\personsidebar.component.ts" />
+    <None Remove="ClientApp\app\components\sidebars\productsidebar\productsidebar.component.ts" />
+    <None Remove="ClientApp\app\components\sidebars\searchsidebar\searchsidebar.component.ts" />
+    <None Remove="ClientApp\app\components\sidebars\teamsidebar\teamsidebar.component.ts" />
     <None Remove="ClientApp\app\components\teammate\teammate.component.ts" />
     <None Remove="ClientApp\app\components\team\team.component.ts" />
     <None Remove="ClientApp\app\devbutton\devbutton.component.ts" />
@@ -56,6 +61,11 @@
     <TypeScriptCompile Include="ClientApp\app\components\login\login.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\person\person.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\product\product.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sidebars\gallerysidebar\gallerysidebar.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sidebars\personsidebar\personsidebar.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sidebars\productsidebar\productsidebar.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sidebars\searchsidebar\searchsidebar.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sidebars\teamsidebar\teamsidebar.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\teammate\teammate.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\team\team.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\text\text.component.ts" />

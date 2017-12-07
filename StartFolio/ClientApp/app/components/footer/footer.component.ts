@@ -32,7 +32,7 @@ export class FooterComponent {
     public skype       = "solovyov909";
     public whatsApp    = "+380123456789";
 
-    public tech = "1337-2017 Some technical info, copyrights, etc";
+    public tech = "Created by SoBa";
 
     public backgroundColorClass = "material-footer";
 }

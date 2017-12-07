@@ -16,7 +16,12 @@ import { TeamComponent } from './components/team/team.component';
 import { TeammateComponent } from './components/teammate/teammate.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FabComponent } from './fab/fab.component';
-import { TextSidebarComponent } from './textsidebar/textsidebar.component';
+import { TextSidebarComponent } from './components/sidebars/textsidebar/textsidebar.component';
+import { TeamSidebarComponent } from './components/sidebars/teamsidebar/teamsidebar.component';
+import { PersonSidebarComponent } from './components/sidebars/personsidebar/personsidebar.component';
+import { ProductSidebarComponent } from './components/sidebars/productsidebar/productsidebar.component';
+import { GallerySidebarComponent } from './components/sidebars/gallerysidebar/gallerysidebar.component';
+import { SearchSidebarComponent } from './components/sidebars/searchsidebar/searchsidebar.component';
 import { PersonComponent } from './components/person/person.component';
 import { ProductComponent } from './components/product/product.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
@@ -41,6 +46,11 @@ import { DownButtonComponent } from './components/btns/down-btn/downbtn.componen
         PersonComponent,
         ProductComponent,
         TextSidebarComponent,
+        TeamSidebarComponent,
+        PersonSidebarComponent,
+        ProductSidebarComponent,
+        GallerySidebarComponent,
+        SearchSidebarComponent,
         GalleryComponent,
         LoginComponent,
         DevButtonComponent,

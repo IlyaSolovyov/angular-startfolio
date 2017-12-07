@@ -6,5 +6,5 @@
     templateUrl: './fab.component.html'
 })
 export class FabComponent {
-    public backgroundIcon = "dist/icons/edit.svg";
+    public backgroundIcon = "/assets/icons/plus.svg";
 }
