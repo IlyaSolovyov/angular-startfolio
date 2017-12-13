@@ -5,11 +5,15 @@
     <article class="team-component-content main-text body-2 text-large">{{mainText}}</article>
 
     <ul class="cards">
-        <teammate></teammate>
-        <teammate></teammate>
-        <teammate></teammate>
-        <teammate></teammate>
-        <teammate></teammate>
+        <teammate [name]       ="stName" 
+                  [photo]      ="stPhoto" 
+                  [description]="stDesc" 
+                  [profileLink]="stLink"></teammate>
+
+        <teammate [name]       ="ndName"
+                  [photo]      ="ndPhoto"
+                  [description]="ndDesc"
+                  [profileLink]="ndLink"></teammate>
     </ul>
 
     <section class="btnSection">

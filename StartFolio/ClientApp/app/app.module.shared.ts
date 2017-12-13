@@ -22,6 +22,7 @@ import { PersonSidebarComponent } from './components/sidebars/personsidebar/pers
 import { ProductSidebarComponent } from './components/sidebars/productsidebar/productsidebar.component';
 import { GallerySidebarComponent } from './components/sidebars/gallerysidebar/gallerysidebar.component';
 import { SearchSidebarComponent } from './components/sidebars/searchsidebar/searchsidebar.component';
+import { SearchableComponent } from './components/searchable/searchable.component';
 import { PersonComponent } from './components/person/person.component';
 import { ProductComponent } from './components/product/product.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
@@ -51,6 +52,7 @@ import { DownButtonComponent } from './components/btns/down-btn/downbtn.componen
         ProductSidebarComponent,
         GallerySidebarComponent,
         SearchSidebarComponent,
+        SearchableComponent,
         GalleryComponent,
         LoginComponent,
         DevButtonComponent,
