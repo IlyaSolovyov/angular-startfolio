@@ -32,11 +32,16 @@ export class PageService {
 
     addPage(page : Page)
     {
-       // return this.http.post('api/Page')
+        return this.http.post('api/Page', page);
     }
 
-    updatePage() {
+    updateDetails(position: number, details: string) {
+        return this.http.put('api/Page/' + position + "/Details", details);
+    }
 
+    updatePosition(position: number)
+    {
+        return this.http.delete('api/Page/' + position + "/Details");
     }
 
 }
