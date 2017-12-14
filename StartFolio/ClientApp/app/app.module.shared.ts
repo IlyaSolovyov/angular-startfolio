@@ -80,6 +80,13 @@ import { DownButtonComponent } from './components/btns/down-btn/downbtn.componen
             { path: '**', redirectTo: 'home' }
         ]
         )
+    ],
+    entryComponents: [
+        GalleryComponent,
+        TextComponent,
+        PersonComponent,
+        TeamComponent,
+        ProductComponent
     ]
 })
 export class AppModuleShared {

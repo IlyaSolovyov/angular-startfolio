@@ -1,11 +1,12 @@
 ﻿import { Component, Output } from '@angular/core';
+import { PageBaseComponent } from "../pagebase/pagebase.component";
 
 @Component({
     selector: 'my-person',
     styleUrls: ['./person.component.css'],
     templateUrl: './person.component.html'
 })
-export class PersonComponent {
+export class PersonComponent extends PageBaseComponent {
     public title = "Вердикт";
     public backgroundColorClass = "material-indigo";
     public personImgUrl = "Images//SO.jpg";

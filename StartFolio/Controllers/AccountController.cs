@@ -34,7 +34,7 @@ namespace StartFolio.Controllers
         public async Task Token()
         {
             string password = Request.Form["password"];
-            ClaimsIdentity identity = await GetIdentityAsync(password);
+            ClaimsIdentity identity = GetIdentityAsync(password);
             if (identity == null)
             {
                 Response.StatusCode = 400;
@@ -64,7 +64,7 @@ namespace StartFolio.Controllers
             await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
         }
 
-        private async Task<ClaimsIdentity> GetIdentityAsync(string password)
+        private ClaimsIdentity GetIdentityAsync(string password)
         {
             // Account account = await GetAdminAccountInternal();
             Account account = new Account();

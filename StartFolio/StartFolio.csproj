@@ -38,6 +38,7 @@
     <None Remove="ClientApp\app\components\btns\editbtn\editbtn.component.ts" />
     <None Remove="ClientApp\app\components\footer\footer.component.ts" />
     <None Remove="ClientApp\app\components\login\login.component.ts" />
+    <None Remove="ClientApp\app\components\pagebase\pagebase.component.ts" />
     <None Remove="ClientApp\app\components\person\person.component.ts" />
     <None Remove="ClientApp\app\components\product\product.component.ts" />
     <None Remove="ClientApp\app\components\searchable\searchable.component.ts" />
@@ -55,6 +56,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\dynamic\dynamic.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\pagebase\pagebase.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\searchable\searchable.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\page.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\account.service.ts" />
