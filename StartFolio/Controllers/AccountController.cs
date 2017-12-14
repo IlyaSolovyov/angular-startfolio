@@ -30,7 +30,7 @@ namespace StartFolio.Controllers
         }
 
         // GET: api/Accounts/Token
-        [HttpPost("token")]
+        [HttpPost]
         public async Task Token()
         {
             string password = Request.Form["password"];

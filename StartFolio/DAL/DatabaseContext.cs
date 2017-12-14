@@ -19,7 +19,6 @@ namespace StartFolio.DAL
             var client = new MongoClient(settings.Value.ConnectionString);
             if (client != null)
                 database = client.GetDatabase(settings.Value.Database);
-            gridFS = new GridFSBucket(database);
         }
 
         public IMongoCollection<Account> Accounts

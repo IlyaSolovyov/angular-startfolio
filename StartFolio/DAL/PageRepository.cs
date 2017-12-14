@@ -23,12 +23,13 @@ namespace StartFolio.DAL
             await context.Pages.InsertOneAsync(item);
         }
 
-        public async Task<Page> GetPage(string id)
+        public async Task<Page> GetPage(int position)
         {
-            var filter = Builders<Page>.Filter.Eq("Id", id);
-            return await context.Pages
+            var filter = Builders<Page>.Filter.Eq("Position", position);
+            var page = await context.Pages
                                  .Find(filter)
                                  .FirstOrDefaultAsync();
+            return page;
         }
 
         public async Task<DeleteResult> RemovePage(string id)

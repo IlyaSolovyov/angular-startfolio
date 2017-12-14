@@ -32,11 +32,10 @@ namespace StartFolio.Controllers
         }
 
         // GET: api/Page/5
-        [HttpGet("{id}")]
-        public Page GetPage(int id)
+        [HttpGet("{position}")]
+        public async Task<Page> GetPageAsync(int position)
         {
-            return new Page();
-            //return await pageRepository.GetPage(id.ToString());
+            return await pageRepository.GetPage(position);
         }
 
         // POST: api/Page/
@@ -61,35 +60,44 @@ namespace StartFolio.Controllers
                 }
             }          
             await pageRepository.AddPage(page);
-            return Ok(uploads.Count);
+            return Ok("Page succesfully added.");
         }
 
-        // PUT: api/Page/5/Position
-        [HttpPut("{id}/Position")]
-        public async Task<IActionResult> UpdatePositionAsync(string currentId, string swappedId)
+        // PUT: api/Page/Position
+        [HttpPut("{currentPosition}/position")]
+        public async Task<IActionResult> UpdatePositionAsync(int currentPosition, [FromForm]int newPosition )
         {
-            int newCurrentPosition = (await pageRepository.GetPage(swappedId)).Position;
-            int newSwappedPosition = (await pageRepository.GetPage(currentId)).Position;
+          //  int currentPosition = Int32.Parse(data["currentPosition"]);
+          //  int newPosition = Int32.Parse(data["newPosition"]);
+            Page thisPage = await pageRepository.GetPage(currentPosition);
+            Page swappedWithPage = await pageRepository.GetPage(newPosition);
 
-            await pageRepository.UpdatePagePosition(currentId.ToString(), newCurrentPosition);
-            await pageRepository.UpdatePagePosition(swappedId.ToString(), newSwappedPosition);
+            if (thisPage==null || swappedWithPage == null)
+            {
+                return Ok(0);
+            }
+            await pageRepository.UpdatePagePosition(thisPage.Id, newPosition);
+            await pageRepository.UpdatePagePosition(swappedWithPage.Id, currentPosition);
 
-            return Ok();
+            return Ok(1);
+
         }
 
         // PUT: api/Page/5/Details
-        [HttpPut("{id}/Details")]
-        public IActionResult UpdateDetails(int id, string details)
+        [HttpPut("{position}/Details")]
+        public async Task<IActionResult> UpdateDetailsAsync(int position, [FromForm] string details)
         {
-            pageRepository.UpdatePageDetails(id.ToString(), details);
+            Page page = await pageRepository.GetPage(position);
+            await pageRepository.UpdatePageDetails(page.Id, details);
             return Ok();
         }
 
         // DELETE: api/Page/5
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        [HttpDelete("{position}")]
+        public async Task<IActionResult> DeleteAsync(int position)
         {
-            pageRepository.RemovePage(id.ToString());
+            Page page = await pageRepository.GetPage(position);
+            await pageRepository.RemovePage(page.Id);
             return Ok();
         }
     }

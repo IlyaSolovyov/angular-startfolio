@@ -21,6 +21,10 @@ export class DevButtonComponent {
             }
         }
     }
+
+    testClick() {
+
+    }
     /*@HostListener("window:scroll", ["$event"])
     onWindowScroll() {
         
