@@ -5,7 +5,8 @@ import { PageBaseComponent } from "../pagebase/pagebase.component";
 @Component({
     selector: 'my-product',
     styleUrls: ['./product.component.css'],
-    templateUrl: './product.component.html'
+    templateUrl: './product.component.html',
+    providers: [Page]
 })
 export class ProductComponent extends PageBaseComponent {
 

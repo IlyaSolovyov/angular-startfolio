@@ -5,7 +5,8 @@ import { PageBaseComponent } from "../pagebase/pagebase.component";
 @Component({
     selector: 'my-person',
     styleUrls: ['./person.component.css'],
-    templateUrl: './person.component.html'
+    templateUrl: './person.component.html',
+    providers: [Page]
 })
 export class PersonComponent extends PageBaseComponent {
 

@@ -5,7 +5,8 @@ import { PageBaseComponent } from "../pagebase/pagebase.component";
 @Component({
     selector: 'my-gallery',
     styleUrls: ['./gallery.component.css'],
-    templateUrl: './gallery.component.html'
+    templateUrl: './gallery.component.html',
+    providers: [Page]
 })
 export class GalleryComponent extends PageBaseComponent {
 
