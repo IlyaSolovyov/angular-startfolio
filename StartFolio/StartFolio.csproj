@@ -76,7 +76,6 @@
     <TypeScriptCompile Include="ClientApp\app\components\sidebars\teamsidebar\teamsidebar.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\teammate\teammate.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\team\team.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\text\text.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\devbutton\devbutton.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\fab\fab.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\page.service.ts" />

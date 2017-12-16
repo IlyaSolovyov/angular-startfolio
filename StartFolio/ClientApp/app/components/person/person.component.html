@@ -1,4 +1,4 @@
-﻿<section class="person-component block-component {{backgroundColorClass}}">
+﻿<section class="person-component block-component {{backgroundColor}}" [style.background-color]="getBackgroundColor()">
     
     <section class="person-photo">
         <img src="{{personImgUrl}}" alt="{{personImgAlt}}"/>

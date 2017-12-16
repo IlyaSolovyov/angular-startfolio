@@ -46,7 +46,7 @@ var masonryPreloader = document.querySelector('.masonry-preloader');
 });
 </script>
 
-<section class="gallery-component block-component {{backgroundColorClass}}">
+<section class="gallery-component block-component {{backgroundColor}}" [style.background-color]="getBackgroundColor()">
     <h2 class="gallery-titlte display-2">{{title}}</h2>
 
     <div class="masonry masonry--h">
