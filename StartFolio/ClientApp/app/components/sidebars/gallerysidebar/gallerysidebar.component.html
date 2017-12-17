@@ -4,32 +4,44 @@
 
 <section class="sidebar-content">
 
-    <form class="Options">
+    <form class="Options" #galleryEditForm="ngForm" (ngSubmit)="editGalleryInfo($event)">
         <label class="optionTitle">Text title</label>
-        <input type="text" name="textTitle" />
+        <input type="text" name="textTitle" [(ngModel)]="model.title" #title="ngModel" required/>
 
-        <!--<h2 class="display-2"  style="font-size: 18px;">SORRY, DEVELOPMENT IN PROGRESS!</h2>-->
+        <!--Hardcode version-->
+
+        <!--
+        
         <label class="optionTitle">First photo</label>
-        <input type="file" name="galleryPhoto" accept="image/*" />
+        <input type="file" accept="image/*" (change)="updateImageModel($event)" required/>
 
         <label class="optionTitle">Second photo</label>
-        <input type="file" name="galleryPhoto" accept="image/*" />
+        <input type="file" accept="image/*" (change)="updateImageModel($event)" required/>
 
         <label class="optionTitle">Third photo</label>
-        <input type="file" name="galleryPhoto" accept="image/*" />
+        <input type="file" accept="image/*" (change)="updateImageModel($event)" required/>
 
         <label class="optionTitle">Fourth photo</label>
-        <input type="file" name="galleryPhoto" accept="image/*" />
+        <input type="file" accept="image/*" (change)="updateImageModel($event)" required/>
 
         <label class="optionTitle">Fifth photo</label>
-        <input type="file" name="galleryPhoto" accept="image/*" />
+        <input type="file" accept="image/*" (change)="updateImageModel($event)" required/>
 
         <label class="optionTitle">Sixth photo</label>
-        <input type="file" name="galleryPhoto" accept="image/*" />
+        <input type="file" accept="image/*" (change)="updateImageModel($event)" required/>
+
+        -->
+
+        <!--ngFor version-->
+        <div class="image-upload" *ngFor="let photo of photos; let i = index">
+            <label class="optionTitle">{{i}}</label>
+            <input type="file" accept="image/*" (change)="updateImage($event, {{i}})" required />
+        </div>
 
         <label class="optionTitle">Background color</label>
-        <input type="color" />
-        <input class="btn button" type="submit" />
+        <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel"/>
+
+        <input class="btn button" type="submit" [disabled]="!galleryEditForm.form.valid"/>
     </form>
 
 </section>
