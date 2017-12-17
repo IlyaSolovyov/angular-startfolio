@@ -1,19 +1,19 @@
-﻿<section class="team-component block-component {{backgroundColor}}" [style.background-color]="getBackgroundColor()">
+﻿<section class="team-component block-component {{model.backgroundColor}}" [style.background-color]="getBackgroundColor()">
 
-    <h2 class="team-component-title display-2">{{title}}</h2>
+    <h2 class="team-component-title display-2">{{model.title}}</h2>
 
-    <article class="team-component-content main-text body-2 text-large">{{mainText}}</article>
+    <article class="team-component-content main-text body-2 text-large">{{model.mainText}}</article>
 
     <ul class="cards">
-        <teammate [name]       ="stName" 
-                  [photo]      ="stPhoto" 
-                  [description]="stDesc" 
-                  [profileLink]="stLink"></teammate>
+        <teammate [name]       ="model.stName" 
+                  [photo]      ="model.stPhoto" 
+                  [description]="model.stDesc" 
+                  [profileLink]="model.stLink"></teammate>
 
-        <teammate [name]       ="ndName"
-                  [photo]      ="ndPhoto"
-                  [description]="ndDesc"
-                  [profileLink]="ndLink"></teammate>
+        <teammate [name]       ="model.ndName"
+                  [photo]      ="model.ndPhoto"
+                  [description]="model.ndDesc"
+                  [profileLink]="model.ndLink"></teammate>
     </ul>
 
     <section class="btnSection">

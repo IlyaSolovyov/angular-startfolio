@@ -1,13 +1,13 @@
-﻿<section class="product-component block-component {{backgroundColor}}" [style.background-color]="getBackgroundColor()">
+﻿<section class="product-component block-component {{model.backgroundColor}}" [style.background-color]="getBackgroundColor()">
     
     <section class="product-demo">
-        <img src="{{productImgUrl}}" alt="{{productImgAlt}}"/>
+        <img src="{{model.productImgUrl}}" alt="img"/>
     </section>
 
     <section class="product-component-content">
-        <h2 class="product-component-title display-2">{{title}}</h2>
-        <article class="text-large body-2">{{mainText}}</article>
-        <article class="text-large body-2">{{subText}} </article>
+        <h2 class="product-component-title display-2">{{model.title}}</h2>
+        <article class="text-large body-2">{{model.mainText}}</article>
+        <article class="text-large body-2">{{model.subText}} </article>
     </section>
    
     <section class="btnSection">

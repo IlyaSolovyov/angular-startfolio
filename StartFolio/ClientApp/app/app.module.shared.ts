@@ -16,6 +16,7 @@ import { TeamComponent } from './components/team/team.component';
 import { TeammateComponent } from './components/teammate/teammate.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FabComponent } from './fab/fab.component';
+//import { Page } from './page';
 import { TextSidebarComponent } from './components/sidebars/textsidebar/textsidebar.component';
 import { TeamSidebarComponent } from './components/sidebars/teamsidebar/teamsidebar.component';
 import { PersonSidebarComponent } from './components/sidebars/personsidebar/personsidebar.component';
@@ -87,7 +88,10 @@ import { DownButtonComponent } from './components/btns/down-btn/downbtn.componen
         PersonComponent,
         TeamComponent,
         ProductComponent
-    ]
+    ]/*,
+    providers: [
+        Page
+    ]*/
 })
 export class AppModuleShared {
 }

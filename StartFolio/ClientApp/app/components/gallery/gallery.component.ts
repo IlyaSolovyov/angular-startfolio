@@ -1,16 +1,23 @@
 ﻿import { Component, Output } from '@angular/core';
-import { Page } from '../../page';
-import { PageBaseComponent } from "../pagebase/pagebase.component";
+//import { Page } from '../../page';
+//import { PageBaseComponent } from "../pagebase/pagebase.component";
 
 @Component({
     selector: 'my-gallery',
     styleUrls: ['./gallery.component.css'],
-    templateUrl: './gallery.component.html',
-    providers: [Page]
+    templateUrl: './gallery.component.html'//,
+    //providers: [Page]
 })
-export class GalleryComponent extends PageBaseComponent {
+export class GalleryComponent /*extends PageBaseComponent*/ {
 
-    constructor(page: Page) {
+    model = {
+        title:           'Галерея продуктов',
+        backgroundColor: 'material-blue',
+        ImgUrl:          'Images//BA.jpg',
+        sometext:        'Some text about project'
+    };
+
+    /*constructor(page: Page) {
         super(page);
 
         let details = JSON.parse(page.details);
@@ -20,10 +27,8 @@ export class GalleryComponent extends PageBaseComponent {
         this.ImgUrl             = details.ImgUrl;
         this.sometext           = details.sometext;
 
+    }*/
+    getBackgroundColor() {
+        return this.model.backgroundColor;
     }
-
-    public title            = "Галерея продуктов";
-    public backgroundColor  = "material-blue";
-    public ImgUrl           = "Images//BA.jpg";
-    public sometext         = "Some text about project"
 }

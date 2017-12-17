@@ -1,20 +1,20 @@
-﻿<section class="person-component block-component {{backgroundColor}}" [style.background-color]="getBackgroundColor()">
+﻿<section class="person-component block-component {{model.backgroundColor}}" [style.background-color]="getBackgroundColor()">
     
     <section class="person-photo">
-        <img src="{{personImgUrl}}" alt="{{personImgAlt}}"/>
+        <img src="{{model.personImgUrl}}" alt="img"/>
     </section>
 
     <section class="person-component-content">
 
-        <h2 class="person-component-title display-2">{{title}}</h2>
-        <article class="person-component-opinion main-text body-2 text-large">{{opinion}}</article>
+        <h2 class="person-component-title display-2">{{model.title}}</h2>
+        <article class="person-component-opinion main-text body-2 text-large">{{model.opinion}}</article>
 
         <section class="person-info sub-text body-2 text-large">
             <section class="person-name">
-                <p>{{Name}}</p>, <p>{{Surname}}</p>
+                <p>{{model.Name}}</p>, <p>{{model.Surname}}</p>
             </section>
-            <p>{{Age}}</p>
-            <p>{{WhoIsThis}}</p>
+            <p>{{model.Age}}</p>
+            <p>{{model.WhoIsThis}}</p>
         </section>
 
     </section>

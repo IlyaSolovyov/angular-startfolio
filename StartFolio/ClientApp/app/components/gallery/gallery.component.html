@@ -46,16 +46,16 @@ var masonryPreloader = document.querySelector('.masonry-preloader');
 });
 </script>
 
-<section class="gallery-component block-component {{backgroundColor}}" [style.background-color]="getBackgroundColor()">
-    <h2 class="gallery-titlte display-2">{{title}}</h2>
+<section class="gallery-component block-component {{model.backgroundColor}}" [style.background-color]="getBackgroundColor()">
+    <h2 class="gallery-titlte display-2">{{model.title}}</h2>
 
     <div class="masonry masonry--h">
-        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{sometext}}</p></article><img src="{{ImgUrl}}" alt="img" class="masonry-img"/></div>
-        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{sometext}}</p></article><img src="{{ImgUrl}}" alt="img" class="masonry-img"/></div>
-        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{sometext}}</p></article><img src="{{ImgUrl}}" alt="img" class="masonry-img"/></div>
-        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{sometext}}</p></article><img src="{{ImgUrl}}" alt="img" class="masonry-img"/></div>
-        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{sometext}}</p></article><img src="{{ImgUrl}}" alt="img" class="masonry-img"/></div>
-        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{sometext}}</p></article><img src="{{ImgUrl}}" alt="img" class="masonry-img"/></div>
+        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.sometext}}</p></article><img src="{{model.ImgUrl}}" alt="img" class="masonry-img"/></div>
+        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.sometext}}</p></article><img src="{{model.ImgUrl}}" alt="img" class="masonry-img"/></div>
+        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.sometext}}</p></article><img src="{{model.ImgUrl}}" alt="img" class="masonry-img"/></div>
+        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.sometext}}</p></article><img src="{{model.ImgUrl}}" alt="img" class="masonry-img"/></div>
+        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.sometext}}</p></article><img src="{{model.ImgUrl}}" alt="img" class="masonry-img"/></div>
+        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.sometext}}</p></article><img src="{{model.ImgUrl}}" alt="img" class="masonry-img"/></div>
     </div>
 
     <section class="btnSection">
