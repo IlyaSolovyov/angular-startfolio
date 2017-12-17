@@ -6,4 +6,9 @@
     templateUrl: './login.component.html'
 })
 export class LoginComponent {
+    password: string;
+
+    doLogin(ev) {
+        //some login actions
+    }
 }

@@ -1,8 +1,12 @@
 ﻿<input type="checkbox" id="showSignIn"/>
 <div class="form signIn">
-    <div style="position: relative">
-        <input type="text" placeholder="Password" />
-        <input type="submit" value="Login" class="button btn" />
+    <form #loginForm="ngForm" (ngSubmit)="doLogin($event)" style="position: relative">
+
+        <input type="password" placeholder="Password" [(ngModel)]="password" #name="ngModel" name="password" required/>
+
+        <button type="submit" value="Login" class="button btn" [disabled]="!loginForm.form.valid"></button>
+
         <label for="showSignIn" class="closeWindow"></label>
-    </div>
+
+    </form>
 </div>
