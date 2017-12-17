@@ -4,16 +4,20 @@
 
 <section class="sidebar-content">
 
-    <form class="Options">
+    <form class="Options"  #textEditForm="ngForm" (ngSubmit)="editTextInfo($event)">
         <label class="optionTitle">Text title</label>
-        <input type="text" name="textTitle" />
+        <input type="text" [(ngModel)]="model.title" #title="ngModel" required/>
+
         <label class="optionTitle">Main text</label>
-        <textarea></textarea>
+        <textarea [(ngModel)]="model.mainText" #mainText="ngModel"></textarea>
+
         <label class="optionTitle">Sub text</label>
-        <textarea></textarea>
+        <textarea [(ngModel)]="model.subText" #subText="ngModel" required></textarea>
+
         <label class="optionTitle">Background color</label>
-        <input type="color" />
-        <input class="btn button" type="submit" />
+        <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel" required/>
+
+        <input class="btn button" type="submit" [disabled]="!textEditForm.form.valid"/>
     </form>
 
 </section>

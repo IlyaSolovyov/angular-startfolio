@@ -1,8 +1,28 @@
 ﻿import { Component } from '@angular/core';
+import { Page } from '../../../page';
+import { PageService } from '../../../services/page.service';
 
 @Component({
     selector: 'my-textsidebar',
     templateUrl: './textsidebar.component.html',
+    providers: [PageService]
 })
 export class TextSidebarComponent {
+
+    constructor(public page: Page, public pageService: PageService) {
+    
+    }
+
+    editTextInfo(ev) {
+        this.page.details = JSON.stringify(this.model);
+        this.pageService.updateDetails(this.page.position, this.page.details);
+    }
+
+    model = {
+        title: '',
+        mainText: '',
+        subText: '',
+        backgroundColor: ''
+    }
+
 }
