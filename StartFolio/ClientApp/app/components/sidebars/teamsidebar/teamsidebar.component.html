@@ -5,38 +5,54 @@
 
     <section class="sidebar-content">
     
-        <form class="Options">
+        <form class="Options"  #teamEditForm="ngForm" (ngSubmit)="editTeamInfo($event)">
+
             <label class="optionTitle">Text title</label>
-            <input type="text" name="textTitle" />
+            <input type="text" [(ngModel)]="model.title" #title="ngModel" required/>
+
             <label class="optionTitle">Main text</label>
-            <textarea></textarea>
+            <textarea [(ngModel)]="model.mainText" #mainText="ngModel"></textarea>
+
             <label class="optionTitle">Background color</label>
-            <input type="color" />
+            <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel" required/>
     
+            <!--Hardcode version-->
             <label class="optionTitle">Teammate 1</label>
-            <label class="optionTitle">Name, surname</label>
-            <input type="text" name="teammateName" />
-            <label class="optionTitle">Short description</label>
-            <input type="text" name="shortDescription" />
-            <label class="optionTitle">Link to profile</label>
-            <input type="url" name="profileUrl" />
-            <label class="optionTitle">Teammate photo</label>
-            <input type="file" name="teammatePhoto" accept="image/*" />
-    
-            <!--TODO: Add modal adding teammate popup on according button click-->
-            <!--TODO: Detach teammate form to separate component-->
+                <label class="optionTitle">Name, surname</label>
+                <input type="text" [(ngModel)]="model.teammate1_Name" #teammate1_Name="ngModel" required/>
+
+                <label class="optionTitle">Short description</label>
+                <input type="text" [(ngModel)]="model.teammate1_Description" #teammate1_Description="ngModel" required/>
+
+                <label class="optionTitle">Link to profile</label>
+                <input type="url" [(ngModel)]="model.teammate1_Link" #teammate1_Link="ngModel" required/>
+
+                <label class="optionTitle">Teammate photo</label>
+                <input type="file" accept="image/*" (change)="updateImage($image, 1)" required/>
+
     
             <label class="optionTitle">Teammate 2</label>
-            <label class="optionTitle">Name, surname</label>
-            <input type="text" name="teammateName" />
-            <label class="optionTitle">Short description</label>
-            <input type="text" name="shortDescription" />
-            <label class="optionTitle">Link to profile</label>
-            <input type="url" name="profileUrl" />
-            <label class="optionTitle">Teammate photo</label>
-            <input type="file" name="teammatePhoto" accept="image/*" />
+                <label class="optionTitle">Name, surname</label>
+                <input type="text" [(ngModel)]="model.teammate2_Name" #teammate2_Name="ngModel" required/>
+
+                <label class="optionTitle">Short description</label>
+                <input type="text" [(ngModel)]="model.teammate2_Description" #teammate2_Description="ngModel" required/>
+
+                <label class="optionTitle">Link to profile</label>
+                <input type="url" [(ngModel)]="model.teammate2_Link" #teammate2_Link="ngModel" required/>
+
+                <label class="optionTitle">Teammate photo</label>
+                <input type="file" accept="image/*" (change)="updateImage($image, 2)" required/>
+            
+
+            <!--ngFor version-->
+
+            <!--
+            <div *ngFor="let teammate of teammates; let i = index" [indexNo]="i">
+            </div>
+            -->
     
-            <input class="btn button material-green" type="submit" />
+            <input class="btn button material-green" type="submit" [disabled]="!teamEditForm.form.valid"/>
         </form>
     
     </section>
