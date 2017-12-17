@@ -1,22 +1,19 @@
 ﻿import { Component } from '@angular/core';
-import { Page } from '../../../page';
-import { PageService } from '../../../services/page.service';
 
 @Component({
     selector: 'my-productsidebar',
-    templateUrl: './productsidebar.component.html',
-    providers: [PageService]
+    templateUrl: './productsidebar.component.html'
 })
 export class ProductSidebarComponent {
 
-    constructor(public page: Page, public pageService: PageService) {
+    /*constructor(public page: Page, public pageService: PageService) {
 
     }
 
     editProductInfo(ev) {
         this.page.details = JSON.stringify(this.model);
         this.pageService.updateDetails(this.page.position, this.page.details);
-    }
+    }*/
 
     model = {
         title: '',

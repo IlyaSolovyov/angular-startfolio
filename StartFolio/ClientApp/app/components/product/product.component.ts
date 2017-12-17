@@ -1,14 +1,11 @@
 ﻿import { Component, Output } from '@angular/core';
-//import { Page } from '../../page';
-//import { PageBaseComponent } from "../pagebase/pagebase.component";
 
 @Component({
     selector: 'my-product',
     styleUrls: ['./product.component.css'],
-    templateUrl: './product.component.html'//,
-    //providers: [Page]
+    templateUrl: './product.component.html'
 })
-export class ProductComponent /*extends PageBaseComponent*/ {
+export class ProductComponent {
 
     model = {
         title           : "Денчик",

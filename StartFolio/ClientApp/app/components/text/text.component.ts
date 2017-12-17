@@ -1,14 +1,12 @@
 ﻿import { Component, Output, Inject, forwardRef, Injectable } from '@angular/core';
-//import { Page } from '../../page';
-//import { PageBaseComponent } from "../pagebase/pagebase.component";
+
 
 @Component({
     selector: 'my-text',
     styleUrls: [ './text.component.css' ],
-    templateUrl: './text.component.html'//,
-    //providers: [ Page ]
+    templateUrl: './text.component.html'
 })
-export class TextComponent /*extends PageBaseComponent*/ {
+export class TextComponent {
 
     model = {
         title            : "Some text theme",

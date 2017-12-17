@@ -1,14 +1,11 @@
 ﻿import { Component, Output } from '@angular/core';
-//import { Page } from '../../page';
-//import { PageBaseComponent } from "../pagebase/pagebase.component";
 
 @Component({
     selector: 'my-person',
     styleUrls: ['./person.component.css'],
-    templateUrl: './person.component.html'//,
-    //providers: [Page]
+    templateUrl: './person.component.html'
 })
-export class PersonComponent /*extends PageBaseComponent*/ {
+export class PersonComponent {
 
     model = {
         title:           'Вердикт',          

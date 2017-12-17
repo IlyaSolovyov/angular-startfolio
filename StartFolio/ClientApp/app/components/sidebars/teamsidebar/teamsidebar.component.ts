@@ -1,22 +1,19 @@
 ﻿import { Component } from '@angular/core';
-import { Page } from '../../../page';
-import { PageService } from '../../../services/page.service';
 
 @Component({
     selector: 'my-teamsidebar',
-    templateUrl: './teamsidebar.component.html',
-    providers: [PageService]
+    templateUrl: './teamsidebar.component.html'
 })
 export class TeamSidebarComponent {
 
-    constructor(public page: Page, public pageService: PageService) {
+    /*constructor(public page: Page, public pageService: PageService) {
 
     }
 
     editTextInfo(ev) {
         this.page.details = JSON.stringify(this.model);
         this.pageService.updateDetails(this.page.position, this.page.details);
-    }
+    }*/
 
     model = {
         title: '',

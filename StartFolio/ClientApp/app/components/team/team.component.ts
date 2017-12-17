@@ -1,14 +1,11 @@
 ﻿import { Component, Output } from '@angular/core';
-//import { PageBaseComponent } from "../pagebase/pagebase.component";
-//import { Page } from '../../page';
 
 @Component({
     selector: 'my-team',
     styleUrls: ['./team.component.css'],
-    templateUrl: './team.component.html'//,
-    //providers: [Page]
+    templateUrl: './team.component.html'
 })
-export class TeamComponent /*extends PageBaseComponent*/ {
+export class TeamComponent {
 
     model = {
         title:           "Oi, mates!",
