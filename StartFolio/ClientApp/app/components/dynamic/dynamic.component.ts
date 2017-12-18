@@ -53,7 +53,7 @@ export class DynamicComponent implements OnInit, OnDestroy  {
 
             // set component context
             let instance = <PageBaseComponent>this.componentRef.instance;
-            instance.page = this.page;
+            instance._page = this.page;
         }
     }
 
