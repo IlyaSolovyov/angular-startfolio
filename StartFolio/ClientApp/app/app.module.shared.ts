@@ -9,8 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
 import { TextComponent } from './components/text/text.component';
 import { TeamComponent } from './components/team/team.component';
 import { TeammateComponent } from './components/teammate/teammate.component';
@@ -33,13 +31,14 @@ import { EditButtonComponent } from './components/btns/editbtn/editbtn.component
 import { TrashButtonComponent } from './components/btns/trash-btn/trashbtn.component';
 import { UpButtonComponent } from './components/btns/up-btn/upbtn.component';
 import { DownButtonComponent } from './components/btns/down-btn/downbtn.component';
+import { PageService } from "./services/page.service";
+import { AccountService } from "./services/account.service";
+
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
         TextComponent,
         TeamComponent,
         TeammateComponent,
@@ -71,8 +70,6 @@ import { DownButtonComponent } from './components/btns/down-btn/downbtn.componen
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: TextComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
             { path: 'text', component: TextComponent },
             { path: 'team', component: TeamComponent },
             { path: 'footer', component: FooterComponent },
@@ -88,10 +85,10 @@ import { DownButtonComponent } from './components/btns/down-btn/downbtn.componen
         PersonComponent,
         TeamComponent,
         ProductComponent
-    ]/*,
+    ],
     providers: [
-        Page
-    ]*/
+        PageService, AccountService
+    ]
 })
 export class AppModuleShared {
 }

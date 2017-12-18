@@ -1,5 +1,4 @@
 ﻿import { Component, Output, Input } from '@angular/core';
-import { PageService } from '../../services/page.service';
 
 @Component({
     selector: 'teammate',
