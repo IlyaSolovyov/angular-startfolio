@@ -1,4 +1,5 @@
 ﻿import { Component, Output } from '@angular/core';
+import { Page } from "../../page";
 
 @Component({
     selector: 'my-product',
@@ -6,7 +7,7 @@
     templateUrl: './product.component.html'
 })
 export class ProductComponent {
-
+    _page: Page;
     model = {
         title           : "Денчик",
         backgroundColor : "material-red",
@@ -15,22 +16,28 @@ export class ProductComponent {
         subText         : "Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра."
     }
 
-    /*constructor(page: Page) {
-        super(page);
-
-        let details = JSON.parse(page.details);
-
-        this.title           = details.title;
-        this.backgroundColor = details.backgroundColor;
-        this.productImgUrl   = details.productImgUrl;
-        this.productImgAlt   = details.productImgAlt;
-        this.mainText        = details.mainText;
-        this.subText         = details.subText;
-    }*/
 
     getBackgroundColor() {
         return this.model.backgroundColor;
     }
 
-   
+    ngOnInit() {
+        if (this._page) {
+            let details: Details = JSON.parse(this._page.details);
+            this.model.title = details.title;
+            this.model.backgroundColor = details.backgroundColor;
+            this.model.productImgUrl = details.productImgUrl;
+            this.model.mainText = details.mainText;
+            this.model.subText = details.subText;
+        }
+    }
+
+}
+
+interface Details {
+    title: string;
+    backgroundColor: string;
+    productImgUrl: string;
+    mainText: string;
+    subText: string;
 }

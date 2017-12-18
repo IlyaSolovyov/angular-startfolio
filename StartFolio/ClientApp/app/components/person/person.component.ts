@@ -1,12 +1,13 @@
-﻿import { Component, Output } from '@angular/core';
+﻿import { Component, Output, OnInit } from '@angular/core';
+import { Page } from "../../page";
 
 @Component({
     selector: 'my-person',
     styleUrls: ['./person.component.css'],
     templateUrl: './person.component.html'
 })
-export class PersonComponent {
-
+export class PersonComponent implements OnInit {
+    _page: Page;
     model = {
         title:           'Вердикт',          
         backgroundColor: 'material-indigo',
@@ -14,27 +15,39 @@ export class PersonComponent {
         opinion:         'Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра.',       
         Name:            'Папа',           
         Surname:         'Пежа',        
-        Age:             '99',            
+        Age:             '69',            
         WhoIsThis:       'Папа Пежа'      
     }
 
-    /*constructor(page: Page) {
-        super(page);
-
-        let details = JSON.parse(page.details);
-
-        this.title           = details.title;
-        this.backgroundColor = details.backgroundColor;
-        this.personImgUrl    = details.personImgUrl;
-        this.personImgAlt    = details.personImgAlt;
-        this.opinion         = details.opinion;
-        this.Name            = details.Name;
-        this.Surname         = details.Surname;
-        this.Age             = details.Age;
-        this.WhoIsThis       = details.WhoIsThis;
-    }*/
+  
 
     getBackgroundColor() {
         return this.model.backgroundColor;
     }
+
+    ngOnInit() {
+        if (this._page) {
+            let details: Details = JSON.parse(this._page.details);
+            this.model.title = details.title;
+            this.model.backgroundColor = details.backgroundColor;
+            this.model.personImgUrl = details.personImgUrl;
+            this.model.opinion = details.opinion;
+            this.model.Name = details.name;
+            this.model.Surname = details.surname;
+            this.model.Age = details.age;
+            this.model.WhoIsThis = details.whoIsThis;
+        }
+    }
+
+}
+
+interface Details {
+    title: string;
+    backgroundColor: string;
+    personImgUrl: string;
+    opinion: string;
+    name: string;
+    surname: string;
+    age: string;
+    whoIsThis: string;
 }

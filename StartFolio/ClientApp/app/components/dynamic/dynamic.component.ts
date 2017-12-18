@@ -52,8 +52,24 @@ export class DynamicComponent implements OnInit, OnDestroy  {
             this.componentRef = this.container.createComponent(factory);
 
             // set component context
-            let instance = <PageBaseComponent>this.componentRef.instance;
-            instance._page = this.page;
+            if (this.type = 'text-component')
+            {
+                let instance = <TextComponent>this.componentRef.instance;
+                instance._page = this.page;
+            } else if (this.type = 'team-component') {
+                let instance = <TeamComponent>this.componentRef.instance;
+                instance._page = this.page;
+            } else if (this.type = 'person-component') {
+                let instance = <PersonComponent>this.componentRef.instance;
+                instance._page = this.page;
+            } else if (this.type = 'product-component') {
+                let instance = <ProductComponent>this.componentRef.instance;
+                instance._page = this.page;
+            } else if (this.type = 'gallery-component') {
+                let instance = <GalleryComponent>this.componentRef.instance;
+                instance._page = this.page;
+            }
+          
         }
     }
 

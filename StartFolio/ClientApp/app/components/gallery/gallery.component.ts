@@ -1,13 +1,13 @@
-﻿import { Component, Output } from '@angular/core';
-import { PageBaseComponent } from "../pagebase/pagebase.component";
+﻿import { Component, Output, OnInit } from '@angular/core';
+import { Page } from "../../page";
 
 @Component({
     selector: 'my-gallery',
     styleUrls: ['./gallery.component.css'],
     templateUrl: './gallery.component.html'
 })
-export class GalleryComponent extends PageBaseComponent{
-
+export class GalleryComponent  implements OnInit{
+    _page: Page;
     model = {
         title:           'Галерея продуктов',
         backgroundColor: 'material-blue',
@@ -16,7 +16,7 @@ export class GalleryComponent extends PageBaseComponent{
     };
     
     getBackgroundColor() {
-        return this.model.backgroundColor;
+      return this.model.backgroundColor;
     }
 
     ngOnInit()

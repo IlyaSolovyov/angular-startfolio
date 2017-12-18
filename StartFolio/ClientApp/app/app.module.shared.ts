@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { PageService } from "./services/page.service";
+import { AccountService } from "./services/account.service";
+
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -31,8 +34,6 @@ import { EditButtonComponent } from './components/btns/editbtn/editbtn.component
 import { TrashButtonComponent } from './components/btns/trash-btn/trashbtn.component';
 import { UpButtonComponent } from './components/btns/up-btn/upbtn.component';
 import { DownButtonComponent } from './components/btns/down-btn/downbtn.component';
-import { PageService } from "./services/page.service";
-import { AccountService } from "./services/account.service";
 
 
 @NgModule({
