@@ -7,25 +7,25 @@
     <form class="Options" #personEditForm="ngForm" (ngSubmit)="editPersonInfo($event)">
 
         <label class="optionTitle">Text title</label>
-        <input type="text" [(ngModel)]="model.title" #title="ngModel" required/>
+        <input type="text" [(ngModel)]="model.title" #title="ngModel" name="title" required/>
 
         <label class="optionTitle">Main text</label>
-        <textarea [(ngModel)]="model.mainText" #mainText="ngModel" required></textarea>
+        <textarea [(ngModel)]="model.mainText" #mainText="ngModel" name="main" required></textarea>
 
         <label class="optionTitle">Name, surname</label>
-        <input type="text" [(ngModel)]="model.name" #name="ngModel" required/>
+        <input type="text" [(ngModel)]="model.name" #name="ngModel" name="full-name" required/>
 
         <label class="optionTitle">Age</label>
-        <input type="text" [(ngModel)]="model.age" #age="ngModel" required />
+        <input type="text" [(ngModel)]="model.age" #age="ngModel" name="age" required />
 
         <label class="optionTitle">Position</label>
-        <input type="text" [(ngModel)]="model.position" #position="ngModel" required/>
+        <input type="text" [(ngModel)]="model.position" #position="ngModel" name="position" required/>
 
         <label class="optionTitle">Person photo</label>
-        <input type="file" accept="image/*" (change)="updateImage($event)" required />
+        <input type="file" accept="image/*" (change)="updateImage($event)" name="photo" required />
 
         <label class="optionTitle">Background color</label>
-        <input type="color" [(ngModel)]="model.backgroundColor"/>
+        <input type="color" [(ngModel)]="model.backgroundColor" name="background-color"/>
 
         <input class="btn button" type="submit" [disabled]="!personEditForm.form.valid"/>
     </form>

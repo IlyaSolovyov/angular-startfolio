@@ -10,22 +10,22 @@
 
 
     <label class="optionTitle">First photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 1)" required/>
+    <input type="file" accept="image/*" (change)="updateModel($event, 1)" name="photo-1" required/>
 
     <label class="optionTitle">Second photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 2)" required/>
+    <input type="file" accept="image/*" (change)="updateModel($event, 2)" name="photo-2" required/>
 
     <label class="optionTitle">Third photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 3)" required/>
+    <input type="file" accept="image/*" (change)="updateModel($event, 3)" name="photo-3" required/>
 
     <label class="optionTitle">Fourth photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 4)" required/>
+    <input type="file" accept="image/*" (change)="updateModel($event, 4)" name="photo-4"  required/>
 
     <label class="optionTitle">Fifth photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 5)" required/>
+    <input type="file" accept="image/*" (change)="updateModel($event, 5)" name="photo-5" required/>
 
     <label class="optionTitle">Sixth photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 6)" required/>
+    <input type="file" accept="image/*" (change)="updateModel($event, 6)" name="photo-6" required/>
 
         <!--ngFor version
     <div class="image-upload" *ngFor="let photo of photos; let i = index">

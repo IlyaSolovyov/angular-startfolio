@@ -8,41 +8,41 @@
         <form class="Options"  #teamEditForm="ngForm" (ngSubmit)="editTeamInfo($event)">
 
             <label class="optionTitle">Text title</label>
-            <input type="text" [(ngModel)]="model.title" #title="ngModel" required/>
+            <input type="text" [(ngModel)]="model.title" #title="ngModel" name="title" required/>
 
             <label class="optionTitle">Main text</label>
-            <textarea [(ngModel)]="model.mainText" #mainText="ngModel"></textarea>
+            <textarea [(ngModel)]="model.mainText" #mainText="ngModel" name="main-text"></textarea>
 
             <label class="optionTitle">Background color</label>
-            <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel" required/>
+            <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel" name="background-color" required/>
     
             <!--Hardcode version-->
             <label class="optionTitle">Teammate 1</label>
                 <label class="optionTitle">Name, surname</label>
-                <input type="text" [(ngModel)]="model.teammate1_Name" #teammate1_Name="ngModel" required/>
+                <input type="text" [(ngModel)]="model.teammate1_Name" #teammate1_Name="ngModel" name="teammate-1-name" required/>
 
                 <label class="optionTitle">Short description</label>
-                <input type="text" [(ngModel)]="model.teammate1_Description" #teammate1_Description="ngModel" required/>
+                <input type="text" [(ngModel)]="model.teammate1_Description" #teammate1_Description="ngModel" name="teammate-1-description" required/>
 
                 <label class="optionTitle">Link to profile</label>
-                <input type="url" [(ngModel)]="model.teammate1_Link" #teammate1_Link="ngModel" required/>
+                <input type="url" [(ngModel)]="model.teammate1_Link" #teammate1_Link="ngModel" name="teammate-1-link" required/>
 
                 <label class="optionTitle">Teammate photo</label>
-                <input type="file" accept="image/*" (change)="updateImage($image, 1)" required/>
+                <input type="file" accept="image/*" (change)="updateImage($image, 1)" name="teammate-1-photo" required/>
 
     
             <label class="optionTitle">Teammate 2</label>
                 <label class="optionTitle">Name, surname</label>
-                <input type="text" [(ngModel)]="model.teammate2_Name" #teammate2_Name="ngModel" required/>
+                <input type="text" [(ngModel)]="model.teammate2_Name" #teammate2_Name="ngModel" name="teammate-2-name" required/>
 
                 <label class="optionTitle">Short description</label>
-                <input type="text" [(ngModel)]="model.teammate2_Description" #teammate2_Description="ngModel" required/>
+                <input type="text" [(ngModel)]="model.teammate2_Description" #teammate2_Description="ngModel" name="teammate-2-description" required/>
 
                 <label class="optionTitle">Link to profile</label>
-                <input type="url" [(ngModel)]="model.teammate2_Link" #teammate2_Link="ngModel" required/>
+                <input type="url" [(ngModel)]="model.teammate2_Link" #teammate2_Link="ngModel" name="teammate-2-link" required/>
 
                 <label class="optionTitle">Teammate photo</label>
-                <input type="file" accept="image/*" (change)="updateImage($image, 2)" required/>
+                <input type="file" accept="image/*" (change)="updateImage($image, 2)" name="teammate-2-photo" required/>
             
 
             <!--ngFor version-->

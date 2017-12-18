@@ -6,16 +6,16 @@
 
     <form class="Options"  #textEditForm="ngForm" (ngSubmit)="editTextInfo($event)">
         <label class="optionTitle">Text title</label>
-        <input type="text" [(ngModel)]="model.title" #title="ngModel" required/>
+        <input type="text" [(ngModel)]="model.title" #title="ngModel" name="title" required/>
 
         <label class="optionTitle">Main text</label>
-        <textarea [(ngModel)]="model.mainText" #mainText="ngModel"></textarea>
+        <textarea [(ngModel)]="model.mainText" #mainText="ngModel" name="main-text"></textarea>
 
         <label class="optionTitle">Sub text</label>
-        <textarea [(ngModel)]="model.subText" #subText="ngModel" required></textarea>
+        <textarea [(ngModel)]="model.subText" #subText="ngModel" name="sub-text" required></textarea>
 
         <label class="optionTitle">Background color</label>
-        <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel" required/>
+        <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel" name="background-color" required/>
 
         <input class="btn button" type="submit" [disabled]="!textEditForm.form.valid"/>
     </form>
