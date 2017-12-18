@@ -16,7 +16,7 @@ export class PersonComponent implements OnInit {
         Name:            'Папа',           
         Surname:         'Пежа',        
         Age:             '69',            
-        WhoIsThis:       'Папа Пежа'      
+        Occupation:       'Папа Пежа'      
     }
 
   
@@ -35,7 +35,7 @@ export class PersonComponent implements OnInit {
             this.model.Name = details.name;
             this.model.Surname = details.surname;
             this.model.Age = details.age;
-            this.model.WhoIsThis = details.whoIsThis;
+            this.model.Occupation = details.occupation;
         }
     }
 
@@ -49,5 +49,5 @@ interface Details {
     name: string;
     surname: string;
     age: string;
-    whoIsThis: string;
+    occupation: string;
 }
