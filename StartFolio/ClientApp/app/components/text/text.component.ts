@@ -26,15 +26,16 @@ export class TextComponent {
 
     ngOnInit() {
         if (this._page) {
-            let details: Details = JSON.parse(this._page.details);
-            this.model.title = details.title;
-            this.model.backgroundColor = details.backgroundColor;
-            this.model.mainText = details.mainText;
-            this.model.subText = details.subText;
-            this.model.buttonLeftText = details.buttonLeftText;
-            this.model.buttonLeftLink = details.buttonLeftLink;
-            this.model.buttonRightText = details.buttonRightText;
-            this.model.buttonRightLink = details.buttonRightLink;
+            let details: Details        = JSON.parse(this._page.details);
+
+            this.model.title            = details.title;
+            this.model.backgroundColor  = details.backgroundColor;
+            this.model.mainText         = details.mainText;
+            this.model.subText          = details.subText;
+            this.model.buttonLeftText   = details.buttonLeftText;
+            this.model.buttonLeftLink   = details.buttonLeftLink;
+            this.model.buttonRightText  = details.buttonRightText;
+            this.model.buttonRightLink  = details.buttonRightLink;
         }
     }
 
