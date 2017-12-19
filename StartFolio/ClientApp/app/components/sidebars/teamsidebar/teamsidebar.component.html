@@ -28,7 +28,7 @@
                 <input type="url" formControlName="teammate1_Link" />
 
                 <label class="optionTitle">Teammate photo</label>
-                <input type="file" accept="image/*" (change)="updateImage($image, 1)" formControlName="teammate1_Photo"/>
+                <input type="file" accept="image/*" (change)="updateImage($event, 1)" formControlName="teammate1_Photo"/>
 
     
             <label class="optionTitle">Teammate 2</label>
@@ -42,7 +42,7 @@
                 <input type="url" formControlName="teammate2_Link"/>
 
                 <label class="optionTitle">Teammate photo</label>
-                <input type="file" accept="image/*" (change)="updateImage($image, 2)" formControlName="teammate2_Photo"/>
+                <input type="file" accept="image/*" (change)="updateImage($event, 2)" formControlName="teammate2_Photo"/>
             
 
             <!--ngFor version-->

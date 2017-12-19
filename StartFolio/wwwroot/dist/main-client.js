@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "98517315daa54aa155c0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "4cf63f0e4dbf42b00d31"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -805,16 +805,82 @@ function toComment(sourceMap) {
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(1))(39);
+module.exports = (__webpack_require__(1))(38);
 
 /***/ }),
 /* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__page__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var PageService = (function () {
+    function PageService(http) {
+        this.http = http;
+    }
+    PageService.prototype.getPages = function () {
+        return this.http.get('api/Page/')
+            .map(function (response) {
+            return response.json()
+                .results
+                .map(function (page) {
+                return new __WEBPACK_IMPORTED_MODULE_3__page__["a" /* Page */](page.id, page.position, page.pageTemplate, page.details);
+            });
+        });
+    };
+    PageService.prototype.getPage = function (position) {
+        return this.http.get('api/Page/' + position)
+            .map(function (response) { return response.json(); });
+    };
+    PageService.prototype.addPage = function (page) {
+        return this.http.post('api/Page', page);
+    };
+    PageService.prototype.updateDetails = function (position, details) {
+        return this.http.put('api/Page/' + position + "/Details", details);
+    };
+    PageService.prototype.updatePosition = function (position) {
+        return this.http.delete('api/Page/' + position + "/Details");
+    };
+    PageService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]])
+    ], PageService);
+    return PageService;
+}());
+
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(1))(39);
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(6);
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -831,11 +897,11 @@ module.exports = (__webpack_require__(1))(6);
 /* unused harmony export ɵd */
 /* unused harmony export ɵe */
 /* unused harmony export ɵc */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_animations__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_animations_browser__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_animations__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_animations_browser__ = __webpack_require__(17);
 
 /**
  * @license Angular v4.4.6
@@ -1580,13 +1646,13 @@ NoopAnimationsModule.ctorParameters = function () { return []; };
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_page_service__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_page_service__ = __webpack_require__(4);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1608,8 +1674,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app',
-            template: __webpack_require__(60),
-            styles: [__webpack_require__(88)]
+            template: __webpack_require__(61),
+            styles: [__webpack_require__(89)]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_page_service__["a" /* PageService */]])
     ], AppComponent);
@@ -1619,16 +1685,12 @@ var AppComponent = (function () {
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Page; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__page__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1639,47 +1701,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
-
-
-var PageService = (function () {
-    function PageService(http) {
-        this.http = http;
+var Page = (function () {
+    function Page(id, position, pageTemplate, details) {
+        this.id = id;
+        this.position = position;
+        this.pageTemplate = pageTemplate;
+        this.details = details;
     }
-    PageService.prototype.getPages = function () {
-        return this.http.get('api/Page/')
-            .map(function (response) {
-            return response.json()
-                .results
-                .map(function (page) {
-                return new __WEBPACK_IMPORTED_MODULE_3__page__["a" /* Page */](page.id, page.position, page.pageTemplate, page.details);
-            });
-        });
-    };
-    PageService.prototype.getPage = function (position) {
-        return this.http.get('api/Page/' + position)
-            .map(function (response) { return response.json(); });
-    };
-    PageService.prototype.addPage = function (page) {
-        return this.http.post('api/Page', page);
-    };
-    PageService.prototype.updateDetails = function (position, details) {
-        return this.http.put('api/Page/' + position + "/Details", details);
-    };
-    PageService.prototype.updatePosition = function (position) {
-        return this.http.delete('api/Page/' + position + "/Details");
-    };
-    PageService = __decorate([
+    Page = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]])
-    ], PageService);
-    return PageService;
+        __metadata("design:paramtypes", [Number, Number, String, String])
+    ], Page);
+    return Page;
 }());
 
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports) {
 
 var ENTITIES = [['Aacute', [193]], ['aacute', [225]], ['Abreve', [258]], ['abreve', [259]], ['ac', [8766]], ['acd', [8767]], ['acE', [8766, 819]], ['Acirc', [194]], ['acirc', [226]], ['acute', [180]], ['Acy', [1040]], ['acy', [1072]], ['AElig', [198]], ['aelig', [230]], ['af', [8289]], ['Afr', [120068]], ['afr', [120094]], ['Agrave', [192]], ['agrave', [224]], ['alefsym', [8501]], ['aleph', [8501]], ['Alpha', [913]], ['alpha', [945]], ['Amacr', [256]], ['amacr', [257]], ['amalg', [10815]], ['amp', [38]], ['AMP', [38]], ['andand', [10837]], ['And', [10835]], ['and', [8743]], ['andd', [10844]], ['andslope', [10840]], ['andv', [10842]], ['ang', [8736]], ['ange', [10660]], ['angle', [8736]], ['angmsdaa', [10664]], ['angmsdab', [10665]], ['angmsdac', [10666]], ['angmsdad', [10667]], ['angmsdae', [10668]], ['angmsdaf', [10669]], ['angmsdag', [10670]], ['angmsdah', [10671]], ['angmsd', [8737]], ['angrt', [8735]], ['angrtvb', [8894]], ['angrtvbd', [10653]], ['angsph', [8738]], ['angst', [197]], ['angzarr', [9084]], ['Aogon', [260]], ['aogon', [261]], ['Aopf', [120120]], ['aopf', [120146]], ['apacir', [10863]], ['ap', [8776]], ['apE', [10864]], ['ape', [8778]], ['apid', [8779]], ['apos', [39]], ['ApplyFunction', [8289]], ['approx', [8776]], ['approxeq', [8778]], ['Aring', [197]], ['aring', [229]], ['Ascr', [119964]], ['ascr', [119990]], ['Assign', [8788]], ['ast', [42]], ['asymp', [8776]], ['asympeq', [8781]], ['Atilde', [195]], ['atilde', [227]], ['Auml', [196]], ['auml', [228]], ['awconint', [8755]], ['awint', [10769]], ['backcong', [8780]], ['backepsilon', [1014]], ['backprime', [8245]], ['backsim', [8765]], ['backsimeq', [8909]], ['Backslash', [8726]], ['Barv', [10983]], ['barvee', [8893]], ['barwed', [8965]], ['Barwed', [8966]], ['barwedge', [8965]], ['bbrk', [9141]], ['bbrktbrk', [9142]], ['bcong', [8780]], ['Bcy', [1041]], ['bcy', [1073]], ['bdquo', [8222]], ['becaus', [8757]], ['because', [8757]], ['Because', [8757]], ['bemptyv', [10672]], ['bepsi', [1014]], ['bernou', [8492]], ['Bernoullis', [8492]], ['Beta', [914]], ['beta', [946]], ['beth', [8502]], ['between', [8812]], ['Bfr', [120069]], ['bfr', [120095]], ['bigcap', [8898]], ['bigcirc', [9711]], ['bigcup', [8899]], ['bigodot', [10752]], ['bigoplus', [10753]], ['bigotimes', [10754]], ['bigsqcup', [10758]], ['bigstar', [9733]], ['bigtriangledown', [9661]], ['bigtriangleup', [9651]], ['biguplus', [10756]], ['bigvee', [8897]], ['bigwedge', [8896]], ['bkarow', [10509]], ['blacklozenge', [10731]], ['blacksquare', [9642]], ['blacktriangle', [9652]], ['blacktriangledown', [9662]], ['blacktriangleleft', [9666]], ['blacktriangleright', [9656]], ['blank', [9251]], ['blk12', [9618]], ['blk14', [9617]], ['blk34', [9619]], ['block', [9608]], ['bne', [61, 8421]], ['bnequiv', [8801, 8421]], ['bNot', [10989]], ['bnot', [8976]], ['Bopf', [120121]], ['bopf', [120147]], ['bot', [8869]], ['bottom', [8869]], ['bowtie', [8904]], ['boxbox', [10697]], ['boxdl', [9488]], ['boxdL', [9557]], ['boxDl', [9558]], ['boxDL', [9559]], ['boxdr', [9484]], ['boxdR', [9554]], ['boxDr', [9555]], ['boxDR', [9556]], ['boxh', [9472]], ['boxH', [9552]], ['boxhd', [9516]], ['boxHd', [9572]], ['boxhD', [9573]], ['boxHD', [9574]], ['boxhu', [9524]], ['boxHu', [9575]], ['boxhU', [9576]], ['boxHU', [9577]], ['boxminus', [8863]], ['boxplus', [8862]], ['boxtimes', [8864]], ['boxul', [9496]], ['boxuL', [9563]], ['boxUl', [9564]], ['boxUL', [9565]], ['boxur', [9492]], ['boxuR', [9560]], ['boxUr', [9561]], ['boxUR', [9562]], ['boxv', [9474]], ['boxV', [9553]], ['boxvh', [9532]], ['boxvH', [9578]], ['boxVh', [9579]], ['boxVH', [9580]], ['boxvl', [9508]], ['boxvL', [9569]], ['boxVl', [9570]], ['boxVL', [9571]], ['boxvr', [9500]], ['boxvR', [9566]], ['boxVr', [9567]], ['boxVR', [9568]], ['bprime', [8245]], ['breve', [728]], ['Breve', [728]], ['brvbar', [166]], ['bscr', [119991]], ['Bscr', [8492]], ['bsemi', [8271]], ['bsim', [8765]], ['bsime', [8909]], ['bsolb', [10693]], ['bsol', [92]], ['bsolhsub', [10184]], ['bull', [8226]], ['bullet', [8226]], ['bump', [8782]], ['bumpE', [10926]], ['bumpe', [8783]], ['Bumpeq', [8782]], ['bumpeq', [8783]], ['Cacute', [262]], ['cacute', [263]], ['capand', [10820]], ['capbrcup', [10825]], ['capcap', [10827]], ['cap', [8745]], ['Cap', [8914]], ['capcup', [10823]], ['capdot', [10816]], ['CapitalDifferentialD', [8517]], ['caps', [8745, 65024]], ['caret', [8257]], ['caron', [711]], ['Cayleys', [8493]], ['ccaps', [10829]], ['Ccaron', [268]], ['ccaron', [269]], ['Ccedil', [199]], ['ccedil', [231]], ['Ccirc', [264]], ['ccirc', [265]], ['Cconint', [8752]], ['ccups', [10828]], ['ccupssm', [10832]], ['Cdot', [266]], ['cdot', [267]], ['cedil', [184]], ['Cedilla', [184]], ['cemptyv', [10674]], ['cent', [162]], ['centerdot', [183]], ['CenterDot', [183]], ['cfr', [120096]], ['Cfr', [8493]], ['CHcy', [1063]], ['chcy', [1095]], ['check', [10003]], ['checkmark', [10003]], ['Chi', [935]], ['chi', [967]], ['circ', [710]], ['circeq', [8791]], ['circlearrowleft', [8634]], ['circlearrowright', [8635]], ['circledast', [8859]], ['circledcirc', [8858]], ['circleddash', [8861]], ['CircleDot', [8857]], ['circledR', [174]], ['circledS', [9416]], ['CircleMinus', [8854]], ['CirclePlus', [8853]], ['CircleTimes', [8855]], ['cir', [9675]], ['cirE', [10691]], ['cire', [8791]], ['cirfnint', [10768]], ['cirmid', [10991]], ['cirscir', [10690]], ['ClockwiseContourIntegral', [8754]], ['clubs', [9827]], ['clubsuit', [9827]], ['colon', [58]], ['Colon', [8759]], ['Colone', [10868]], ['colone', [8788]], ['coloneq', [8788]], ['comma', [44]], ['commat', [64]], ['comp', [8705]], ['compfn', [8728]], ['complement', [8705]], ['complexes', [8450]], ['cong', [8773]], ['congdot', [10861]], ['Congruent', [8801]], ['conint', [8750]], ['Conint', [8751]], ['ContourIntegral', [8750]], ['copf', [120148]], ['Copf', [8450]], ['coprod', [8720]], ['Coproduct', [8720]], ['copy', [169]], ['COPY', [169]], ['copysr', [8471]], ['CounterClockwiseContourIntegral', [8755]], ['crarr', [8629]], ['cross', [10007]], ['Cross', [10799]], ['Cscr', [119966]], ['cscr', [119992]], ['csub', [10959]], ['csube', [10961]], ['csup', [10960]], ['csupe', [10962]], ['ctdot', [8943]], ['cudarrl', [10552]], ['cudarrr', [10549]], ['cuepr', [8926]], ['cuesc', [8927]], ['cularr', [8630]], ['cularrp', [10557]], ['cupbrcap', [10824]], ['cupcap', [10822]], ['CupCap', [8781]], ['cup', [8746]], ['Cup', [8915]], ['cupcup', [10826]], ['cupdot', [8845]], ['cupor', [10821]], ['cups', [8746, 65024]], ['curarr', [8631]], ['curarrm', [10556]], ['curlyeqprec', [8926]], ['curlyeqsucc', [8927]], ['curlyvee', [8910]], ['curlywedge', [8911]], ['curren', [164]], ['curvearrowleft', [8630]], ['curvearrowright', [8631]], ['cuvee', [8910]], ['cuwed', [8911]], ['cwconint', [8754]], ['cwint', [8753]], ['cylcty', [9005]], ['dagger', [8224]], ['Dagger', [8225]], ['daleth', [8504]], ['darr', [8595]], ['Darr', [8609]], ['dArr', [8659]], ['dash', [8208]], ['Dashv', [10980]], ['dashv', [8867]], ['dbkarow', [10511]], ['dblac', [733]], ['Dcaron', [270]], ['dcaron', [271]], ['Dcy', [1044]], ['dcy', [1076]], ['ddagger', [8225]], ['ddarr', [8650]], ['DD', [8517]], ['dd', [8518]], ['DDotrahd', [10513]], ['ddotseq', [10871]], ['deg', [176]], ['Del', [8711]], ['Delta', [916]], ['delta', [948]], ['demptyv', [10673]], ['dfisht', [10623]], ['Dfr', [120071]], ['dfr', [120097]], ['dHar', [10597]], ['dharl', [8643]], ['dharr', [8642]], ['DiacriticalAcute', [180]], ['DiacriticalDot', [729]], ['DiacriticalDoubleAcute', [733]], ['DiacriticalGrave', [96]], ['DiacriticalTilde', [732]], ['diam', [8900]], ['diamond', [8900]], ['Diamond', [8900]], ['diamondsuit', [9830]], ['diams', [9830]], ['die', [168]], ['DifferentialD', [8518]], ['digamma', [989]], ['disin', [8946]], ['div', [247]], ['divide', [247]], ['divideontimes', [8903]], ['divonx', [8903]], ['DJcy', [1026]], ['djcy', [1106]], ['dlcorn', [8990]], ['dlcrop', [8973]], ['dollar', [36]], ['Dopf', [120123]], ['dopf', [120149]], ['Dot', [168]], ['dot', [729]], ['DotDot', [8412]], ['doteq', [8784]], ['doteqdot', [8785]], ['DotEqual', [8784]], ['dotminus', [8760]], ['dotplus', [8724]], ['dotsquare', [8865]], ['doublebarwedge', [8966]], ['DoubleContourIntegral', [8751]], ['DoubleDot', [168]], ['DoubleDownArrow', [8659]], ['DoubleLeftArrow', [8656]], ['DoubleLeftRightArrow', [8660]], ['DoubleLeftTee', [10980]], ['DoubleLongLeftArrow', [10232]], ['DoubleLongLeftRightArrow', [10234]], ['DoubleLongRightArrow', [10233]], ['DoubleRightArrow', [8658]], ['DoubleRightTee', [8872]], ['DoubleUpArrow', [8657]], ['DoubleUpDownArrow', [8661]], ['DoubleVerticalBar', [8741]], ['DownArrowBar', [10515]], ['downarrow', [8595]], ['DownArrow', [8595]], ['Downarrow', [8659]], ['DownArrowUpArrow', [8693]], ['DownBreve', [785]], ['downdownarrows', [8650]], ['downharpoonleft', [8643]], ['downharpoonright', [8642]], ['DownLeftRightVector', [10576]], ['DownLeftTeeVector', [10590]], ['DownLeftVectorBar', [10582]], ['DownLeftVector', [8637]], ['DownRightTeeVector', [10591]], ['DownRightVectorBar', [10583]], ['DownRightVector', [8641]], ['DownTeeArrow', [8615]], ['DownTee', [8868]], ['drbkarow', [10512]], ['drcorn', [8991]], ['drcrop', [8972]], ['Dscr', [119967]], ['dscr', [119993]], ['DScy', [1029]], ['dscy', [1109]], ['dsol', [10742]], ['Dstrok', [272]], ['dstrok', [273]], ['dtdot', [8945]], ['dtri', [9663]], ['dtrif', [9662]], ['duarr', [8693]], ['duhar', [10607]], ['dwangle', [10662]], ['DZcy', [1039]], ['dzcy', [1119]], ['dzigrarr', [10239]], ['Eacute', [201]], ['eacute', [233]], ['easter', [10862]], ['Ecaron', [282]], ['ecaron', [283]], ['Ecirc', [202]], ['ecirc', [234]], ['ecir', [8790]], ['ecolon', [8789]], ['Ecy', [1069]], ['ecy', [1101]], ['eDDot', [10871]], ['Edot', [278]], ['edot', [279]], ['eDot', [8785]], ['ee', [8519]], ['efDot', [8786]], ['Efr', [120072]], ['efr', [120098]], ['eg', [10906]], ['Egrave', [200]], ['egrave', [232]], ['egs', [10902]], ['egsdot', [10904]], ['el', [10905]], ['Element', [8712]], ['elinters', [9191]], ['ell', [8467]], ['els', [10901]], ['elsdot', [10903]], ['Emacr', [274]], ['emacr', [275]], ['empty', [8709]], ['emptyset', [8709]], ['EmptySmallSquare', [9723]], ['emptyv', [8709]], ['EmptyVerySmallSquare', [9643]], ['emsp13', [8196]], ['emsp14', [8197]], ['emsp', [8195]], ['ENG', [330]], ['eng', [331]], ['ensp', [8194]], ['Eogon', [280]], ['eogon', [281]], ['Eopf', [120124]], ['eopf', [120150]], ['epar', [8917]], ['eparsl', [10723]], ['eplus', [10865]], ['epsi', [949]], ['Epsilon', [917]], ['epsilon', [949]], ['epsiv', [1013]], ['eqcirc', [8790]], ['eqcolon', [8789]], ['eqsim', [8770]], ['eqslantgtr', [10902]], ['eqslantless', [10901]], ['Equal', [10869]], ['equals', [61]], ['EqualTilde', [8770]], ['equest', [8799]], ['Equilibrium', [8652]], ['equiv', [8801]], ['equivDD', [10872]], ['eqvparsl', [10725]], ['erarr', [10609]], ['erDot', [8787]], ['escr', [8495]], ['Escr', [8496]], ['esdot', [8784]], ['Esim', [10867]], ['esim', [8770]], ['Eta', [919]], ['eta', [951]], ['ETH', [208]], ['eth', [240]], ['Euml', [203]], ['euml', [235]], ['euro', [8364]], ['excl', [33]], ['exist', [8707]], ['Exists', [8707]], ['expectation', [8496]], ['exponentiale', [8519]], ['ExponentialE', [8519]], ['fallingdotseq', [8786]], ['Fcy', [1060]], ['fcy', [1092]], ['female', [9792]], ['ffilig', [64259]], ['fflig', [64256]], ['ffllig', [64260]], ['Ffr', [120073]], ['ffr', [120099]], ['filig', [64257]], ['FilledSmallSquare', [9724]], ['FilledVerySmallSquare', [9642]], ['fjlig', [102, 106]], ['flat', [9837]], ['fllig', [64258]], ['fltns', [9649]], ['fnof', [402]], ['Fopf', [120125]], ['fopf', [120151]], ['forall', [8704]], ['ForAll', [8704]], ['fork', [8916]], ['forkv', [10969]], ['Fouriertrf', [8497]], ['fpartint', [10765]], ['frac12', [189]], ['frac13', [8531]], ['frac14', [188]], ['frac15', [8533]], ['frac16', [8537]], ['frac18', [8539]], ['frac23', [8532]], ['frac25', [8534]], ['frac34', [190]], ['frac35', [8535]], ['frac38', [8540]], ['frac45', [8536]], ['frac56', [8538]], ['frac58', [8541]], ['frac78', [8542]], ['frasl', [8260]], ['frown', [8994]], ['fscr', [119995]], ['Fscr', [8497]], ['gacute', [501]], ['Gamma', [915]], ['gamma', [947]], ['Gammad', [988]], ['gammad', [989]], ['gap', [10886]], ['Gbreve', [286]], ['gbreve', [287]], ['Gcedil', [290]], ['Gcirc', [284]], ['gcirc', [285]], ['Gcy', [1043]], ['gcy', [1075]], ['Gdot', [288]], ['gdot', [289]], ['ge', [8805]], ['gE', [8807]], ['gEl', [10892]], ['gel', [8923]], ['geq', [8805]], ['geqq', [8807]], ['geqslant', [10878]], ['gescc', [10921]], ['ges', [10878]], ['gesdot', [10880]], ['gesdoto', [10882]], ['gesdotol', [10884]], ['gesl', [8923, 65024]], ['gesles', [10900]], ['Gfr', [120074]], ['gfr', [120100]], ['gg', [8811]], ['Gg', [8921]], ['ggg', [8921]], ['gimel', [8503]], ['GJcy', [1027]], ['gjcy', [1107]], ['gla', [10917]], ['gl', [8823]], ['glE', [10898]], ['glj', [10916]], ['gnap', [10890]], ['gnapprox', [10890]], ['gne', [10888]], ['gnE', [8809]], ['gneq', [10888]], ['gneqq', [8809]], ['gnsim', [8935]], ['Gopf', [120126]], ['gopf', [120152]], ['grave', [96]], ['GreaterEqual', [8805]], ['GreaterEqualLess', [8923]], ['GreaterFullEqual', [8807]], ['GreaterGreater', [10914]], ['GreaterLess', [8823]], ['GreaterSlantEqual', [10878]], ['GreaterTilde', [8819]], ['Gscr', [119970]], ['gscr', [8458]], ['gsim', [8819]], ['gsime', [10894]], ['gsiml', [10896]], ['gtcc', [10919]], ['gtcir', [10874]], ['gt', [62]], ['GT', [62]], ['Gt', [8811]], ['gtdot', [8919]], ['gtlPar', [10645]], ['gtquest', [10876]], ['gtrapprox', [10886]], ['gtrarr', [10616]], ['gtrdot', [8919]], ['gtreqless', [8923]], ['gtreqqless', [10892]], ['gtrless', [8823]], ['gtrsim', [8819]], ['gvertneqq', [8809, 65024]], ['gvnE', [8809, 65024]], ['Hacek', [711]], ['hairsp', [8202]], ['half', [189]], ['hamilt', [8459]], ['HARDcy', [1066]], ['hardcy', [1098]], ['harrcir', [10568]], ['harr', [8596]], ['hArr', [8660]], ['harrw', [8621]], ['Hat', [94]], ['hbar', [8463]], ['Hcirc', [292]], ['hcirc', [293]], ['hearts', [9829]], ['heartsuit', [9829]], ['hellip', [8230]], ['hercon', [8889]], ['hfr', [120101]], ['Hfr', [8460]], ['HilbertSpace', [8459]], ['hksearow', [10533]], ['hkswarow', [10534]], ['hoarr', [8703]], ['homtht', [8763]], ['hookleftarrow', [8617]], ['hookrightarrow', [8618]], ['hopf', [120153]], ['Hopf', [8461]], ['horbar', [8213]], ['HorizontalLine', [9472]], ['hscr', [119997]], ['Hscr', [8459]], ['hslash', [8463]], ['Hstrok', [294]], ['hstrok', [295]], ['HumpDownHump', [8782]], ['HumpEqual', [8783]], ['hybull', [8259]], ['hyphen', [8208]], ['Iacute', [205]], ['iacute', [237]], ['ic', [8291]], ['Icirc', [206]], ['icirc', [238]], ['Icy', [1048]], ['icy', [1080]], ['Idot', [304]], ['IEcy', [1045]], ['iecy', [1077]], ['iexcl', [161]], ['iff', [8660]], ['ifr', [120102]], ['Ifr', [8465]], ['Igrave', [204]], ['igrave', [236]], ['ii', [8520]], ['iiiint', [10764]], ['iiint', [8749]], ['iinfin', [10716]], ['iiota', [8489]], ['IJlig', [306]], ['ijlig', [307]], ['Imacr', [298]], ['imacr', [299]], ['image', [8465]], ['ImaginaryI', [8520]], ['imagline', [8464]], ['imagpart', [8465]], ['imath', [305]], ['Im', [8465]], ['imof', [8887]], ['imped', [437]], ['Implies', [8658]], ['incare', [8453]], ['in', [8712]], ['infin', [8734]], ['infintie', [10717]], ['inodot', [305]], ['intcal', [8890]], ['int', [8747]], ['Int', [8748]], ['integers', [8484]], ['Integral', [8747]], ['intercal', [8890]], ['Intersection', [8898]], ['intlarhk', [10775]], ['intprod', [10812]], ['InvisibleComma', [8291]], ['InvisibleTimes', [8290]], ['IOcy', [1025]], ['iocy', [1105]], ['Iogon', [302]], ['iogon', [303]], ['Iopf', [120128]], ['iopf', [120154]], ['Iota', [921]], ['iota', [953]], ['iprod', [10812]], ['iquest', [191]], ['iscr', [119998]], ['Iscr', [8464]], ['isin', [8712]], ['isindot', [8949]], ['isinE', [8953]], ['isins', [8948]], ['isinsv', [8947]], ['isinv', [8712]], ['it', [8290]], ['Itilde', [296]], ['itilde', [297]], ['Iukcy', [1030]], ['iukcy', [1110]], ['Iuml', [207]], ['iuml', [239]], ['Jcirc', [308]], ['jcirc', [309]], ['Jcy', [1049]], ['jcy', [1081]], ['Jfr', [120077]], ['jfr', [120103]], ['jmath', [567]], ['Jopf', [120129]], ['jopf', [120155]], ['Jscr', [119973]], ['jscr', [119999]], ['Jsercy', [1032]], ['jsercy', [1112]], ['Jukcy', [1028]], ['jukcy', [1108]], ['Kappa', [922]], ['kappa', [954]], ['kappav', [1008]], ['Kcedil', [310]], ['kcedil', [311]], ['Kcy', [1050]], ['kcy', [1082]], ['Kfr', [120078]], ['kfr', [120104]], ['kgreen', [312]], ['KHcy', [1061]], ['khcy', [1093]], ['KJcy', [1036]], ['kjcy', [1116]], ['Kopf', [120130]], ['kopf', [120156]], ['Kscr', [119974]], ['kscr', [120000]], ['lAarr', [8666]], ['Lacute', [313]], ['lacute', [314]], ['laemptyv', [10676]], ['lagran', [8466]], ['Lambda', [923]], ['lambda', [955]], ['lang', [10216]], ['Lang', [10218]], ['langd', [10641]], ['langle', [10216]], ['lap', [10885]], ['Laplacetrf', [8466]], ['laquo', [171]], ['larrb', [8676]], ['larrbfs', [10527]], ['larr', [8592]], ['Larr', [8606]], ['lArr', [8656]], ['larrfs', [10525]], ['larrhk', [8617]], ['larrlp', [8619]], ['larrpl', [10553]], ['larrsim', [10611]], ['larrtl', [8610]], ['latail', [10521]], ['lAtail', [10523]], ['lat', [10923]], ['late', [10925]], ['lates', [10925, 65024]], ['lbarr', [10508]], ['lBarr', [10510]], ['lbbrk', [10098]], ['lbrace', [123]], ['lbrack', [91]], ['lbrke', [10635]], ['lbrksld', [10639]], ['lbrkslu', [10637]], ['Lcaron', [317]], ['lcaron', [318]], ['Lcedil', [315]], ['lcedil', [316]], ['lceil', [8968]], ['lcub', [123]], ['Lcy', [1051]], ['lcy', [1083]], ['ldca', [10550]], ['ldquo', [8220]], ['ldquor', [8222]], ['ldrdhar', [10599]], ['ldrushar', [10571]], ['ldsh', [8626]], ['le', [8804]], ['lE', [8806]], ['LeftAngleBracket', [10216]], ['LeftArrowBar', [8676]], ['leftarrow', [8592]], ['LeftArrow', [8592]], ['Leftarrow', [8656]], ['LeftArrowRightArrow', [8646]], ['leftarrowtail', [8610]], ['LeftCeiling', [8968]], ['LeftDoubleBracket', [10214]], ['LeftDownTeeVector', [10593]], ['LeftDownVectorBar', [10585]], ['LeftDownVector', [8643]], ['LeftFloor', [8970]], ['leftharpoondown', [8637]], ['leftharpoonup', [8636]], ['leftleftarrows', [8647]], ['leftrightarrow', [8596]], ['LeftRightArrow', [8596]], ['Leftrightarrow', [8660]], ['leftrightarrows', [8646]], ['leftrightharpoons', [8651]], ['leftrightsquigarrow', [8621]], ['LeftRightVector', [10574]], ['LeftTeeArrow', [8612]], ['LeftTee', [8867]], ['LeftTeeVector', [10586]], ['leftthreetimes', [8907]], ['LeftTriangleBar', [10703]], ['LeftTriangle', [8882]], ['LeftTriangleEqual', [8884]], ['LeftUpDownVector', [10577]], ['LeftUpTeeVector', [10592]], ['LeftUpVectorBar', [10584]], ['LeftUpVector', [8639]], ['LeftVectorBar', [10578]], ['LeftVector', [8636]], ['lEg', [10891]], ['leg', [8922]], ['leq', [8804]], ['leqq', [8806]], ['leqslant', [10877]], ['lescc', [10920]], ['les', [10877]], ['lesdot', [10879]], ['lesdoto', [10881]], ['lesdotor', [10883]], ['lesg', [8922, 65024]], ['lesges', [10899]], ['lessapprox', [10885]], ['lessdot', [8918]], ['lesseqgtr', [8922]], ['lesseqqgtr', [10891]], ['LessEqualGreater', [8922]], ['LessFullEqual', [8806]], ['LessGreater', [8822]], ['lessgtr', [8822]], ['LessLess', [10913]], ['lesssim', [8818]], ['LessSlantEqual', [10877]], ['LessTilde', [8818]], ['lfisht', [10620]], ['lfloor', [8970]], ['Lfr', [120079]], ['lfr', [120105]], ['lg', [8822]], ['lgE', [10897]], ['lHar', [10594]], ['lhard', [8637]], ['lharu', [8636]], ['lharul', [10602]], ['lhblk', [9604]], ['LJcy', [1033]], ['ljcy', [1113]], ['llarr', [8647]], ['ll', [8810]], ['Ll', [8920]], ['llcorner', [8990]], ['Lleftarrow', [8666]], ['llhard', [10603]], ['lltri', [9722]], ['Lmidot', [319]], ['lmidot', [320]], ['lmoustache', [9136]], ['lmoust', [9136]], ['lnap', [10889]], ['lnapprox', [10889]], ['lne', [10887]], ['lnE', [8808]], ['lneq', [10887]], ['lneqq', [8808]], ['lnsim', [8934]], ['loang', [10220]], ['loarr', [8701]], ['lobrk', [10214]], ['longleftarrow', [10229]], ['LongLeftArrow', [10229]], ['Longleftarrow', [10232]], ['longleftrightarrow', [10231]], ['LongLeftRightArrow', [10231]], ['Longleftrightarrow', [10234]], ['longmapsto', [10236]], ['longrightarrow', [10230]], ['LongRightArrow', [10230]], ['Longrightarrow', [10233]], ['looparrowleft', [8619]], ['looparrowright', [8620]], ['lopar', [10629]], ['Lopf', [120131]], ['lopf', [120157]], ['loplus', [10797]], ['lotimes', [10804]], ['lowast', [8727]], ['lowbar', [95]], ['LowerLeftArrow', [8601]], ['LowerRightArrow', [8600]], ['loz', [9674]], ['lozenge', [9674]], ['lozf', [10731]], ['lpar', [40]], ['lparlt', [10643]], ['lrarr', [8646]], ['lrcorner', [8991]], ['lrhar', [8651]], ['lrhard', [10605]], ['lrm', [8206]], ['lrtri', [8895]], ['lsaquo', [8249]], ['lscr', [120001]], ['Lscr', [8466]], ['lsh', [8624]], ['Lsh', [8624]], ['lsim', [8818]], ['lsime', [10893]], ['lsimg', [10895]], ['lsqb', [91]], ['lsquo', [8216]], ['lsquor', [8218]], ['Lstrok', [321]], ['lstrok', [322]], ['ltcc', [10918]], ['ltcir', [10873]], ['lt', [60]], ['LT', [60]], ['Lt', [8810]], ['ltdot', [8918]], ['lthree', [8907]], ['ltimes', [8905]], ['ltlarr', [10614]], ['ltquest', [10875]], ['ltri', [9667]], ['ltrie', [8884]], ['ltrif', [9666]], ['ltrPar', [10646]], ['lurdshar', [10570]], ['luruhar', [10598]], ['lvertneqq', [8808, 65024]], ['lvnE', [8808, 65024]], ['macr', [175]], ['male', [9794]], ['malt', [10016]], ['maltese', [10016]], ['Map', [10501]], ['map', [8614]], ['mapsto', [8614]], ['mapstodown', [8615]], ['mapstoleft', [8612]], ['mapstoup', [8613]], ['marker', [9646]], ['mcomma', [10793]], ['Mcy', [1052]], ['mcy', [1084]], ['mdash', [8212]], ['mDDot', [8762]], ['measuredangle', [8737]], ['MediumSpace', [8287]], ['Mellintrf', [8499]], ['Mfr', [120080]], ['mfr', [120106]], ['mho', [8487]], ['micro', [181]], ['midast', [42]], ['midcir', [10992]], ['mid', [8739]], ['middot', [183]], ['minusb', [8863]], ['minus', [8722]], ['minusd', [8760]], ['minusdu', [10794]], ['MinusPlus', [8723]], ['mlcp', [10971]], ['mldr', [8230]], ['mnplus', [8723]], ['models', [8871]], ['Mopf', [120132]], ['mopf', [120158]], ['mp', [8723]], ['mscr', [120002]], ['Mscr', [8499]], ['mstpos', [8766]], ['Mu', [924]], ['mu', [956]], ['multimap', [8888]], ['mumap', [8888]], ['nabla', [8711]], ['Nacute', [323]], ['nacute', [324]], ['nang', [8736, 8402]], ['nap', [8777]], ['napE', [10864, 824]], ['napid', [8779, 824]], ['napos', [329]], ['napprox', [8777]], ['natural', [9838]], ['naturals', [8469]], ['natur', [9838]], ['nbsp', [160]], ['nbump', [8782, 824]], ['nbumpe', [8783, 824]], ['ncap', [10819]], ['Ncaron', [327]], ['ncaron', [328]], ['Ncedil', [325]], ['ncedil', [326]], ['ncong', [8775]], ['ncongdot', [10861, 824]], ['ncup', [10818]], ['Ncy', [1053]], ['ncy', [1085]], ['ndash', [8211]], ['nearhk', [10532]], ['nearr', [8599]], ['neArr', [8663]], ['nearrow', [8599]], ['ne', [8800]], ['nedot', [8784, 824]], ['NegativeMediumSpace', [8203]], ['NegativeThickSpace', [8203]], ['NegativeThinSpace', [8203]], ['NegativeVeryThinSpace', [8203]], ['nequiv', [8802]], ['nesear', [10536]], ['nesim', [8770, 824]], ['NestedGreaterGreater', [8811]], ['NestedLessLess', [8810]], ['nexist', [8708]], ['nexists', [8708]], ['Nfr', [120081]], ['nfr', [120107]], ['ngE', [8807, 824]], ['nge', [8817]], ['ngeq', [8817]], ['ngeqq', [8807, 824]], ['ngeqslant', [10878, 824]], ['nges', [10878, 824]], ['nGg', [8921, 824]], ['ngsim', [8821]], ['nGt', [8811, 8402]], ['ngt', [8815]], ['ngtr', [8815]], ['nGtv', [8811, 824]], ['nharr', [8622]], ['nhArr', [8654]], ['nhpar', [10994]], ['ni', [8715]], ['nis', [8956]], ['nisd', [8954]], ['niv', [8715]], ['NJcy', [1034]], ['njcy', [1114]], ['nlarr', [8602]], ['nlArr', [8653]], ['nldr', [8229]], ['nlE', [8806, 824]], ['nle', [8816]], ['nleftarrow', [8602]], ['nLeftarrow', [8653]], ['nleftrightarrow', [8622]], ['nLeftrightarrow', [8654]], ['nleq', [8816]], ['nleqq', [8806, 824]], ['nleqslant', [10877, 824]], ['nles', [10877, 824]], ['nless', [8814]], ['nLl', [8920, 824]], ['nlsim', [8820]], ['nLt', [8810, 8402]], ['nlt', [8814]], ['nltri', [8938]], ['nltrie', [8940]], ['nLtv', [8810, 824]], ['nmid', [8740]], ['NoBreak', [8288]], ['NonBreakingSpace', [160]], ['nopf', [120159]], ['Nopf', [8469]], ['Not', [10988]], ['not', [172]], ['NotCongruent', [8802]], ['NotCupCap', [8813]], ['NotDoubleVerticalBar', [8742]], ['NotElement', [8713]], ['NotEqual', [8800]], ['NotEqualTilde', [8770, 824]], ['NotExists', [8708]], ['NotGreater', [8815]], ['NotGreaterEqual', [8817]], ['NotGreaterFullEqual', [8807, 824]], ['NotGreaterGreater', [8811, 824]], ['NotGreaterLess', [8825]], ['NotGreaterSlantEqual', [10878, 824]], ['NotGreaterTilde', [8821]], ['NotHumpDownHump', [8782, 824]], ['NotHumpEqual', [8783, 824]], ['notin', [8713]], ['notindot', [8949, 824]], ['notinE', [8953, 824]], ['notinva', [8713]], ['notinvb', [8951]], ['notinvc', [8950]], ['NotLeftTriangleBar', [10703, 824]], ['NotLeftTriangle', [8938]], ['NotLeftTriangleEqual', [8940]], ['NotLess', [8814]], ['NotLessEqual', [8816]], ['NotLessGreater', [8824]], ['NotLessLess', [8810, 824]], ['NotLessSlantEqual', [10877, 824]], ['NotLessTilde', [8820]], ['NotNestedGreaterGreater', [10914, 824]], ['NotNestedLessLess', [10913, 824]], ['notni', [8716]], ['notniva', [8716]], ['notnivb', [8958]], ['notnivc', [8957]], ['NotPrecedes', [8832]], ['NotPrecedesEqual', [10927, 824]], ['NotPrecedesSlantEqual', [8928]], ['NotReverseElement', [8716]], ['NotRightTriangleBar', [10704, 824]], ['NotRightTriangle', [8939]], ['NotRightTriangleEqual', [8941]], ['NotSquareSubset', [8847, 824]], ['NotSquareSubsetEqual', [8930]], ['NotSquareSuperset', [8848, 824]], ['NotSquareSupersetEqual', [8931]], ['NotSubset', [8834, 8402]], ['NotSubsetEqual', [8840]], ['NotSucceeds', [8833]], ['NotSucceedsEqual', [10928, 824]], ['NotSucceedsSlantEqual', [8929]], ['NotSucceedsTilde', [8831, 824]], ['NotSuperset', [8835, 8402]], ['NotSupersetEqual', [8841]], ['NotTilde', [8769]], ['NotTildeEqual', [8772]], ['NotTildeFullEqual', [8775]], ['NotTildeTilde', [8777]], ['NotVerticalBar', [8740]], ['nparallel', [8742]], ['npar', [8742]], ['nparsl', [11005, 8421]], ['npart', [8706, 824]], ['npolint', [10772]], ['npr', [8832]], ['nprcue', [8928]], ['nprec', [8832]], ['npreceq', [10927, 824]], ['npre', [10927, 824]], ['nrarrc', [10547, 824]], ['nrarr', [8603]], ['nrArr', [8655]], ['nrarrw', [8605, 824]], ['nrightarrow', [8603]], ['nRightarrow', [8655]], ['nrtri', [8939]], ['nrtrie', [8941]], ['nsc', [8833]], ['nsccue', [8929]], ['nsce', [10928, 824]], ['Nscr', [119977]], ['nscr', [120003]], ['nshortmid', [8740]], ['nshortparallel', [8742]], ['nsim', [8769]], ['nsime', [8772]], ['nsimeq', [8772]], ['nsmid', [8740]], ['nspar', [8742]], ['nsqsube', [8930]], ['nsqsupe', [8931]], ['nsub', [8836]], ['nsubE', [10949, 824]], ['nsube', [8840]], ['nsubset', [8834, 8402]], ['nsubseteq', [8840]], ['nsubseteqq', [10949, 824]], ['nsucc', [8833]], ['nsucceq', [10928, 824]], ['nsup', [8837]], ['nsupE', [10950, 824]], ['nsupe', [8841]], ['nsupset', [8835, 8402]], ['nsupseteq', [8841]], ['nsupseteqq', [10950, 824]], ['ntgl', [8825]], ['Ntilde', [209]], ['ntilde', [241]], ['ntlg', [8824]], ['ntriangleleft', [8938]], ['ntrianglelefteq', [8940]], ['ntriangleright', [8939]], ['ntrianglerighteq', [8941]], ['Nu', [925]], ['nu', [957]], ['num', [35]], ['numero', [8470]], ['numsp', [8199]], ['nvap', [8781, 8402]], ['nvdash', [8876]], ['nvDash', [8877]], ['nVdash', [8878]], ['nVDash', [8879]], ['nvge', [8805, 8402]], ['nvgt', [62, 8402]], ['nvHarr', [10500]], ['nvinfin', [10718]], ['nvlArr', [10498]], ['nvle', [8804, 8402]], ['nvlt', [60, 8402]], ['nvltrie', [8884, 8402]], ['nvrArr', [10499]], ['nvrtrie', [8885, 8402]], ['nvsim', [8764, 8402]], ['nwarhk', [10531]], ['nwarr', [8598]], ['nwArr', [8662]], ['nwarrow', [8598]], ['nwnear', [10535]], ['Oacute', [211]], ['oacute', [243]], ['oast', [8859]], ['Ocirc', [212]], ['ocirc', [244]], ['ocir', [8858]], ['Ocy', [1054]], ['ocy', [1086]], ['odash', [8861]], ['Odblac', [336]], ['odblac', [337]], ['odiv', [10808]], ['odot', [8857]], ['odsold', [10684]], ['OElig', [338]], ['oelig', [339]], ['ofcir', [10687]], ['Ofr', [120082]], ['ofr', [120108]], ['ogon', [731]], ['Ograve', [210]], ['ograve', [242]], ['ogt', [10689]], ['ohbar', [10677]], ['ohm', [937]], ['oint', [8750]], ['olarr', [8634]], ['olcir', [10686]], ['olcross', [10683]], ['oline', [8254]], ['olt', [10688]], ['Omacr', [332]], ['omacr', [333]], ['Omega', [937]], ['omega', [969]], ['Omicron', [927]], ['omicron', [959]], ['omid', [10678]], ['ominus', [8854]], ['Oopf', [120134]], ['oopf', [120160]], ['opar', [10679]], ['OpenCurlyDoubleQuote', [8220]], ['OpenCurlyQuote', [8216]], ['operp', [10681]], ['oplus', [8853]], ['orarr', [8635]], ['Or', [10836]], ['or', [8744]], ['ord', [10845]], ['order', [8500]], ['orderof', [8500]], ['ordf', [170]], ['ordm', [186]], ['origof', [8886]], ['oror', [10838]], ['orslope', [10839]], ['orv', [10843]], ['oS', [9416]], ['Oscr', [119978]], ['oscr', [8500]], ['Oslash', [216]], ['oslash', [248]], ['osol', [8856]], ['Otilde', [213]], ['otilde', [245]], ['otimesas', [10806]], ['Otimes', [10807]], ['otimes', [8855]], ['Ouml', [214]], ['ouml', [246]], ['ovbar', [9021]], ['OverBar', [8254]], ['OverBrace', [9182]], ['OverBracket', [9140]], ['OverParenthesis', [9180]], ['para', [182]], ['parallel', [8741]], ['par', [8741]], ['parsim', [10995]], ['parsl', [11005]], ['part', [8706]], ['PartialD', [8706]], ['Pcy', [1055]], ['pcy', [1087]], ['percnt', [37]], ['period', [46]], ['permil', [8240]], ['perp', [8869]], ['pertenk', [8241]], ['Pfr', [120083]], ['pfr', [120109]], ['Phi', [934]], ['phi', [966]], ['phiv', [981]], ['phmmat', [8499]], ['phone', [9742]], ['Pi', [928]], ['pi', [960]], ['pitchfork', [8916]], ['piv', [982]], ['planck', [8463]], ['planckh', [8462]], ['plankv', [8463]], ['plusacir', [10787]], ['plusb', [8862]], ['pluscir', [10786]], ['plus', [43]], ['plusdo', [8724]], ['plusdu', [10789]], ['pluse', [10866]], ['PlusMinus', [177]], ['plusmn', [177]], ['plussim', [10790]], ['plustwo', [10791]], ['pm', [177]], ['Poincareplane', [8460]], ['pointint', [10773]], ['popf', [120161]], ['Popf', [8473]], ['pound', [163]], ['prap', [10935]], ['Pr', [10939]], ['pr', [8826]], ['prcue', [8828]], ['precapprox', [10935]], ['prec', [8826]], ['preccurlyeq', [8828]], ['Precedes', [8826]], ['PrecedesEqual', [10927]], ['PrecedesSlantEqual', [8828]], ['PrecedesTilde', [8830]], ['preceq', [10927]], ['precnapprox', [10937]], ['precneqq', [10933]], ['precnsim', [8936]], ['pre', [10927]], ['prE', [10931]], ['precsim', [8830]], ['prime', [8242]], ['Prime', [8243]], ['primes', [8473]], ['prnap', [10937]], ['prnE', [10933]], ['prnsim', [8936]], ['prod', [8719]], ['Product', [8719]], ['profalar', [9006]], ['profline', [8978]], ['profsurf', [8979]], ['prop', [8733]], ['Proportional', [8733]], ['Proportion', [8759]], ['propto', [8733]], ['prsim', [8830]], ['prurel', [8880]], ['Pscr', [119979]], ['pscr', [120005]], ['Psi', [936]], ['psi', [968]], ['puncsp', [8200]], ['Qfr', [120084]], ['qfr', [120110]], ['qint', [10764]], ['qopf', [120162]], ['Qopf', [8474]], ['qprime', [8279]], ['Qscr', [119980]], ['qscr', [120006]], ['quaternions', [8461]], ['quatint', [10774]], ['quest', [63]], ['questeq', [8799]], ['quot', [34]], ['QUOT', [34]], ['rAarr', [8667]], ['race', [8765, 817]], ['Racute', [340]], ['racute', [341]], ['radic', [8730]], ['raemptyv', [10675]], ['rang', [10217]], ['Rang', [10219]], ['rangd', [10642]], ['range', [10661]], ['rangle', [10217]], ['raquo', [187]], ['rarrap', [10613]], ['rarrb', [8677]], ['rarrbfs', [10528]], ['rarrc', [10547]], ['rarr', [8594]], ['Rarr', [8608]], ['rArr', [8658]], ['rarrfs', [10526]], ['rarrhk', [8618]], ['rarrlp', [8620]], ['rarrpl', [10565]], ['rarrsim', [10612]], ['Rarrtl', [10518]], ['rarrtl', [8611]], ['rarrw', [8605]], ['ratail', [10522]], ['rAtail', [10524]], ['ratio', [8758]], ['rationals', [8474]], ['rbarr', [10509]], ['rBarr', [10511]], ['RBarr', [10512]], ['rbbrk', [10099]], ['rbrace', [125]], ['rbrack', [93]], ['rbrke', [10636]], ['rbrksld', [10638]], ['rbrkslu', [10640]], ['Rcaron', [344]], ['rcaron', [345]], ['Rcedil', [342]], ['rcedil', [343]], ['rceil', [8969]], ['rcub', [125]], ['Rcy', [1056]], ['rcy', [1088]], ['rdca', [10551]], ['rdldhar', [10601]], ['rdquo', [8221]], ['rdquor', [8221]], ['CloseCurlyDoubleQuote', [8221]], ['rdsh', [8627]], ['real', [8476]], ['realine', [8475]], ['realpart', [8476]], ['reals', [8477]], ['Re', [8476]], ['rect', [9645]], ['reg', [174]], ['REG', [174]], ['ReverseElement', [8715]], ['ReverseEquilibrium', [8651]], ['ReverseUpEquilibrium', [10607]], ['rfisht', [10621]], ['rfloor', [8971]], ['rfr', [120111]], ['Rfr', [8476]], ['rHar', [10596]], ['rhard', [8641]], ['rharu', [8640]], ['rharul', [10604]], ['Rho', [929]], ['rho', [961]], ['rhov', [1009]], ['RightAngleBracket', [10217]], ['RightArrowBar', [8677]], ['rightarrow', [8594]], ['RightArrow', [8594]], ['Rightarrow', [8658]], ['RightArrowLeftArrow', [8644]], ['rightarrowtail', [8611]], ['RightCeiling', [8969]], ['RightDoubleBracket', [10215]], ['RightDownTeeVector', [10589]], ['RightDownVectorBar', [10581]], ['RightDownVector', [8642]], ['RightFloor', [8971]], ['rightharpoondown', [8641]], ['rightharpoonup', [8640]], ['rightleftarrows', [8644]], ['rightleftharpoons', [8652]], ['rightrightarrows', [8649]], ['rightsquigarrow', [8605]], ['RightTeeArrow', [8614]], ['RightTee', [8866]], ['RightTeeVector', [10587]], ['rightthreetimes', [8908]], ['RightTriangleBar', [10704]], ['RightTriangle', [8883]], ['RightTriangleEqual', [8885]], ['RightUpDownVector', [10575]], ['RightUpTeeVector', [10588]], ['RightUpVectorBar', [10580]], ['RightUpVector', [8638]], ['RightVectorBar', [10579]], ['RightVector', [8640]], ['ring', [730]], ['risingdotseq', [8787]], ['rlarr', [8644]], ['rlhar', [8652]], ['rlm', [8207]], ['rmoustache', [9137]], ['rmoust', [9137]], ['rnmid', [10990]], ['roang', [10221]], ['roarr', [8702]], ['robrk', [10215]], ['ropar', [10630]], ['ropf', [120163]], ['Ropf', [8477]], ['roplus', [10798]], ['rotimes', [10805]], ['RoundImplies', [10608]], ['rpar', [41]], ['rpargt', [10644]], ['rppolint', [10770]], ['rrarr', [8649]], ['Rrightarrow', [8667]], ['rsaquo', [8250]], ['rscr', [120007]], ['Rscr', [8475]], ['rsh', [8625]], ['Rsh', [8625]], ['rsqb', [93]], ['rsquo', [8217]], ['rsquor', [8217]], ['CloseCurlyQuote', [8217]], ['rthree', [8908]], ['rtimes', [8906]], ['rtri', [9657]], ['rtrie', [8885]], ['rtrif', [9656]], ['rtriltri', [10702]], ['RuleDelayed', [10740]], ['ruluhar', [10600]], ['rx', [8478]], ['Sacute', [346]], ['sacute', [347]], ['sbquo', [8218]], ['scap', [10936]], ['Scaron', [352]], ['scaron', [353]], ['Sc', [10940]], ['sc', [8827]], ['sccue', [8829]], ['sce', [10928]], ['scE', [10932]], ['Scedil', [350]], ['scedil', [351]], ['Scirc', [348]], ['scirc', [349]], ['scnap', [10938]], ['scnE', [10934]], ['scnsim', [8937]], ['scpolint', [10771]], ['scsim', [8831]], ['Scy', [1057]], ['scy', [1089]], ['sdotb', [8865]], ['sdot', [8901]], ['sdote', [10854]], ['searhk', [10533]], ['searr', [8600]], ['seArr', [8664]], ['searrow', [8600]], ['sect', [167]], ['semi', [59]], ['seswar', [10537]], ['setminus', [8726]], ['setmn', [8726]], ['sext', [10038]], ['Sfr', [120086]], ['sfr', [120112]], ['sfrown', [8994]], ['sharp', [9839]], ['SHCHcy', [1065]], ['shchcy', [1097]], ['SHcy', [1064]], ['shcy', [1096]], ['ShortDownArrow', [8595]], ['ShortLeftArrow', [8592]], ['shortmid', [8739]], ['shortparallel', [8741]], ['ShortRightArrow', [8594]], ['ShortUpArrow', [8593]], ['shy', [173]], ['Sigma', [931]], ['sigma', [963]], ['sigmaf', [962]], ['sigmav', [962]], ['sim', [8764]], ['simdot', [10858]], ['sime', [8771]], ['simeq', [8771]], ['simg', [10910]], ['simgE', [10912]], ['siml', [10909]], ['simlE', [10911]], ['simne', [8774]], ['simplus', [10788]], ['simrarr', [10610]], ['slarr', [8592]], ['SmallCircle', [8728]], ['smallsetminus', [8726]], ['smashp', [10803]], ['smeparsl', [10724]], ['smid', [8739]], ['smile', [8995]], ['smt', [10922]], ['smte', [10924]], ['smtes', [10924, 65024]], ['SOFTcy', [1068]], ['softcy', [1100]], ['solbar', [9023]], ['solb', [10692]], ['sol', [47]], ['Sopf', [120138]], ['sopf', [120164]], ['spades', [9824]], ['spadesuit', [9824]], ['spar', [8741]], ['sqcap', [8851]], ['sqcaps', [8851, 65024]], ['sqcup', [8852]], ['sqcups', [8852, 65024]], ['Sqrt', [8730]], ['sqsub', [8847]], ['sqsube', [8849]], ['sqsubset', [8847]], ['sqsubseteq', [8849]], ['sqsup', [8848]], ['sqsupe', [8850]], ['sqsupset', [8848]], ['sqsupseteq', [8850]], ['square', [9633]], ['Square', [9633]], ['SquareIntersection', [8851]], ['SquareSubset', [8847]], ['SquareSubsetEqual', [8849]], ['SquareSuperset', [8848]], ['SquareSupersetEqual', [8850]], ['SquareUnion', [8852]], ['squarf', [9642]], ['squ', [9633]], ['squf', [9642]], ['srarr', [8594]], ['Sscr', [119982]], ['sscr', [120008]], ['ssetmn', [8726]], ['ssmile', [8995]], ['sstarf', [8902]], ['Star', [8902]], ['star', [9734]], ['starf', [9733]], ['straightepsilon', [1013]], ['straightphi', [981]], ['strns', [175]], ['sub', [8834]], ['Sub', [8912]], ['subdot', [10941]], ['subE', [10949]], ['sube', [8838]], ['subedot', [10947]], ['submult', [10945]], ['subnE', [10955]], ['subne', [8842]], ['subplus', [10943]], ['subrarr', [10617]], ['subset', [8834]], ['Subset', [8912]], ['subseteq', [8838]], ['subseteqq', [10949]], ['SubsetEqual', [8838]], ['subsetneq', [8842]], ['subsetneqq', [10955]], ['subsim', [10951]], ['subsub', [10965]], ['subsup', [10963]], ['succapprox', [10936]], ['succ', [8827]], ['succcurlyeq', [8829]], ['Succeeds', [8827]], ['SucceedsEqual', [10928]], ['SucceedsSlantEqual', [8829]], ['SucceedsTilde', [8831]], ['succeq', [10928]], ['succnapprox', [10938]], ['succneqq', [10934]], ['succnsim', [8937]], ['succsim', [8831]], ['SuchThat', [8715]], ['sum', [8721]], ['Sum', [8721]], ['sung', [9834]], ['sup1', [185]], ['sup2', [178]], ['sup3', [179]], ['sup', [8835]], ['Sup', [8913]], ['supdot', [10942]], ['supdsub', [10968]], ['supE', [10950]], ['supe', [8839]], ['supedot', [10948]], ['Superset', [8835]], ['SupersetEqual', [8839]], ['suphsol', [10185]], ['suphsub', [10967]], ['suplarr', [10619]], ['supmult', [10946]], ['supnE', [10956]], ['supne', [8843]], ['supplus', [10944]], ['supset', [8835]], ['Supset', [8913]], ['supseteq', [8839]], ['supseteqq', [10950]], ['supsetneq', [8843]], ['supsetneqq', [10956]], ['supsim', [10952]], ['supsub', [10964]], ['supsup', [10966]], ['swarhk', [10534]], ['swarr', [8601]], ['swArr', [8665]], ['swarrow', [8601]], ['swnwar', [10538]], ['szlig', [223]], ['Tab', [9]], ['target', [8982]], ['Tau', [932]], ['tau', [964]], ['tbrk', [9140]], ['Tcaron', [356]], ['tcaron', [357]], ['Tcedil', [354]], ['tcedil', [355]], ['Tcy', [1058]], ['tcy', [1090]], ['tdot', [8411]], ['telrec', [8981]], ['Tfr', [120087]], ['tfr', [120113]], ['there4', [8756]], ['therefore', [8756]], ['Therefore', [8756]], ['Theta', [920]], ['theta', [952]], ['thetasym', [977]], ['thetav', [977]], ['thickapprox', [8776]], ['thicksim', [8764]], ['ThickSpace', [8287, 8202]], ['ThinSpace', [8201]], ['thinsp', [8201]], ['thkap', [8776]], ['thksim', [8764]], ['THORN', [222]], ['thorn', [254]], ['tilde', [732]], ['Tilde', [8764]], ['TildeEqual', [8771]], ['TildeFullEqual', [8773]], ['TildeTilde', [8776]], ['timesbar', [10801]], ['timesb', [8864]], ['times', [215]], ['timesd', [10800]], ['tint', [8749]], ['toea', [10536]], ['topbot', [9014]], ['topcir', [10993]], ['top', [8868]], ['Topf', [120139]], ['topf', [120165]], ['topfork', [10970]], ['tosa', [10537]], ['tprime', [8244]], ['trade', [8482]], ['TRADE', [8482]], ['triangle', [9653]], ['triangledown', [9663]], ['triangleleft', [9667]], ['trianglelefteq', [8884]], ['triangleq', [8796]], ['triangleright', [9657]], ['trianglerighteq', [8885]], ['tridot', [9708]], ['trie', [8796]], ['triminus', [10810]], ['TripleDot', [8411]], ['triplus', [10809]], ['trisb', [10701]], ['tritime', [10811]], ['trpezium', [9186]], ['Tscr', [119983]], ['tscr', [120009]], ['TScy', [1062]], ['tscy', [1094]], ['TSHcy', [1035]], ['tshcy', [1115]], ['Tstrok', [358]], ['tstrok', [359]], ['twixt', [8812]], ['twoheadleftarrow', [8606]], ['twoheadrightarrow', [8608]], ['Uacute', [218]], ['uacute', [250]], ['uarr', [8593]], ['Uarr', [8607]], ['uArr', [8657]], ['Uarrocir', [10569]], ['Ubrcy', [1038]], ['ubrcy', [1118]], ['Ubreve', [364]], ['ubreve', [365]], ['Ucirc', [219]], ['ucirc', [251]], ['Ucy', [1059]], ['ucy', [1091]], ['udarr', [8645]], ['Udblac', [368]], ['udblac', [369]], ['udhar', [10606]], ['ufisht', [10622]], ['Ufr', [120088]], ['ufr', [120114]], ['Ugrave', [217]], ['ugrave', [249]], ['uHar', [10595]], ['uharl', [8639]], ['uharr', [8638]], ['uhblk', [9600]], ['ulcorn', [8988]], ['ulcorner', [8988]], ['ulcrop', [8975]], ['ultri', [9720]], ['Umacr', [362]], ['umacr', [363]], ['uml', [168]], ['UnderBar', [95]], ['UnderBrace', [9183]], ['UnderBracket', [9141]], ['UnderParenthesis', [9181]], ['Union', [8899]], ['UnionPlus', [8846]], ['Uogon', [370]], ['uogon', [371]], ['Uopf', [120140]], ['uopf', [120166]], ['UpArrowBar', [10514]], ['uparrow', [8593]], ['UpArrow', [8593]], ['Uparrow', [8657]], ['UpArrowDownArrow', [8645]], ['updownarrow', [8597]], ['UpDownArrow', [8597]], ['Updownarrow', [8661]], ['UpEquilibrium', [10606]], ['upharpoonleft', [8639]], ['upharpoonright', [8638]], ['uplus', [8846]], ['UpperLeftArrow', [8598]], ['UpperRightArrow', [8599]], ['upsi', [965]], ['Upsi', [978]], ['upsih', [978]], ['Upsilon', [933]], ['upsilon', [965]], ['UpTeeArrow', [8613]], ['UpTee', [8869]], ['upuparrows', [8648]], ['urcorn', [8989]], ['urcorner', [8989]], ['urcrop', [8974]], ['Uring', [366]], ['uring', [367]], ['urtri', [9721]], ['Uscr', [119984]], ['uscr', [120010]], ['utdot', [8944]], ['Utilde', [360]], ['utilde', [361]], ['utri', [9653]], ['utrif', [9652]], ['uuarr', [8648]], ['Uuml', [220]], ['uuml', [252]], ['uwangle', [10663]], ['vangrt', [10652]], ['varepsilon', [1013]], ['varkappa', [1008]], ['varnothing', [8709]], ['varphi', [981]], ['varpi', [982]], ['varpropto', [8733]], ['varr', [8597]], ['vArr', [8661]], ['varrho', [1009]], ['varsigma', [962]], ['varsubsetneq', [8842, 65024]], ['varsubsetneqq', [10955, 65024]], ['varsupsetneq', [8843, 65024]], ['varsupsetneqq', [10956, 65024]], ['vartheta', [977]], ['vartriangleleft', [8882]], ['vartriangleright', [8883]], ['vBar', [10984]], ['Vbar', [10987]], ['vBarv', [10985]], ['Vcy', [1042]], ['vcy', [1074]], ['vdash', [8866]], ['vDash', [8872]], ['Vdash', [8873]], ['VDash', [8875]], ['Vdashl', [10982]], ['veebar', [8891]], ['vee', [8744]], ['Vee', [8897]], ['veeeq', [8794]], ['vellip', [8942]], ['verbar', [124]], ['Verbar', [8214]], ['vert', [124]], ['Vert', [8214]], ['VerticalBar', [8739]], ['VerticalLine', [124]], ['VerticalSeparator', [10072]], ['VerticalTilde', [8768]], ['VeryThinSpace', [8202]], ['Vfr', [120089]], ['vfr', [120115]], ['vltri', [8882]], ['vnsub', [8834, 8402]], ['vnsup', [8835, 8402]], ['Vopf', [120141]], ['vopf', [120167]], ['vprop', [8733]], ['vrtri', [8883]], ['Vscr', [119985]], ['vscr', [120011]], ['vsubnE', [10955, 65024]], ['vsubne', [8842, 65024]], ['vsupnE', [10956, 65024]], ['vsupne', [8843, 65024]], ['Vvdash', [8874]], ['vzigzag', [10650]], ['Wcirc', [372]], ['wcirc', [373]], ['wedbar', [10847]], ['wedge', [8743]], ['Wedge', [8896]], ['wedgeq', [8793]], ['weierp', [8472]], ['Wfr', [120090]], ['wfr', [120116]], ['Wopf', [120142]], ['wopf', [120168]], ['wp', [8472]], ['wr', [8768]], ['wreath', [8768]], ['Wscr', [119986]], ['wscr', [120012]], ['xcap', [8898]], ['xcirc', [9711]], ['xcup', [8899]], ['xdtri', [9661]], ['Xfr', [120091]], ['xfr', [120117]], ['xharr', [10231]], ['xhArr', [10234]], ['Xi', [926]], ['xi', [958]], ['xlarr', [10229]], ['xlArr', [10232]], ['xmap', [10236]], ['xnis', [8955]], ['xodot', [10752]], ['Xopf', [120143]], ['xopf', [120169]], ['xoplus', [10753]], ['xotime', [10754]], ['xrarr', [10230]], ['xrArr', [10233]], ['Xscr', [119987]], ['xscr', [120013]], ['xsqcup', [10758]], ['xuplus', [10756]], ['xutri', [9651]], ['xvee', [8897]], ['xwedge', [8896]], ['Yacute', [221]], ['yacute', [253]], ['YAcy', [1071]], ['yacy', [1103]], ['Ycirc', [374]], ['ycirc', [375]], ['Ycy', [1067]], ['ycy', [1099]], ['yen', [165]], ['Yfr', [120092]], ['yfr', [120118]], ['YIcy', [1031]], ['yicy', [1111]], ['Yopf', [120144]], ['yopf', [120170]], ['Yscr', [119988]], ['yscr', [120014]], ['YUcy', [1070]], ['yucy', [1102]], ['yuml', [255]], ['Yuml', [376]], ['Zacute', [377]], ['zacute', [378]], ['Zcaron', [381]], ['zcaron', [382]], ['Zcy', [1047]], ['zcy', [1079]], ['Zdot', [379]], ['zdot', [380]], ['zeetrf', [8488]], ['ZeroWidthSpace', [8203]], ['Zeta', [918]], ['zeta', [950]], ['zfr', [120119]], ['Zfr', [8488]], ['ZHcy', [1046]], ['zhcy', [1078]], ['zigrarr', [8669]], ['zopf', [120171]], ['Zopf', [8484]], ['Zscr', [119989]], ['zscr', [120015]], ['zwj', [8205]], ['zwnj', [8204]]];
@@ -1875,35 +1914,35 @@ module.exports = Html5Entities;
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var Observable_1 = __webpack_require__(105);
-var map_1 = __webpack_require__(107);
+var Observable_1 = __webpack_require__(106);
+var map_1 = __webpack_require__(108);
 Observable_1.Observable.prototype.map = map_1.map;
 //# sourceMappingURL=map.js.map
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(37);
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(4);
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_reflect_metadata__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_reflect_metadata__ = __webpack_require__(87);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_reflect_metadata___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_reflect_metadata__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_zone_js__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_zone_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_zone_js__);
@@ -1911,7 +1950,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_bootstrap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_bootstrap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_dynamic__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_app_module_browser__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_app_module_browser__ = __webpack_require__(20);
 
 
 
@@ -1937,7 +1976,7 @@ var modulePromise = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__angular_p
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(__resourceQuery, module) {/*eslint-env browser*/
@@ -1953,7 +1992,7 @@ var options = {
   name: ''
 };
 if (true) {
-  var querystring = __webpack_require__(85);
+  var querystring = __webpack_require__(86);
   var overrides = querystring.parse(__resourceQuery.slice(1));
   if (overrides.path) options.path = overrides.path;
   if (overrides.timeout) options.timeout = overrides.timeout;
@@ -2073,11 +2112,11 @@ if (typeof window !== 'undefined') {
 }
 
 function createReporter() {
-  var strip = __webpack_require__(87);
+  var strip = __webpack_require__(88);
 
   var overlay;
   if (typeof document !== 'undefined' && options.overlay) {
-    overlay = __webpack_require__(102);
+    overlay = __webpack_require__(103);
   }
 
   var styles = {
@@ -2130,7 +2169,7 @@ function createReporter() {
   };
 }
 
-var processUpdate = __webpack_require__(103);
+var processUpdate = __webpack_require__(104);
 
 var customHandler;
 var subscribeAllHandler;
@@ -2195,16 +2234,16 @@ if (module) {
   };
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, "?path=__webpack_hmr&dynamicPublicPath=true", __webpack_require__(104)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, "?path=__webpack_hmr&dynamicPublicPath=true", __webpack_require__(105)(module)))
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(45);
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2218,8 +2257,8 @@ module.exports = (__webpack_require__(1))(45);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return WebAnimationsDriver; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return supportsWebAnimations; });
 /* unused harmony export ɵWebAnimationsPlayer */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_animations__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_tslib__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_animations__ = __webpack_require__(12);
 
 /**
  * @license Angular v4.4.6
@@ -7134,7 +7173,7 @@ function supportsWebAnimations() {
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7317,7 +7356,7 @@ ansiHTML.reset()
 
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7328,17 +7367,17 @@ module.exports = function () {
 
 
 /***/ }),
-/* 18 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* unused harmony export getBaseUrl */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_module_shared__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_app_app_component__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_module_shared__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_app_app_component__ = __webpack_require__(8);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7375,49 +7414,51 @@ function getBaseUrl() {
 
 
 /***/ }),
-/* 19 */
+/* 21 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModuleShared; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_app_app_component__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_navmenu_navmenu_component__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_text_text_component__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_team_team_component__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_teammate_teammate_component__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_footer_footer_component__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__fab_fab_component__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_sidebars_textsidebar_textsidebar_component__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_sidebars_teamsidebar_teamsidebar_component__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_sidebars_personsidebar_personsidebar_component__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_sidebars_productsidebar_productsidebar_component__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_sidebars_gallerysidebar_gallerysidebar_component__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_sidebars_searchsidebar_searchsidebar_component__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_searchable_searchable_component__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_person_person_component__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_product_product_component__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_gallery_gallery_component__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_login_login_component__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__devbutton_devbutton_component__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_btns_editbtn_editbtn_component__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__components_btns_trash_btn_trashbtn_component__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_btns_up_btn_upbtn_component__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_btns_down_btn_downbtn_component__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_page_service__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_account_service__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_page_service__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_account_service__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_app_app_component__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_navmenu_navmenu_component__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_text_text_component__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_team_team_component__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_teammate_teammate_component__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_footer_footer_component__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__fab_fab_component__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_sidebars_textsidebar_textsidebar_component__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_sidebars_teamsidebar_teamsidebar_component__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_sidebars_personsidebar_personsidebar_component__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_sidebars_productsidebar_productsidebar_component__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_sidebars_gallerysidebar_gallerysidebar_component__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_sidebars_searchsidebar_searchsidebar_component__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_searchable_searchable_component__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__components_person_person_component__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_product_product_component__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__components_gallery_gallery_component__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__components_login_login_component__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__devbutton_devbutton_component__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_btns_editbtn_editbtn_component__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__components_btns_trash_btn_trashbtn_component__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__components_btns_up_btn_upbtn_component__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__components_btns_down_btn_downbtn_component__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -7449,64 +7490,63 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
 var AppModuleShared = (function () {
     function AppModuleShared() {
     }
     AppModuleShared = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_7__components_app_app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__components_navmenu_navmenu_component__["a" /* NavMenuComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__components_text_text_component__["a" /* TextComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__components_team_team_component__["a" /* TeamComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__components_teammate_teammate_component__["a" /* TeammateComponent */],
-                __WEBPACK_IMPORTED_MODULE_12__components_footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__fab_fab_component__["a" /* FabComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__components_person_person_component__["a" /* PersonComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__components_product_product_component__["a" /* ProductComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__components_sidebars_textsidebar_textsidebar_component__["a" /* TextSidebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__components_sidebars_teamsidebar_teamsidebar_component__["a" /* TeamSidebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__components_sidebars_personsidebar_personsidebar_component__["a" /* PersonSidebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__components_sidebars_productsidebar_productsidebar_component__["a" /* ProductSidebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__components_sidebars_gallerysidebar_gallerysidebar_component__["a" /* GallerySidebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__components_sidebars_searchsidebar_searchsidebar_component__["a" /* SearchSidebarComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__components_searchable_searchable_component__["a" /* SearchableComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__components_gallery_gallery_component__["a" /* GalleryComponent */],
-                __WEBPACK_IMPORTED_MODULE_24__components_login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_25__devbutton_devbutton_component__["a" /* DevButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_26__components_btns_editbtn_editbtn_component__["a" /* EditButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_27__components_btns_trash_btn_trashbtn_component__["a" /* TrashButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__components_btns_up_btn_upbtn_component__["a" /* UpButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__components_btns_down_btn_downbtn_component__["a" /* DownButtonComponent */]
+                __WEBPACK_IMPORTED_MODULE_9__components_app_app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__components_navmenu_navmenu_component__["a" /* NavMenuComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__components_text_text_component__["a" /* TextComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__components_team_team_component__["a" /* TeamComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__components_teammate_teammate_component__["a" /* TeammateComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__components_footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__fab_fab_component__["a" /* FabComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__components_person_person_component__["a" /* PersonComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__components_product_product_component__["a" /* ProductComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__components_sidebars_textsidebar_textsidebar_component__["a" /* TextSidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__components_sidebars_teamsidebar_teamsidebar_component__["a" /* TeamSidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__components_sidebars_personsidebar_personsidebar_component__["a" /* PersonSidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__components_sidebars_productsidebar_productsidebar_component__["a" /* ProductSidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__components_sidebars_gallerysidebar_gallerysidebar_component__["a" /* GallerySidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__components_sidebars_searchsidebar_searchsidebar_component__["a" /* SearchSidebarComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__components_searchable_searchable_component__["a" /* SearchableComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__components_gallery_gallery_component__["a" /* GalleryComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__components_login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_27__devbutton_devbutton_component__["a" /* DevButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__components_btns_editbtn_editbtn_component__["a" /* EditButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_29__components_btns_trash_btn_trashbtn_component__["a" /* TrashButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_30__components_btns_up_btn_upbtn_component__["a" /* UpButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__components_btns_down_btn_downbtn_component__["a" /* DownButtonComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["BrowserModule"],
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["CommonModule"],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["ReactiveFormsModule"],
                 __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_router__["RouterModule"].forRoot([
                     { path: '', redirectTo: 'home', pathMatch: 'full' },
-                    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_9__components_text_text_component__["a" /* TextComponent */] },
-                    { path: 'text', component: __WEBPACK_IMPORTED_MODULE_9__components_text_text_component__["a" /* TextComponent */] },
-                    { path: 'team', component: __WEBPACK_IMPORTED_MODULE_10__components_team_team_component__["a" /* TeamComponent */] },
-                    { path: 'footer', component: __WEBPACK_IMPORTED_MODULE_12__components_footer_footer_component__["a" /* FooterComponent */] },
-                    { path: 'person', component: __WEBPACK_IMPORTED_MODULE_21__components_person_person_component__["a" /* PersonComponent */] },
-                    { path: 'product', component: __WEBPACK_IMPORTED_MODULE_22__components_product_product_component__["a" /* ProductComponent */] },
+                    { path: 'home', component: __WEBPACK_IMPORTED_MODULE_11__components_text_text_component__["a" /* TextComponent */] },
+                    { path: 'text', component: __WEBPACK_IMPORTED_MODULE_11__components_text_text_component__["a" /* TextComponent */] },
+                    { path: 'team', component: __WEBPACK_IMPORTED_MODULE_12__components_team_team_component__["a" /* TeamComponent */] },
+                    { path: 'footer', component: __WEBPACK_IMPORTED_MODULE_14__components_footer_footer_component__["a" /* FooterComponent */] },
+                    { path: 'person', component: __WEBPACK_IMPORTED_MODULE_23__components_person_person_component__["a" /* PersonComponent */] },
+                    { path: 'product', component: __WEBPACK_IMPORTED_MODULE_24__components_product_product_component__["a" /* ProductComponent */] },
                     { path: '**', redirectTo: 'home' }
                 ])
             ],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_23__components_gallery_gallery_component__["a" /* GalleryComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__components_text_text_component__["a" /* TextComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__components_person_person_component__["a" /* PersonComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__components_team_team_component__["a" /* TeamComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__components_product_product_component__["a" /* ProductComponent */]
+                __WEBPACK_IMPORTED_MODULE_25__components_gallery_gallery_component__["a" /* GalleryComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__components_text_text_component__["a" /* TextComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__components_person_person_component__["a" /* PersonComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__components_team_team_component__["a" /* TeamComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__components_product_product_component__["a" /* ProductComponent */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_30__services_page_service__["a" /* PageService */], __WEBPACK_IMPORTED_MODULE_31__services_account_service__["a" /* AccountService */]
+                __WEBPACK_IMPORTED_MODULE_7__services_page_service__["a" /* PageService */], __WEBPACK_IMPORTED_MODULE_8__services_account_service__["a" /* AccountService */]
             ]
         })
     ], AppModuleShared);
@@ -7516,7 +7556,7 @@ var AppModuleShared = (function () {
 
 
 /***/ }),
-/* 20 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7535,7 +7575,7 @@ var DownButtonComponent = (function () {
     DownButtonComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'down-btn',
-            template: __webpack_require__(61)
+            template: __webpack_require__(62)
         })
     ], DownButtonComponent);
     return DownButtonComponent;
@@ -7544,7 +7584,7 @@ var DownButtonComponent = (function () {
 
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7563,7 +7603,7 @@ var EditButtonComponent = (function () {
     EditButtonComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'edit-btn',
-            template: __webpack_require__(62)
+            template: __webpack_require__(63)
         })
     ], EditButtonComponent);
     return EditButtonComponent;
@@ -7572,7 +7612,7 @@ var EditButtonComponent = (function () {
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7591,7 +7631,7 @@ var TrashButtonComponent = (function () {
     TrashButtonComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'trash-btn',
-            template: __webpack_require__(63)
+            template: __webpack_require__(64)
         })
     ], TrashButtonComponent);
     return TrashButtonComponent;
@@ -7600,7 +7640,7 @@ var TrashButtonComponent = (function () {
 
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7619,7 +7659,7 @@ var UpButtonComponent = (function () {
     UpButtonComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'up-btn',
-            template: __webpack_require__(64)
+            template: __webpack_require__(65)
         })
     ], UpButtonComponent);
     return UpButtonComponent;
@@ -7628,7 +7668,7 @@ var UpButtonComponent = (function () {
 
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7669,8 +7709,8 @@ var FooterComponent = (function () {
     FooterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-footer',
-            styles: [__webpack_require__(89)],
-            template: __webpack_require__(65)
+            styles: [__webpack_require__(90)],
+            template: __webpack_require__(66)
         })
     ], FooterComponent);
     return FooterComponent;
@@ -7679,7 +7719,7 @@ var FooterComponent = (function () {
 
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7697,18 +7737,35 @@ var GalleryComponent = (function () {
         this.model = {
             title: 'Галерея продуктов',
             backgroundColor: 'material-blue',
-            ImgUrl: 'Images//BA.jpg',
-            sometext: 'Some text about project'
+            ImgUrl1: 'Images//BA.jpg',
+            ImgUrl2: 'Images//SO.jpg',
+            ImgUrl3: 'Images//SO.jpg',
+            description1: 'BA text about project',
+            description2: 'SO text about project',
+            description3: 'SoBa text about project'
         };
     }
     GalleryComponent.prototype.getBackgroundColor = function () {
         return this.model.backgroundColor;
     };
+    GalleryComponent.prototype.ngOnInit = function () {
+        if (this._page) {
+            var details = JSON.parse(this._page.details);
+            this.model.title = details.title;
+            this.model.backgroundColor = details.backgroundColor;
+            this.model.ImgUrl1 = details.imgUrl1;
+            this.model.ImgUrl2 = details.imgUrl2;
+            this.model.ImgUrl3 = details.imgUrl3;
+            this.model.description1 = details.description1;
+            this.model.description2 = details.description2;
+            this.model.description3 = details.description3;
+        }
+    };
     GalleryComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-gallery',
-            styles: [__webpack_require__(90)],
-            template: __webpack_require__(66)
+            styles: [__webpack_require__(91)],
+            template: __webpack_require__(67)
         })
     ], GalleryComponent);
     return GalleryComponent;
@@ -7717,7 +7774,7 @@ var GalleryComponent = (function () {
 
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7739,8 +7796,8 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'login',
-            styles: [__webpack_require__(91)],
-            template: __webpack_require__(67)
+            styles: [__webpack_require__(92)],
+            template: __webpack_require__(68)
         })
     ], LoginComponent);
     return LoginComponent;
@@ -7749,7 +7806,7 @@ var LoginComponent = (function () {
 
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7768,8 +7825,8 @@ var NavMenuComponent = (function () {
     NavMenuComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'nav-menu',
-            template: __webpack_require__(68),
-            styles: [__webpack_require__(92)]
+            template: __webpack_require__(69),
+            styles: [__webpack_require__(93)]
         })
     ], NavMenuComponent);
     return NavMenuComponent;
@@ -7778,7 +7835,7 @@ var NavMenuComponent = (function () {
 
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7800,33 +7857,31 @@ var PersonComponent = (function () {
             opinion: 'Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра.',
             Name: 'Папа',
             Surname: 'Пежа',
-            Age: '99',
-            WhoIsThis: 'Папа Пежа'
+            Age: '69',
+            Occupation: 'Папа Пежа'
         };
     }
-    /*constructor(page: Page) {
-        super(page);
-
-        let details = JSON.parse(page.details);
-
-        this.title           = details.title;
-        this.backgroundColor = details.backgroundColor;
-        this.personImgUrl    = details.personImgUrl;
-        this.personImgAlt    = details.personImgAlt;
-        this.opinion         = details.opinion;
-        this.Name            = details.Name;
-        this.Surname         = details.Surname;
-        this.Age             = details.Age;
-        this.WhoIsThis       = details.WhoIsThis;
-    }*/
     PersonComponent.prototype.getBackgroundColor = function () {
         return this.model.backgroundColor;
+    };
+    PersonComponent.prototype.ngOnInit = function () {
+        if (this._page) {
+            var details = JSON.parse(this._page.details);
+            this.model.title = details.title;
+            this.model.backgroundColor = details.backgroundColor;
+            this.model.personImgUrl = details.personImgUrl;
+            this.model.opinion = details.opinion;
+            this.model.Name = details.name;
+            this.model.Surname = details.surname;
+            this.model.Age = details.age;
+            this.model.Occupation = details.occupation;
+        }
     };
     PersonComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-person',
-            styles: [__webpack_require__(93)],
-            template: __webpack_require__(69)
+            styles: [__webpack_require__(94)],
+            template: __webpack_require__(70)
         })
     ], PersonComponent);
     return PersonComponent;
@@ -7835,7 +7890,7 @@ var PersonComponent = (function () {
 
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7858,26 +7913,24 @@ var ProductComponent = (function () {
             subText: "Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра."
         };
     }
-    /*constructor(page: Page) {
-        super(page);
-
-        let details = JSON.parse(page.details);
-
-        this.title           = details.title;
-        this.backgroundColor = details.backgroundColor;
-        this.productImgUrl   = details.productImgUrl;
-        this.productImgAlt   = details.productImgAlt;
-        this.mainText        = details.mainText;
-        this.subText         = details.subText;
-    }*/
     ProductComponent.prototype.getBackgroundColor = function () {
         return this.model.backgroundColor;
+    };
+    ProductComponent.prototype.ngOnInit = function () {
+        if (this._page) {
+            var details = JSON.parse(this._page.details);
+            this.model.title = details.title;
+            this.model.backgroundColor = details.backgroundColor;
+            this.model.productImgUrl = details.productImgUrl;
+            this.model.mainText = details.mainText;
+            this.model.subText = details.subText;
+        }
     };
     ProductComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-product',
-            styles: [__webpack_require__(94)],
-            template: __webpack_require__(70)
+            styles: [__webpack_require__(95)],
+            template: __webpack_require__(71)
         })
     ], ProductComponent);
     return ProductComponent;
@@ -7886,7 +7939,7 @@ var ProductComponent = (function () {
 
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7916,105 +7969,11 @@ var SearchableComponent = (function () {
     SearchableComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'searchable',
-            template: __webpack_require__(71),
-            styles: [__webpack_require__(95)],
+            template: __webpack_require__(72),
+            styles: [__webpack_require__(96)],
         })
     ], SearchableComponent);
     return SearchableComponent;
-}());
-
-
-
-/***/ }),
-/* 31 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GallerySidebarComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var GallerySidebarComponent = (function () {
-    function GallerySidebarComponent() {
-        this.model = {
-            title: '',
-            backgroundColor: '',
-            photos: []
-        };
-    }
-    /*constructor(public page: Page, public pageService: PageService) {
-
-    }
-
-    editGalleryInfo(ev) {
-        this.page.details = JSON.stringify(this.model);
-        this.pageService.updateDetails(this.page.position, this.page.details);
-    }*/
-    GallerySidebarComponent.prototype.updateImage = function (ev, index) {
-        var image = ev.target.files[0];
-        this.model.photos[index] = image;
-    };
-    GallerySidebarComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'my-gallerysidebar',
-            template: __webpack_require__(72)
-        })
-    ], GallerySidebarComponent);
-    return GallerySidebarComponent;
-}());
-
-
-
-/***/ }),
-/* 32 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PersonSidebarComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var PersonSidebarComponent = (function () {
-    function PersonSidebarComponent() {
-        /*constructor(public page: Page, public pageService: PageService) {
-    
-        }
-    
-        editPersonInfo(ev) {
-            this.page.details = JSON.stringify(this.model);
-            this.pageService.updateDetails(this.page.position, this.page.details);
-        }*/
-        this.model = {
-            title: '',
-            mainText: '',
-            personName: '',
-            age: 0,
-            position: '',
-            photo: {},
-            backgroundColor: ''
-        };
-    }
-    PersonSidebarComponent.prototype.updateImage = function (ev) {
-        var image = ev.target.files[0];
-        this.model.photo = image;
-    };
-    PersonSidebarComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'my-personsidebar',
-            template: __webpack_require__(73)
-        })
-    ], PersonSidebarComponent);
-    return PersonSidebarComponent;
 }());
 
 
@@ -8024,8 +7983,9 @@ var PersonSidebarComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductSidebarComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GallerySidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8033,35 +7993,65 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-var ProductSidebarComponent = (function () {
-    function ProductSidebarComponent() {
-        /*constructor(public page: Page, public pageService: PageService) {
-    
-        }
-    
-        editProductInfo(ev) {
-            this.page.details = JSON.stringify(this.model);
-            this.pageService.updateDetails(this.page.position, this.page.details);
-        }*/
+
+var GallerySidebarComponent = (function () {
+    function GallerySidebarComponent() {
         this.model = {
             title: '',
-            mainText: '',
-            subText: '',
-            photo: {},
-            backgroundColor: ''
+            backgroundColor: '',
+            imgUrl1: '',
+            imgUrl2: '',
+            imgUrl3: '',
+            description1: '',
+            description2: '',
+            description3: ''
         };
     }
-    ProductSidebarComponent.prototype.updateImage = function (ev) {
-        var image = ev.target.files[0];
-        this.model.photo = image;
+    //инициализация формы
+    GallerySidebarComponent.prototype.ngOnInit = function () {
+        this.galleryEditForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
+            title: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            backgroundColor: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            imgUrl1: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            imgUrl2: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            imgUrl3: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            description1: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            description2: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            description3: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+        });
     };
-    ProductSidebarComponent = __decorate([
+    GallerySidebarComponent.prototype.updateImage = function (ev, index) {
+        var file = ev.target.files[0];
+        switch (index) {
+            case 1:
+                this.model.imgUrl1 = file.name;
+                break;
+            case 2:
+                this.model.imgUrl2 = file.name;
+                break;
+            case 3:
+                this.model.imgUrl3 = file.name;
+                break;
+        }
+    };
+    GallerySidebarComponent.prototype.save = function (data) {
+        //данные об изображении передаются в модель в updateImage()
+        this.model.title = data.title;
+        this.model.description1 = data.description1;
+        this.model.description2 = data.description2;
+        this.model.description3 = data.description3;
+        this.model.backgroundColor = data.backgroundColor;
+        //ready to be sent to server
+        var details = JSON.stringify(this.model);
+        console.log(details);
+    };
+    GallerySidebarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'my-productsidebar',
-            template: __webpack_require__(74)
+            selector: 'my-gallerysidebar',
+            template: __webpack_require__(73)
         })
-    ], ProductSidebarComponent);
-    return ProductSidebarComponent;
+    ], GallerySidebarComponent);
+    return GallerySidebarComponent;
 }());
 
 
@@ -8071,8 +8061,155 @@ var ProductSidebarComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PersonSidebarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var PersonSidebarComponent = (function () {
+    function PersonSidebarComponent() {
+        this.model = {
+            title: '',
+            mainText: '',
+            personName: '',
+            age: 0,
+            position: '',
+            photo: '',
+            backgroundColor: ''
+        };
+    }
+    //инициализация формы
+    PersonSidebarComponent.prototype.ngOnInit = function () {
+        this.personEditForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
+            title: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            backgroundColor: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            mainText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            personName: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            age: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"](0, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            position: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            photo: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required])
+        });
+    };
+    PersonSidebarComponent.prototype.updateImage = function (ev) {
+        var _this = this;
+        var reader = new FileReader();
+        //get the selected file from event
+        var file = ev.target.files[0];
+        //onloadend срабатывает после reader.readAsDataURL(file);
+        reader.onloadend = function () {
+            //Assign the result to variable for setting the src of image element
+            _this.model.photo = reader.result;
+        };
+        reader.readAsDataURL(file);
+    };
+    PersonSidebarComponent.prototype.save = function (data) {
+        //данные об изображении передаются в модель в updateImage()
+        this.model.title = data.title;
+        this.model.mainText = data.mainText;
+        this.model.personName = data.personName;
+        this.model.position = data.position;
+        this.model.age = data.age;
+        this.model.backgroundColor = data.backgroundColor;
+        //ready to be sent to server
+        var details = JSON.stringify(this.model);
+        console.log(details);
+    };
+    PersonSidebarComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'my-personsidebar',
+            template: __webpack_require__(74)
+        })
+    ], PersonSidebarComponent);
+    return PersonSidebarComponent;
+}());
+
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductSidebarComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(3);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var ProductSidebarComponent = (function () {
+    function ProductSidebarComponent() {
+        this.model = {
+            title: '',
+            mainText: '',
+            subText: '',
+            photo: '',
+            backgroundColor: ''
+        };
+    }
+    //инициализация формы
+    ProductSidebarComponent.prototype.ngOnInit = function () {
+        this.productEditForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
+            title: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            mainText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            subText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            photo: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            backgroundColor: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required])
+        });
+    };
+    ProductSidebarComponent.prototype.updateImage = function (ev) {
+        var _this = this;
+        var reader = new FileReader();
+        //get the selected file from event
+        var file = ev.target.files[0];
+        //onloadend срабатывает после reader.readAsDataURL(file);
+        reader.onloadend = function () {
+            //Assign the result to variable for setting the src of image element
+            _this.model.photo = reader.result;
+        };
+        reader.readAsDataURL(file);
+    };
+    ProductSidebarComponent.prototype.save = function (data) {
+        //данные об изображении передаются в модель в updateImage()
+        this.model.title = data.title;
+        this.model.mainText = data.mainText;
+        this.model.subText = data.subText;
+        this.model.backgroundColor = data.backgroundColor;
+        //ready to be sent to server
+        var details = JSON.stringify(this.model);
+        console.log(details);
+        ;
+    };
+    ProductSidebarComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'my-productsidebar',
+            template: __webpack_require__(75)
+        })
+    ], ProductSidebarComponent);
+    return ProductSidebarComponent;
+}());
+
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchSidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_page_service__ = __webpack_require__(4);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8083,30 +8220,109 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var SearchSidebarComponent = (function () {
-    function SearchSidebarComponent() {
+    function SearchSidebarComponent(pageService) {
+        this.pageService = pageService;
+    }
+    SearchSidebarComponent.prototype.ngOnInit = function () {
         this.titles0 = 'Text component';
         this.previews0 = 'Images//previews//text.PNG';
         this.template0 = 'text-component';
         this.titles1 = 'Team component';
         this.previews1 = 'Images//previews//team.PNG';
-        this.template0 = 'team-component';
+        this.template1 = 'team-component';
         this.titles2 = 'Person component';
         this.previews2 = 'Images//previews//person.PNG';
-        this.template0 = 'person-component';
+        this.template2 = 'person-component';
         this.titles3 = 'Product component';
         this.previews3 = 'Images//previews//product.PNG';
-        this.template0 = 'product-component';
+        this.template3 = 'product-component';
         this.titles4 = 'Gallery component';
         this.previews4 = 'Images//previews//gallery.PNG';
-        this.template0 = 'gallery-component';
-    }
+        this.template4 = 'gallery-component';
+        this.textDetails = {
+            title: 'TextTitle',
+            mainText: 'MainText',
+            subText: 'SubText',
+            backgroundColor: '#ffffff',
+            buttonLeftText: 'leftText',
+            buttonRightText: 'rightText',
+            buttonLeftLink: 'http://localhost/leftlink',
+            buttonRightLink: 'http://localhost/rightlink'
+        };
+        this.teamDetails = {
+            title: 'TeamTitle',
+            mainText: 'MainText',
+            backgroundColor: '#ffffff',
+            teammate1_Name: 'DummyName1',
+            teammate1_Description: 'DummyDescription1',
+            teammate1_Link: 'https://localhost/firstLink',
+            teammate1_Photo: 'Images//dummy6.png',
+            teammate2_Name: 'DummyName2',
+            teammate2_Description: 'DummyDescription2',
+            teammate2_Link: 'https://localhost/secondLink',
+            teammate2_Photo: 'Images//dummy7.png',
+        };
+        this.productDetails = {
+            title: 'ProductTitle',
+            mainText: 'MainText',
+            subText: 'SubText',
+            photo: 'Images//dummy5.png',
+            backgroundColor: '#ffffff'
+        };
+        this.personDetails = {
+            title: 'PersonTitle',
+            mainText: 'MainText',
+            personName: 'DummyName',
+            age: '1337',
+            position: 'PersonPosition',
+            photo: 'Images//dummy4.png',
+            backgroundColor: '#ffffff'
+        };
+        this.galleryDetails = {
+            title: 'GalleryTitle',
+            backgroundColor: '#ffffff',
+            imgUrl1: 'Images//dummy1.png',
+            imgUrl2: 'Images//dummy1.png',
+            imgUrl3: 'Images//dummy1.png',
+            description1: 'Dummy description to project1',
+            description2: 'Dummy description to project2',
+            description3: 'Dummy description to project3'
+        };
+    };
+    SearchSidebarComponent.prototype.createPage = function (template) {
+        var position = this.pageService.getPages.length + 1;
+        var objId = position;
+        var details = '';
+        switch (template) {
+            case 'text-component':
+                details = this.textDetails;
+                break;
+            case 'team-component':
+                details = this.teamDetails;
+                break;
+            case 'person-component':
+                details = this.productDetails;
+                break;
+            case 'product-component':
+                details = this.personDetails;
+                break;
+            case 'gallery-component':
+                details = this.galleryDetails;
+                break;
+        }
+        var page = new __WEBPACK_IMPORTED_MODULE_1__page__["a" /* Page */](objId, position, template, JSON.stringify(details));
+        this.pageService.addPage(page);
+    };
     SearchSidebarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-searchsidebar',
-            template: __webpack_require__(75),
+            template: __webpack_require__(76),
+            providers: [__WEBPACK_IMPORTED_MODULE_2__services_page_service__["a" /* PageService */]]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_page_service__["a" /* PageService */]])
     ], SearchSidebarComponent);
     return SearchSidebarComponent;
 }());
@@ -8114,12 +8330,13 @@ var SearchSidebarComponent = (function () {
 
 
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TeamSidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8127,16 +8344,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
+
 var TeamSidebarComponent = (function () {
     function TeamSidebarComponent() {
-        /*constructor(public page: Page, public pageService: PageService) {
-    
-        }
-    
-        editTextInfo(ev) {
-            this.page.details = JSON.stringify(this.model);
-            this.pageService.updateDetails(this.page.position, this.page.details);
-        }*/
         this.model = {
             title: '',
             mainText: '',
@@ -8144,28 +8354,67 @@ var TeamSidebarComponent = (function () {
             teammate1_Name: '',
             teammate1_Description: '',
             teammate1_Link: '',
-            teammate1_Photo: {},
+            teammate1_Photo: '',
             teammate2_Name: '',
             teammate2_Description: '',
             teammate2_Link: '',
-            teammate2_Photo: {},
+            teammate2_Photo: '',
         };
     }
+    //инициализация формы
+    TeamSidebarComponent.prototype.ngOnInit = function () {
+        this.teamEditForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
+            title: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            mainText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            backgroundColor: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            teammate1_Name: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            teammate1_Description: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            teammate1_Link: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            teammate1_Photo: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            teammate2_Name: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            teammate2_Description: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            teammate2_Link: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            teammate2_Photo: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+        });
+    };
     TeamSidebarComponent.prototype.updateImage = function (ev, index) {
-        var image = ev.target.files[0];
-        switch (index) {
-            case 1:
-                this.model.teammate1_Photo = image;
-                break;
-            case 2:
-                this.model.teammate2_Photo = image;
-                break;
-        }
+        var _this = this;
+        var reader = new FileReader();
+        //get the selected file from event
+        var file = ev.target.files[0];
+        //onloadend срабатывает после reader.readAsDataURL(file);
+        reader.onloadend = function () {
+            //Assign the result to variable for setting the src of image element
+            switch (index) {
+                case 1:
+                    _this.model.teammate1_Photo = reader.result;
+                    break;
+                case 2:
+                    _this.model.teammate2_Photo = reader.result;
+                    break;
+            }
+        };
+        reader.readAsDataURL(file);
+    };
+    TeamSidebarComponent.prototype.save = function (data) {
+        //данные об изображении передаются в модель в updateImage()
+        this.model.title = data.title;
+        this.model.mainText = data.mainText;
+        this.model.backgroundColor = data.backgroundColor;
+        this.model.teammate1_Name = data.teammate1_Name;
+        this.model.teammate1_Description = data.teammate1_Description;
+        this.model.teammate1_Link = data.teammate1_Link;
+        this.model.teammate2_Name = data.teammate2_Name;
+        this.model.teammate2_Description = data.teammate2_Description;
+        this.model.teammate2_Link = data.teammate2_Link;
+        //ready to be sent to server
+        var details = JSON.stringify(this.model);
+        console.log(details);
     };
     TeamSidebarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-teamsidebar',
-            template: __webpack_require__(76)
+            template: __webpack_require__(77)
         })
     ], TeamSidebarComponent);
     return TeamSidebarComponent;
@@ -8174,12 +8423,13 @@ var TeamSidebarComponent = (function () {
 
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TextSidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(3);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8187,27 +8437,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
+
 var TextSidebarComponent = (function () {
     function TextSidebarComponent() {
-        /*constructor(public page: Page, public pageService: PageService) {
-        
-        }
-    
-        editTextInfo(ev) {
-            this.page.details = JSON.stringify(this.model);
-            this.pageService.updateDetails(this.page.position, this.page.details);
-        }*/
         this.model = {
             title: '',
             mainText: '',
             subText: '',
-            backgroundColor: ''
+            backgroundColor: '',
+            buttonLeftLink: '',
+            buttonRightLink: '',
+            buttonLeftText: '',
+            buttonRightText: ''
         };
     }
+    //инициализация формы
+    TextSidebarComponent.prototype.ngOnInit = function () {
+        this.textEditForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
+            title: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            mainText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            subText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            backgroundColor: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            buttonLeftLink: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            buttonRightLink: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            buttonLeftText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            buttonRightText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required])
+        });
+    };
+    TextSidebarComponent.prototype.save = function (data) {
+        this.model = data;
+        //ready to be sent to server
+        var details = JSON.stringify(this.model);
+        console.log(details);
+    };
     TextSidebarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-textsidebar',
-            template: __webpack_require__(77)
+            template: __webpack_require__(78)
         })
     ], TextSidebarComponent);
     return TextSidebarComponent;
@@ -8216,7 +8482,7 @@ var TextSidebarComponent = (function () {
 
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8245,33 +8511,29 @@ var TeamComponent = (function () {
             ndLink: 'https://github.com/Denis1697'
         };
     }
-    /*constructor(page: Page) {
-        super(page);
-
-        let details = JSON.parse(page.details);
-
-        this.stName  = details.stName;
-        this.stPhoto = details.stPhoto;
-        this.stDesc  = details.stDesc;
-        this.stLink  = details.stLink;
-
-        this.ndName  = details.ndName;
-        this.ndPhoto = details.ndPhoto;
-        this.ndDesc  = details.ndDesc;
-        this.ndLink  = details.ndLink;
-
-        this.title              = details.title;
-        this.mainText           = details.mainText;
-        this.backgroundColor    = details.backgroundColor;
-    }*/
     TeamComponent.prototype.getBackgroundColor = function () {
         return this.model.backgroundColor;
+    };
+    TeamComponent.prototype.ngOnInit = function () {
+        if (this._page) {
+            var details = JSON.parse(this._page.details);
+            this.model.title = details.title;
+            this.model.backgroundColor = details.backgroundColor;
+            this.model.stName = details.stName;
+            this.model.stPhoto = details.stPhoto;
+            this.model.stDesc = details.stDesc;
+            this.model.stLink = details.stLink;
+            this.model.ndName = details.ndName;
+            this.model.ndPhoto = details.ndPhoto;
+            this.model.ndDesc = details.ndDesc;
+            this.model.ndLink = details.ndLink;
+        }
     };
     TeamComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-team',
-            styles: [__webpack_require__(96)],
-            template: __webpack_require__(78)
+            styles: [__webpack_require__(97)],
+            template: __webpack_require__(79)
         })
     ], TeamComponent);
     return TeamComponent;
@@ -8280,7 +8542,7 @@ var TeamComponent = (function () {
 
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8318,8 +8580,8 @@ var TeammateComponent = (function () {
     TeammateComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'teammate',
-            styles: [__webpack_require__(97)],
-            template: __webpack_require__(79)
+            styles: [__webpack_require__(98)],
+            template: __webpack_require__(80)
         })
     ], TeammateComponent);
     return TeammateComponent;
@@ -8328,7 +8590,7 @@ var TeammateComponent = (function () {
 
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8347,30 +8609,34 @@ var TextComponent = (function () {
             title: "Some text theme",
             mainText: "Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое. Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого еле держалось готовое вот-вот окончательно сползти одеяло. Его многочисленные, убого тонкие по сравнению с остальным телом ножки беспомощно копошились у него перед глазами. «Что со мной случилось?» – подумал он. Это не было сном. Его комната, настоящая, разве что слишком маленькая, но обычная комната, мирно покоилась в своих четырех хорошо знакомых стенах. Над столом, где были разложены распакованные образцы сукон – Замза был коммивояжером, – висел портрет, который он недавно вырезал из иллюстрированного журнала и вставил в красивую золоченую рамку. На портрете была изображена дама в меховой шляпе и боа, она сидела очень прямо и протягивала зрителю тяжелую меховую муфту, в которой целиком исчезала ее рука. Затем взгляд Грегора устремился в окно, и пасмурная погода – слышно было, как по жести подоконника стучат капли дождя – привела его и вовсе в грустное настроение. «Хорошо бы еще немного поспать и забыть всю эту чепуху», – подумал он, но это было совершенно неосуществимо, он привык спать на правом боку, а в теперешнем своем",
             subText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            buttonLeftText: "button1",
-            buttonRightText: "button2",
+            buttonLeftText: "coolsite!",
+            buttonRightText: "meh...",
+            buttonLeftLink: "https://www.pornhub.com",
+            buttonRightLink: "http://opu.ua",
             backgroundColor: "material-blue"
         };
     }
-    /*constructor(page: Page) {
-        super(page);
-        let details = JSON.parse(page.details);
-
-        this.title              = details.title;
-        this.mainText           = details.mainText;
-        this.subText            = details.subtext;
-        this.buttonLeftText     = details.buttonLeftText;
-        this.buttonRightText    = details.buttonRightText;
-        this.backgroundColor    = details.backgroundColor;
-    }*/
     TextComponent.prototype.getBackgroundColor = function () {
         return this.model.backgroundColor;
+    };
+    TextComponent.prototype.ngOnInit = function () {
+        if (this._page) {
+            var details = JSON.parse(this._page.details);
+            this.model.title = details.title;
+            this.model.backgroundColor = details.backgroundColor;
+            this.model.mainText = details.mainText;
+            this.model.subText = details.subText;
+            this.model.buttonLeftText = details.buttonLeftText;
+            this.model.buttonLeftLink = details.buttonLeftLink;
+            this.model.buttonRightText = details.buttonRightText;
+            this.model.buttonRightLink = details.buttonRightLink;
+        }
     };
     TextComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-text',
-            styles: [__webpack_require__(98)],
-            template: __webpack_require__(80)
+            styles: [__webpack_require__(99)],
+            template: __webpack_require__(81)
         })
     ], TextComponent);
     return TextComponent;
@@ -8379,7 +8645,7 @@ var TextComponent = (function () {
 
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8422,8 +8688,8 @@ var DevButtonComponent = (function () {
     DevButtonComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'devbutton',
-            styles: [__webpack_require__(99)],
-            template: __webpack_require__(81)
+            styles: [__webpack_require__(100)],
+            template: __webpack_require__(82)
         })
     ], DevButtonComponent);
     return DevButtonComponent;
@@ -8432,7 +8698,7 @@ var DevButtonComponent = (function () {
 
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8452,8 +8718,8 @@ var FabComponent = (function () {
     FabComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-fab',
-            styles: [__webpack_require__(100)],
-            template: __webpack_require__(82)
+            styles: [__webpack_require__(101)],
+            template: __webpack_require__(83)
         })
     ], FabComponent);
     return FabComponent;
@@ -8462,47 +8728,14 @@ var FabComponent = (function () {
 
 
 /***/ }),
-/* 42 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Page; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var Page = (function () {
-    function Page(id, position, pageTemplate, details) {
-        this.id = id;
-        this.position = position;
-        this.pageTemplate = pageTemplate;
-        this.details = details;
-    }
-    Page = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [Number, Number, String, String])
-    ], Page);
-    return Page;
-}());
-
-
-
-/***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -8546,7 +8779,7 @@ var AccountService = (function () {
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(undefined);
@@ -8560,7 +8793,7 @@ exports.push([module.i, "\r\n@media (max-width: 767px) {\r\n    /* On small scre
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(undefined);
@@ -8574,7 +8807,7 @@ exports.push([module.i, ".footer-component {\r\n    display: flex;\r\n    flex-d
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(undefined);
@@ -8588,20 +8821,6 @@ exports.push([module.i, ".masonry--h, .masonry--v {\r\n    margin-left: -8px;\r\
 
 
 /***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(2)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, ".form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    position: fixed;\r\n    width: 400px;\r\n    height: 155px;\r\n    left: calc(50% - 200px);\r\n    top: calc(50% - 106px);\r\n    background: #edeff1;\r\n    margin: 0px auto;\r\n    padding-top: 20px;\r\n    border-radius: 10px;\r\n    -moz-border-radius: 10px;\r\n    -webkit-border-radius: 10px;\r\n    z-index: 7;\r\n\r\n    transition: 0.5s transform ease;\r\n\r\n    -webkit-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n}\r\n\r\n.form a {\r\n    text-align: center;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    display: block;\r\n    width: 309px;\r\n    height: 35px;\r\n    margin: 15px auto;\r\n    background: #fff;\r\n    border: 0px;\r\n    padding: 5px;\r\n    font-size: 16px;\r\n    border: 2px solid #fff;\r\n    transition: all 0.3s ease;\r\n    border-radius: 5px;\r\n    -moz-border-radius: 5px;\r\n    -webkit-border-radius: 5px;\r\n}\r\n\r\ninput[type=\"text\"]:focus {\r\n    border: 2px solid #1abc9d\r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    width: 314px;\r\n    height: 40px;\r\n    padding: 12px;\r\n    cursor: pointer;\r\n    margin: auto;\r\n    font-size: 17px;\r\n    transition: all 0.3s ease;\r\n}\r\n\r\na {\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n::-webkit-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n:-moz-placeholder { /* Firefox 18- */\r\n    color: gray;\r\n}\r\n\r\n::-moz-placeholder { /* Firefox 19+ */\r\n    color: gray;\r\n}\r\n\r\n:-ms-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n.closeWindow {\r\n    position: absolute;\r\n    width: 32px;\r\n    height: 32px;\r\n    top: -15px;\r\n    right: -37px;\r\n    background-image: url(" + __webpack_require__(101) + ");\r\n    background-repeat: round;\r\n    cursor: pointer;\r\n    transition: 0.2s transform ;\r\n}\r\n\r\n.closeWindow:hover {\r\n    transform: scale(1.25, 1.25);\r\n}\r\n\r\n#showSignIn:not(:checked) ~ .form {\r\n    transform: translateY(-100vh);\r\n}\r\n\r\n#showSignIn:checked ~ .form {\r\n    transform: translateY(0);\r\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8610,7 +8829,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "li .glyphicon {\r\n    margin-right: 10px;\r\n}\r\n\r\n/* Highlighting rules for nav menu items */\r\nli.link-active a,\r\nli.link-active a:hover,\r\nli.link-active a:focus {\r\n    background-color: #4189C7;\r\n    color: white;\r\n}\r\n\r\n/* Keep the nav menu independent of scrolling and on top of other items */\r\n.main-nav {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 1;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    /* On small screens, convert the nav menu to a vertical sidebar */\r\n    .main-nav {\r\n        height: 100%;\r\n        width: calc(25% - 20px);\r\n    }\r\n    .navbar {\r\n        border-radius: 0px;\r\n        border-width: 0px;\r\n        height: 100%;\r\n    }\r\n    .navbar-header {\r\n        float: none;\r\n    }\r\n    .navbar-collapse {\r\n        border-top: 1px solid #444;\r\n        padding: 0px;\r\n    }\r\n    .navbar ul {\r\n        float: none;\r\n    }\r\n    .navbar li {\r\n        float: none;\r\n        font-size: 15px;\r\n        margin: 6px;\r\n    }\r\n    .navbar li a {\r\n        padding: 10px 16px;\r\n        border-radius: 4px;\r\n    }\r\n    .navbar a {\r\n        /* If a menu item's text is too long, truncate it */\r\n        width: 100%;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n}\r\n", ""]);
+exports.push([module.i, ".form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    position: fixed;\r\n    width: 400px;\r\n    height: 155px;\r\n    left: calc(50% - 200px);\r\n    top: calc(50% - 106px);\r\n    background: #edeff1;\r\n    margin: 0px auto;\r\n    padding-top: 20px;\r\n    border-radius: 10px;\r\n    -moz-border-radius: 10px;\r\n    -webkit-border-radius: 10px;\r\n    z-index: 7;\r\n\r\n    transition: 0.5s transform ease;\r\n\r\n    -webkit-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n}\r\n\r\n.form a {\r\n    text-align: center;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    display: block;\r\n    width: 309px;\r\n    height: 35px;\r\n    margin: 15px auto;\r\n    background: #fff;\r\n    border: 0px;\r\n    padding: 5px;\r\n    font-size: 16px;\r\n    border: 2px solid #fff;\r\n    transition: all 0.3s ease;\r\n    border-radius: 5px;\r\n    -moz-border-radius: 5px;\r\n    -webkit-border-radius: 5px;\r\n}\r\n\r\ninput[type=\"text\"]:focus {\r\n    border: 2px solid #1abc9d\r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    width: 314px;\r\n    height: 40px;\r\n    padding: 12px;\r\n    cursor: pointer;\r\n    margin: auto;\r\n    font-size: 17px;\r\n    transition: all 0.3s ease;\r\n}\r\n\r\na {\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n::-webkit-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n:-moz-placeholder { /* Firefox 18- */\r\n    color: gray;\r\n}\r\n\r\n::-moz-placeholder { /* Firefox 19+ */\r\n    color: gray;\r\n}\r\n\r\n:-ms-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n.closeWindow {\r\n    position: absolute;\r\n    width: 32px;\r\n    height: 32px;\r\n    top: -15px;\r\n    right: -37px;\r\n    background-image: url(" + __webpack_require__(102) + ");\r\n    background-repeat: round;\r\n    cursor: pointer;\r\n    transition: 0.2s transform ;\r\n}\r\n\r\n.closeWindow:hover {\r\n    transform: scale(1.25, 1.25);\r\n}\r\n\r\n#showSignIn:not(:checked) ~ .form {\r\n    transform: translateY(-100vh);\r\n}\r\n\r\n#showSignIn:checked ~ .form {\r\n    transform: translateY(0);\r\n}\r\n", ""]);
 
 // exports
 
@@ -8624,7 +8843,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".person-component {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: stretch;\r\n    margin: auto;\r\n}\r\n\r\n.person-photo,\r\n.person-component-content {\r\n    width: 45%;\r\n}\r\n\r\n.person-component-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n}\r\n\r\n.person-photo {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    padding: 6%;\r\n}\r\n\r\n.person-photo img {\r\n    width: 100%;\r\n    height: 100%;\r\n    cursor: pointer;\r\n    box-shadow: 0;\r\n    transition: box-shadow 0.4s ease, border-radius 0.4s ease;\r\n    -webkit-border-radius: 30px;\r\n    -moz-border-radius: 30px;\r\n    border-radius: 30px;\r\n}\r\n\r\n.person-photo img:hover {\r\n    -webkit-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -moz-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -webkit-border-radius: 50px;\r\n    -moz-border-radius: 50px;\r\n    border-radius: 50px;\r\n}\r\n\r\n.person-component-title,\r\n.person-component-opinion {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n}\r\n\r\n.person-info {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-end;\r\n}\r\n\r\n.person-component-opinion,\r\n.person-info {\r\n    width: 100%;\r\n}\r\n\r\n.person-name {\r\n    display: flex;\r\n    flex-direction: row;\r\n}", ""]);
+exports.push([module.i, "li .glyphicon {\r\n    margin-right: 10px;\r\n}\r\n\r\n/* Highlighting rules for nav menu items */\r\nli.link-active a,\r\nli.link-active a:hover,\r\nli.link-active a:focus {\r\n    background-color: #4189C7;\r\n    color: white;\r\n}\r\n\r\n/* Keep the nav menu independent of scrolling and on top of other items */\r\n.main-nav {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 1;\r\n}\r\n\r\n@media (min-width: 768px) {\r\n    /* On small screens, convert the nav menu to a vertical sidebar */\r\n    .main-nav {\r\n        height: 100%;\r\n        width: calc(25% - 20px);\r\n    }\r\n    .navbar {\r\n        border-radius: 0px;\r\n        border-width: 0px;\r\n        height: 100%;\r\n    }\r\n    .navbar-header {\r\n        float: none;\r\n    }\r\n    .navbar-collapse {\r\n        border-top: 1px solid #444;\r\n        padding: 0px;\r\n    }\r\n    .navbar ul {\r\n        float: none;\r\n    }\r\n    .navbar li {\r\n        float: none;\r\n        font-size: 15px;\r\n        margin: 6px;\r\n    }\r\n    .navbar li a {\r\n        padding: 10px 16px;\r\n        border-radius: 4px;\r\n    }\r\n    .navbar a {\r\n        /* If a menu item's text is too long, truncate it */\r\n        width: 100%;\r\n        white-space: nowrap;\r\n        overflow: hidden;\r\n        text-overflow: ellipsis;\r\n    }\r\n}\r\n", ""]);
 
 // exports
 
@@ -8638,7 +8857,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".product-component {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.product-demo img {\r\n    width: 100%;\r\n    height: 100%;\r\n    cursor: pointer;\r\n    box-shadow: 0;\r\n    transition: box-shadow 0.4s ease, border-radius 0.4s ease;\r\n    -webkit-border-radius: 30px;\r\n    -moz-border-radius: 30px;\r\n    border-radius: 30px;\r\n}\r\n\r\n.product-demo img:hover {\r\n    -webkit-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -moz-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -webkit-border-radius: 50px;\r\n    -moz-border-radius: 50px;\r\n    border-radius: 50px;\r\n}\r\n\r\n.product-component {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: stretch;\r\n    margin: auto;\r\n}\r\n\r\n.product-component < article {\r\n    width: 100%;\r\n}\r\n\r\n.product-demo,\r\n.product-component-content {\r\n    width: 45%;\r\n}\r\n\r\n.product-component-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n}\r\n\r\n.product-demo{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    padding: 6%;\r\n}\r\n\r\n.product-component-title,\r\n.product-component-content.main-text, \r\n.product-component-content.sub-text {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n}\r\n\r\n.product-component-content.main-text,\r\n.product-component-content.sub-text {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-end;\r\n}\r\n\r\n.product-component-content.main-text,\r\n.product-component-content.sub-text {\r\n    width: 100%;\r\n}", ""]);
+exports.push([module.i, ".person-component {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: stretch;\r\n    margin: auto;\r\n}\r\n\r\n.person-photo,\r\n.person-component-content {\r\n    width: 45%;\r\n}\r\n\r\n.person-component-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n}\r\n\r\n.person-photo {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    padding: 6%;\r\n}\r\n\r\n.person-photo img {\r\n    width: 100%;\r\n    height: 100%;\r\n    cursor: pointer;\r\n    box-shadow: 0;\r\n    transition: box-shadow 0.4s ease, border-radius 0.4s ease;\r\n    -webkit-border-radius: 30px;\r\n    -moz-border-radius: 30px;\r\n    border-radius: 30px;\r\n}\r\n\r\n.person-photo img:hover {\r\n    -webkit-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -moz-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -webkit-border-radius: 50px;\r\n    -moz-border-radius: 50px;\r\n    border-radius: 50px;\r\n}\r\n\r\n.person-component-title,\r\n.person-component-opinion {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n}\r\n\r\n.person-info {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-end;\r\n}\r\n\r\n.person-component-opinion,\r\n.person-info {\r\n    width: 100%;\r\n}\r\n\r\n.person-name {\r\n    display: flex;\r\n    flex-direction: row;\r\n}", ""]);
 
 // exports
 
@@ -8652,7 +8871,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".searchable-block {\r\n    display: flex;\r\n    justify-content: center;\r\n\r\n    height: 150px;\r\n    cursor: pointer;\r\n\r\n    transition: 0.2s transform, 0.2s filter;\r\n}\r\n\r\n.searchable-block img {\r\n    width: 150px;\r\n    height: 100px;\r\n}\r\n\r\n.searchable-block:hover {\r\n    transform: scale(1.1, 1.1);\r\n    filter: brightness(50%);\r\n}\r\n\r\n.searchable-block:active {\r\n    transform: scale(1.3, 1.3);\r\n}\r\n\r\n.comp-h2 {\r\n    margin: 0;\r\n}", ""]);
+exports.push([module.i, ".product-component {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.product-demo img {\r\n    width: 100%;\r\n    height: 100%;\r\n    cursor: pointer;\r\n    box-shadow: 0;\r\n    transition: box-shadow 0.4s ease, border-radius 0.4s ease;\r\n    -webkit-border-radius: 30px;\r\n    -moz-border-radius: 30px;\r\n    border-radius: 30px;\r\n}\r\n\r\n.product-demo img:hover {\r\n    -webkit-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -moz-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -webkit-border-radius: 50px;\r\n    -moz-border-radius: 50px;\r\n    border-radius: 50px;\r\n}\r\n\r\n.product-component {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: stretch;\r\n    margin: auto;\r\n}\r\n\r\n.product-component < article {\r\n    width: 100%;\r\n}\r\n\r\n.product-demo,\r\n.product-component-content {\r\n    width: 45%;\r\n}\r\n\r\n.product-component-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n}\r\n\r\n.product-demo{\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    padding: 6%;\r\n}\r\n\r\n.product-component-title,\r\n.product-component-content.main-text, \r\n.product-component-content.sub-text {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n}\r\n\r\n.product-component-content.main-text,\r\n.product-component-content.sub-text {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-end;\r\n}\r\n\r\n.product-component-content.main-text,\r\n.product-component-content.sub-text {\r\n    width: 100%;\r\n}", ""]);
 
 // exports
 
@@ -8666,7 +8885,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".team-component-content {\r\n    text-align: justify;\r\n}\r\n", ""]);
+exports.push([module.i, ".searchable-block {\r\n    display: flex;\r\n    justify-content: center;\r\n\r\n    height: 150px;\r\n    cursor: pointer;\r\n\r\n    transition: 0.2s transform, 0.2s filter;\r\n}\r\n\r\n.searchable-block img {\r\n    width: 150px;\r\n    height: 100px;\r\n}\r\n\r\n.searchable-block:hover {\r\n    transform: scale(1.1, 1.1);\r\n    filter: brightness(50%);\r\n}\r\n\r\n.searchable-block:active {\r\n    transform: scale(1.3, 1.3);\r\n}\r\n\r\n.comp-h2 {\r\n    margin: 0;\r\n}", ""]);
 
 // exports
 
@@ -8680,7 +8899,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".team-component-content {\r\n    text-align: justify;\r\n}\r\n", ""]);
 
 // exports
 
@@ -8694,7 +8913,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".text-component-content {\r\n    margin: 20px 0;\r\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -8708,7 +8927,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".hidden-devBtn {\r\n    transform: translateY(100px);\r\n}\r\n\r\n.visible-devBtn {\r\n    transform: translateY(20px);\r\n}\r\n\r\n.developerButton {\r\n    position: fixed;\r\n    bottom: 0;\r\n    z-index: 7;\r\n    transition: 0.2s transform ease;\r\n}", ""]);
+exports.push([module.i, ".text-component-content {\r\n    margin: 20px 0;\r\n}", ""]);
 
 // exports
 
@@ -8722,7 +8941,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".fab {\r\n    position: fixed;\r\n    width: 56px;\r\n    left: 95%;\r\n    bottom: 15px;\r\n    margin-left: -28px;\r\n    cursor: pointer;\r\n    z-index: 5;\r\n    transition: all 0.3s;\r\n}\r\n\r\n.fab:active {\r\n    filter: brightness(50%);\r\n}\r\n\r\n.fab:hover .fab-buttons {\r\n    opacity: 1;\r\n    visibility: visible;\r\n}\r\n\r\n.fab:hover .fab-buttons__link {\r\n    transform: scaleY(1) scaleX(1) translateY(-16px) translateX(0px);\r\n}\r\n\r\n.fab-action-button:hover + .fab-buttons .fab-buttons__link:before {\r\n    visibility: visible;\r\n    opacity: 1;\r\n    transform: scale(1);\r\n    transform-origin: right center 0;\r\n    transition-delay: 0.3s;\r\n}\r\n\r\n.fab-action-button {\r\n    position: absolute;\r\n    bottom: 0;\r\n    display: block;\r\n    width: 56px;\r\n    height: 56px;\r\n    background-color: #f6293c;\r\n    border-radius: 50%;\r\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.fab-buttons {\r\n    position: absolute;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 50px;\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    transition: 0.2s;\r\n}\r\n\r\n.fab-action-button__icon {\r\n    display: inline-block;\r\n    width: 56px;\r\n    height: 56px;\r\n    background: url(\"/assets/icons/plus.svg\") center no-repeat;\r\n}\r\n\r\n.fab-buttons__item {\r\n    display: block;\r\n    text-align: center;\r\n    margin: 12px 0;\r\n}\r\n\r\n.fab-buttons__link {\r\n    display: inline-block;\r\n    width: 40px;\r\n    height: 40px;\r\n    text-decoration: none;\r\n    background-color: #ffffff;\r\n    border-radius: 50%;\r\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\r\n    transform: scaleY(0.5) scaleX(0.5) translateY(0px) translateX(0px);\r\n    -moz-transition: .3s;\r\n    -webkit-transition: .3s;\r\n    -o-transition: .3s;\r\n    transition: .3s;\r\n}\r\n\r\n[data-tooltip]:before {\r\n    top: 50%;\r\n    margin-top: -11px;\r\n    font-weight: 600;\r\n    border-radius: 2px;\r\n    background: #585858;\r\n    color: #fff;\r\n    content: attr(data-tooltip);\r\n    font-size: 12px;\r\n    text-decoration: none;\r\n    visibility: hidden;\r\n    opacity: 0;\r\n    padding: 4px 7px;\r\n    margin-right: 12px;\r\n    position: absolute;\r\n    transform: scale(0);\r\n    right: 100%;\r\n    white-space: nowrap;\r\n    transform-origin: top right;\r\n    transition: all .3s cubic-bezier(.25, .8, .25, 1);\r\n}\r\n\r\n[data-tooltip]:hover:before {\r\n    visibility: visible;\r\n    opacity: 1;\r\n    transform: scale(1);\r\n    transform-origin: right center 0;\r\n}\r\n\r\n.icon-material {\r\n    display: inline-block;\r\n    width: 40px;\r\n    height: 40px;\r\n}\r\n\r\n.icon-material_fb {\r\n    background: url(\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0icG9zdC1mYWNlYm9vayI+CgkJPHBhdGggZD0iTTQ1OSwwSDUxQzIyLjk1LDAsMCwyMi45NSwwLDUxdjQwOGMwLDI4LjA1LDIyLjk1LDUxLDUxLDUxaDQwOGMyOC4wNSwwLDUxLTIyLjk1LDUxLTUxVjUxQzUxMCwyMi45NSw0ODcuMDUsMCw0NTksMHogICAgIE00MzMuNSw1MXY3Ni41aC01MWMtMTUuMywwLTI1LjUsMTAuMi0yNS41LDI1LjV2NTFoNzYuNXY3Ni41SDM1N1Y0NTloLTc2LjVWMjgwLjVoLTUxVjIwNGg1MXYtNjMuNzUgICAgQzI4MC41LDkxLjgsMzIxLjMsNTEsMzY5Ljc1LDUxSDQzMy41eiIgZmlsbD0iIzc1NzU3NSIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=\") center no-repeat;\r\n}\r\n\r\n.icon-material_gp {\r\n    background: url(\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0icG9zdC1ncGx1cyI+CgkJPHBhdGggZD0iTTIzNC42LDE3NS45NWMwLTI1LjUtMTUuMy03Ni41LTUzLjU1LTc2LjVjLTE1LjMsMC0zMy4xNSwxMC4yLTMzLjE1LDQzLjM1YzAsMzAuNiwxNS4zLDczLjk1LDUxLDczLjk1ICAgIEMxOTguOSwyMTYuNzUsMjM0LjYsMjE0LjIsMjM0LjYsMTc1Ljk1eiBNMjE5LjMsMzAwLjljLTIuNTUsMC01LjEsMC03LjY1LDBsMCwwYy03LjY1LDAtMzAuNiwyLjU1LTQ1LjksNy42NDkgICAgQzE0Ny45LDMxMy42NSwxMjcuNSwzMjYuNCwxMjcuNSwzNTEuOWMwLDI4LjA1LDI1LjUsNTYuMSw3Ni41LDU2LjFjMzguMjUsMCw2MS4yLTI1LjUsNjEuMi01MSAgICBDMjY1LjIsMzM5LjE1LDI1Mi40NSwzMjYuNCwyMTkuMywzMDAuOXogTTQ1OSwwSDUxQzIyLjk1LDAsMCwyMi45NSwwLDUxdjQwOGMwLDI4LjA1LDIyLjk1LDUxLDUxLDUxaDQwOGMyOC4wNSwwLDUxLTIyLjk1LDUxLTUxICAgIFY1MUM1MTAsMjIuOTUsNDg3LjA1LDAsNDU5LDB6IE0xODEuMDUsNDM4LjZjLTcxLjQsMC0xMDQuNTUtNDAuOC0xMDQuNTUtNzYuNWMwLTEyLjc1LDIuNTUtNDAuOCwzOC4yNS02MS4xOTkgICAgYzIwLjQtMTIuNzUsNDUuOS0yMC40LDc5LjA1LTIyLjk1Yy01LjEtNS4xMDEtNy42NS0xMi43NS03LjY1LTI1LjVjMC01LjEsMC03LjY1LDIuNTUtMTIuNzVoLTEwLjJjLTUxLDAtODEuNi0zOC4yNS04MS42LTc2LjUgICAgYzAtNDMuMzUsMzMuMTUtOTEuOCwxMDQuNTUtOTEuOGgxMDcuMWwtNy42NDksNy42NUwyODMuMDUsOTYuOWwtMi41NSwyLjU1aC0xNy44NWMxMC4xOTksMTAuMiwyMi45NDksMjguMDUsMjIuOTQ5LDU2LjEgICAgYzAsMzUuNy0xNy44NSw1My41NS00MC44LDY4Ljg1Yy01LjEsMi41NS0xMC4yLDEwLjItMTAuMiwxNy44NXM1LjEsMTIuNzUsMTAuMiwxNS4zYzIuNTUsMi41NSw3LjY1LDUuMTAxLDEyLjc1LDcuNjUgICAgYzIwLjQsMTUuMyw0OC40NSwzMy4xNDksNDguNDUsNzMuOTVDMzA2LDM4NS4wNSwyNzIuODUsNDM4LjYsMTgxLjA1LDQzOC42eiBNNDMzLjUsMjU1aC01MXY1MUgzNTd2LTUxaC01MXYtMjUuNWg1MXYtNTFoMjUuNXY1MSAgICBoNTFWMjU1eiIgZmlsbD0iIzc1NzU3NSIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=\") center no-repeat;\r\n}\r\n\r\n.icon-material_tw {\r\n    background: url(\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0icG9zdC10d2l0dGVyIj4KCQk8cGF0aCBkPSJNNDU5LDBINTFDMjIuOTUsMCwwLDIyLjk1LDAsNTF2NDA4YzAsMjguMDUsMjIuOTUsNTEsNTEsNTFoNDA4YzI4LjA1LDAsNTEtMjIuOTUsNTEtNTFWNTFDNTEwLDIyLjk1LDQ4Ny4wNSwwLDQ1OSwweiAgICAgTTQwMC4zNSwxODYuMTVjLTIuNTUsMTE3LjMtNzYuNSwxOTguOS0xODguNywyMDRDMTY1Ljc1LDM5Mi43LDEzMi42LDM3Ny40LDEwMiwzNTkuNTVjMzMuMTUsNS4xMDEsNzYuNS03LjY0OSw5OS40NS0yOC4wNSAgICBjLTMzLjE1LTIuNTUtNTMuNTUtMjAuNC02My43NS00OC40NWMxMC4yLDIuNTUsMjAuNCwwLDI4LjA1LDBjLTMwLjYtMTAuMi01MS0yOC4wNS01My41NS02OC44NWM3LjY1LDUuMSwxNy44NSw3LjY1LDI4LjA1LDcuNjUgICAgYy0yMi45NS0xMi43NS0zOC4yNS02MS4yLTIwLjQtOTEuOGMzMy4xNSwzNS43LDczLjk1LDY2LjMsMTQwLjI1LDcxLjRjLTE3Ljg1LTcxLjQsNzkuMDUxLTEwOS42NSwxMTcuMzAxLTYxLjIgICAgYzE3Ljg1LTIuNTUsMzAuNi0xMC4yLDQzLjM1LTE1LjNjLTUuMSwxNy44NS0xNS4zLDI4LjA1LTI4LjA1LDM4LjI1YzEyLjc1LTIuNTUsMjUuNS01LjEsMzUuNy0xMC4yICAgIEM0MjUuODUsMTY1Ljc1LDQxMy4xLDE3NS45NSw0MDAuMzUsMTg2LjE1eiIgZmlsbD0iIzc1NzU3NSIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=\") center no-repeat;\r\n}\r\n\r\n.icon-material_li {\r\n    background: url(\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0icG9zdC1saW5rZWRpbiI+CgkJPHBhdGggZD0iTTQ1OSwwSDUxQzIyLjk1LDAsMCwyMi45NSwwLDUxdjQwOGMwLDI4LjA1LDIyLjk1LDUxLDUxLDUxaDQwOGMyOC4wNSwwLDUxLTIyLjk1LDUxLTUxVjUxQzUxMCwyMi45NSw0ODcuMDUsMCw0NTksMHogICAgIE0xNTMsNDMzLjVINzYuNVYyMDRIMTUzVjQzMy41eiBNMTE0Ljc1LDE2MC42NWMtMjUuNSwwLTQ1LjktMjAuNC00NS45LTQ1LjlzMjAuNC00NS45LDQ1LjktNDUuOXM0NS45LDIwLjQsNDUuOSw0NS45ICAgIFMxNDAuMjUsMTYwLjY1LDExNC43NSwxNjAuNjV6IE00MzMuNSw0MzMuNUgzNTdWMjk4LjM1YzAtMjAuMzk5LTE3Ljg1LTM4LjI1LTM4LjI1LTM4LjI1cy0zOC4yNSwxNy44NTEtMzguMjUsMzguMjVWNDMzLjVIMjA0ICAgIFYyMDRoNzYuNXYzMC42YzEyLjc1LTIwLjQsNDAuOC0zNS43LDYzLjc1LTM1LjdjNDguNDUsMCw4OS4yNSw0MC44LDg5LjI1LDg5LjI1VjQzMy41eiIgZmlsbD0iIzc1NzU3NSIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=\") center no-repeat;\r\n}\r\n", ""]);
+exports.push([module.i, ".hidden-devBtn {\r\n    transform: translateY(100px);\r\n}\r\n\r\n.visible-devBtn {\r\n    transform: translateY(20px);\r\n}\r\n\r\n.developerButton {\r\n    position: fixed;\r\n    bottom: 0;\r\n    z-index: 7;\r\n    transition: 0.2s transform ease;\r\n}", ""]);
 
 // exports
 
@@ -8731,16 +8950,30 @@ exports.push([module.i, ".fab {\r\n    position: fixed;\r\n    width: 56px;\r\n 
 /* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = {
-  XmlEntities: __webpack_require__(59),
-  Html4Entities: __webpack_require__(58),
-  Html5Entities: __webpack_require__(8),
-  AllHtmlEntities: __webpack_require__(8)
-};
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".fab {\r\n    position: fixed;\r\n    width: 56px;\r\n    left: 95%;\r\n    bottom: 15px;\r\n    margin-left: -28px;\r\n    cursor: pointer;\r\n    z-index: 5;\r\n    transition: all 0.3s;\r\n}\r\n\r\n.fab:active {\r\n    filter: brightness(50%);\r\n}\r\n\r\n.fab:hover .fab-buttons {\r\n    opacity: 1;\r\n    visibility: visible;\r\n}\r\n\r\n.fab:hover .fab-buttons__link {\r\n    transform: scaleY(1) scaleX(1) translateY(-16px) translateX(0px);\r\n}\r\n\r\n.fab-action-button:hover + .fab-buttons .fab-buttons__link:before {\r\n    visibility: visible;\r\n    opacity: 1;\r\n    transform: scale(1);\r\n    transform-origin: right center 0;\r\n    transition-delay: 0.3s;\r\n}\r\n\r\n.fab-action-button {\r\n    position: absolute;\r\n    bottom: 0;\r\n    display: block;\r\n    width: 56px;\r\n    height: 56px;\r\n    background-color: #f6293c;\r\n    border-radius: 50%;\r\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.fab-buttons {\r\n    position: absolute;\r\n    left: 0;\r\n    right: 0;\r\n    bottom: 50px;\r\n    list-style: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    opacity: 0;\r\n    visibility: hidden;\r\n    transition: 0.2s;\r\n}\r\n\r\n.fab-action-button__icon {\r\n    display: inline-block;\r\n    width: 56px;\r\n    height: 56px;\r\n    background: url(\"/assets/icons/plus.svg\") center no-repeat;\r\n}\r\n\r\n.fab-buttons__item {\r\n    display: block;\r\n    text-align: center;\r\n    margin: 12px 0;\r\n}\r\n\r\n.fab-buttons__link {\r\n    display: inline-block;\r\n    width: 40px;\r\n    height: 40px;\r\n    text-decoration: none;\r\n    background-color: #ffffff;\r\n    border-radius: 50%;\r\n    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);\r\n    transform: scaleY(0.5) scaleX(0.5) translateY(0px) translateX(0px);\r\n    -moz-transition: .3s;\r\n    -webkit-transition: .3s;\r\n    -o-transition: .3s;\r\n    transition: .3s;\r\n}\r\n\r\n[data-tooltip]:before {\r\n    top: 50%;\r\n    margin-top: -11px;\r\n    font-weight: 600;\r\n    border-radius: 2px;\r\n    background: #585858;\r\n    color: #fff;\r\n    content: attr(data-tooltip);\r\n    font-size: 12px;\r\n    text-decoration: none;\r\n    visibility: hidden;\r\n    opacity: 0;\r\n    padding: 4px 7px;\r\n    margin-right: 12px;\r\n    position: absolute;\r\n    transform: scale(0);\r\n    right: 100%;\r\n    white-space: nowrap;\r\n    transform-origin: top right;\r\n    transition: all .3s cubic-bezier(.25, .8, .25, 1);\r\n}\r\n\r\n[data-tooltip]:hover:before {\r\n    visibility: visible;\r\n    opacity: 1;\r\n    transform: scale(1);\r\n    transform-origin: right center 0;\r\n}\r\n\r\n.icon-material {\r\n    display: inline-block;\r\n    width: 40px;\r\n    height: 40px;\r\n}\r\n\r\n.icon-material_fb {\r\n    background: url(\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0icG9zdC1mYWNlYm9vayI+CgkJPHBhdGggZD0iTTQ1OSwwSDUxQzIyLjk1LDAsMCwyMi45NSwwLDUxdjQwOGMwLDI4LjA1LDIyLjk1LDUxLDUxLDUxaDQwOGMyOC4wNSwwLDUxLTIyLjk1LDUxLTUxVjUxQzUxMCwyMi45NSw0ODcuMDUsMCw0NTksMHogICAgIE00MzMuNSw1MXY3Ni41aC01MWMtMTUuMywwLTI1LjUsMTAuMi0yNS41LDI1LjV2NTFoNzYuNXY3Ni41SDM1N1Y0NTloLTc2LjVWMjgwLjVoLTUxVjIwNGg1MXYtNjMuNzUgICAgQzI4MC41LDkxLjgsMzIxLjMsNTEsMzY5Ljc1LDUxSDQzMy41eiIgZmlsbD0iIzc1NzU3NSIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=\") center no-repeat;\r\n}\r\n\r\n.icon-material_gp {\r\n    background: url(\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0icG9zdC1ncGx1cyI+CgkJPHBhdGggZD0iTTIzNC42LDE3NS45NWMwLTI1LjUtMTUuMy03Ni41LTUzLjU1LTc2LjVjLTE1LjMsMC0zMy4xNSwxMC4yLTMzLjE1LDQzLjM1YzAsMzAuNiwxNS4zLDczLjk1LDUxLDczLjk1ICAgIEMxOTguOSwyMTYuNzUsMjM0LjYsMjE0LjIsMjM0LjYsMTc1Ljk1eiBNMjE5LjMsMzAwLjljLTIuNTUsMC01LjEsMC03LjY1LDBsMCwwYy03LjY1LDAtMzAuNiwyLjU1LTQ1LjksNy42NDkgICAgQzE0Ny45LDMxMy42NSwxMjcuNSwzMjYuNCwxMjcuNSwzNTEuOWMwLDI4LjA1LDI1LjUsNTYuMSw3Ni41LDU2LjFjMzguMjUsMCw2MS4yLTI1LjUsNjEuMi01MSAgICBDMjY1LjIsMzM5LjE1LDI1Mi40NSwzMjYuNCwyMTkuMywzMDAuOXogTTQ1OSwwSDUxQzIyLjk1LDAsMCwyMi45NSwwLDUxdjQwOGMwLDI4LjA1LDIyLjk1LDUxLDUxLDUxaDQwOGMyOC4wNSwwLDUxLTIyLjk1LDUxLTUxICAgIFY1MUM1MTAsMjIuOTUsNDg3LjA1LDAsNDU5LDB6IE0xODEuMDUsNDM4LjZjLTcxLjQsMC0xMDQuNTUtNDAuOC0xMDQuNTUtNzYuNWMwLTEyLjc1LDIuNTUtNDAuOCwzOC4yNS02MS4xOTkgICAgYzIwLjQtMTIuNzUsNDUuOS0yMC40LDc5LjA1LTIyLjk1Yy01LjEtNS4xMDEtNy42NS0xMi43NS03LjY1LTI1LjVjMC01LjEsMC03LjY1LDIuNTUtMTIuNzVoLTEwLjJjLTUxLDAtODEuNi0zOC4yNS04MS42LTc2LjUgICAgYzAtNDMuMzUsMzMuMTUtOTEuOCwxMDQuNTUtOTEuOGgxMDcuMWwtNy42NDksNy42NUwyODMuMDUsOTYuOWwtMi41NSwyLjU1aC0xNy44NWMxMC4xOTksMTAuMiwyMi45NDksMjguMDUsMjIuOTQ5LDU2LjEgICAgYzAsMzUuNy0xNy44NSw1My41NS00MC44LDY4Ljg1Yy01LjEsMi41NS0xMC4yLDEwLjItMTAuMiwxNy44NXM1LjEsMTIuNzUsMTAuMiwxNS4zYzIuNTUsMi41NSw3LjY1LDUuMTAxLDEyLjc1LDcuNjUgICAgYzIwLjQsMTUuMyw0OC40NSwzMy4xNDksNDguNDUsNzMuOTVDMzA2LDM4NS4wNSwyNzIuODUsNDM4LjYsMTgxLjA1LDQzOC42eiBNNDMzLjUsMjU1aC01MXY1MUgzNTd2LTUxaC01MXYtMjUuNWg1MXYtNTFoMjUuNXY1MSAgICBoNTFWMjU1eiIgZmlsbD0iIzc1NzU3NSIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=\") center no-repeat;\r\n}\r\n\r\n.icon-material_tw {\r\n    background: url(\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0icG9zdC10d2l0dGVyIj4KCQk8cGF0aCBkPSJNNDU5LDBINTFDMjIuOTUsMCwwLDIyLjk1LDAsNTF2NDA4YzAsMjguMDUsMjIuOTUsNTEsNTEsNTFoNDA4YzI4LjA1LDAsNTEtMjIuOTUsNTEtNTFWNTFDNTEwLDIyLjk1LDQ4Ny4wNSwwLDQ1OSwweiAgICAgTTQwMC4zNSwxODYuMTVjLTIuNTUsMTE3LjMtNzYuNSwxOTguOS0xODguNywyMDRDMTY1Ljc1LDM5Mi43LDEzMi42LDM3Ny40LDEwMiwzNTkuNTVjMzMuMTUsNS4xMDEsNzYuNS03LjY0OSw5OS40NS0yOC4wNSAgICBjLTMzLjE1LTIuNTUtNTMuNTUtMjAuNC02My43NS00OC40NWMxMC4yLDIuNTUsMjAuNCwwLDI4LjA1LDBjLTMwLjYtMTAuMi01MS0yOC4wNS01My41NS02OC44NWM3LjY1LDUuMSwxNy44NSw3LjY1LDI4LjA1LDcuNjUgICAgYy0yMi45NS0xMi43NS0zOC4yNS02MS4yLTIwLjQtOTEuOGMzMy4xNSwzNS43LDczLjk1LDY2LjMsMTQwLjI1LDcxLjRjLTE3Ljg1LTcxLjQsNzkuMDUxLTEwOS42NSwxMTcuMzAxLTYxLjIgICAgYzE3Ljg1LTIuNTUsMzAuNi0xMC4yLDQzLjM1LTE1LjNjLTUuMSwxNy44NS0xNS4zLDI4LjA1LTI4LjA1LDM4LjI1YzEyLjc1LTIuNTUsMjUuNS01LjEsMzUuNy0xMC4yICAgIEM0MjUuODUsMTY1Ljc1LDQxMy4xLDE3NS45NSw0MDAuMzUsMTg2LjE1eiIgZmlsbD0iIzc1NzU3NSIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=\") center no-repeat;\r\n}\r\n\r\n.icon-material_li {\r\n    background: url(\"data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0icG9zdC1saW5rZWRpbiI+CgkJPHBhdGggZD0iTTQ1OSwwSDUxQzIyLjk1LDAsMCwyMi45NSwwLDUxdjQwOGMwLDI4LjA1LDIyLjk1LDUxLDUxLDUxaDQwOGMyOC4wNSwwLDUxLTIyLjk1LDUxLTUxVjUxQzUxMCwyMi45NSw0ODcuMDUsMCw0NTksMHogICAgIE0xNTMsNDMzLjVINzYuNVYyMDRIMTUzVjQzMy41eiBNMTE0Ljc1LDE2MC42NWMtMjUuNSwwLTQ1LjktMjAuNC00NS45LTQ1LjlzMjAuNC00NS45LDQ1LjktNDUuOXM0NS45LDIwLjQsNDUuOSw0NS45ICAgIFMxNDAuMjUsMTYwLjY1LDExNC43NSwxNjAuNjV6IE00MzMuNSw0MzMuNUgzNTdWMjk4LjM1YzAtMjAuMzk5LTE3Ljg1LTM4LjI1LTM4LjI1LTM4LjI1cy0zOC4yNSwxNy44NTEtMzguMjUsMzguMjVWNDMzLjVIMjA0ICAgIFYyMDRoNzYuNXYzMC42YzEyLjc1LTIwLjQsNDAuOC0zNS43LDYzLjc1LTM1LjdjNDguNDUsMCw4OS4yNSw0MC44LDg5LjI1LDg5LjI1VjQzMy41eiIgZmlsbD0iIzc1NzU3NSIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=\") center no-repeat;\r\n}\r\n", ""]);
+
+// exports
 
 
 /***/ }),
 /* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+  XmlEntities: __webpack_require__(60),
+  Html4Entities: __webpack_require__(59),
+  Html5Entities: __webpack_require__(10),
+  AllHtmlEntities: __webpack_require__(10)
+};
+
+
+/***/ }),
+/* 59 */
 /***/ (function(module, exports) {
 
 var HTML_ALPHA = ['apos', 'nbsp', 'iexcl', 'cent', 'pound', 'curren', 'yen', 'brvbar', 'sect', 'uml', 'copy', 'ordf', 'laquo', 'not', 'shy', 'reg', 'macr', 'deg', 'plusmn', 'sup2', 'sup3', 'acute', 'micro', 'para', 'middot', 'cedil', 'sup1', 'ordm', 'raquo', 'frac14', 'frac12', 'frac34', 'iquest', 'Agrave', 'Aacute', 'Acirc', 'Atilde', 'Auml', 'Aring', 'Aelig', 'Ccedil', 'Egrave', 'Eacute', 'Ecirc', 'Euml', 'Igrave', 'Iacute', 'Icirc', 'Iuml', 'ETH', 'Ntilde', 'Ograve', 'Oacute', 'Ocirc', 'Otilde', 'Ouml', 'times', 'Oslash', 'Ugrave', 'Uacute', 'Ucirc', 'Uuml', 'Yacute', 'THORN', 'szlig', 'agrave', 'aacute', 'acirc', 'atilde', 'auml', 'aring', 'aelig', 'ccedil', 'egrave', 'eacute', 'ecirc', 'euml', 'igrave', 'iacute', 'icirc', 'iuml', 'eth', 'ntilde', 'ograve', 'oacute', 'ocirc', 'otilde', 'ouml', 'divide', 'oslash', 'ugrave', 'uacute', 'ucirc', 'uuml', 'yacute', 'thorn', 'yuml', 'quot', 'amp', 'lt', 'gt', 'OElig', 'oelig', 'Scaron', 'scaron', 'Yuml', 'circ', 'tilde', 'ensp', 'emsp', 'thinsp', 'zwnj', 'zwj', 'lrm', 'rlm', 'ndash', 'mdash', 'lsquo', 'rsquo', 'sbquo', 'ldquo', 'rdquo', 'bdquo', 'dagger', 'Dagger', 'permil', 'lsaquo', 'rsaquo', 'euro', 'fnof', 'Alpha', 'Beta', 'Gamma', 'Delta', 'Epsilon', 'Zeta', 'Eta', 'Theta', 'Iota', 'Kappa', 'Lambda', 'Mu', 'Nu', 'Xi', 'Omicron', 'Pi', 'Rho', 'Sigma', 'Tau', 'Upsilon', 'Phi', 'Chi', 'Psi', 'Omega', 'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa', 'lambda', 'mu', 'nu', 'xi', 'omicron', 'pi', 'rho', 'sigmaf', 'sigma', 'tau', 'upsilon', 'phi', 'chi', 'psi', 'omega', 'thetasym', 'upsih', 'piv', 'bull', 'hellip', 'prime', 'Prime', 'oline', 'frasl', 'weierp', 'image', 'real', 'trade', 'alefsym', 'larr', 'uarr', 'rarr', 'darr', 'harr', 'crarr', 'lArr', 'uArr', 'rArr', 'dArr', 'hArr', 'forall', 'part', 'exist', 'empty', 'nabla', 'isin', 'notin', 'ni', 'prod', 'sum', 'minus', 'lowast', 'radic', 'prop', 'infin', 'ang', 'and', 'or', 'cap', 'cup', 'int', 'there4', 'sim', 'cong', 'asymp', 'ne', 'equiv', 'le', 'ge', 'sub', 'sup', 'nsub', 'sube', 'supe', 'oplus', 'otimes', 'perp', 'sdot', 'lceil', 'rceil', 'lfloor', 'rfloor', 'lang', 'rang', 'loz', 'spades', 'clubs', 'hearts', 'diams'];
@@ -8893,7 +9126,7 @@ module.exports = Html4Entities;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports) {
 
 var ALPHA_INDEX = {
@@ -9054,145 +9287,145 @@ module.exports = XmlEntities;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports) {
 
 module.exports = "<!--<router-outlet></router-outlet>-->\r\n<devbutton></devbutton>\r\n\r\n<!--<dynamic-component *ngFor=\"let page of pages\" [page]=\"page\" [type]=\"page.pageTemplate\">\r\n        \r\n    </dynamic-component>-->\r\n\r\n<input type=\"checkbox\" id=\"showSearchSidebar\" />\r\n<my-searchsidebar class=\"sidebar\"></my-searchsidebar>\r\n<my-fab></my-fab>\r\n<label class=\"grayout6\" for=\"showSearchSidebar\"></label>\r\n\r\n<login></login>\r\n\r\n<input type=\"checkbox\" id=\"showTextSidebar\" />\r\n<my-textsidebar class=\"sidebar\"></my-textsidebar>\r\n<my-text class=\"component\"></my-text>\r\n<label class=\"grayout1\" for=\"showTextSidebar\"></label>\r\n\r\n<input type=\"checkbox\" id=\"showTeamSidebar\" />\r\n<my-teamsidebar class=\"sidebar\"></my-teamsidebar>\r\n<my-team class=\"component\"></my-team>\r\n<label class=\"grayout2\" for=\"showTeamSidebar\"></label>\r\n\r\n<input type=\"checkbox\" id=\"showPersonSidebar\" />\r\n<my-personsidebar class=\"sidebar\"></my-personsidebar>\r\n<my-person class=\"component\"></my-person>\r\n<label class=\"grayout3\" for=\"showPersonSidebar\"></label>\r\n\r\n<input type=\"checkbox\" id=\"showProductSidebar\" />\r\n<my-productsidebar class=\"sidebar\"></my-productsidebar>\r\n<my-product class=\"component\"></my-product>\r\n<label class=\"grayout4\" for=\"showProductSidebar\"></label>\r\n\r\n<input type=\"checkbox\" id=\"showGallerySidebar\" />\r\n<my-gallerysidebar class=\"sidebar\"></my-gallerysidebar>\r\n<my-gallery class=\"component\"></my-gallery>\r\n<label class=\"grayout5\" for=\"showGallerySidebar\"></label>\r\n\r\n\r\n<my-footer></my-footer>\r\n\r\n<span></span>";
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports) {
 
 module.exports = "<img src=\"/assets/icons/adown.svg\" />";
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = "<img src=\"/assets/icons/edit.svg\"/>";
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports) {
 
 module.exports = "";
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports) {
 
 module.exports = "<img src=\"/assets/icons/aup.svg\" />";
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports) {
 
 module.exports = "<footer class=\"footer-component {{backgroundColorClass}}\">\r\n    <section class=\"publicy\">\r\n\r\n        <section class=\"address\">\r\n            <p class=\"footer-title display-1\">{{title1}}</p>\r\n            <p class=\"footer-cont-item\">{{city}}</p>\r\n            <p class=\"footer-cont-item\">{{street}}</p>\r\n            <p class=\"footer-cont-item\">{{zipCode}}</p>\r\n\r\n        </section>\r\n\r\n        <section class=\"snetwork\">\r\n            <p class=\"footer-title display-1\">{{title2}}</p>\r\n            <div class=\"social-icons\">\r\n                <a href=\"{{vk_url}}\" target=\"_blank\"><img src={{vk_icon}} alt=\"vk\"/></a>\r\n                <a href=\"{{fb_url}}\" target=\"_blank\"><img src={{fb_icon}} alt=\"fb\"/></a>\r\n                <a href=\"{{tg_url}}\" target=\"_blank\"><img src={{tg_icon}} alt=\"tg\"/></a>\r\n                <a href=\"{{tw_url}}\" target=\"_blank\"><img src={{tw_icon}} alt=\"tw\"/></a>\r\n                <a href=\"{{gp_url}}\" target=\"_blank\"><img src={{gp_icon}} alt=\"gp\"/></a>\r\n            </div>\r\n        </section>\r\n\r\n        <section class=\"contact\">\r\n            <p class=\"footer-title display-1\">{{title3}}</p>\r\n            <p class=\"footer-cont-item\">{{phoneNumber}}</p>\r\n            <p class=\"footer-cont-item\">{{email}}</p>\r\n            <p class=\"footer-cont-item\">{{skype}}</p>\r\n            <p class=\"footer-cont-item\">{{whatsApp}}</p>\r\n        </section>\r\n\r\n    </section>\r\n\r\n    <section class=\"technical-info\">\r\n        <p>{{tech}}</p>\r\n    </section>\r\n\r\n</footer>";
 
 /***/ }),
-/* 66 */
-/***/ (function(module, exports) {
-
-module.exports = "<script>\r\nfunction masonry(grid, gridCell, gridGutter, dGridCol, tGridCol, mGridCol) {\r\n    var g = document.querySelector(grid),\r\n        gc = document.querySelectorAll(gridCell),\r\n        gcLength = gc.length,\r\n        gHeight = 0,\r\n        i;\r\n\r\n    for (i = 0; i < gcLength; ++i) {\r\n        gHeight += gc[i].offsetHeight + parseInt(gridGutter);\r\n    }\r\n\r\n    if (window.screen.width >= 1024)\r\n        g.style.height = gHeight / dGridCol + gHeight / (gcLength + 1) + \"px\";\r\n    else if (window.screen.width < 1024 && window.screen.width >= 768)\r\n        g.style.height = gHeight / tGridCol + gHeight / (gcLength + 1) + \"px\";\r\n    else\r\n        g.style.height = gHeight / mGridCol + gHeight / (gcLength + 1) + \"px\";\r\n}\r\n\r\n[\"resize\", \"load\"].forEach(function (event) {\r\n    window.addEventListener(event, function () {\r\n        imagesLoaded(document.querySelector('.masonry'), function () {\r\n            // A maonsry grid with 8px gutter, with 3 columns on desktop, 2 on tablet, and 1 column on mobile devices.\r\n            masonry(\".masonry\", \".masonry-brick\", 8, 3, 2, 1);\r\n        });\r\n    });\r\n\r\nvar masonryElem = document.querySelector('.masonry');\r\nmasonryElem.insertAdjacentHTML(\"afterend\", \"\r\nLoading...\");\r\nvar masonryPreloader = document.querySelector('.masonry-preloader');\r\n\r\n[\"resize\", \"load\"].forEach(function(event) {\r\n  // Hiding the preloader\r\n  masonryElem.style.display=\"none\";\r\n  window.addEventListener(event, function() {\r\n    imagesLoaded( document.querySelector('.masonry'), function() {\r\n      masonryElem.style.display=\"flex\";\r\n      masonryPreloader.style.display=\"none\";\r\n      // A masonry grid with 8px gutter, with 3 columns on desktop, 2 on tablet, and 1 column on mobile devices.\r\n      masonry(\".masonry\", \".masonry-brick\", 8, 3, 2, 1);\r\n      console.log(\"Loaded\");\r\n    });\r\n  }, false);\r\n});\r\n</script>\r\n\r\n<section class=\"gallery-component block-component {{model.backgroundColor}}\" [style.background-color]=\"getBackgroundColor()\">\r\n    <h2 class=\"gallery-titlte display-2\">{{model.title}}</h2>\r\n\r\n    <div class=\"masonry masonry--h\">\r\n        <div class=\"masonry-brick masonry-brick--h\"><article class=\"product-gallery-text\"><p>{{model.sometext}}</p></article><img src=\"{{model.ImgUrl}}\" alt=\"img\" class=\"masonry-img\"/></div>\r\n        <div class=\"masonry-brick masonry-brick--h\"><article class=\"product-gallery-text\"><p>{{model.sometext}}</p></article><img src=\"{{model.ImgUrl}}\" alt=\"img\" class=\"masonry-img\"/></div>\r\n        <div class=\"masonry-brick masonry-brick--h\"><article class=\"product-gallery-text\"><p>{{model.sometext}}</p></article><img src=\"{{model.ImgUrl}}\" alt=\"img\" class=\"masonry-img\"/></div>\r\n        <div class=\"masonry-brick masonry-brick--h\"><article class=\"product-gallery-text\"><p>{{model.sometext}}</p></article><img src=\"{{model.ImgUrl}}\" alt=\"img\" class=\"masonry-img\"/></div>\r\n        <div class=\"masonry-brick masonry-brick--h\"><article class=\"product-gallery-text\"><p>{{model.sometext}}</p></article><img src=\"{{model.ImgUrl}}\" alt=\"img\" class=\"masonry-img\"/></div>\r\n        <div class=\"masonry-brick masonry-brick--h\"><article class=\"product-gallery-text\"><p>{{model.sometext}}</p></article><img src=\"{{model.ImgUrl}}\" alt=\"img\" class=\"masonry-img\"/></div>\r\n    </div>\r\n\r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-red edit-btn\" for=\"showGallerySidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-red up-btn\"><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-red down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-red trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n</section>";
-
-/***/ }),
 /* 67 */
 /***/ (function(module, exports) {
 
-module.exports = "<input type=\"checkbox\" id=\"showSignIn\"/>\r\n<div class=\"form signIn\">\r\n    <form #loginForm=\"ngForm\" (ngSubmit)=\"doLogin($event)\" style=\"position: relative\">\r\n\r\n        <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"password\" #name=\"ngModel\" name=\"password\" required/>\r\n\r\n        <button type=\"submit\" value=\"Login\" class=\"button btn\" [disabled]=\"!loginForm.form.valid\"></button>\r\n\r\n        <label for=\"showSignIn\" class=\"closeWindow\"></label>\r\n\r\n    </form>\r\n</div>";
+module.exports = "<script>\r\nfunction masonry(grid, gridCell, gridGutter, dGridCol, tGridCol, mGridCol) {\r\n    var g = document.querySelector(grid),\r\n        gc = document.querySelectorAll(gridCell),\r\n        gcLength = gc.length,\r\n        gHeight = 0,\r\n        i;\r\n\r\n    for (i = 0; i < gcLength; ++i) {\r\n        gHeight += gc[i].offsetHeight + parseInt(gridGutter);\r\n    }\r\n\r\n    if (window.screen.width >= 1024)\r\n        g.style.height = gHeight / dGridCol + gHeight / (gcLength + 1) + \"px\";\r\n    else if (window.screen.width < 1024 && window.screen.width >= 768)\r\n        g.style.height = gHeight / tGridCol + gHeight / (gcLength + 1) + \"px\";\r\n    else\r\n        g.style.height = gHeight / mGridCol + gHeight / (gcLength + 1) + \"px\";\r\n}\r\n\r\n[\"resize\", \"load\"].forEach(function (event) {\r\n    window.addEventListener(event, function () {\r\n        imagesLoaded(document.querySelector('.masonry'), function () {\r\n            // A maonsry grid with 8px gutter, with 3 columns on desktop, 2 on tablet, and 1 column on mobile devices.\r\n            masonry(\".masonry\", \".masonry-brick\", 8, 3, 2, 1);\r\n        });\r\n    });\r\n\r\nvar masonryElem = document.querySelector('.masonry');\r\nmasonryElem.insertAdjacentHTML(\"afterend\", \"\r\nLoading...\");\r\nvar masonryPreloader = document.querySelector('.masonry-preloader');\r\n\r\n[\"resize\", \"load\"].forEach(function(event) {\r\n  // Hiding the preloader\r\n  masonryElem.style.display=\"none\";\r\n  window.addEventListener(event, function() {\r\n    imagesLoaded( document.querySelector('.masonry'), function() {\r\n      masonryElem.style.display=\"flex\";\r\n      masonryPreloader.style.display=\"none\";\r\n      // A masonry grid with 8px gutter, with 3 columns on desktop, 2 on tablet, and 1 column on mobile devices.\r\n      masonry(\".masonry\", \".masonry-brick\", 8, 3, 2, 1);\r\n      console.log(\"Loaded\");\r\n    });\r\n  }, false);\r\n});\r\n</script>\r\n\r\n<section class=\"gallery-component block-component {{model.backgroundColor}}\" [style.background-color]=\"getBackgroundColor()\">\r\n    <h2 class=\"gallery-titlte display-2\">{{model.title}}</h2>\r\n\r\n    <div class=\"masonry masonry--h\">\r\n        <div class=\"masonry-brick masonry-brick--h\"><article class=\"product-gallery-text\"><p>{{model.description1}}</p></article><img src=\"{{model.ImgUrl1}}\" alt=\"img\" class=\"masonry-img\"/></div>\r\n        <div class=\"masonry-brick masonry-brick--h\"><article class=\"product-gallery-text\"><p>{{model.description2}}</p></article><img src=\"{{model.ImgUrl2}}\" alt=\"img\" class=\"masonry-img\"/></div>\r\n        <div class=\"masonry-brick masonry-brick--h\"><article class=\"product-gallery-text\"><p>{{model.description3}}</p></article><img src=\"{{model.ImgUrl3}}\" alt=\"img\" class=\"masonry-img\"/></div>\r\n    </div>\r\n\r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-red edit-btn\" for=\"showGallerySidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-red up-btn\"><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-red down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-red trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n</section>";
 
 /***/ }),
 /* 68 */
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div class='main-nav'>\r\n    <div class='navbar navbar-inverse'>\r\n        <div class='navbar-header'>\r\n            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>\r\n                <span class='sr-only'>Toggle navigation</span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n            </button>\r\n            <a class='navbar-brand' [routerLink]=\"['/home']\">StartFolio</a>\r\n        </div>\r\n        <div class='clearfix'></div>\r\n        <div class='navbar-collapse collapse'>\r\n            <ul class='nav navbar-nav'>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/home']\">\r\n                        <span class='glyphicon glyphicon-home'></span> Home\r\n                    </a>\r\n                </li>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/counter']\">\r\n                        <span class='glyphicon glyphicon-education'></span> Counter\r\n                    </a>\r\n                </li>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/fetch-data']\">\r\n                        <span class='glyphicon glyphicon-th-list'></span> Fetch data\r\n                    </a>\r\n                </li>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/text']\">\r\n                        <span class='glyphicon glyphicon-ice-lolly'></span> Some\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n    -->\r\n";
+module.exports = "<input type=\"checkbox\" id=\"showSignIn\"/>\r\n<div class=\"form signIn\">\r\n    <form #loginForm=\"ngForm\" (ngSubmit)=\"doLogin($event)\" style=\"position: relative\">\r\n\r\n        <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"password\" #name=\"ngModel\" name=\"password\" required/>\r\n\r\n        <button type=\"submit\" value=\"Login\" class=\"button btn\" [disabled]=\"!loginForm.form.valid\"></button>\r\n\r\n        <label for=\"showSignIn\" class=\"closeWindow\"></label>\r\n\r\n    </form>\r\n</div>";
 
 /***/ }),
 /* 69 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"person-component block-component {{model.backgroundColor}}\" [style.background-color]=\"getBackgroundColor()\">\r\n    \r\n    <section class=\"person-photo\">\r\n        <img src=\"{{model.personImgUrl}}\" alt=\"img\"/>\r\n    </section>\r\n\r\n    <section class=\"person-component-content\">\r\n\r\n        <h2 class=\"person-component-title display-2\">{{model.title}}</h2>\r\n        <article class=\"person-component-opinion main-text body-2 text-large\">{{model.opinion}}</article>\r\n\r\n        <section class=\"person-info sub-text body-2 text-large\">\r\n            <section class=\"person-name\">\r\n                <p>{{model.Name}}</p>, <p>{{model.Surname}}</p>\r\n            </section>\r\n            <p>{{model.Age}}</p>\r\n            <p>{{model.WhoIsThis}}</p>\r\n        </section>\r\n\r\n    </section>\r\n\r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-red edit-btn\" for=\"showPersonSidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-red up-btn\"><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-red down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-red trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n\r\n</section>";
+module.exports = "<!--<div class='main-nav'>\r\n    <div class='navbar navbar-inverse'>\r\n        <div class='navbar-header'>\r\n            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>\r\n                <span class='sr-only'>Toggle navigation</span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n                <span class='icon-bar'></span>\r\n            </button>\r\n            <a class='navbar-brand' [routerLink]=\"['/home']\">StartFolio</a>\r\n        </div>\r\n        <div class='clearfix'></div>\r\n        <div class='navbar-collapse collapse'>\r\n            <ul class='nav navbar-nav'>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/home']\">\r\n                        <span class='glyphicon glyphicon-home'></span> Home\r\n                    </a>\r\n                </li>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/counter']\">\r\n                        <span class='glyphicon glyphicon-education'></span> Counter\r\n                    </a>\r\n                </li>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/fetch-data']\">\r\n                        <span class='glyphicon glyphicon-th-list'></span> Fetch data\r\n                    </a>\r\n                </li>\r\n                <li [routerLinkActive]=\"['link-active']\">\r\n                    <a [routerLink]=\"['/text']\">\r\n                        <span class='glyphicon glyphicon-ice-lolly'></span> Some\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</div>\r\n    -->\r\n";
 
 /***/ }),
 /* 70 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"product-component block-component {{model.backgroundColor}}\" [style.background-color]=\"getBackgroundColor()\">\r\n    \r\n    <section class=\"product-demo\">\r\n        <img src=\"{{model.productImgUrl}}\" alt=\"img\"/>\r\n    </section>\r\n\r\n    <section class=\"product-component-content\">\r\n        <h2 class=\"product-component-title display-2\">{{model.title}}</h2>\r\n        <article class=\"text-large body-2\">{{model.mainText}}</article>\r\n        <article class=\"text-large body-2\">{{model.subText}} </article>\r\n    </section>\r\n   \r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-blue edit-btn\" for=\"showProductSidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-blue up-btn\"><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-blue down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-blue trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n</section>";
+module.exports = "<section class=\"person-component block-component {{model.backgroundColor}}\" [style.background-color]=\"getBackgroundColor()\">\r\n    \r\n    <section class=\"person-photo\">\r\n        <img src=\"{{model.personImgUrl}}\" alt=\"img\"/>\r\n    </section>\r\n\r\n    <section class=\"person-component-content\">\r\n\r\n        <h2 class=\"person-component-title display-2\">{{model.title}}</h2>\r\n        <article class=\"person-component-opinion main-text body-2 text-large\">{{model.opinion}}</article>\r\n\r\n        <section class=\"person-info sub-text body-2 text-large\">\r\n            <section class=\"person-name\">\r\n                <p>{{model.Name}}</p>, <p>{{model.Surname}}</p>\r\n            </section>\r\n            <p>{{model.Age}}</p>\r\n            <p>{{model.Occupation}}</p>\r\n        </section>\r\n\r\n    </section>\r\n\r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-red edit-btn\" for=\"showPersonSidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-red up-btn\"><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-red down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-red trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n\r\n</section>";
 
 /***/ }),
 /* 71 */
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"display-2 comp-h2\" style=\"font-size: 20px\">{{componentTitle}}</h2>\r\n<div class=\"searchable-block\">\r\n    <img src=\"{{previewLink}}\" alt=\"component\"/>\r\n</div>";
+module.exports = "<section class=\"product-component block-component {{model.backgroundColor}}\" [style.background-color]=\"getBackgroundColor()\">\r\n    \r\n    <section class=\"product-demo\">\r\n        <img src=\"{{model.productImgUrl}}\" alt=\"img\"/>\r\n    </section>\r\n\r\n    <section class=\"product-component-content\">\r\n        <h2 class=\"product-component-title display-2\">{{model.title}}</h2>\r\n        <article class=\"text-large body-2\">{{model.mainText}}</article>\r\n        <article class=\"text-large body-2\">{{model.subText}} </article>\r\n    </section>\r\n   \r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-blue edit-btn\" for=\"showProductSidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-blue up-btn\"><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-blue down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-blue trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n</section>";
 
 /***/ }),
 /* 72 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"sidebar-header material-green\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Gallery component</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <form class=\"Options\" #galleryEditForm=\"ngForm\" (ngSubmit)=\"editGalleryInfo($event)\">\r\n        <label class=\"optionTitle\">Text title</label>\r\n        <input type=\"text\" name=\"textTitle\" [(ngModel)]=\"model.title\" #title=\"ngModel\" required />\r\n\r\n\r\n    <label class=\"optionTitle\">First photo</label>\r\n    <input type=\"file\" accept=\"image/*\" (change)=\"updateModel($event, 1)\" name=\"photo-1\" required/>\r\n\r\n    <label class=\"optionTitle\">Second photo</label>\r\n    <input type=\"file\" accept=\"image/*\" (change)=\"updateModel($event, 2)\" name=\"photo-2\" required/>\r\n\r\n    <label class=\"optionTitle\">Third photo</label>\r\n    <input type=\"file\" accept=\"image/*\" (change)=\"updateModel($event, 3)\" name=\"photo-3\" required/>\r\n\r\n    <label class=\"optionTitle\">Fourth photo</label>\r\n    <input type=\"file\" accept=\"image/*\" (change)=\"updateModel($event, 4)\" name=\"photo-4\"  required/>\r\n\r\n    <label class=\"optionTitle\">Fifth photo</label>\r\n    <input type=\"file\" accept=\"image/*\" (change)=\"updateModel($event, 5)\" name=\"photo-5\" required/>\r\n\r\n    <label class=\"optionTitle\">Sixth photo</label>\r\n    <input type=\"file\" accept=\"image/*\" (change)=\"updateModel($event, 6)\" name=\"photo-6\" required/>\r\n\r\n        <!--ngFor version\r\n    <div class=\"image-upload\" *ngFor=\"let photo of photos; let i = index\">\r\n        <label class=\"optionTitle\"></label>\r\n        <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($event, i)\" required />\r\n    </div>\r\n\r\n    <label class=\"optionTitle\">Background color</label>\r\n    <input type=\"color\" [(ngModel)]=\"model.backgroundColor\" #backgroundColor=\"ngModel\"/>\r\n\r\n    <input class=\"btn button\" type=\"submit\" [disabled]=\"!galleryEditForm.form.valid\"/>-->\r\n    </form>\r\n\r\n</section>";
+module.exports = "<h2 class=\"display-2 comp-h2\" style=\"font-size: 20px\">{{componentTitle}}</h2>\r\n<div class=\"searchable-block\">\r\n    <img src=\"{{previewLink}}\" alt=\"component\"/>\r\n</div>";
 
 /***/ }),
 /* 73 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"sidebar-header material-orange\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Person component</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <form class=\"Options\" #personEditForm=\"ngForm\" (ngSubmit)=\"editPersonInfo($event)\">\r\n\r\n        <label class=\"optionTitle\">Text title</label>\r\n        <input type=\"text\" [(ngModel)]=\"model.title\" #title=\"ngModel\" name=\"title\" required/>\r\n\r\n        <label class=\"optionTitle\">Main text</label>\r\n        <textarea [(ngModel)]=\"model.mainText\" #mainText=\"ngModel\" name=\"main\" required></textarea>\r\n\r\n        <label class=\"optionTitle\">Name, surname</label>\r\n        <input type=\"text\" [(ngModel)]=\"model.name\" #name=\"ngModel\" name=\"full-name\" required/>\r\n\r\n        <label class=\"optionTitle\">Age</label>\r\n        <input type=\"text\" [(ngModel)]=\"model.age\" #age=\"ngModel\" name=\"age\" required />\r\n\r\n        <label class=\"optionTitle\">Position</label>\r\n        <input type=\"text\" [(ngModel)]=\"model.position\" #position=\"ngModel\" name=\"position\" required/>\r\n\r\n        <label class=\"optionTitle\">Person photo</label>\r\n        <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($event)\" name=\"photo\" required />\r\n\r\n        <label class=\"optionTitle\">Background color</label>\r\n        <input type=\"color\" [(ngModel)]=\"model.backgroundColor\" name=\"background-color\"/>\r\n\r\n        <input class=\"btn button\" type=\"submit\" [disabled]=\"!personEditForm.form.valid\"/>\r\n    </form>\r\n\r\n</section>";
+module.exports = "<section class=\"sidebar-header material-green\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Gallery component</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <form class=\"Options\" [formGroup]=\"galleryEditForm\" (ngSubmit)=\"save(galleryEditForm.value)\">\r\n\r\n        <label class=\"optionTitle\">Text title</label>\r\n        <input type=\"text\" formControlName=\"title\" />\r\n\r\n\r\n\r\n\r\n        <label class=\"optionTitle\">Project 1 description</label>\r\n        <input type=\"text\" formControlName=\"description1\" />\r\n\r\n        <label class=\"optionTitle\">First photo</label>\r\n        <input type=\"file\" accept=\"image/*\" formControlName=\"imgUrl1\" (change)=\"updateImage($event, 1)\" />\r\n\r\n\r\n\r\n\r\n        <label class=\"optionTitle\">Project 2 description</label>\r\n        <input type=\"text\" formControlName=\"description2\" />\r\n\r\n        <label class=\"optionTitle\">Second photo</label>\r\n        <input type=\"file\" accept=\"image/*\" formControlName=\"imgUrl2\" (change)=\"updateImage($event, 2)\" />\r\n\r\n\r\n\r\n\r\n        <label class=\"optionTitle\">Project 3 description</label>\r\n        <input type=\"text\" formControlName=\"description3\" />\r\n\r\n        <label class=\"optionTitle\">Third photo</label>\r\n        <input type=\"file\" accept=\"image/*\" formControlName=\"imgUrl3\" (change)=\"updateImage($event, 3)\" />\r\n\r\n        <label class=\"optionTitle\">Background color</label>\r\n        <input type=\"color\" formControlName=\"backgroundColor\"/>\r\n\r\n        <!--ngFor version\r\n    <div class=\"image-upload\" *ngFor=\"let photo of photos; let i = index\">\r\n        <label class=\"optionTitle\"></label>\r\n        <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($event, i)\" required />\r\n    </div>\r\n\r\n    <label class=\"optionTitle\">Background color</label>\r\n    <input type=\"color\" [(ngModel)]=\"model.backgroundColor\" #backgroundColor=\"ngModel\"/>\r\n\r\n    <input class=\"btn button\" type=\"submit\" [disabled]=\"!galleryEditForm.form.valid\"/>-->\r\n        <button type=\"submit\" class=\"btn button\">Submit</button>\r\n    </form>\r\n\r\n</section>";
 
 /***/ }),
 /* 74 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"sidebar-header material-blue\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Product component</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <form class=\"Options\"  #productEditForm=\"ngForm\" (ngSubmit)=\"editProductInfo($event)\">\r\n\r\n        <label class=\"optionTitle\">Text title</label>\r\n        <input type=\"text\" [(ngModel)]=\"model.title\" #title=\"ngModel\" name = \"title\" required/>\r\n\r\n        <label class=\"optionTitle\">Main text</label>\r\n        <textarea [(ngModel)]=\"model.mainText\" #mainText=\"ngModel\" name=\"main-text\"></textarea>\r\n\r\n        <label class=\"optionTitle\">Sub text</label>\r\n        <textarea [(ngModel)]=\"model.subText\" #subText=\"ngModel\" name=\"sub-text\"></textarea>\r\n\r\n        <label class=\"optionTitle\">Product demo photo</label>\r\n        <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($event)\" name=\"photo\" required/>\r\n\r\n        <label class=\"optionTitle\">Background color</label>\r\n        <input type=\"color\" [(ngModel)]=\"model.backgroundColor\" #backgroundColor=\"ngModel\" name=\"background-color\" required/>\r\n\r\n        <input class=\"btn button material-blue\" type=\"submit\" [disabled]=\"!productEditForm.form.valid\" />\r\n\r\n    </form>\r\n\r\n</section>";
+module.exports = "<section class=\"sidebar-header material-orange\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Person component</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <form class=\"Options\" [formGroup]=\"personEditForm\" (ngSubmit)=\"save(personEditForm.value)\">\r\n\r\n        <label class=\"optionTitle\">Text title</label>\r\n        <input type=\"text\" formControlName=\"title\"/>\r\n\r\n        <label class=\"optionTitle\">Main text</label>\r\n        <textarea formControlName=\"mainText\"></textarea>\r\n\r\n        <label class=\"optionTitle\">Name, surname</label>\r\n        <input type=\"text\" formControlName=\"personName\"/>\r\n\r\n        <label class=\"optionTitle\">Age</label>\r\n        <input type=\"text\" formControlName=\"age\"/>\r\n\r\n        <label class=\"optionTitle\">Position</label>\r\n        <input type=\"text\" formControlName=\"position\"/>\r\n\r\n        <label class=\"optionTitle\">Person photo</label>\r\n        <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($event)\" formControlName=\"photo\"/>\r\n\r\n        <label class=\"optionTitle\">Background color</label>\r\n        <input type=\"color\" formControlName=\"backgroundColor\"/>\r\n\r\n        <button class=\"btn button\" type=\"submit\">Submit</button>\r\n    </form>\r\n\r\n</section>";
 
 /***/ }),
 /* 75 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"sidebar-header material-green\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Components</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <section class=\"componentSearch\">\r\n        <input type=\"search\" class=\"searchField\"/>\r\n        <img src=\"/assets/icons/search.svg\" class=\"searchBtn\"/>\r\n    </section>\r\n\r\n\r\n    <div class=\"horizontal-separator\"></div>\r\n\r\n    <!--<h2 class=\"display-2\" style=\"font-size: 20px\">HERE WILL BE SEARCH RESULT!</h2>-->\r\n\r\n    <section class=\"available-components\">\r\n        <searchable [componentTitle]=\"titles0\"\r\n                    [previewLink]=\"previews0\"\r\n                    (click) =\"createPage('template0')\"></searchable>\r\n        <searchable [componentTitle]=\"titles1\"\r\n                    [previewLink]=\"previews1\"\r\n                     (click) =\"createPage('template1')\"></searchable>\r\n        <searchable [componentTitle]=\"titles2\"\r\n                    [previewLink]=\"previews2\"\r\n                     (click) =\"createPage('template2')\"></searchable>\r\n        <searchable [componentTitle]=\"titles3\"\r\n                    [previewLink]=\"previews3\"\r\n                     (click) =\"createPage('template3')\"></searchable>\r\n        <searchable [componentTitle]=\"titles4\"\r\n                    [previewLink]=\"previews4\"\r\n                     (click) =\"createPage('template4')\"></searchable>\r\n\r\n    </section>\r\n\r\n</section>";
+module.exports = "<section class=\"sidebar-header material-blue\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Product component</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <form class=\"Options\" [formGroup]=\"productEditForm\" (ngSubmit)=\"save(productEditForm.value)\">\r\n\r\n        <label class=\"optionTitle\">Text title</label>\r\n        <input type=\"text\" formControlName=\"title\"/>\r\n\r\n        <label class=\"optionTitle\">Main text</label>\r\n        <textarea formControlName=\"mainText\"></textarea>\r\n\r\n        <label class=\"optionTitle\">Sub text</label>\r\n        <textarea formControlName=\"subText\"></textarea>\r\n\r\n        <label class=\"optionTitle\">Product demo photo</label>\r\n        <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($event)\" formControlName=\"photo\"/>\r\n\r\n        <label class=\"optionTitle\">Background color</label>\r\n        <input type=\"color\" formControlName=\"backgroundColor\"/>\r\n\r\n        <button class=\"btn button material-blue\" type=\"submit\">Submit</button>\r\n\r\n    </form>\r\n\r\n</section>";
 
 /***/ }),
 /* 76 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n    <section class=\"sidebar-header material-red\">\r\n        <h2 class=\"display-1\" style=\"color: white\">Team component</h2>\r\n    </section>\r\n\r\n    <section class=\"sidebar-content\">\r\n    \r\n        <form class=\"Options\"  #teamEditForm=\"ngForm\" (ngSubmit)=\"editTeamInfo($event)\">\r\n\r\n            <label class=\"optionTitle\">Text title</label>\r\n            <input type=\"text\" [(ngModel)]=\"model.title\" #title=\"ngModel\" name=\"title\" required/>\r\n\r\n            <label class=\"optionTitle\">Main text</label>\r\n            <textarea [(ngModel)]=\"model.mainText\" #mainText=\"ngModel\" name=\"main-text\"></textarea>\r\n\r\n            <label class=\"optionTitle\">Background color</label>\r\n            <input type=\"color\" [(ngModel)]=\"model.backgroundColor\" #backgroundColor=\"ngModel\" name=\"background-color\" required/>\r\n    \r\n            <!--Hardcode version-->\r\n            <label class=\"optionTitle\">Teammate 1</label>\r\n                <label class=\"optionTitle\">Name, surname</label>\r\n                <input type=\"text\" [(ngModel)]=\"model.teammate1_Name\" #teammate1_Name=\"ngModel\" name=\"teammate-1-name\" required/>\r\n\r\n                <label class=\"optionTitle\">Short description</label>\r\n                <input type=\"text\" [(ngModel)]=\"model.teammate1_Description\" #teammate1_Description=\"ngModel\" name=\"teammate-1-description\" required/>\r\n\r\n                <label class=\"optionTitle\">Link to profile</label>\r\n                <input type=\"url\" [(ngModel)]=\"model.teammate1_Link\" #teammate1_Link=\"ngModel\" name=\"teammate-1-link\" required/>\r\n\r\n                <label class=\"optionTitle\">Teammate photo</label>\r\n                <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($image, 1)\" name=\"teammate-1-photo\" required/>\r\n\r\n    \r\n            <label class=\"optionTitle\">Teammate 2</label>\r\n                <label class=\"optionTitle\">Name, surname</label>\r\n                <input type=\"text\" [(ngModel)]=\"model.teammate2_Name\" #teammate2_Name=\"ngModel\" name=\"teammate-2-name\" required/>\r\n\r\n                <label class=\"optionTitle\">Short description</label>\r\n                <input type=\"text\" [(ngModel)]=\"model.teammate2_Description\" #teammate2_Description=\"ngModel\" name=\"teammate-2-description\" required/>\r\n\r\n                <label class=\"optionTitle\">Link to profile</label>\r\n                <input type=\"url\" [(ngModel)]=\"model.teammate2_Link\" #teammate2_Link=\"ngModel\" name=\"teammate-2-link\" required/>\r\n\r\n                <label class=\"optionTitle\">Teammate photo</label>\r\n                <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($image, 2)\" name=\"teammate-2-photo\" required/>\r\n            \r\n\r\n            <!--ngFor version-->\r\n\r\n            <!--\r\n            <div *ngFor=\"let teammate of teammates; let i = index\" [indexNo]=\"i\">\r\n            </div>\r\n            -->\r\n    \r\n            <input class=\"btn button material-green\" type=\"submit\" [disabled]=\"!teamEditForm.form.valid\"/>\r\n        </form>\r\n    \r\n    </section>\r\n</div>";
+module.exports = "<section class=\"sidebar-header material-green\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Components</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <section class=\"componentSearch\">\r\n        <input type=\"search\" class=\"searchField\"/>\r\n        <img src=\"/assets/icons/search.svg\" class=\"searchBtn\"/>\r\n    </section>\r\n\r\n\r\n    <div class=\"horizontal-separator\"></div>\r\n\r\n    <!--<h2 class=\"display-2\" style=\"font-size: 20px\">HERE WILL BE SEARCH RESULT!</h2>-->\r\n\r\n    <section class=\"available-components\">\r\n        <searchable [componentTitle]=\"titles0\"\r\n                    [previewLink]=\"previews0\"\r\n                    (click) =\"createPage(template0)\"></searchable>\r\n        <searchable [componentTitle]=\"titles1\"\r\n                    [previewLink]=\"previews1\"\r\n                     (click) =\"createPage(template1)\"></searchable>\r\n        <searchable [componentTitle]=\"titles2\"\r\n                    [previewLink]=\"previews2\"\r\n                     (click) =\"createPage(template2)\"></searchable>\r\n        <searchable [componentTitle]=\"titles3\"\r\n                    [previewLink]=\"previews3\"\r\n                     (click) =\"createPage(template3)\"></searchable>\r\n        <searchable [componentTitle]=\"titles4\"\r\n                    [previewLink]=\"previews4\"\r\n                     (click) =\"createPage(template4)\"></searchable>\r\n\r\n    </section>\r\n\r\n</section>";
 
 /***/ }),
 /* 77 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"sidebar-header material-green\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Text component</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <form class=\"Options\"  #textEditForm=\"ngForm\" (ngSubmit)=\"editTextInfo($event)\">\r\n        <label class=\"optionTitle\">Text title</label>\r\n        <input type=\"text\" [(ngModel)]=\"model.title\" #title=\"ngModel\" name=\"title\" required/>\r\n\r\n        <label class=\"optionTitle\">Main text</label>\r\n        <textarea [(ngModel)]=\"model.mainText\" #mainText=\"ngModel\" name=\"main-text\"></textarea>\r\n\r\n        <label class=\"optionTitle\">Sub text</label>\r\n        <textarea [(ngModel)]=\"model.subText\" #subText=\"ngModel\" name=\"sub-text\" required></textarea>\r\n\r\n        <label class=\"optionTitle\">Background color</label>\r\n        <input type=\"color\" [(ngModel)]=\"model.backgroundColor\" #backgroundColor=\"ngModel\" name=\"background-color\" required/>\r\n\r\n        <input class=\"btn button\" type=\"submit\" [disabled]=\"!textEditForm.form.valid\"/>\r\n    </form>\r\n\r\n</section>";
+module.exports = "<div>\r\n    <section class=\"sidebar-header material-red\">\r\n        <h2 class=\"display-1\" style=\"color: white\">Team component</h2>\r\n    </section>\r\n\r\n    <section class=\"sidebar-content\">\r\n    \r\n        <form class=\"Options\"  [formGroup]=\"teamEditForm\" (ngSubmit)=\"save(teamEditForm.value)\">\r\n\r\n            <label class=\"optionTitle\">Text title</label>\r\n            <input type=\"text\" formControlName=\"title\" />\r\n\r\n            <label class=\"optionTitle\">Main text</label>\r\n            <textarea formControlName=\"mainText\" ></textarea>\r\n\r\n            <label class=\"optionTitle\">Background color</label>\r\n            <input type=\"color\" formControlName=\"backgroundColor\" />\r\n    \r\n            <!--Hardcode version-->\r\n            <label class=\"optionTitle\">Teammate 1</label>\r\n                <label class=\"optionTitle\">Name, surname</label>\r\n                <input type=\"text\" formControlName=\"teammate1_Name\" />\r\n\r\n                <label class=\"optionTitle\">Short description</label>\r\n                <input type=\"text\" formControlName=\"teammate1_Description\" />\r\n\r\n                <label class=\"optionTitle\">Link to profile</label>\r\n                <input type=\"url\" formControlName=\"teammate1_Link\" />\r\n\r\n                <label class=\"optionTitle\">Teammate photo</label>\r\n                <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($event, 1)\" formControlName=\"teammate1_Photo\"/>\r\n\r\n    \r\n            <label class=\"optionTitle\">Teammate 2</label>\r\n                <label class=\"optionTitle\">Name, surname</label>\r\n                <input type=\"text\" formControlName=\"teammate2_Name\" />\r\n\r\n                <label class=\"optionTitle\">Short description</label>\r\n                <input type=\"text\" formControlName=\"teammate2_Description\" />\r\n\r\n                <label class=\"optionTitle\">Link to profile</label>\r\n                <input type=\"url\" formControlName=\"teammate2_Link\"/>\r\n\r\n                <label class=\"optionTitle\">Teammate photo</label>\r\n                <input type=\"file\" accept=\"image/*\" (change)=\"updateImage($event, 2)\" formControlName=\"teammate2_Photo\"/>\r\n            \r\n\r\n            <!--ngFor version-->\r\n\r\n            <!--\r\n            <div *ngFor=\"let teammate of teammates; let i = index\" [indexNo]=\"i\">\r\n            </div>\r\n            -->\r\n    \r\n            <button class=\"btn button material-green\" type=\"submit\">Submit</button>\r\n        </form>\r\n    \r\n    </section>\r\n</div>";
 
 /***/ }),
 /* 78 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"team-component block-component {{model.backgroundColor}}\" [style.background-color]=\"getBackgroundColor()\">\r\n\r\n    <h2 class=\"team-component-title display-2\">{{model.title}}</h2>\r\n\r\n    <article class=\"team-component-content main-text body-2 text-large\">{{model.mainText}}</article>\r\n\r\n    <ul class=\"cards\">\r\n        <teammate [name]       =\"model.stName\" \r\n                  [photo]      =\"model.stPhoto\" \r\n                  [description]=\"model.stDesc\" \r\n                  [profileLink]=\"model.stLink\"></teammate>\r\n\r\n        <teammate [name]       =\"model.ndName\"\r\n                  [photo]      =\"model.ndPhoto\"\r\n                  [description]=\"model.ndDesc\"\r\n                  [profileLink]=\"model.ndLink\"></teammate>\r\n    </ul>\r\n\r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-red edit-btn\" for=\"showTeamSidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-red up-btn\"><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-red down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-red trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n</section>";
+module.exports = "<section class=\"sidebar-header material-green\">\r\n    <h2 class=\"display-1\" style=\"color: white\">Text component</h2>\r\n</section>\r\n\r\n<section class=\"sidebar-content\">\r\n\r\n    <form class=\"Options\" [formGroup]=\"textEditForm\" (ngSubmit)=\"save(textEditForm.value)\">\r\n        <label class=\"optionTitle\">Text title</label>\r\n        <input type=\"text\" formControlName=\"title\" />\r\n\r\n        <label class=\"optionTitle\">Main text</label>\r\n        <textarea formControlName=\"mainText\"></textarea>\r\n\r\n        <label class=\"optionTitle\">Sub text</label>\r\n        <textarea formControlName=\"subText\"></textarea>\r\n\r\n        <label class=\"optionTitle\">Background color</label>\r\n        <input type=\"color\" formControlName=\"backgroundColor\" />\r\n\r\n        <label class=\"optionTitle\">Left button text</label>\r\n        <input type=\"text\" formControlName=\"buttonLeftText\" />\r\n\r\n        <label class=\"optionTitle\">Left button link</label>\r\n        <input type=\"text\" formControlName=\"buttonLeftLink\" />\r\n\r\n        <label class=\"optionTitle\">Right button text</label>\r\n        <input type=\"text\" formControlName=\"buttonRightText\" />\r\n\r\n        <label class=\"optionTitle\">Right button link</label>\r\n        <input type=\"text\" formControlName=\"buttonRightLink\" />\r\n\r\n        <button class=\"btn button\" type=\"submit\">Submit</button>\r\n    </form>\r\n\r\n</section>";
 
 /***/ }),
 /* 79 */
 /***/ (function(module, exports) {
 
-module.exports = "<li class=\"cards__item\">\r\n    <div class=\"card\">\r\n        <div class=\"card__image\">\r\n            <img src=\"{{photo}}\" alt=\"teammate\"/>\r\n        </div>\r\n        <div class=\"card__content\">\r\n            <div class=\"card__title\">{{name}}</div>\r\n            <div class=\"card__text\">{{description}}</div>\r\n            <a href=\"{{profileLink}}\" target=\"_blank\"><button class=\"btn button\">Profile</button></a>\r\n        </div>\r\n    </div>\r\n</li>";
+module.exports = "<section class=\"team-component block-component {{model.backgroundColor}}\" [style.background-color]=\"getBackgroundColor()\">\r\n\r\n    <h2 class=\"team-component-title display-2\">{{model.title}}</h2>\r\n\r\n    <article class=\"team-component-content main-text body-2 text-large\">{{model.mainText}}</article>\r\n\r\n    <ul class=\"cards\">\r\n        <teammate [name]       =\"model.stName\" \r\n                  [photo]      =\"model.stPhoto\" \r\n                  [description]=\"model.stDesc\" \r\n                  [profileLink]=\"model.stLink\"></teammate>\r\n\r\n        <teammate [name]       =\"model.ndName\"\r\n                  [photo]      =\"model.ndPhoto\"\r\n                  [description]=\"model.ndDesc\"\r\n                  [profileLink]=\"model.ndLink\"></teammate>\r\n    </ul>\r\n\r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-red edit-btn\" for=\"showTeamSidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-red up-btn\"><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-red down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-red trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n</section>";
 
 /***/ }),
 /* 80 */
 /***/ (function(module, exports) {
 
-module.exports = "<section [style.background-color]=\"getBackgroundColor()\" class=\"text-component block-component {{model.backgroundColor}}\">\r\n\r\n    <h2 class=\"text-component-title display-2\">{{model.title}}</h2>\r\n\r\n    <article class=\"text-component-content main-text body-2 text-large\">{{model.mainText}}</article>\r\n\r\n    <article class=\"text-component-content sub-text body-2 text-large\">{{model.subText}}</article>\r\n\r\n    <section class=\"button-section\">\r\n        <button class=\"btn button\">{{model.buttonLeftText}}</button>\r\n        <button class=\"btn button\">{{model.buttonRightText}}</button>\r\n    </section>\r\n    \r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-red edit-btn\" for=\"showTextSidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-red up-btn\" ><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-red down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-red trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n</section>";
+module.exports = "<li class=\"cards__item\">\r\n    <div class=\"card\">\r\n        <div class=\"card__image\">\r\n            <img src=\"{{photo}}\" alt=\"teammate\"/>\r\n        </div>\r\n        <div class=\"card__content\">\r\n            <div class=\"card__title\">{{name}}</div>\r\n            <div class=\"card__text\">{{description}}</div>\r\n            <a href=\"{{profileLink}}\" target=\"_blank\"><button class=\"btn button\">Profile</button></a>\r\n        </div>\r\n    </div>\r\n</li>";
 
 /***/ }),
 /* 81 */
 /***/ (function(module, exports) {
 
-module.exports = "<label for=\"showSignIn\" class=\"btn button developerButton button-mimic hidden-devBtn\" id=\"devButton\" onclick=\"developerCheck()\">\r\n    Developer?\r\n</label>";
+module.exports = "<section [style.background-color]=\"getBackgroundColor()\" class=\"text-component block-component {{model.backgroundColor}}\">\r\n\r\n    <h2 class=\"text-component-title display-2\">{{model.title}}</h2>\r\n\r\n    <article class=\"text-component-content main-text body-2 text-large\">{{model.mainText}}</article>\r\n\r\n    <article class=\"text-component-content sub-text body-2 text-large\">{{model.subText}}</article>\r\n\r\n    <section class=\"button-section\">\r\n        <a href=\"{{model.buttonLeftLink}}\" target=\"_blank\"><button  class=\"btn button\">{{model.buttonLeftText}} </button></a>\r\n        <a href=\"{{model.buttonRightLink}}\" target=\"_blank\"><button class=\"btn button\">{{model.buttonRightText}}</button></a>\r\n    </section>\r\n    \r\n    <section class=\"btnSection\">\r\n        <label class=\"round-btn material-red edit-btn\" for=\"showTextSidebar\"><edit-btn></edit-btn></label>\r\n        <label class=\"round-btn material-red up-btn\" ><up-btn></up-btn></label>\r\n        <label class=\"round-btn material-red down-btn\"><down-btn></down-btn></label>\r\n        <label class=\"round-btn material-red trash-btn\"><trash-btn></trash-btn></label>\r\n    </section>\r\n\r\n</section>";
 
 /***/ }),
 /* 82 */
 /***/ (function(module, exports) {
 
-module.exports = "<label class=\"fab editButton\" for=\"showSearchSidebar\">\r\n    <span class=\"fab-action-button\">\r\n        <i class=\"fab-action-button__icon\"></i>\r\n    </span>\r\n</label>";
+module.exports = "<label for=\"showSignIn\" class=\"btn button developerButton button-mimic hidden-devBtn\" id=\"devButton\" onclick=\"developerCheck()\">\r\n    Developer?\r\n</label>";
 
 /***/ }),
 /* 83 */
+/***/ (function(module, exports) {
+
+module.exports = "<label class=\"fab editButton\" for=\"showSearchSidebar\">\r\n    <span class=\"fab-action-button\">\r\n        <i class=\"fab-action-button__icon\"></i>\r\n    </span>\r\n</label>";
+
+/***/ }),
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9283,7 +9516,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9375,18 +9608,18 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(83);
-exports.encode = exports.stringify = __webpack_require__(84);
+exports.decode = exports.parse = __webpack_require__(84);
+exports.encode = exports.stringify = __webpack_require__(85);
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {/*! *****************************************************************************
@@ -10514,34 +10747,20 @@ var Reflect;
             Function("return this;")());
 })(Reflect || (Reflect = {}));
 //# sourceMappingURL=Reflect.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(106), __webpack_require__(113)))
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var ansiRegex = __webpack_require__(17)();
-
-module.exports = function (str) {
-	return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
-};
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(107), __webpack_require__(113)))
 
 /***/ }),
 /* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
 
-        var result = __webpack_require__(44);
+var ansiRegex = __webpack_require__(19)();
 
-        if (typeof result === "string") {
-            module.exports = result;
-        } else {
-            module.exports = result.toString();
-        }
-    
+module.exports = function (str) {
+	return typeof str === 'string' ? str.replace(ansiRegex, '') : str;
+};
+
 
 /***/ }),
 /* 89 */
@@ -10713,12 +10932,26 @@ module.exports = function (str) {
 
 /***/ }),
 /* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+        var result = __webpack_require__(57);
+
+        if (typeof result === "string") {
+            module.exports = result;
+        } else {
+            module.exports = result.toString();
+        }
+    
+
+/***/ }),
+/* 102 */
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMjdBRTYwIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgICA8cGF0aCBkPSJNMTkgNi40MUwxNy41OSA1IDEyIDEwLjU5IDYuNDEgNSA1IDYuNDEgMTAuNTkgMTIgNSAxNy41OSA2LjQxIDE5IDEyIDEzLjQxIDE3LjU5IDE5IDE5IDE3LjU5IDEzLjQxIDEyeiIvPg0KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4NCjwvc3ZnPg=="
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*eslint-env browser*/
@@ -10747,7 +10980,7 @@ for (var key in styles) {
   clientOverlay.style[key] = styles[key];
 }
 
-var ansiHTML = __webpack_require__(16);
+var ansiHTML = __webpack_require__(18);
 var colors = {
   reset: ['transparent', 'transparent'],
   black: '181818',
@@ -10762,7 +10995,7 @@ var colors = {
 };
 ansiHTML.setColors(colors);
 
-var Entities = __webpack_require__(57).AllHtmlEntities;
+var Entities = __webpack_require__(58).AllHtmlEntities;
 var entities = new Entities();
 
 exports.showProblems =
@@ -10803,7 +11036,7 @@ function problemType (type) {
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -10941,7 +11174,7 @@ module.exports = function(hash, moduleMap, options) {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -10969,28 +11202,22 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(0);
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(23);
 
 /***/ }),
-/* 107 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(1))(28);
-
-/***/ }),
 /* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = (__webpack_require__(1))(38);
+module.exports = (__webpack_require__(1))(28);
 
 /***/ }),
 /* 109 */
@@ -11032,9 +11259,9 @@ module.exports = (__webpack_require__(1))(9);
 /* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(14);
-__webpack_require__(13);
-module.exports = __webpack_require__(12);
+__webpack_require__(16);
+__webpack_require__(15);
+module.exports = __webpack_require__(14);
 
 
 /***/ })

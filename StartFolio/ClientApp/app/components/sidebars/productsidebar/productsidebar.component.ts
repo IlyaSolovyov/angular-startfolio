@@ -49,8 +49,7 @@ export class ProductSidebarComponent implements OnInit {
 
         //ready to be sent to server
         let details = JSON.stringify(this.model);
-
-        //console.log(details);
+        console.log(details);;
     }
 }
 

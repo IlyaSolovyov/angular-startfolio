@@ -35,27 +35,20 @@ export class GallerySidebarComponent implements OnInit {
     }
 
     updateImage(ev, index) {
-        let reader = new FileReader();
-        //get the selected file from event
-        let file = ev.target.files[0];
 
-        //onloadend срабатывает после reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            //Assign the result to variable for setting the src of image element
+        let file = ev.target.files[0];
 
             switch (index) {
                 case 1:
-                    this.model.imgUrl1 = reader.result;
+                    this.model.imgUrl1 = file.name;
                     break;
                 case 2:
-                    this.model.imgUrl2 = reader.result;
+                    this.model.imgUrl2 = file.name;
                     break;
                 case 3:
-                    this.model.imgUrl3 = reader.result;
+                    this.model.imgUrl3 = file.name;
                     break;
             }
-        }
-        reader.readAsDataURL(file);
     }
 
     save(data: Details) {
@@ -68,7 +61,7 @@ export class GallerySidebarComponent implements OnInit {
 
         //ready to be sent to server
         let details = JSON.stringify(this.model);
-
+        console.log(details);
     }
 }
 
