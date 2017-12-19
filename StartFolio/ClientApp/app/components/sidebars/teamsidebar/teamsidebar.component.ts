@@ -42,25 +42,22 @@ export class TeamSidebarComponent implements OnInit {
         teammate2_Photo:        '',
     }
 
+    imgFile1: any;
+    imgFile2: any;
+
     updateImage(ev, index) {
-        let reader = new FileReader();
-        //get the selected file from event
         let file = ev.target.files[0];
 
-        //onloadend срабатывает после reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            //Assign the result to variable for setting the src of image element
-
-            switch (index) {
-                case 1:
-                    this.model.teammate1_Photo = reader.result;
-                    break;
-                case 2:
-                    this.model.teammate2_Photo = reader.result;
-                    break;
-            }
+        switch (index) {
+            case 1:
+                this.model.teammate1_Photo = file.name;
+                this.imgFile1 = file;
+                break;
+            case 2:
+                this.model.teammate2_Photo = file.name;
+                this.imgFile2 = file;
+                break;
         }
-        reader.readAsDataURL(file);
     }
 
     save(data: Details) {
@@ -79,6 +76,15 @@ export class TeamSidebarComponent implements OnInit {
         //ready to be sent to server
         let details = JSON.stringify(this.model);
         console.log(details);
+
+        let output = new FormData();
+        output.append('details', details);
+        if (this.imgFile1) {
+            output.append('uploads', this.imgFile1);
+        }
+        if (this.imgFile2) {
+            output.append('uploads', this.imgFile2);
+        }
     }
 
 }

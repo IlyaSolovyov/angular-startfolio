@@ -1,8 +1,9 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http } from '@angular/http'
+import { Http, RequestOptions } from '@angular/http'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Page } from "../page";
+import { Headers } from '@angular/http';
 
 @Injectable()
 export class PageService {
@@ -35,8 +36,11 @@ export class PageService {
         return this.http.post('api/Page', page);
     }
 
-    updateDetails(position: number, details: string) {
-        return this.http.put('api/Page/' + position + "/Details", details);
+    updateDetails(position: number, formData: string) {
+        let headers = new Headers();
+        headers.set('Accept', 'application/json');
+        let options = new RequestOptions({headers: headers});
+        return this.http.put('api/Page/' + position + "/Details", formData, options);
     }
 
     updatePosition(position: number)

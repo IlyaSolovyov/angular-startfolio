@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4cf63f0e4dbf42b00d31"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "df47cc9443b8948eb15e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -809,12 +809,18 @@ module.exports = (__webpack_require__(1))(38);
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = (__webpack_require__(1))(39);
+
+/***/ }),
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__page__ = __webpack_require__(9);
@@ -827,6 +833,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -852,8 +859,11 @@ var PageService = (function () {
     PageService.prototype.addPage = function (page) {
         return this.http.post('api/Page', page);
     };
-    PageService.prototype.updateDetails = function (position, details) {
-        return this.http.put('api/Page/' + position + "/Details", details);
+    PageService.prototype.updateDetails = function (position, formData) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.set('Accept', 'application/json');
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["RequestOptions"]({ headers: headers });
+        return this.http.put('api/Page/' + position + "/Details", formData, options);
     };
     PageService.prototype.updatePosition = function (position) {
         return this.http.delete('api/Page/' + position + "/Details");
@@ -866,12 +876,6 @@ var PageService = (function () {
 }());
 
 
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = (__webpack_require__(1))(39);
 
 /***/ }),
 /* 6 */
@@ -1652,7 +1656,7 @@ NoopAnimationsModule.ctorParameters = function () { return []; };
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_page_service__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_page_service__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7422,11 +7426,11 @@ function getBaseUrl() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(114);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_page_service__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_page_service__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_account_service__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_app_app_component__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_navmenu_navmenu_component__ = __webpack_require__(29);
@@ -8025,12 +8029,15 @@ var GallerySidebarComponent = (function () {
         switch (index) {
             case 1:
                 this.model.imgUrl1 = file.name;
+                this.imgFile1 = file;
                 break;
             case 2:
                 this.model.imgUrl2 = file.name;
+                this.imgFile2 = file;
                 break;
             case 3:
                 this.model.imgUrl3 = file.name;
+                this.imgFile3 = file;
                 break;
         }
     };
@@ -8044,6 +8051,17 @@ var GallerySidebarComponent = (function () {
         //ready to be sent to server
         var details = JSON.stringify(this.model);
         console.log(details);
+        var output = new FormData();
+        output.append('details', details);
+        if (this.imgFile1) {
+            output.append('uploads', this.imgFile1);
+        }
+        if (this.imgFile2) {
+            output.append('uploads', this.imgFile2);
+        }
+        if (this.imgFile3) {
+            output.append('uploads', this.imgFile3);
+        }
     };
     GallerySidebarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -8097,16 +8115,9 @@ var PersonSidebarComponent = (function () {
         });
     };
     PersonSidebarComponent.prototype.updateImage = function (ev) {
-        var _this = this;
-        var reader = new FileReader();
-        //get the selected file from event
         var file = ev.target.files[0];
-        //onloadend срабатывает после reader.readAsDataURL(file);
-        reader.onloadend = function () {
-            //Assign the result to variable for setting the src of image element
-            _this.model.photo = reader.result;
-        };
-        reader.readAsDataURL(file);
+        this.model.photo = file.name;
+        this.imageFile = file;
     };
     PersonSidebarComponent.prototype.save = function (data) {
         //данные об изображении передаются в модель в updateImage()
@@ -8119,6 +8130,9 @@ var PersonSidebarComponent = (function () {
         //ready to be sent to server
         var details = JSON.stringify(this.model);
         console.log(details);
+        var output = new FormData();
+        output.append('details', details);
+        output.append('uploads', this.imageFile);
     };
     PersonSidebarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -8168,16 +8182,9 @@ var ProductSidebarComponent = (function () {
         });
     };
     ProductSidebarComponent.prototype.updateImage = function (ev) {
-        var _this = this;
-        var reader = new FileReader();
-        //get the selected file from event
         var file = ev.target.files[0];
-        //onloadend срабатывает после reader.readAsDataURL(file);
-        reader.onloadend = function () {
-            //Assign the result to variable for setting the src of image element
-            _this.model.photo = reader.result;
-        };
-        reader.readAsDataURL(file);
+        this.model.photo = file.name;
+        this.imageFile = file;
     };
     ProductSidebarComponent.prototype.save = function (data) {
         //данные об изображении передаются в модель в updateImage()
@@ -8189,6 +8196,9 @@ var ProductSidebarComponent = (function () {
         var details = JSON.stringify(this.model);
         console.log(details);
         ;
+        var output = new FormData();
+        output.append('details', details);
+        output.append('uploads', this.imageFile);
     };
     ProductSidebarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -8209,7 +8219,7 @@ var ProductSidebarComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchSidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_page_service__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_page_service__ = __webpack_require__(5);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8378,23 +8388,17 @@ var TeamSidebarComponent = (function () {
         });
     };
     TeamSidebarComponent.prototype.updateImage = function (ev, index) {
-        var _this = this;
-        var reader = new FileReader();
-        //get the selected file from event
         var file = ev.target.files[0];
-        //onloadend срабатывает после reader.readAsDataURL(file);
-        reader.onloadend = function () {
-            //Assign the result to variable for setting the src of image element
-            switch (index) {
-                case 1:
-                    _this.model.teammate1_Photo = reader.result;
-                    break;
-                case 2:
-                    _this.model.teammate2_Photo = reader.result;
-                    break;
-            }
-        };
-        reader.readAsDataURL(file);
+        switch (index) {
+            case 1:
+                this.model.teammate1_Photo = file.name;
+                this.imgFile1 = file;
+                break;
+            case 2:
+                this.model.teammate2_Photo = file.name;
+                this.imgFile2 = file;
+                break;
+        }
     };
     TeamSidebarComponent.prototype.save = function (data) {
         //данные об изображении передаются в модель в updateImage()
@@ -8410,6 +8414,14 @@ var TeamSidebarComponent = (function () {
         //ready to be sent to server
         var details = JSON.stringify(this.model);
         console.log(details);
+        var output = new FormData();
+        output.append('details', details);
+        if (this.imgFile1) {
+            output.append('uploads', this.imgFile1);
+        }
+        if (this.imgFile2) {
+            output.append('uploads', this.imgFile2);
+        }
     };
     TeamSidebarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -8469,6 +8481,8 @@ var TextSidebarComponent = (function () {
         //ready to be sent to server
         var details = JSON.stringify(this.model);
         console.log(details);
+        var output = new FormData();
+        output.append('details', details);
     };
     TextSidebarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -8734,7 +8748,7 @@ var FabComponent = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AccountService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

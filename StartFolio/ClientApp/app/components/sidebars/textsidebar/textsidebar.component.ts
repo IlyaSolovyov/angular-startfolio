@@ -41,6 +41,9 @@ export class TextSidebarComponent implements OnInit {
         let details = JSON.stringify(this.model);
         console.log(details);
 
+        let output = new FormData();
+        output.append('details', details);
+
     }
 
 }

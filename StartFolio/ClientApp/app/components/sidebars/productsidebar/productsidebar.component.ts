@@ -27,17 +27,12 @@ export class ProductSidebarComponent implements OnInit {
         backgroundColor:    ''
     }
 
-    updateImage(ev) {
-        let reader = new FileReader();
-        //get the selected file from event
-        let file = ev.target.files[0];
+    imageFile: any;
 
-        //onloadend срабатывает после reader.readAsDataURL(file);
-        reader.onloadend = () => {
-            //Assign the result to variable for setting the src of image element
-            this.model.photo = reader.result;
-        }
-        reader.readAsDataURL(file);
+    updateImage(ev) {
+        let file = ev.target.files[0];
+        this.model.photo = file.name;
+        this.imageFile = file;
     }
 
     save(data: Details) {
@@ -50,6 +45,10 @@ export class ProductSidebarComponent implements OnInit {
         //ready to be sent to server
         let details = JSON.stringify(this.model);
         console.log(details);;
+
+        let output = new FormData();
+        output.append('details', details);
+        output.append('uploads', this.imageFile);
     }
 }
 

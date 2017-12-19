@@ -34,6 +34,10 @@ export class GallerySidebarComponent implements OnInit {
         description3:    ''
     }
 
+    imgFile1: any;
+    imgFile2: any;
+    imgFile3: any;
+
     updateImage(ev, index) {
 
         let file = ev.target.files[0];
@@ -41,12 +45,15 @@ export class GallerySidebarComponent implements OnInit {
             switch (index) {
                 case 1:
                     this.model.imgUrl1 = file.name;
+                    this.imgFile1 = file;
                     break;
                 case 2:
                     this.model.imgUrl2 = file.name;
+                    this.imgFile2 = file;
                     break;
                 case 3:
                     this.model.imgUrl3 = file.name;
+                    this.imgFile3 = file;
                     break;
             }
     }
@@ -62,6 +69,21 @@ export class GallerySidebarComponent implements OnInit {
         //ready to be sent to server
         let details = JSON.stringify(this.model);
         console.log(details);
+
+        let output = new FormData();
+        output.append('details', details);
+        if (this.imgFile1)
+        {
+            output.append('uploads', this.imgFile1);
+        }
+        if (this.imgFile2) {
+            output.append('uploads', this.imgFile2);
+        }
+        if (this.imgFile3) {
+            output.append('uploads', this.imgFile3);
+        } 
+
+
     }
 }
 
