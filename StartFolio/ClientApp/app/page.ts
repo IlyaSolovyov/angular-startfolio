@@ -2,9 +2,12 @@
 
 @Injectable()
 export class Page {
-    constructor(public id: number,
+    
+
+    constructor(
         public position: number,
         public pageTemplate: string,
-        public details: string) {
+        public details: string,
+        public id?: number) {
     }
 }

@@ -17,10 +17,10 @@ export class PageService {
                     .results
                     .map(page => {
                         return new Page(
-                            page.id,
                             page.position,
                             page.pageTemplate,
-                            page.details
+                            page.details,
+                            page.id
                     );
                 })
             });
@@ -33,7 +33,16 @@ export class PageService {
 
     addPage(page : Page)
     {
-        return this.http.post('api/Page', page);
+        let headers = new Headers();
+        headers.set('Accept', 'application/json');
+        let options = new RequestOptions({ headers: headers });
+
+        let formData = new FormData();
+        formData.append('position', page.position.toString());
+        formData.append('pagetemplate', page.pageTemplate);
+        formData.append('details', page.details);
+
+        return this.http.post('api/Page', formData, options);
     }
 
     updateDetails(position: number, formData: string) {
@@ -43,7 +52,7 @@ export class PageService {
         return this.http.put('api/Page/' + position + "/Details", formData, options);
     }
 
-    updatePosition(position: number)
+    deletePage(position: number)
     {
         return this.http.delete('api/Page/' + position + "/Details");
     }

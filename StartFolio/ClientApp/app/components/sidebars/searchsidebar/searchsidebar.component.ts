@@ -116,7 +116,6 @@ export class SearchSidebarComponent implements OnInit {
     createPage(template: string)
     {
         let position = this.pageService.getPages.length + 1;
-        let objId    = position;
         let details = '';
      
         switch (template) {
