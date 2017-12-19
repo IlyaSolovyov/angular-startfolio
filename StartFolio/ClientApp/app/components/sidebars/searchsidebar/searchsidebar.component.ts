@@ -1,52 +1,157 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
+import { Page } from '../../../page';
+import { PageService } from '../../../services/page.service';
 
 @Component({
     selector: 'my-searchsidebar',
     templateUrl: './searchsidebar.component.html',
+    providers: [PageService]
 })
-export class SearchSidebarComponent {
-    previews0: string;
+export class SearchSidebarComponent implements OnInit {
     titles0: string;
-    previews1: string;
     titles1: string;
-    previews2: string;
     titles2: string;
-    previews3: string;
     titles3: string;
-    previews4: string;
     titles4: string;
+
+    previews0: string;
+    previews1: string;
+    previews2: string;
+    previews3: string;
+    previews4: string;
 
     template0: string;
     template1: string;
     template2: string;
     template3: string;
     template4: string;
+
+    textDetails:    any;
+    teamDetails:    any;
+    productDetails: any;
+    personDetails:  any;
+    galleryDetails: any;
  
 
-    constructor() {
-        this.titles0 = 'Text component';
-        this.previews0 = 'Images//previews//text.PNG';
-        this.template0 = 'text-component'
-
-        this.titles1 = 'Team component';
-        this.previews1 = 'Images//previews//team.PNG';
-        this.template0 = 'team-component'
-
-        this.titles2 = 'Person component';
-        this.previews2 = 'Images//previews//person.PNG';
-        this.template0 = 'person-component'
-
-        this.titles3 = 'Product component';
-        this.previews3 = 'Images//previews//product.PNG';
-        this.template0 = 'product-component'
-
-        this.titles4 = 'Gallery component';
-        this.previews4 = 'Images//previews//gallery.PNG';
-        this.template0 = 'gallery-component'
+    constructor(public pageService: PageService) {
     }
 
-    /*createPage(string templateName)
-    {
+    ngOnInit() {
+        this.titles0    = 'Text component';
+        this.previews0  = 'Images//previews//text.PNG';
+        this.template0  = 'text-component'
 
-    }*/
+        this.titles1    = 'Team component';
+        this.previews1  = 'Images//previews//team.PNG';
+        this.template1  = 'team-component'
+
+        this.titles2    = 'Person component';
+        this.previews2  = 'Images//previews//person.PNG';
+        this.template2  = 'person-component'
+
+        this.titles3    = 'Product component';
+        this.previews3  = 'Images//previews//product.PNG';
+        this.template3  = 'product-component'
+
+        this.titles4    = 'Gallery component';
+        this.previews4  = 'Images//previews//gallery.PNG';
+        this.template4  = 'gallery-component'
+
+        this.textDetails = {
+            title:              'TextTitle',
+            mainText:           'MainText',
+            subText:            'SubText',
+            backgroundColor:    '#ffffff',
+            buttonLeftText:     'leftText',
+            buttonRightText:    'rightText',
+            buttonLeftLink:     'http://localhost/leftlink',
+            buttonRightLink:    'http://localhost/rightlink'
+        }
+
+        this.teamDetails = {
+            title:                  'TeamTitle',
+            mainText:               'MainText',
+            backgroundColor:        '#ffffff',
+            teammate1_Name:         'DummyName1',
+            teammate1_Description:  'DummyDescription1',
+            teammate1_Link:         'https://localhost/firstLink',
+            teammate1_Photo:        'Images//dummy6.png',
+            teammate2_Name:         'DummyName2',
+            teammate2_Description:  'DummyDescription2',
+            teammate2_Link:         'https://localhost/secondLink',
+            teammate2_Photo:        'Images//dummy7.png',
+        }
+
+        this.productDetails = {
+            title:           'ProductTitle',
+            mainText:        'MainText',
+            subText:         'SubText',
+            photo:           'Images//dummy5.png',
+            backgroundColor: '#ffffff'
+        }
+
+        this.personDetails = {
+            title:           'PersonTitle',
+            mainText:        'MainText',
+            personName:      'DummyName',
+            age:             '1337',
+            position:        'PersonPosition',
+            photo:           'Images//dummy4.png',
+            backgroundColor: '#ffffff'   
+        }
+
+        this.galleryDetails = {
+            title:           'GalleryTitle',
+            backgroundColor: '#ffffff',
+            imgUrl1:         'Images//dummy1.png',
+            imgUrl2:         'Images//dummy1.png',
+            imgUrl3:         'Images//dummy1.png',
+            description1:    'Dummy description to project1',
+            description2:    'Dummy description to project2',
+            description3:    'Dummy description to project3'
+        }
+
+        console.log(this.textDetails);
+        console.log(this.teamDetails);
+        console.log(this.productDetails);
+        console.log(this.personDetails);
+        console.log(this.galleryDetails);
+    }
+
+    createPage(template: string)
+    {
+        var position = this.pageService.getPages.length + 1;
+        var objId    = position;
+        var details = '';
+        
+        switch (template) {
+            case 'text-component':
+                details = this.textDetails;
+                break;
+            case 'team-component':
+                details = this.teamDetails;
+                break;
+            case 'person-component':
+                details = this.productDetails;
+                break;
+            case 'product-component':
+                details = this.personDetails;
+                break;
+            case 'gallery-component':
+                details = this.galleryDetails;
+                break;
+        }
+
+        console.log(details);
+        
+        this.pageService.addPage(
+            new Page(
+                    objId,
+                    position,
+                    template,
+                    JSON.stringify(details)
+            )
+        );
+
+    }
 }
