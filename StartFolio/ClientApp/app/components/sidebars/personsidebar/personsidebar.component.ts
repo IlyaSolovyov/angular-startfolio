@@ -23,13 +23,13 @@ export class PersonSidebarComponent implements OnInit {
     }
 
     model = {
-        title: '',
-        mainText: '',
-        personName: '',
-        age: 0,
-        position: '',
-        photo: '',
-        backgroundColor: ''        
+        title:              '',
+        mainText:           '',
+        personName:         '',
+        age:                0,
+        position:           '',
+        photo:              '',
+        backgroundColor:    ''        
     }
 
     updateImage(ev) {
@@ -63,11 +63,11 @@ export class PersonSidebarComponent implements OnInit {
 }
 
 interface Details {
-    title: string,
-    mainText: string,
-    personName: string,
-    age: number,
-    position: string,
-    photo: string,
+    title:           string,
+    mainText:        string,
+    personName:      string,
+    age:             number,
+    position:        string,
+    photo:           string,
     backgroundColor: string   
 }

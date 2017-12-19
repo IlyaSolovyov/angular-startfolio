@@ -12,26 +12,26 @@ export class GallerySidebarComponent implements OnInit {
     //инициализация формы
     ngOnInit() {
         this.galleryEditForm = new FormGroup({
-            title: new FormControl('', [<any>Validators.required]),
-            backgroundColor: new FormControl('', [<any>Validators.required]),
-            imgUrl1: new FormControl('', [<any>Validators.required]),
-            imgUrl2: new FormControl('', [<any>Validators.required]),
-            imgUrl3: new FormControl('', [<any>Validators.required]),
-            description1: new FormControl('', [<any>Validators.required]),
-            description2: new FormControl('', [<any>Validators.required]),
-            description3: new FormControl('', [<any>Validators.required]),
+            title:              new FormControl('', [<any>Validators.required]),
+            backgroundColor:    new FormControl('', [<any>Validators.required]),
+            imgUrl1:            new FormControl('', [<any>Validators.required]),
+            imgUrl2:            new FormControl('', [<any>Validators.required]),
+            imgUrl3:            new FormControl('', [<any>Validators.required]),
+            description1:       new FormControl('', [<any>Validators.required]),
+            description2:       new FormControl('', [<any>Validators.required]),
+            description3:       new FormControl('', [<any>Validators.required]),
         });
     }
 
     model = {
-        title: '',
+        title:           '',
         backgroundColor: '',
-        imgUrl1: {},
-        imgUrl2: {},
-        imgUrl3: {},
-        description1: '',
-        description2: '',
-        description3: ''
+        imgUrl1:         '',
+        imgUrl2:         '',
+        imgUrl3:         '',
+        description1:    '',
+        description2:    '',
+        description3:    ''
     }
 
     updateImage(ev, index) {
@@ -73,12 +73,12 @@ export class GallerySidebarComponent implements OnInit {
 }
 
 interface Details {
-    title: string;
+    title:           string;
     backgroundColor: string;
-    imgUrl1: string;
-    imgUrl2: string;
-    imgUrl3: string;
-    description1: string;
-    description2: string;
-    description3: string;
+    imgUrl1:         string;
+    imgUrl2:         string;
+    imgUrl3:         string;
+    description1:    string;
+    description2:    string;
+    description3:    string;
 }
