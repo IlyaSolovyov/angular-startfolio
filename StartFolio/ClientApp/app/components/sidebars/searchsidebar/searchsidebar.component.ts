@@ -111,19 +111,14 @@ export class SearchSidebarComponent implements OnInit {
             description3:    'Dummy description to project3'
         }
 
-        console.log(this.textDetails);
-        console.log(this.teamDetails);
-        console.log(this.productDetails);
-        console.log(this.personDetails);
-        console.log(this.galleryDetails);
     }
 
     createPage(template: string)
     {
-        var position = this.pageService.getPages.length + 1;
-        var objId    = position;
-        var details = '';
-        
+        let position = this.pageService.getPages.length + 1;
+        let objId    = position;
+        let details = '';
+     
         switch (template) {
             case 'text-component':
                 details = this.textDetails;
@@ -142,16 +137,8 @@ export class SearchSidebarComponent implements OnInit {
                 break;
         }
 
-        console.log(details);
-        
-        this.pageService.addPage(
-            new Page(
-                    objId,
-                    position,
-                    template,
-                    JSON.stringify(details)
-            )
-        );
+        var page = new Page(objId, position, template, JSON.stringify(details));
+        this.pageService.addPage(page);
 
     }
 }
