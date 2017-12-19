@@ -4,28 +4,40 @@
 
 <section class="sidebar-content">
 
-    <form class="Options" #galleryEditForm="ngForm" (ngSubmit)="editGalleryInfo($event)">
+    <form class="Options" [formGroup]="galleryEditForm" (ngSubmit)="save(galleryEditForm.value)">
+
         <label class="optionTitle">Text title</label>
-        <input type="text" name="textTitle" [(ngModel)]="model.title" #title="ngModel" required />
+        <input type="text" formControlName="title" />
 
 
-    <label class="optionTitle">First photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 1)" name="photo-1" required/>
 
-    <label class="optionTitle">Second photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 2)" name="photo-2" required/>
 
-    <label class="optionTitle">Third photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 3)" name="photo-3" required/>
+        <label class="optionTitle">Project 1 description</label>
+        <input type="text" formControlName="description1" />
 
-    <label class="optionTitle">Fourth photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 4)" name="photo-4"  required/>
+        <label class="optionTitle">First photo</label>
+        <input type="file" accept="image/*" formControlName="imgUrl1" (change)="updateImage($event, 1)" />
 
-    <label class="optionTitle">Fifth photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 5)" name="photo-5" required/>
 
-    <label class="optionTitle">Sixth photo</label>
-    <input type="file" accept="image/*" (change)="updateModel($event, 6)" name="photo-6" required/>
+
+
+        <label class="optionTitle">Project 2 description</label>
+        <input type="text" formControlName="description2" />
+
+        <label class="optionTitle">Second photo</label>
+        <input type="file" accept="image/*" formControlName="imgUrl2" (change)="updateImage($event, 2)" />
+
+
+
+
+        <label class="optionTitle">Project 3 description</label>
+        <input type="text" formControlName="description3" />
+
+        <label class="optionTitle">Third photo</label>
+        <input type="file" accept="image/*" formControlName="imgUrl3" (change)="updateImage($event, 3)" />
+
+        <label class="optionTitle">Background color</label>
+        <input type="color" formControlName="backgroundColor"/>
 
         <!--ngFor version
     <div class="image-upload" *ngFor="let photo of photos; let i = index">
@@ -37,6 +49,7 @@
     <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel"/>
 
     <input class="btn button" type="submit" [disabled]="!galleryEditForm.form.valid"/>-->
+        <button type="submit" class="btn button">Submit</button>
     </form>
 
 </section>
