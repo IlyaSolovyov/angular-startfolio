@@ -1,29 +1,25 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http'
+import { Http, RequestOptions, Response } from '@angular/http'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Page } from "../page";
 import { Headers } from '@angular/http';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class PageService {
 
     constructor(private http: Http) { }
 
+    
+
     getPages(): Observable<Page[]> {
+        let pages: Page[];
         return this.http.get('api/Page/')
-            .map(response => {
-                return response.json()
-                    .results
-                    .map(page => {
-                        return new Page(
-                            page.position,
-                            page.pageTemplate,
-                            page.details,
-                            page.id
-                    );
-                })
-            });
+            .map((res: Response) => {
+                pages = res.json();
+                return pages;
+            })
     }
 
     getPage(position: number) {
@@ -42,7 +38,10 @@ export class PageService {
         formData.append('pagetemplate', page.pageTemplate);
         formData.append('details', page.details);
 
-        return this.http.post('api/Page', formData, options);
+        return this.http.post('/api/Page', formData, options)
+                        .map(res => res.json()) // ...and calling .json() on the response to return data
+                        .subscribe();
+
     }
 
     updateDetails(position: number, formData: string) {

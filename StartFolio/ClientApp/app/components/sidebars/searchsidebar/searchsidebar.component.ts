@@ -116,8 +116,9 @@ export class SearchSidebarComponent implements OnInit {
     createPage(template: string)
     {
         let position = this.pageService.getPages.length + 1;
+        alert(position);
         let details = '';
-     
+  
         switch (template) {
             case 'text-component':
                 details = this.textDetails;
@@ -136,8 +137,7 @@ export class SearchSidebarComponent implements OnInit {
                 break;
         }
 
-        var page = new Page(objId, position, template, JSON.stringify(details));
-        this.pageService.addPage(page);
-
+        var page = new Page(position, template, JSON.stringify(details));
+      //  this.pageService.addPage(page);
     }
 }
