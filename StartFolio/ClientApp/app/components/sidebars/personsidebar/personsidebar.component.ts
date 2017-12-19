@@ -5,7 +5,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
     selector: 'my-personsidebar',
     templateUrl: './personsidebar.component.html'
 })
-export class PersonSidebarComponent {
+export class PersonSidebarComponent implements OnInit {
 
     public personEditForm: FormGroup;
 
@@ -58,7 +58,7 @@ export class PersonSidebarComponent {
         //ready to be sent to server
         let details = JSON.stringify(this.model);
 
-        console.log(details);
+        //console.log(details);
     }
 }
 

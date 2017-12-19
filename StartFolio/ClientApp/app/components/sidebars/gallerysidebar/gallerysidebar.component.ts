@@ -1,11 +1,11 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'my-gallerysidebar',
     templateUrl: './gallerysidebar.component.html'
 })
-export class GallerySidebarComponent {
+export class GallerySidebarComponent implements OnInit {
 
     public galleryEditForm: FormGroup;
 
@@ -60,11 +60,11 @@ export class GallerySidebarComponent {
 
     save(data: Details) {
         //данные об изображении передаются в модель в updateImage()
-        this.model.title = data.title;
-        this.model.description1 = data.description1;
-        this.model.description2 = data.description2;
-        this.model.description3 = data.description3;
-        this.model.backgroundColor = data.backgroundColor;
+        this.model.title            = data.title;
+        this.model.description1     = data.description1;
+        this.model.description2     = data.description2;
+        this.model.description3     = data.description3;
+        this.model.backgroundColor  = data.backgroundColor;
 
         //ready to be sent to server
         let details = JSON.stringify(this.model);
@@ -75,9 +75,9 @@ export class GallerySidebarComponent {
 interface Details {
     title: string;
     backgroundColor: string;
-    imgUrl1: any;
-    imgUrl2: any;
-    imgUrl3: any;
+    imgUrl1: string;
+    imgUrl2: string;
+    imgUrl3: string;
     description1: string;
     description2: string;
     description3: string;

@@ -4,24 +4,24 @@
 
 <section class="sidebar-content">
 
-    <form class="Options"  #productEditForm="ngForm" (ngSubmit)="editProductInfo($event)">
+    <form class="Options" [formGroup]="productEditForm" (ngSubmit)="save(productEditForm.value)">
 
         <label class="optionTitle">Text title</label>
-        <input type="text" [(ngModel)]="model.title" #title="ngModel" name = "title" required/>
+        <input type="text" formControlName="title"/>
 
         <label class="optionTitle">Main text</label>
-        <textarea [(ngModel)]="model.mainText" #mainText="ngModel" name="main-text"></textarea>
+        <textarea formControlName="mainText"></textarea>
 
         <label class="optionTitle">Sub text</label>
-        <textarea [(ngModel)]="model.subText" #subText="ngModel" name="sub-text"></textarea>
+        <textarea formControlName="subText"></textarea>
 
         <label class="optionTitle">Product demo photo</label>
-        <input type="file" accept="image/*" (change)="updateImage($event)" name="photo" required/>
+        <input type="file" accept="image/*" (change)="updateImage($event)" formControlName="photo"/>
 
         <label class="optionTitle">Background color</label>
-        <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel" name="background-color" required/>
+        <input type="color" formControlName="backgroundColor"/>
 
-        <input class="btn button material-blue" type="submit" [disabled]="!productEditForm.form.valid" />
+        <button class="btn button material-blue" type="submit">Submit</button>
 
     </form>
 
