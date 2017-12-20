@@ -122,7 +122,7 @@ export class SearchSidebarComponent implements OnInit {
             error => console.log("Error :: " + error)
         )
 
-        let position = this.pagesArray.values.length;
+        let position = -1;
         //alert(position);
         let details = '';
   
