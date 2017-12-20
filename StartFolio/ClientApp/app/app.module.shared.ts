@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PageService } from "./services/page.service";
 import { AccountService } from "./services/account.service";
+import { EditService } from "./services/edit.service";
 
 
 import { AppComponent } from './components/app/app.component';
@@ -34,6 +35,7 @@ import { EditButtonComponent } from './components/btns/editbtn/editbtn.component
 import { TrashButtonComponent } from './components/btns/trash-btn/trashbtn.component';
 import { UpButtonComponent } from './components/btns/up-btn/upbtn.component';
 import { DownButtonComponent } from './components/btns/down-btn/downbtn.component';
+
 
 
 @NgModule({
@@ -89,7 +91,7 @@ import { DownButtonComponent } from './components/btns/down-btn/downbtn.componen
         ProductComponent
     ],
     providers: [
-        PageService, AccountService
+        PageService, AccountService, EditService
     ]
 })
 export class AppModuleShared {

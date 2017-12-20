@@ -1,7 +1,7 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Response } from '@angular/http'
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import "rxjs/Rx";
 import { Page } from "../page";
 import { Headers } from '@angular/http';
 import 'rxjs/add/operator/catch';
@@ -13,14 +13,11 @@ export class PageService {
 
     
 
-    getPages(): Observable<Page[]> {
-        let pages: Page[];
-        return this.http.get('api/Page/')
-            .map((res: Response) => {
-                pages = res.json();
-                return pages;
-            })
+    getPages() {
+        return this.http.get('localhost:57092/api/Page/')
+            .map((res: Response) => res.json());      
     }
+
 
     getPage(position: number) {
         return this.http.get('api/Page/' + position)

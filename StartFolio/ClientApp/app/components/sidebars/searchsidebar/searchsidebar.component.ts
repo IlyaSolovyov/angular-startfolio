@@ -31,7 +31,8 @@ export class SearchSidebarComponent implements OnInit {
     productDetails: any;
     personDetails:  any;
     galleryDetails: any;
- 
+
+    pagesArray: Page[];
 
     constructor(public pageService: PageService) {
     }
@@ -115,7 +116,13 @@ export class SearchSidebarComponent implements OnInit {
 
     createPage(template: string)
     {
-        let position = this.pageService.getPages.length + 1;
+        this.pageService.getPages()
+            .subscribe(
+            resultArray => this.pagesArray = resultArray,
+            error => console.log("Error :: " + error)
+        )
+
+        let position = this.pagesArray.values.length;
         alert(position);
         let details = '';
   

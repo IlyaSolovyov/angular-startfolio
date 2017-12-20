@@ -1,5 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { EditService } from '../../../services/edit.service';
+import { Page } from "../../../page";
 
 @Component({
     selector: 'my-gallerysidebar',
@@ -8,22 +10,42 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class GallerySidebarComponent implements OnInit {
 
     public galleryEditForm: FormGroup;
+    page: Page;
+    constructor(private editService: EditService) { }
 
     //инициализация формы
     ngOnInit() {
-        this.galleryEditForm = new FormGroup({
-            title:              new FormControl('', [<any>Validators.required]),
-            backgroundColor:    new FormControl('', [<any>Validators.required]),
-            imgUrl1:            new FormControl('', [<any>Validators.required]),
-            imgUrl2:            new FormControl('', [<any>Validators.required]),
-            imgUrl3:            new FormControl('', [<any>Validators.required]),
-            description1:       new FormControl('', [<any>Validators.required]),
-            description2:       new FormControl('', [<any>Validators.required]),
-            description3:       new FormControl('', [<any>Validators.required]),
-        });
+        this.populateFormFromModel();
+        this.editService.editablePage.
+            subscribe(page => this.updateEditPage(page));
     }
 
-    model = {
+    updateEditPage(page: Page) {
+        if (page.pageTemplate == 'gallery-component') {
+            alert(JSON.stringify(page));
+            this.fetchDataToModel(page.details)
+            this.populateFormFromModel();
+        }         
+    }
+
+    fetchDataToModel(details: string) {
+        this.model = JSON.parse(details);
+    }
+
+    populateFormFromModel() {
+        this.galleryEditForm = new FormGroup({
+            title: new FormControl(this.model.title, [<any>Validators.required]),
+            backgroundColor: new FormControl(this.model.backgroundColor, [<any>Validators.required]),
+            imgUrl1: new FormControl(this.model.imgUrl1, [<any>Validators.required]),
+            imgUrl2: new FormControl(this.model.imgUrl2, [<any>Validators.required]),
+            imgUrl3: new FormControl(this.model.imgUrl3, [<any>Validators.required]),
+            description1: new FormControl(this.model.description1, [<any>Validators.required]),
+            description2: new FormControl(this.model.description2, [<any>Validators.required]),
+            description3: new FormControl(this.model.description3, [<any>Validators.required]),
+        }); 
+    }
+
+    model: Details = {
         title:           '',
         backgroundColor: '',
         imgUrl1:         '',

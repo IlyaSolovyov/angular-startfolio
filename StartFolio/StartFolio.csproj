@@ -53,6 +53,7 @@
     <None Remove="ClientApp\app\devbutton\devbutton.component.ts" />
     <None Remove="ClientApp\app\fab\fab.component.ts" />
     <None Remove="ClientApp\app\page.ts" />
+    <None Remove="ClientApp\app\services\edit.service.ts" />
     <None Remove="ClientApp\app\services\page.service.ts" />
   </ItemGroup>
 
@@ -81,6 +82,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\team\team.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\devbutton\devbutton.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\fab\fab.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\edit.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\page.service.ts" />
   </ItemGroup>
 

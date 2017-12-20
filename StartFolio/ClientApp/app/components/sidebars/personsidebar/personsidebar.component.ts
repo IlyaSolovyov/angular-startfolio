@@ -1,5 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { EditService } from '../../../services/edit.service';
+import { Page } from "../../../page";
 
 @Component({
     selector: 'my-personsidebar',
@@ -8,25 +10,47 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class PersonSidebarComponent implements OnInit {
 
     public personEditForm: FormGroup;
+    page: Page;
+    constructor(private editService: EditService) { }
 
     //инициализация формы
     ngOnInit() {
+        this.populateFormFromModel();   
+        this.editService.editablePage.
+            subscribe(page => this.updateEditPage(page));
+    }
+
+    updateEditPage(page: Page) {
+        if (page.pageTemplate == 'person-component'){
+            alert(JSON.stringify(page));
+            this.fetchDataToModel(page.details)
+            this.populateFormFromModel();
+        }    
+    }
+
+    fetchDataToModel(details: string) {
+        this.model = JSON.parse(details);
+    }
+
+    populateFormFromModel() {
+        alert(this.model.title + " " + this.model.mainText + " " + this.model.personName + " " + this.model.age + " " + this.model.position + " " + this.model.photo + " " + this.model.backgroundColor );
         this.personEditForm = new FormGroup({
-            title:           new FormControl('', [<any>Validators.required]),
-            backgroundColor: new FormControl('', [<any>Validators.required]),
-            mainText:        new FormControl('', [<any>Validators.required]),
-            personName:      new FormControl('', [<any>Validators.required]),
-            age:             new FormControl(0,  [<any>Validators.required]),
-            position:        new FormControl('', [<any>Validators.required]),
-            photo:           new FormControl('', [<any>Validators.required])
+            title: new FormControl(this.model.title, [<any>Validators.required]),
+            backgroundColor: new FormControl(this.model.backgroundColor, [<any>Validators.required]),
+            mainText: new FormControl(this.model.mainText, [<any>Validators.required]),
+            personName: new FormControl(this.model.personName, [<any>Validators.required]),
+            age: new FormControl(this.model.age, [<any>Validators.required]),
+            position: new FormControl(this.model.position, [<any>Validators.required]),
+            photo: new FormControl(this.model.photo, [<any>Validators.required])
         });
     }
 
-    model = {
+
+    model: Details = {
         title:              '',
         mainText:           '',
         personName:         '',
-        age:                0,
+        age:                '',
         position:           '',
         photo:              '',
         backgroundColor:    ''        
@@ -66,7 +90,7 @@ interface Details {
     title:           string,
     mainText:        string,
     personName:      string,
-    age:             number,
+    age:             string,
     position:        string,
     photo:           string,
     backgroundColor: string   
