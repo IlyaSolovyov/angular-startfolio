@@ -22,7 +22,7 @@ export class GallerySidebarComponent implements OnInit {
 
     updateEditPage(page: Page) {
         if (page.pageTemplate == 'gallery-component') {
-            alert(JSON.stringify(page));
+            //alert(JSON.stringify(page));
             this.fetchDataToModel(page.details)
             this.populateFormFromModel();
         }         

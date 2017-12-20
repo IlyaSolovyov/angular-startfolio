@@ -13,11 +13,16 @@ export class PersonComponent implements OnInit {
     model: Details = {
         title:           'Вердикт',          
         backgroundColor: 'material-indigo',
-        photo:           'Images//SO.jpg',
+        photo:           'SO.jpg',
         mainText:        'Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра.',       
         personName:      'Папа Пежа',
         age:             '69',            
         position:        'Папа Пежа'      
+    }
+
+    getImagePath(imageName: string): string {
+        let img = 'Images//' + imageName;
+        return img;
     }
 
     constructor(private editService: EditService) { }
@@ -30,16 +35,8 @@ export class PersonComponent implements OnInit {
         this.position = -1;
         if (this._page) {
             let details: Details = JSON.parse(this._page.details);
-
             this.model = details;
             this.position = this._page.position;
-
-            /*this.model.title            = details.title;
-            this.model.backgroundColor  = details.backgroundColor;
-            this.model.photo            = details.photo;
-            this.model.mainText         = details.mainText;
-            this.model.personName       = details.personName;
-            this.model.age              = details.age;*/
 
         }
     }

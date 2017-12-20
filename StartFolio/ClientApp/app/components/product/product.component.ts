@@ -13,9 +13,14 @@ export class ProductComponent implements OnInit {
     model: Details = {
         title           : "Денчик",
         backgroundColor : "material-red",
-        productImgUrl   : "Images//BA.jpg",
+        productImgUrl   : "BA.jpg",
         mainText        : "Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра.",
         subText         : "Persona 5 — пожалуй, лучшая часть не только в серии Persona, но и в серии Shin Megami Tensei в целом. И одна из основных претенденток на игру года, сколь бы нишевой она ни казалась. Абсолютный must have для любителей жанра."
+    }
+
+    getImagePath(imageName: string): string {
+        let img = 'Images//' + imageName;
+        return img;
     }
 
     constructor(private editService: EditService) { }
@@ -28,15 +33,8 @@ export class ProductComponent implements OnInit {
         this.position = -1;
         if (this._page) {
             let details: Details = JSON.parse(this._page.details);
-
             this.model = details;
             this.position = this._page.position;
-
-            /*this.model.title = details.title;
-            this.model.backgroundColor = details.backgroundColor;
-            this.model.productImgUrl = details.productImgUrl;
-            this.model.mainText = details.mainText;
-            this.model.subText = details.subText;*/
         }
     }
 

@@ -1,7 +1,7 @@
 ﻿<section class="product-component block-component {{model.backgroundColor}}" [style.background-color]="getBackgroundColor()">
     
     <section class="product-demo">
-        <img src="{{model.productImgUrl}}" alt="img"/>
+        <img [src]="getImagePath(model.productImgUrl)" alt="img"/>
     </section>
 
     <section class="product-component-content">

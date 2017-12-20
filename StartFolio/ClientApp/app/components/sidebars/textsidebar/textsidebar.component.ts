@@ -22,7 +22,7 @@ export class TextSidebarComponent implements OnInit {
 
     updateEditPage(page: Page) {
         if (page.pageTemplate == 'text-component') {
-            alert(JSON.stringify(page));
+            //alert(JSON.stringify(page));
             this.fetchDataToModel(page.details)
             this.populateFormFromModel();
         }

@@ -6,14 +6,14 @@
 
     <ul class="cards">
         <teammate [name]       ="model.teammate1_Name" 
-                  [photo]      ="model.teammate1_Description" 
-                  [description]="model.teammate1_Link" 
-                  [profileLink]="model.teammate1_Photo"></teammate>
+                  [photo]      ="getImagePath(model.teammate1_Photo)" 
+                  [description]="model.teammate1_Description" 
+                  [profileLink]="model.teammate1_Link"></teammate>
 
         <teammate [name]       ="model.teammate2_Name"
-                  [photo]      ="model.teammate2_Description"
-                  [description]="model.teammate2_Link"
-                  [profileLink]="model.teammate2_Photo"></teammate>
+                  [photo]      ="getImagePath(model.teammate2_Photo)"
+                  [description]="model.teammate2_Description"
+                  [profileLink]="model.teammate2_Link"></teammate>
     </ul>
 
     <section class="btnSection">

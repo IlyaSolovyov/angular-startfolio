@@ -122,9 +122,8 @@ export class SearchSidebarComponent implements OnInit {
             error => console.log("Error :: " + error)
         )
 
-        //let position = this.pagesArray.values.length;
-        let position = -1;
-        alert(position);
+        let position = this.pagesArray.values.length;
+        //alert(position);
         let details = '';
   
         switch (template) {
@@ -146,6 +145,6 @@ export class SearchSidebarComponent implements OnInit {
         }
 
         var page = new Page(position, template, JSON.stringify(details));
-        this.pageService.addPage(page);
+      //  this.pageService.addPage(page);
     }
 }
