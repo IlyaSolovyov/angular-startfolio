@@ -5,53 +5,52 @@
 
     <section class="sidebar-content">
     
-        <form class="Options"  [formGroup]="teamEditForm" (ngSubmit)="save(teamEditForm.value)">
+        <form class="Options" [formGroup]="teamEditForm" (ngSubmit)="save(teamEditForm.value)">
 
             <label class="optionTitle">Text title</label>
             <input type="text" formControlName="title" />
 
             <label class="optionTitle">Main text</label>
-            <textarea formControlName="mainText" ></textarea>
+            <textarea formControlName="mainText"></textarea>
+
+            <!--Hardcode version-->
+            <label class="optionTitle">Teammate 1</label>
+            <label class="optionTitle">Name, surname</label>
+            <input type="text" formControlName="teammate1_Name" />
+
+            <label class="optionTitle">Short description</label>
+            <input type="text" formControlName="teammate1_Description" />
+
+            <label class="optionTitle">Link to profile</label>
+            <input type="url" formControlName="teammate1_Link" />
+
+            <label class="optionTitle">Teammate photo</label>
+            <input type="file" accept="image/*" (change)="updateImage($event, 1)" formControlName="teammate1_Photo" />
+
+
+            <label class="optionTitle">Teammate 2</label>
+            <label class="optionTitle">Name, surname</label>
+            <input type="text" formControlName="teammate2_Name" />
+
+            <label class="optionTitle">Short description</label>
+            <input type="text" formControlName="teammate2_Description" />
+
+            <label class="optionTitle">Link to profile</label>
+            <input type="url" formControlName="teammate2_Link" />
+
+            <label class="optionTitle">Teammate photo</label>
+            <input type="file" accept="image/*" (change)="updateImage($event, 2)" formControlName="teammate2_Photo" />
+
+
+            <!--ngFor version-->
+            <!--
+    <div *ngFor="let teammate of teammates; let i = index" [indexNo]="i">
+    </div>
+    -->
 
             <label class="optionTitle">Background color</label>
             <input type="color" formControlName="backgroundColor" />
-    
-            <!--Hardcode version-->
-            <label class="optionTitle">Teammate 1</label>
-                <label class="optionTitle">Name, surname</label>
-                <input type="text" formControlName="teammate1_Name" />
 
-                <label class="optionTitle">Short description</label>
-                <input type="text" formControlName="teammate1_Description" />
-
-                <label class="optionTitle">Link to profile</label>
-                <input type="url" formControlName="teammate1_Link" />
-
-                <label class="optionTitle">Teammate photo</label>
-                <input type="file" accept="image/*" (change)="updateImage($event, 1)" formControlName="teammate1_Photo"/>
-
-    
-            <label class="optionTitle">Teammate 2</label>
-                <label class="optionTitle">Name, surname</label>
-                <input type="text" formControlName="teammate2_Name" />
-
-                <label class="optionTitle">Short description</label>
-                <input type="text" formControlName="teammate2_Description" />
-
-                <label class="optionTitle">Link to profile</label>
-                <input type="url" formControlName="teammate2_Link"/>
-
-                <label class="optionTitle">Teammate photo</label>
-                <input type="file" accept="image/*" (change)="updateImage($event, 2)" formControlName="teammate2_Photo"/>
-            
-
-            <!--ngFor version-->
-
-            <!--
-            <div *ngFor="let teammate of teammates; let i = index" [indexNo]="i">
-            </div>
-            -->
-    
             <button class="btn button material-green" type="submit">Submit</button>
         </form>
     

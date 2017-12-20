@@ -33,17 +33,20 @@ export class TeamSidebarComponent implements OnInit {
     }
 
     populateFormFromModel() {
+        
         this.teamEditForm = new FormGroup({
-            title:                  new FormControl('', [<any>Validators.required]),
-            mainText:               new FormControl('', [<any>Validators.required]),
-            backgroundColor:        new FormControl('', [<any>Validators.required]),
-            teammate1_Name:         new FormControl('', [<any>Validators.required]),
-            teammate1_Description:  new FormControl('', [<any>Validators.required]),
-            teammate1_Link:         new FormControl('', [<any>Validators.required]),
+            title:                  new FormControl(this.model.title, [<any>Validators.required]),
+            mainText:               new FormControl(this.model.mainText, [<any>Validators.required]),
+            backgroundColor:        new FormControl(this.model.backgroundColor, [<any>Validators.required]),
+
+            teammate1_Name:         new FormControl(this.model.teammate1_Name, [<any>Validators.required]),
+            teammate1_Description:  new FormControl(this.model.teammate1_Description, [<any>Validators.required]),
+            teammate1_Link:         new FormControl(this.model.teammate1_Link, [<any>Validators.required]),
             teammate1_Photo:        new FormControl('', [<any>Validators.required]),
-            teammate2_Name:         new FormControl('', [<any>Validators.required]),
-            teammate2_Description:  new FormControl('', [<any>Validators.required]),
-            teammate2_Link:         new FormControl('', [<any>Validators.required]),
+
+            teammate2_Name:         new FormControl(this.model.teammate2_Name, [<any>Validators.required]),
+            teammate2_Description:  new FormControl(this.model.teammate2_Description, [<any>Validators.required]),
+            teammate2_Link:         new FormControl(this.model.teammate2_Link, [<any>Validators.required]),
             teammate2_Photo:        new FormControl('', [<any>Validators.required]),
         });
     }

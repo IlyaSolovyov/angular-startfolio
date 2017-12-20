@@ -39,7 +39,7 @@ export class ProductSidebarComponent implements OnInit {
             title:           new FormControl(this.model.title, [<any>Validators.required]),
             mainText:        new FormControl(this.model.mainText, [<any>Validators.required]),
             subText:         new FormControl(this.model.subText, [<any>Validators.required]),
-            photo:           new FormControl(this.model.photo, [<any>Validators.required]),
+            photo:           new FormControl('', [<any>Validators.required]),
             backgroundColor: new FormControl(this.model.backgroundColor, [<any>Validators.required])
         });
     }

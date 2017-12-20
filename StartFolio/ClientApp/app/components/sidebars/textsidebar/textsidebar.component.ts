@@ -34,14 +34,14 @@ export class TextSidebarComponent implements OnInit {
 
     populateFormFromModel() {
         this.textEditForm = new FormGroup({
-            title:              new FormControl('', [<any>Validators.required]),
-            mainText:           new FormControl('', [<any>Validators.required]),
-            subText:            new FormControl('', [<any>Validators.required]),
-            backgroundColor:    new FormControl('', [<any>Validators.required]),
-            buttonLeftLink:     new FormControl('', [<any>Validators.required]),
-            buttonRightLink:    new FormControl('', [<any>Validators.required]),
-            buttonLeftText:     new FormControl('', [<any>Validators.required]),
-            buttonRightText:    new FormControl('', [<any>Validators.required])
+            title:              new FormControl(this.model.title, [<any>Validators.required]),
+            mainText:           new FormControl(this.model.mainText, [<any>Validators.required]),
+            subText:            new FormControl(this.model.subText, [<any>Validators.required]),
+            backgroundColor:    new FormControl(this.model.backgroundColor, [<any>Validators.required]),
+            buttonLeftLink:     new FormControl(this.model.buttonLeftLink, [<any>Validators.required]),
+            buttonRightLink:    new FormControl(this.model.buttonRightLink, [<any>Validators.required]),
+            buttonLeftText:     new FormControl(this.model.buttonLeftText, [<any>Validators.required]),
+            buttonRightText:    new FormControl(this.model.buttonRightText, [<any>Validators.required])
         });
     }
 
