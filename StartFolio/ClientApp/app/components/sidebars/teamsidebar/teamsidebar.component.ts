@@ -2,7 +2,7 @@
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { EditService } from '../../../services/edit.service';
 import { Page } from "../../../page";
-
+import { PageService } from "../../../services/page.service";
 @Component({
     selector: 'my-teamsidebar',
     templateUrl: './teamsidebar.component.html'
@@ -10,8 +10,8 @@ import { Page } from "../../../page";
 export class TeamSidebarComponent implements OnInit {
 
     public teamEditForm: FormGroup;
-    page: Page;
-    constructor(private editService: EditService) { }
+    position: any;
+    constructor(private editService: EditService, private pageService: PageService) { }
 
     //инициализация формы
     ngOnInit() {
@@ -24,6 +24,7 @@ export class TeamSidebarComponent implements OnInit {
         if (page.pageTemplate == 'team-component') {
             //alert(JSON.stringify(page));
             this.fetchDataToModel(page.details)
+            this.position = page.position;
             this.populateFormFromModel();
         }
     }
@@ -111,6 +112,7 @@ export class TeamSidebarComponent implements OnInit {
         if (this.imgFile2) {
             output.append('uploads', this.imgFile2);
         }
+        this.pageService.updateDetails(this.position, output);
     }
 
 }

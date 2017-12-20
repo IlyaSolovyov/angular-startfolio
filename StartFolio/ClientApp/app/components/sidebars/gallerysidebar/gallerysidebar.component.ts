@@ -2,6 +2,7 @@
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { EditService } from '../../../services/edit.service';
 import { Page } from "../../../page";
+import { PageService } from "../../../services/page.service";
 
 @Component({
     selector: 'my-gallerysidebar',
@@ -10,8 +11,8 @@ import { Page } from "../../../page";
 export class GallerySidebarComponent implements OnInit {
 
     public galleryEditForm: FormGroup;
-    page: Page;
-    constructor(private editService: EditService) { }
+    position: any;
+    constructor(private editService: EditService, private pageService: PageService) { }
 
     //инициализация формы
     ngOnInit() {
@@ -24,12 +25,14 @@ export class GallerySidebarComponent implements OnInit {
         if (page.pageTemplate == 'gallery-component') {
             //alert(JSON.stringify(page));
             this.fetchDataToModel(page.details)
+            this.position = page.position;
             this.populateFormFromModel();
         }         
     }
 
     fetchDataToModel(details: string) {
         this.model = JSON.parse(details);
+
     }
 
     populateFormFromModel() {
@@ -96,15 +99,16 @@ export class GallerySidebarComponent implements OnInit {
         output.append('details', details);
         if (this.imgFile1)
         {
-            output.append('uploads', this.imgFile1);
+            output.append('uploads', this.imgFile1, this.model.imgUrl1);
         }
         if (this.imgFile2) {
-            output.append('uploads', this.imgFile2);
+            output.append('uploads', this.imgFile2, this.model.imgUrl2);
         }
         if (this.imgFile3) {
-            output.append('uploads', this.imgFile3);
-        } 
-
+            output.append('uploads', this.imgFile3, this.model.imgUrl3);
+        }
+        alert(output.get('details'));
+        this.pageService.updateDetails(this.position, output);
 
     }
 }

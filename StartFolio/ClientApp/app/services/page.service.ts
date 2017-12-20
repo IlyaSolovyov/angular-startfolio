@@ -12,12 +12,10 @@ export class PageService {
     constructor(private http: Http) { }
 
     
-
     getPages() {
         return this.http.get('localhost:57092/api/Page/')
             .map((res: Response) => res.json());      
     }
-
 
     getPage(position: number) {
         return this.http.get('api/Page/' + position)
@@ -41,11 +39,17 @@ export class PageService {
 
     }
 
-    updateDetails(position: number, formData: string) {
+    updateDetails(position: number, formData: FormData) { 
+        let newFormData = new FormData();
+        newFormData.append('details', formData.get('details'));
+        newFormData.append('uploads', formData.get('uploads'));
         let headers = new Headers();
         headers.set('Accept', 'application/json');
-        let options = new RequestOptions({headers: headers});
-        return this.http.put('api/Page/' + position + "/Details", formData, options);
+        let options = new RequestOptions({ headers: headers });
+        
+        return this.http.put('api/Page/' + position + "/Details", formData, options)
+            .map(res => res.json()) // ...and calling .json() on the response to return data
+            .subscribe();
     }
 
     deletePage(position: number)

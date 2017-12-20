@@ -49,7 +49,7 @@ namespace StartFolio.Controllers
             foreach (var uploadedFile in uploads)
             {
                 string oldFilename = uploadedFile.FileName;
-                string newFilename = Guid.NewGuid().ToString();
+                string newFilename = Guid.NewGuid().ToString() + "." + uploadedFile.FileName.Split('.').Last();
                 page.Details = page.Details.Replace(oldFilename, newFilename);
                 // путь к папке Files             
                 string path = "/Images/" + newFilename;
@@ -90,7 +90,7 @@ namespace StartFolio.Controllers
             foreach (var uploadedFile in uploads)
             {
                 string oldFilename = uploadedFile.FileName;
-                string newFilename = Guid.NewGuid().ToString();
+                string newFilename = Guid.NewGuid().ToString() + "." + uploadedFile.FileName.Split('.').Last();
                 details = details.Replace(oldFilename, newFilename);
                 // путь к папке Files             
                 string path = "/Images/" + newFilename;

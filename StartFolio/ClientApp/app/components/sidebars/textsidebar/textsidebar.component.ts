@@ -2,7 +2,7 @@
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { EditService } from '../../../services/edit.service';
 import { Page } from "../../../page";
-
+import { PageService } from "../../../services/page.service";
 @Component({
     selector: 'my-textsidebar',
     templateUrl: './textsidebar.component.html'
@@ -10,8 +10,8 @@ import { Page } from "../../../page";
 export class TextSidebarComponent implements OnInit {
 
     public textEditForm: FormGroup;
-    page: Page;
-    constructor(private editService: EditService) { }
+    position: any;
+    constructor(private editService: EditService, private pageService: PageService) { }
 
     //инициализация формы
     ngOnInit() {
@@ -24,6 +24,7 @@ export class TextSidebarComponent implements OnInit {
         if (page.pageTemplate == 'text-component') {
             //alert(JSON.stringify(page));
             this.fetchDataToModel(page.details)
+            this.position = page.position;
             this.populateFormFromModel();
         }
     }
@@ -64,6 +65,7 @@ export class TextSidebarComponent implements OnInit {
 
         let output = new FormData();
         output.append('details', details);
+        this.pageService.updateDetails(this.position, output);
     }
 
 }

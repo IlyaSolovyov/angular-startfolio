@@ -2,6 +2,7 @@
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { EditService } from '../../../services/edit.service';
 import { Page } from "../../../page";
+import { PageService } from "../../../services/page.service";
 
 @Component({
     selector: 'my-personsidebar',
@@ -10,8 +11,8 @@ import { Page } from "../../../page";
 export class PersonSidebarComponent implements OnInit {
 
     public personEditForm: FormGroup;
-    page: Page;
-    constructor(private editService: EditService) { }
+    position: any;
+    constructor(private editService: EditService, private pageService: PageService) { }
 
     //инициализация формы
     ngOnInit() {
@@ -24,6 +25,7 @@ export class PersonSidebarComponent implements OnInit {
         if (page.pageTemplate == 'person-component'){
             //alert(JSON.stringify(page));
             this.fetchDataToModel(page.details)
+            this.position = page.position;
             this.populateFormFromModel();
         }    
     }
@@ -82,7 +84,8 @@ export class PersonSidebarComponent implements OnInit {
         let output = new FormData();
         output.append('details', details);
         output.append('uploads', this.imageFile);
- 
+
+        this.pageService.updateDetails(this.position, output);
     }
 }
 
