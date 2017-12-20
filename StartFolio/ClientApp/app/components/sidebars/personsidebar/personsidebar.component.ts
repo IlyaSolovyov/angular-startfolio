@@ -22,7 +22,7 @@ export class PersonSidebarComponent implements OnInit {
 
     updateEditPage(page: Page) {
         if (page.pageTemplate == 'person-component'){
-            alert(JSON.stringify(page));
+            //alert(JSON.stringify(page));
             this.fetchDataToModel(page.details)
             this.populateFormFromModel();
         }    
@@ -33,7 +33,7 @@ export class PersonSidebarComponent implements OnInit {
     }
 
     populateFormFromModel() {
-        alert(this.model.title + " " + this.model.mainText + " " + this.model.personName + " " + this.model.age + " " + this.model.position + " " + this.model.photo + " " + this.model.backgroundColor);
+        //alert(this.model.title + " " + this.model.mainText + " " + this.model.personName + " " + this.model.age + " " + this.model.position + " " + this.model.photo + " " + this.model.backgroundColor);
 
         this.personEditForm = new FormGroup({
             title:              new FormControl(this.model.title, [<any>Validators.required]),

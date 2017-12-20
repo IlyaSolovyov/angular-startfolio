@@ -123,7 +123,7 @@ export class SearchSidebarComponent implements OnInit {
         )
 
         let position = this.pagesArray.values.length;
-        alert(position);
+        //alert(position);
         let details = '';
   
         switch (template) {
