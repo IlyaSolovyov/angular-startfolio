@@ -35,7 +35,7 @@ export class PageService {
         formData.append('pagetemplate', page.pageTemplate);
         formData.append('details', page.details);
 
-        return this.http.post('/api/Page', formData, options)
+        return this.http.post('http://localhost:57092/api/Page', formData, options)
                         .map(res => res.json()) // ...and calling .json() on the response to return data
                         .subscribe();
 
