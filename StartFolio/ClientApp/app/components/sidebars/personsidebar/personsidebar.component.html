@@ -4,22 +4,30 @@
 
 <section class="sidebar-content">
 
-    <form class="Options">
+    <form class="Options" [formGroup]="personEditForm" (ngSubmit)="save(personEditForm.value)">
+
         <label class="optionTitle">Text title</label>
-        <input type="text" name="textTitle" />
+        <input type="text" formControlName="title"/>
+
         <label class="optionTitle">Main text</label>
-        <textarea></textarea>
+        <textarea formControlName="mainText"></textarea>
+
         <label class="optionTitle">Name, surname</label>
-        <input type="text" name="personName" />
+        <input type="text" formControlName="personName"/>
+
         <label class="optionTitle">Age</label>
-        <input type="text" name="personAge" />
+        <input type="text" formControlName="age"/>
+
         <label class="optionTitle">Position</label>
-        <input type="text" name="personPosition" />
+        <input type="text" formControlName="position"/>
+
         <label class="optionTitle">Person photo</label>
-        <input type="file" name="personPhoto" accept="image/*" />
+        <input type="file" accept="image/*" (change)="updateImage($event)" formControlName="photo"/>
+
         <label class="optionTitle">Background color</label>
-        <input type="color" />
-        <input class="btn button" type="submit" />
+        <input type="color" formControlName="backgroundColor"/>
+
+        <button class="btn button" type="submit">Submit</button>
     </form>
 
 </section>

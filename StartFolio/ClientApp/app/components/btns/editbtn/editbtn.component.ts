@@ -1,4 +1,4 @@
-﻿import { Component, Output } from '@angular/core';
+﻿import { Component, Output, Input } from '@angular/core';
 
 @Component({
     selector: 'edit-btn',

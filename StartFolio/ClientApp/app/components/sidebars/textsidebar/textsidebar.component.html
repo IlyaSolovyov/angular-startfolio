@@ -4,16 +4,32 @@
 
 <section class="sidebar-content">
 
-    <form class="Options">
+    <form class="Options" [formGroup]="textEditForm" (ngSubmit)="save(textEditForm.value)">
         <label class="optionTitle">Text title</label>
-        <input type="text" name="textTitle" />
+        <input type="text" formControlName="title" />
+
         <label class="optionTitle">Main text</label>
-        <textarea></textarea>
+        <textarea formControlName="mainText"></textarea>
+
         <label class="optionTitle">Sub text</label>
-        <textarea></textarea>
+        <textarea formControlName="subText"></textarea>
+
         <label class="optionTitle">Background color</label>
-        <input type="color" />
-        <input class="btn button" type="submit" />
+        <input type="color" formControlName="backgroundColor" />
+
+        <label class="optionTitle">Left button text</label>
+        <input type="text" formControlName="buttonLeftText" />
+
+        <label class="optionTitle">Left button link</label>
+        <input type="text" formControlName="buttonLeftLink" />
+
+        <label class="optionTitle">Right button text</label>
+        <input type="text" formControlName="buttonRightText" />
+
+        <label class="optionTitle">Right button link</label>
+        <input type="text" formControlName="buttonRightLink" />
+
+        <button class="btn button" type="submit">Submit</button>
     </form>
 
 </section>

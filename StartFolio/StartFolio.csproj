@@ -46,12 +46,14 @@
     <None Remove="ClientApp\app\components\sidebars\personsidebar\personsidebar.component.ts" />
     <None Remove="ClientApp\app\components\sidebars\productsidebar\productsidebar.component.ts" />
     <None Remove="ClientApp\app\components\sidebars\searchsidebar\searchsidebar.component.ts" />
+    <None Remove="ClientApp\app\components\sidebars\teamsidebar\teammate-form\teammate.ts" />
     <None Remove="ClientApp\app\components\sidebars\teamsidebar\teamsidebar.component.ts" />
     <None Remove="ClientApp\app\components\teammate\teammate.component.ts" />
     <None Remove="ClientApp\app\components\team\team.component.ts" />
     <None Remove="ClientApp\app\devbutton\devbutton.component.ts" />
     <None Remove="ClientApp\app\fab\fab.component.ts" />
     <None Remove="ClientApp\app\page.ts" />
+    <None Remove="ClientApp\app\services\edit.service.ts" />
     <None Remove="ClientApp\app\services\page.service.ts" />
   </ItemGroup>
 
@@ -59,6 +61,8 @@
     <TypeScriptCompile Include="ClientApp\app\components\dynamic\dynamic.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\pagebase\pagebase.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\searchable\searchable.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sidebars\teamsidebar\teammate-form\teammate.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sidebars\teamsidebar\teammate-form\teammateform.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\page.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\account.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\btns\down-btn\downbtn.component.ts" />
@@ -76,9 +80,9 @@
     <TypeScriptCompile Include="ClientApp\app\components\sidebars\teamsidebar\teamsidebar.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\teammate\teammate.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\team\team.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\text\text.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\devbutton\devbutton.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\fab\fab.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\edit.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\page.service.ts" />
   </ItemGroup>
 

@@ -70,6 +70,7 @@ app > ng-component {
     background-color: #2ecc71;
     color: #ffffff;
     transition: background-color .3s;
+    cursor: pointer;
 }
 
 .btn:hover, .btn:focus {

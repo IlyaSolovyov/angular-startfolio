@@ -5,6 +5,7 @@ import { TeamComponent } from "../team/team.component";
 import { PersonComponent } from "../person/person.component";
 import { GalleryComponent } from "../gallery/gallery.component";
 import { ProductComponent } from "../product/product.component";
+import { PageBaseComponent } from "../pagebase/pagebase.component";
 
 @Component({
     selector: 'dynamic-content',
@@ -51,8 +52,24 @@ export class DynamicComponent implements OnInit, OnDestroy  {
             this.componentRef = this.container.createComponent(factory);
 
             // set component context
-            let instance = <DynamicComponent>this.componentRef.instance;
-            instance.page = this.page;
+            if (this.type = 'text-component')
+            {
+                let instance = <TextComponent>this.componentRef.instance;
+                instance._page = this.page;
+            } else if (this.type = 'team-component') {
+                let instance = <TeamComponent>this.componentRef.instance;
+                instance._page = this.page;
+            } else if (this.type = 'person-component') {
+                let instance = <PersonComponent>this.componentRef.instance;
+                instance._page = this.page;
+            } else if (this.type = 'product-component') {
+                let instance = <ProductComponent>this.componentRef.instance;
+                instance._page = this.page;
+            } else if (this.type = 'gallery-component') {
+                let instance = <GalleryComponent>this.componentRef.instance;
+                instance._page = this.page;
+            }
+          
         }
     }
 
