@@ -33,15 +33,16 @@ export class PersonSidebarComponent implements OnInit {
     }
 
     populateFormFromModel() {
-        alert(this.model.title + " " + this.model.mainText + " " + this.model.personName + " " + this.model.age + " " + this.model.position + " " + this.model.photo + " " + this.model.backgroundColor );
+        alert(this.model.title + " " + this.model.mainText + " " + this.model.personName + " " + this.model.age + " " + this.model.position + " " + this.model.photo + " " + this.model.backgroundColor);
+
         this.personEditForm = new FormGroup({
-            title: new FormControl(this.model.title, [<any>Validators.required]),
-            backgroundColor: new FormControl(this.model.backgroundColor, [<any>Validators.required]),
-            mainText: new FormControl(this.model.mainText, [<any>Validators.required]),
-            personName: new FormControl(this.model.personName, [<any>Validators.required]),
-            age: new FormControl(this.model.age, [<any>Validators.required]),
-            position: new FormControl(this.model.position, [<any>Validators.required]),
-            photo: new FormControl(this.model.photo, [<any>Validators.required])
+            title:              new FormControl(this.model.title, [<any>Validators.required]),
+            backgroundColor:    new FormControl(this.model.backgroundColor, [<any>Validators.required]),
+            mainText:           new FormControl(this.model.mainText, [<any>Validators.required]),
+            personName:         new FormControl(this.model.personName, [<any>Validators.required]),
+            age:                new FormControl(this.model.age, [<any>Validators.required]),
+            position:           new FormControl(this.model.position, [<any>Validators.required]),
+            photo:              new FormControl('', [<any>Validators.required])
         });
     }
 
@@ -59,7 +60,6 @@ export class PersonSidebarComponent implements OnInit {
     imageFile: any;
 
     updateImage(ev) {
-
         let file = ev.target.files[0];
         this.model.photo = file.name;
         this.imageFile = file;

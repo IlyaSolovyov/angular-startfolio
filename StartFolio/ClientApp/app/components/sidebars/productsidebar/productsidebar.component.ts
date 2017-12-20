@@ -1,5 +1,8 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { EditService } from '../../../services/edit.service';
+import { Page } from "../../../page";
+
 @Component({
     selector: 'my-productsidebar',
     templateUrl: './productsidebar.component.html'
@@ -7,19 +10,41 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class ProductSidebarComponent implements OnInit {
 
     public productEditForm: FormGroup;
+    page: Page;
+    constructor(private editService: EditService) { }
 
     //инициализация формы
     ngOnInit() {
+        this.populateFormFromModel();
+        this.editService.editablePage.
+            subscribe(page => this.updateEditPage(page));
+    }
+
+    updateEditPage(page: Page) {
+        if (page.pageTemplate == 'product-component') {
+            alert(JSON.stringify(page));
+            this.fetchDataToModel(page.details)
+            this.populateFormFromModel();
+        }
+    }
+
+    fetchDataToModel(details: string) {
+        this.model = JSON.parse(details);
+    }
+
+    populateFormFromModel() {
+        alert(this.model.title + " " + this.model.mainText + " " + this.model.subText + " " + this.model.photo + " " + this.model.backgroundColor);
+
         this.productEditForm = new FormGroup({
-            title:           new FormControl('', [<any>Validators.required]),
-            mainText:        new FormControl('', [<any>Validators.required]),
-            subText:         new FormControl('', [<any>Validators.required]),
-            photo:           new FormControl('', [<any>Validators.required]),
-            backgroundColor: new FormControl('', [<any>Validators.required])
+            title:           new FormControl(this.model.title, [<any>Validators.required]),
+            mainText:        new FormControl(this.model.mainText, [<any>Validators.required]),
+            subText:         new FormControl(this.model.subText, [<any>Validators.required]),
+            photo:           new FormControl(this.model.photo, [<any>Validators.required]),
+            backgroundColor: new FormControl(this.model.backgroundColor, [<any>Validators.required])
         });
     }
 
-    model = {
+    model: Details = {
         title:              '',
         mainText:           '',
         subText:            '',

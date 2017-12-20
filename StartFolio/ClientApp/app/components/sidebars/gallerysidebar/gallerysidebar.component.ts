@@ -34,14 +34,14 @@ export class GallerySidebarComponent implements OnInit {
 
     populateFormFromModel() {
         this.galleryEditForm = new FormGroup({
-            title: new FormControl(this.model.title, [<any>Validators.required]),
-            backgroundColor: new FormControl(this.model.backgroundColor, [<any>Validators.required]),
-            imgUrl1: new FormControl(this.model.imgUrl1, [<any>Validators.required]),
-            imgUrl2: new FormControl(this.model.imgUrl2, [<any>Validators.required]),
-            imgUrl3: new FormControl(this.model.imgUrl3, [<any>Validators.required]),
-            description1: new FormControl(this.model.description1, [<any>Validators.required]),
-            description2: new FormControl(this.model.description2, [<any>Validators.required]),
-            description3: new FormControl(this.model.description3, [<any>Validators.required]),
+            title:              new FormControl(this.model.title, [<any>Validators.required]),
+            backgroundColor:    new FormControl(this.model.backgroundColor, [<any>Validators.required]),
+            imgUrl1:            new FormControl(this.model.imgUrl1, [<any>Validators.required]),
+            imgUrl2:            new FormControl(this.model.imgUrl2, [<any>Validators.required]),
+            imgUrl3:            new FormControl(this.model.imgUrl3, [<any>Validators.required]),
+            description1:       new FormControl(this.model.description1, [<any>Validators.required]),
+            description2:       new FormControl(this.model.description2, [<any>Validators.required]),
+            description3:       new FormControl(this.model.description3, [<any>Validators.required]),
         }); 
     }
 

@@ -1,5 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { EditService } from '../../../services/edit.service';
+import { Page } from "../../../page";
 
 @Component({
     selector: 'my-teamsidebar',
@@ -8,9 +10,29 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class TeamSidebarComponent implements OnInit {
 
     public teamEditForm: FormGroup;
+    page: Page;
+    constructor(private editService: EditService) { }
 
     //инициализация формы
     ngOnInit() {
+        this.populateFormFromModel();
+        this.editService.editablePage.
+            subscribe(page => this.updateEditPage(page));
+    }
+
+    updateEditPage(page: Page) {
+        if (page.pageTemplate == 'team-component') {
+            alert(JSON.stringify(page));
+            this.fetchDataToModel(page.details)
+            this.populateFormFromModel();
+        }
+    }
+
+    fetchDataToModel(details: string) {
+        this.model = JSON.parse(details);
+    }
+
+    populateFormFromModel() {
         this.teamEditForm = new FormGroup({
             title:                  new FormControl('', [<any>Validators.required]),
             mainText:               new FormControl('', [<any>Validators.required]),
@@ -26,7 +48,7 @@ export class TeamSidebarComponent implements OnInit {
         });
     }
 
-    model = {
+    model: Details = {
         title:                  '',
         mainText:               '',
         backgroundColor:        '',
@@ -79,6 +101,7 @@ export class TeamSidebarComponent implements OnInit {
 
         let output = new FormData();
         output.append('details', details);
+
         if (this.imgFile1) {
             output.append('uploads', this.imgFile1);
         }

@@ -1,5 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { EditService } from '../../../services/edit.service';
+import { Page } from "../../../page";
 
 @Component({
     selector: 'my-textsidebar',
@@ -8,9 +10,29 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class TextSidebarComponent implements OnInit {
 
     public textEditForm: FormGroup;
+    page: Page;
+    constructor(private editService: EditService) { }
 
     //инициализация формы
     ngOnInit() {
+        this.populateFormFromModel();
+        this.editService.editablePage.
+            subscribe(page => this.updateEditPage(page));
+    }
+
+    updateEditPage(page: Page) {
+        if (page.pageTemplate == 'text-component') {
+            alert(JSON.stringify(page));
+            this.fetchDataToModel(page.details)
+            this.populateFormFromModel();
+        }
+    }
+
+    fetchDataToModel(details: string) {
+        this.model = JSON.parse(details);
+    }
+
+    populateFormFromModel() {
         this.textEditForm = new FormGroup({
             title:              new FormControl('', [<any>Validators.required]),
             mainText:           new FormControl('', [<any>Validators.required]),
@@ -23,7 +45,7 @@ export class TextSidebarComponent implements OnInit {
         });
     }
 
-    model = {
+    model: Details = {
         title:              '',
         mainText:           '',
         subText:            '',
@@ -36,14 +58,12 @@ export class TextSidebarComponent implements OnInit {
 
     save(data: Details) {
         this.model = data;
-
-        //ready to be sent to server
+        
         let details = JSON.stringify(this.model);
         console.log(details);
 
         let output = new FormData();
         output.append('details', details);
-
     }
 
 }
