@@ -1,7 +1,7 @@
 ﻿<section class="person-component block-component {{model.backgroundColor}}" [style.background-color]="getBackgroundColor()">
     
     <section class="person-photo">
-        <img src="{{model.photo}}" alt="img"/>
+        <img [src]="getImagePath(model.photo)" alt="img"/>
     </section>
 
     <section class="person-component-content">

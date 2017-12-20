@@ -16,14 +16,19 @@ export class TeamComponent implements OnInit {
         backgroundColor:        "material-orange",
 
         teammate1_Name:         'Ilya Solovyov',
-        teammate1_Description:  'Images//SO.jpg',
-        teammate1_Link:         'make oXXXymiron great again...',
-        teammate1_Photo:        'https://github.com/IlyaSolovyov',
+        teammate1_Description:  'make oXXXymiron great again...',
+        teammate1_Link:         'https://github.com/IlyaSolovyov',
+        teammate1_Photo:        'SO.jpg',
                  
         teammate2_Name:         'Baghin Denis',
-        teammate2_Description:  'Images//BA.jpg',
-        teammate2_Link:         'make ui in luxoft...',
-        teammate2_Photo:        'https://github.com/Denis1697'
+        teammate2_Description:  'make ui in luxoft...',
+        teammate2_Link:         'https://github.com/Denis1697',
+        teammate2_Photo:        'BA.jpg'
+    }
+
+    getImagePath(imageName: string):string {
+        let img = 'Images//' + imageName;
+        return img;
     }
 
     constructor(private editService: EditService) { }
@@ -38,22 +43,8 @@ export class TeamComponent implements OnInit {
 
         if (this._page) {
             let details: Details = JSON.parse(this._page.details);
-
             this.model = details;
             this.position = this._page.position;
-
-            /*this.model.title = details.title;
-            this.model.backgroundColor = details.backgroundColor;
-
-            this.model.stName = details.stName;
-            this.model.stPhoto = details.stPhoto;
-            this.model.stDesc = details.stDesc;
-            this.model.stLink = details.stLink;
-
-            this.model.ndName = details.ndName;
-            this.model.ndPhoto = details.ndPhoto;
-            this.model.ndDesc = details.ndDesc;
-            this.model.ndLink = details.ndLink;*/
         }
     }
 

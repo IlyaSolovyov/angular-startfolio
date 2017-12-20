@@ -13,13 +13,18 @@ export class GalleryComponent implements OnInit {
     model: Details = {
         title:           'Галерея продуктов',
         backgroundColor: 'material-blue',
-        imgUrl1:         'Images//BA.jpg',
-        imgUrl2:         'Images//SO.jpg',
-        imgUrl3:         'Images//SO.jpg',
+        imgUrl1:         'BA.jpg',
+        imgUrl2:         'SO.jpg',
+        imgUrl3:         'SO.jpg',
         description1:    'BA text about project',
         description2:    'SO text about project',
         description3:    'SoBa text about project'
     };
+
+    getImagePath(imageName: string): string {
+        let img = 'Images//' + imageName;
+        return img;
+    }
 
     constructor(private editService: EditService) { }
 
@@ -31,18 +36,8 @@ export class GalleryComponent implements OnInit {
         this.position = -1;
         if (this._page) {
             let details: Details = JSON.parse(this._page.details);
-
             this.model = details;
             this.position = this._page.position;
-
-            /*this.model.title            = details.title;
-            this.model.backgroundColor  = details.backgroundColor;
-            this.model.imgUrl1          = details.imgUrl1;
-            this.model.imgUrl2          = details.imgUrl2;
-            this.model.imgUrl3          = details.imgUrl3;
-            this.model.description1     = details.description1;
-            this.model.description2     = details.description2;
-            this.model.description3     = details.description3;*/
         }
 
     }
