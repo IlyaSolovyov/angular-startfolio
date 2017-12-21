@@ -66,6 +66,7 @@ export class TeamComponent implements OnInit {
         }
 
         this.pageService.deletePage(this.position);
+        this.editService.decreasePagesCount()
     }
 
 }

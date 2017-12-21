@@ -58,6 +58,7 @@ export class PageService {
         let headers = new Headers();
         headers.set('Accept', 'application/json');
         let options = new RequestOptions({ headers: headers });
+        console.log("Пытаемся поменять слайд " + position + " со слайдом " + (position + direction));
         return this.http.put('api/Page/' + position + "/Position", formData, options)
             .map(res => res.json()) // ...and calling .json() on the response to return data
             .subscribe();

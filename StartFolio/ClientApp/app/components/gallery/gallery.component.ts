@@ -48,7 +48,6 @@ export class GalleryComponent implements OnInit {
     }
 
     updatePosition(position: number, direction: number) {
-        console.log("Пытаемся поменять слайд " + position + " со слайдом " + (position + direction));
         this.pageService.updatePosition(position, direction);
     }
 
@@ -60,7 +59,23 @@ export class GalleryComponent implements OnInit {
             return;
         }
 
-        this.pageService.deletePage(this.position);
+        let elementToDelete: number = this.position;
+        let totalElements: number = -1;
+        this.editService.pagesCount.
+            subscribe(count => totalElements = count);
+
+        this.fixPositions(elementToDelete, totalElements);
+     //   this.pageService.deletePage(totalElements);
+ 
+       // this.editService.decreasePagesCount()
+    }
+
+    fixPositions(deletedPosition: number, count: number)
+    {
+        let i: number;
+        for (i = deletedPosition + 1; i <= count; i++) {
+            this.pageService.updatePosition(i, -1);
+        }
     }
 }
 interface Details

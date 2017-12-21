@@ -26,4 +26,10 @@ export class EditService {
         this.pagesCountSource.next(this.pagesCountSource.value + 1);
         console.log("Слайдов теперь " + this.pagesCountSource.value)
     }
-}
+
+    decreasePagesCount() {
+
+        this.pagesCountSource.next(this.pagesCountSource.value - 1);
+        console.log("Слайдов теперь " + this.pagesCountSource.value)
+    }
+} 
