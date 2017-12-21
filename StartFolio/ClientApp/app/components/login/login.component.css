@@ -4,7 +4,6 @@
     align-items: center;
     position: fixed;
     width: 400px;
-    height: 155px;
     left: calc(50% - 200px);
     top: calc(50% - 106px);
     background: #edeff1;
@@ -98,4 +97,20 @@ a {
 
 #showSignIn:checked ~ .form {
     transform: translateY(0);
+}
+
+.signIn span {
+    font-size: 20px;
+    text-align: center;
+}
+
+.signIn .btn {
+    margin: 0;
+    width: 75px;
+    height: 35px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

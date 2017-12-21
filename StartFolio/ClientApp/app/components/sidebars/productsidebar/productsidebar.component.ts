@@ -41,7 +41,7 @@ export class ProductSidebarComponent implements OnInit {
             title:           new FormControl(this.model.title, [<any>Validators.required]),
             mainText:        new FormControl(this.model.mainText, [<any>Validators.required]),
             subText:         new FormControl(this.model.subText, [<any>Validators.required]),
-            photo:           new FormControl('', [<any>Validators.required]),
+            productImgUrl:   new FormControl('', [<any>Validators.required]),
             backgroundColor: new FormControl(this.model.backgroundColor, [<any>Validators.required])
         });
     }
@@ -50,7 +50,7 @@ export class ProductSidebarComponent implements OnInit {
         title:              '',
         mainText:           '',
         subText:            '',
-        photo:              '',
+        productImgUrl:      '',
         backgroundColor:    ''
     }
 
@@ -58,7 +58,7 @@ export class ProductSidebarComponent implements OnInit {
 
     updateImage(ev) {
         let file = ev.target.files[0];
-        this.model.photo = file.name;
+        this.model.productImgUrl = file.name;
         this.imageFile = file;
     }
 
@@ -93,6 +93,6 @@ interface Details {
     title:              string,
     mainText:           string,
     subText:            string,
-    photo:              string,
+    productImgUrl:      string,
     backgroundColor:    string
 }
