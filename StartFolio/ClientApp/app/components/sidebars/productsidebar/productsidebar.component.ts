@@ -63,6 +63,8 @@ export class ProductSidebarComponent implements OnInit {
     }
 
     save(data: Details) {
+        this.hideSidebar();
+
         //данные об изображении передаются в модель в updateImage()
         this.model.title            = data.title;
         this.model.mainText         = data.mainText;
@@ -77,6 +79,13 @@ export class ProductSidebarComponent implements OnInit {
         output.append('details', details);
         output.append('uploads', this.imageFile);
         this.pageService.updateDetails(this.position, output);
+    }
+
+
+    hideSidebar() {
+        let template = 'Product';
+        (<HTMLInputElement>document.getElementById('show' + template + 'Sidebar')).checked = false;
+        alert(template + ' component was succesfully updated!');
     }
 }
 

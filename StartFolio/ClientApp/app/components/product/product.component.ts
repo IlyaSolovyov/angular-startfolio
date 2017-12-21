@@ -50,6 +50,12 @@ export class ProductComponent implements OnInit {
     }
 
     deletePage() {
+        let willDelete = confirm("Do you really want to delete this component?");
+
+        if (!willDelete) {
+            return;
+        }
+
         this.pageService.deletePage(this.position);
     }
 

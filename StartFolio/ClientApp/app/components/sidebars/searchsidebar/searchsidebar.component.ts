@@ -146,5 +146,7 @@ export class SearchSidebarComponent implements OnInit {
 
         var page = new Page(position, template, JSON.stringify(details));
         this.pageService.addPage(page);
+
+        alert("Succesfully added new " + template + " to your web-site!");
     }
 }

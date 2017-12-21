@@ -68,6 +68,7 @@ export class PersonSidebarComponent implements OnInit {
     }
 
     save(data: Details) {
+        this.hideSidebar();
 
         //данные об изображении передаются в модель в updateImage()
         this.model.title           = data.title;
@@ -86,6 +87,13 @@ export class PersonSidebarComponent implements OnInit {
         output.append('uploads', this.imageFile);
 
         this.pageService.updateDetails(this.position, output);
+    }
+
+
+    hideSidebar() {
+        let template = 'Person';
+        (<HTMLInputElement>document.getElementById('show' + template + 'Sidebar')).checked = false;
+        alert(template + ' component was succesfully updated!');
     }
 }
 

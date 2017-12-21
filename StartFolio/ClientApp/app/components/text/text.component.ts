@@ -57,6 +57,12 @@ export class TextComponent implements OnInit {
     }
 
     deletePage() {
+        let willDelete = confirm("Do you really want to delete this component?");
+
+        if (!willDelete) {
+            return;
+        }
+
         this.pageService.deletePage(this.position);
     }
 }

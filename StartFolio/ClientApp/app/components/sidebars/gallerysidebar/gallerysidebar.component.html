@@ -4,7 +4,7 @@
 
 <section class="sidebar-content">
 
-    <form class="Options" [formGroup]="galleryEditForm" (ngSubmit)="save(galleryEditForm.value)">
+    <form class="Options" [formGroup]="galleryEditForm" (ngSubmit)="save(galleryEditForm.value)" name="galleryEditForm">
 
         <label class="optionTitle">Text title</label>
         <input type="text" formControlName="title" />
@@ -37,19 +37,9 @@
         <input type="file" accept="image/*" formControlName="imgUrl3" (change)="updateImage($event, 3)" />
 
         <label class="optionTitle">Background color</label>
-        <input type="color" formControlName="backgroundColor"/>
+        <input type="color" formControlName="backgroundColor" />
 
-        <!--ngFor version
-    <div class="image-upload" *ngFor="let photo of photos; let i = index">
-        <label class="optionTitle"></label>
-        <input type="file" accept="image/*" (change)="updateImage($event, i)" required />
-    </div>
-
-    <label class="optionTitle">Background color</label>
-    <input type="color" [(ngModel)]="model.backgroundColor" #backgroundColor="ngModel"/>
-
-    <input class="btn button" type="submit" [disabled]="!galleryEditForm.form.valid"/>-->
-        <button type="submit" class="btn button">Submit</button>
+        <button type="submit" class="btn button" (сlick)="hideSidebar()">Submit</button>
     </form>
 
 </section>

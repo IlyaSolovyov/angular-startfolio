@@ -87,6 +87,7 @@ export class TeamSidebarComponent implements OnInit {
     }
 
     save(data: Details) {
+        this.hideSidebar();
         //данные об изображении передаются в модель в updateImage()
         this.model.title                 = data.title;
         this.model.mainText              = data.mainText;
@@ -113,6 +114,12 @@ export class TeamSidebarComponent implements OnInit {
             output.append('uploads', this.imgFile2);
         }
         this.pageService.updateDetails(this.position, output);
+    }
+
+    hideSidebar() {
+        let template = 'Team';
+        (<HTMLInputElement>document.getElementById('show' + template + 'Sidebar')).checked = false;
+        alert(template + ' component was succesfully updated!');
     }
 
 }

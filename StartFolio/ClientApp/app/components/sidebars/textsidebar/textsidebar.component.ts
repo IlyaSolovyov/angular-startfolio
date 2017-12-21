@@ -58,6 +58,8 @@ export class TextSidebarComponent implements OnInit {
     }
 
     save(data: Details) {
+        this.hideSidebar();
+
         this.model = data;
         
         let details = JSON.stringify(this.model);
@@ -66,6 +68,12 @@ export class TextSidebarComponent implements OnInit {
         let output = new FormData();
         output.append('details', details);
         this.pageService.updateDetails(this.position, output);
+    }
+
+    hideSidebar() {
+        let template = 'Text';
+        (<HTMLInputElement>document.getElementById('show' + template + 'Sidebar')).checked = false;
+        alert(template + ' component was succesfully updated!');
     }
 
 }

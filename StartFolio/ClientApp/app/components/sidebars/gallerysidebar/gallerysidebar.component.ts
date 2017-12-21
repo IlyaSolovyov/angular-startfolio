@@ -84,6 +84,8 @@ export class GallerySidebarComponent implements OnInit {
     }
 
     save(data: Details) {
+        this.hideSidebar();
+
         //данные об изображении передаются в модель в updateImage()
         this.model.title            = data.title;
         this.model.description1     = data.description1;
@@ -107,9 +109,15 @@ export class GallerySidebarComponent implements OnInit {
         if (this.imgFile3) {
             output.append('uploads', this.imgFile3, this.model.imgUrl3);
         }
-        alert(output.get('details'));
+        //alert(output.get('details'));
         this.pageService.updateDetails(this.position, output);
 
+    }
+
+    hideSidebar() {
+        let template = 'Gallery';
+        (<HTMLInputElement>document.getElementById('show'+ template + 'Sidebar')).checked = false;
+        alert(template + ' component was succesfully updated!');
     }
 }
 
