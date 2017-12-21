@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Page } from '../../../page';
 import { PageService } from '../../../services/page.service';
+import { EditService } from "../../../services/edit.service";
 
 @Component({
     selector: 'my-searchsidebar',
@@ -34,7 +35,7 @@ export class SearchSidebarComponent implements OnInit {
 
     pagesArray: Page[];
 
-    constructor(public pageService: PageService) {
+    constructor(public pageService: PageService, public editService: EditService) {
     }
 
     ngOnInit() {
@@ -76,18 +77,18 @@ export class SearchSidebarComponent implements OnInit {
             teammate1_Name:         'DummyName1',
             teammate1_Description:  'DummyDescription1',
             teammate1_Link:         'https://localhost/firstLink',
-            teammate1_Photo:        'Images//dummy6.png',
+            teammate1_Photo:        'dummy6.png',
             teammate2_Name:         'DummyName2',
             teammate2_Description:  'DummyDescription2',
             teammate2_Link:         'https://localhost/secondLink',
-            teammate2_Photo:        'Images//dummy7.png',
+            teammate2_Photo:        'dummy7.png',
         }
 
         this.productDetails = {
             title:           'ProductTitle',
             mainText:        'MainText',
             subText:         'SubText',
-            photo:           'Images//dummy5.png',
+            productImgUrl:           'dummy5.png',
             backgroundColor: '#ffffff'
         }
 
@@ -97,16 +98,16 @@ export class SearchSidebarComponent implements OnInit {
             personName:      'DummyName',
             age:             '1337',
             position:        'PersonPosition',
-            photo:           'Images//dummy4.png',
+            photo:           'dummy4.png',
             backgroundColor: '#ffffff'   
         }
 
         this.galleryDetails = {
             title:           'GalleryTitle',
             backgroundColor: '#ffffff',
-            imgUrl1:         'Images//dummy1.png',
-            imgUrl2:         'Images//dummy1.png',
-            imgUrl3:         'Images//dummy1.png',
+            imgUrl1:         'dummy1.png',
+            imgUrl2:         'dummy1.png',
+            imgUrl3:         'dummy1.png',
             description1:    'Dummy description to project1',
             description2:    'Dummy description to project2',
             description3:    'Dummy description to project3'
@@ -122,10 +123,13 @@ export class SearchSidebarComponent implements OnInit {
             error => console.log("Error :: " + error)
         )*/
 
+      
+
         let position = -1;
-        //alert(position);
+        this.editService.pagesCount.
+            subscribe(count => position=count);
         let details = '';
-  
+        position = position + 1;
         switch (template) {
             case 'text-component':
                 details = this.textDetails;
@@ -134,10 +138,10 @@ export class SearchSidebarComponent implements OnInit {
                 details = this.teamDetails;
                 break;
             case 'person-component':
-                details = this.productDetails;
+                details = this.personDetails;
                 break;
             case 'product-component':
-                details = this.personDetails;
+                details = this.productDetails;
                 break;
             case 'gallery-component':
                 details = this.galleryDetails;
@@ -146,7 +150,7 @@ export class SearchSidebarComponent implements OnInit {
 
         var page = new Page(position, template, JSON.stringify(details));
         this.pageService.addPage(page);
-
+        this.editService.increasePagesCount()
         alert("Succesfully added new " + template + " to your web-site!");
     }
 }

@@ -2,6 +2,7 @@ import { Component, HostListener, Directive, OnInit } from '@angular/core';
 import { PageService } from '../../services/page.service';
 import { Page } from '../../page';
 import { Observable } from 'rxjs/Observable';
+import { EditService } from "../../services/edit.service";
 
 @Component({
     selector: 'app',
@@ -9,9 +10,10 @@ import { Observable } from 'rxjs/Observable';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-    pages: Observable<Page[]>;
+    pages: Page[];
+    pageJsons: string[];
     page: string = "Didn't fetch yet.";
-    constructor(public pageService: PageService) {
+    constructor(public pageService: PageService, public editService: EditService) {
     }
 
     ngOnInit() {
@@ -31,8 +33,11 @@ export class AppComponent implements OnInit {
     fetchPages() {
         let result: string;
         this.pageService.getPages()
-            .subscribe((response: string) => {
-                console.log("Fetched pages: " + response)//<-- not undefined anymore
+            .subscribe((pages: Page[]) => {
+                this.pages = pages;
+                //console.log("Fetched pages count: " + this.pages.length);//<-- not undefined anymore
+                //console.log("First page: " + JSON.stringify(this.pages[0]));
+                this.editService.setPagesCount(this.pages.length);
             });
     }
 
