@@ -1,6 +1,7 @@
 ﻿import { Component, Output, OnInit, Inject, forwardRef, Injectable } from '@angular/core';
 import { Page } from "../../page";
 import { EditService } from "../../services/edit.service";
+import { PageService } from "../../services/page.service";
 
 @Component({
     selector: 'my-text',
@@ -21,7 +22,7 @@ export class TextComponent implements OnInit {
         backgroundColor  : "material-blue"
     }
 
-    constructor(private editService: EditService) { }
+    constructor(private editService: EditService, private pageService: PageService) { }
 
     getBackgroundColor() {
         return this.model.backgroundColor;
@@ -48,6 +49,15 @@ export class TextComponent implements OnInit {
 
     editPage() {
         this.editService.changeEditablePage(new Page(this.position, 'text-component', JSON.stringify(this.model)))
+    }
+
+    updatePosition(position: number, direction: number) {
+        console.log("Пытаемся поменять слайд " + position + " со слайдом " + (position + direction));
+        this.pageService.updatePosition(position, direction);
+    }
+
+    deletePage() {
+        this.pageService.deletePage(this.position);
     }
 }
 

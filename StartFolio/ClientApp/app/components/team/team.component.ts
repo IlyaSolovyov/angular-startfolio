@@ -1,6 +1,7 @@
 ﻿import { Component, Output, OnInit} from '@angular/core';
 import { Page } from "../../page";
 import { EditService } from "../../services/edit.service";
+import { PageService } from "../../services/page.service";
 
 @Component({
     selector: 'my-team',
@@ -31,7 +32,7 @@ export class TeamComponent implements OnInit {
         return img;
     }
 
-    constructor(private editService: EditService) { }
+    constructor(private editService: EditService, private pageService: PageService) { }
     
 
     getBackgroundColor() {
@@ -50,6 +51,15 @@ export class TeamComponent implements OnInit {
 
     editPage() {
         this.editService.changeEditablePage(new Page(this.position, 'team-component', JSON.stringify(this.model)))
+    }
+
+    updatePosition(position: number, direction: number) {
+        console.log("Пытаемся поменять слайд " + position + " со слайдом " + (position + direction));
+        this.pageService.updatePosition(position, direction);
+    }
+
+    deletePage() {
+        this.pageService.deletePage(this.position);
     }
 
 }

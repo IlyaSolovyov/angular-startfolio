@@ -110,6 +110,10 @@ namespace StartFolio.Controllers
         public async Task<IActionResult> DeleteAsync(int position)
         {
             Page page = await pageRepository.GetPage(position);
+            if (page == null)
+            {
+                return Ok("There is no page with such position.");
+            }
             await pageRepository.RemovePage(page.Id);
             return Ok("Page successfully deleted.");
         }
