@@ -19,6 +19,7 @@ export class GallerySidebarComponent implements OnInit {
         this.populateFormFromModel();
         this.editService.editablePage.
             subscribe(page => this.updateEditPage(page));
+
     }
 
     updateEditPage(page: Page) {
@@ -29,6 +30,7 @@ export class GallerySidebarComponent implements OnInit {
             this.populateFormFromModel();
         }         
     }
+
 
     fetchDataToModel(details: string) {
         this.model = JSON.parse(details);
@@ -111,6 +113,7 @@ export class GallerySidebarComponent implements OnInit {
         }
         //alert(output.get('details'));
         this.pageService.updateDetails(this.position, output);
+        this.editService.triggerUpdate();
 
     }
 

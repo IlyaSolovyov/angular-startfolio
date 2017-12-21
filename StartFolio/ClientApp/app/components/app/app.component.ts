@@ -18,7 +18,20 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.fetchPages();
-        //console.log(this.page);
+        this.editService.updateNeeded.
+            subscribe(result => this.updatePage(result));
+    }
+
+    updatePage(trigger: boolean) {
+        console.log("There is a trigger change.");
+        if (trigger == true) {
+            console.log("We can fetch pages.");
+            this.fetchPages();
+        }
+    }
+
+    testUpdate() {
+        this.editService.triggerUpdate();
     }
 
     fetchPage(position: number) {
@@ -26,24 +39,16 @@ export class AppComponent implements OnInit {
         this.pageService.getPage(position)
             .subscribe((page: Page) => {
                 this.page = page.details;
-                console.log("Fetched a page, here are the details: " +this.page)//<-- not undefined anymore
+                console.log("Fetched a page, here are the details: " +this.page)
             });
     }
 
     fetchPages() {
-        let result: string;
+        console.log("Starting slides download.");
         this.pageService.getPages()
             .subscribe((pages: Page[]) => {
                 this.pages = pages;
-                //console.log("Fetched pages count: " + this.pages.length);//<-- not undefined anymore
-                //console.log("First page: " + JSON.stringify(this.pages[0]));
                 this.editService.setPagesCount(this.pages.length);
             });
     }
-
-    displayData(data: string)
-    {
-     //console.log(this.page);
-    }
-
 }

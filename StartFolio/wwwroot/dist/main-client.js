@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d46c0591b7423febddb7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7b44672f4bae006d7581"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -757,6 +757,70 @@ module.exports = (__webpack_require__(1))(87);
 
 /***/ }),
 /* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__page__ = __webpack_require__(15);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditService = (function () {
+    function EditService() {
+        this.editSource = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](new __WEBPACK_IMPORTED_MODULE_2__page__["a" /* Page */](-1, 'unloaded-page', 'no details'));
+        this.pagesCountSource = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](0);
+        this.updateNeededSource = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](false);
+        this.editablePage = this.editSource.asObservable();
+        this.pagesCount = this.pagesCountSource.asObservable();
+        this.updateNeeded = this.updateNeededSource.asObservable();
+    }
+    ;
+    EditService.prototype.changeEditablePage = function (page) {
+        this.editSource.next(page);
+    };
+    EditService.prototype.setPagesCount = function (count) {
+        this.pagesCountSource.next(count);
+        console.log("Слайдов загружено: " + this.pagesCountSource.value);
+    };
+    EditService.prototype.increasePagesCount = function () {
+        this.pagesCountSource.next(this.pagesCountSource.value + 1);
+        console.log("Слайдов теперь " + this.pagesCountSource.value);
+    };
+    EditService.prototype.decreasePagesCount = function () {
+        this.pagesCountSource.next(this.pagesCountSource.value - 1);
+        console.log("Слайдов теперь " + this.pagesCountSource.value);
+    };
+    EditService.prototype.triggerUpdate = function () {
+        this.updateNeededSource.next(true);
+        console.log("We enabled update trigger");
+    };
+    EditService.prototype.confirmUpdate = function () {
+        this.updateNeededSource.next(false);
+        console.log("We disaled update trigger");
+    };
+    EditService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], EditService);
+    return EditService;
+}());
+
+
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -809,70 +873,16 @@ exports.async = new AsyncScheduler_1.AsyncScheduler(AsyncAction_1.AsyncAction);
 //# sourceMappingURL=async.js.map
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(11);
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = (__webpack_require__(1))(7);
-
-/***/ }),
-/* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__(36);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__page__ = __webpack_require__(15);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var EditService = (function () {
-    function EditService() {
-        this.editSource = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](new __WEBPACK_IMPORTED_MODULE_2__page__["a" /* Page */](-1, 'unloaded-page', 'no details'));
-        this.pagesCountSource = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](0);
-        this.editablePage = this.editSource.asObservable();
-        this.pagesCount = this.pagesCountSource.asObservable();
-    }
-    ;
-    EditService.prototype.changeEditablePage = function (page) {
-        this.editSource.next(page);
-    };
-    EditService.prototype.setPagesCount = function (count) {
-        this.pagesCountSource.next(count);
-        console.log("Слайдов загружено: " + this.pagesCountSource.value);
-    };
-    EditService.prototype.increasePagesCount = function () {
-        this.pagesCountSource.next(this.pagesCountSource.value + 1);
-        console.log("Слайдов теперь " + this.pagesCountSource.value);
-    };
-    EditService.prototype.decreasePagesCount = function () {
-        this.pagesCountSource.next(this.pagesCountSource.value - 1);
-        console.log("Слайдов теперь " + this.pagesCountSource.value);
-    };
-    EditService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [])
-    ], EditService);
-    return EditService;
-}());
-
-
 
 /***/ }),
 /* 12 */
@@ -886,6 +896,7 @@ var EditService = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__edit_service__ = __webpack_require__(8);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -900,11 +911,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PageService = (function () {
-    function PageService(http) {
+    function PageService(http, editService) {
         this.http = http;
+        this.editService = editService;
     }
     PageService.prototype.getPages = function () {
+        this.editService.confirmUpdate();
         return this.http.get('/api/Page/')
             .map(function (res) { return res.json(); });
     };
@@ -913,6 +927,7 @@ var PageService = (function () {
             .map(function (res) { return res.json(); });
     };
     PageService.prototype.addPage = function (page) {
+        var _this = this;
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.set('Accept', 'application/json');
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["RequestOptions"]({ headers: headers });
@@ -920,40 +935,43 @@ var PageService = (function () {
         formData.append('position', page.position.toString());
         formData.append('pagetemplate', page.pageTemplate);
         formData.append('details', page.details);
-        return this.http.post('http://localhost:57092/api/Page', formData, options)
+        this.http.post('http://localhost:57092/api/Page', formData, options)
             .map(function (res) { return res.json(); }) // ...and calling .json() on the response to return data
-            .subscribe();
+            .subscribe(function (event) { return _this.editService.triggerUpdate(); });
     };
     PageService.prototype.updateDetails = function (position, formData) {
+        var _this = this;
         var newFormData = new FormData();
         newFormData.append('details', formData.get('details'));
         newFormData.append('uploads', formData.get('uploads'));
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.set('Accept', 'application/json');
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["RequestOptions"]({ headers: headers });
-        return this.http.put('api/Page/' + position + "/Details", formData, options)
+        this.http.put('api/Page/' + position + "/Details", formData, options)
             .map(function (res) { return res.json(); }) // ...and calling .json() on the response to return data
-            .subscribe();
+            .subscribe(function (event) { return _this.editService.triggerUpdate(); });
     };
     PageService.prototype.updatePosition = function (position, direction) {
+        var _this = this;
         var formData = new FormData();
         formData.append('newPosition', (position + direction).toString());
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.set('Accept', 'application/json');
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["RequestOptions"]({ headers: headers });
-        return this.http.put('api/Page/' + position + "/Position", formData, options)
+        this.http.put('api/Page/' + position + "/Position", formData, options)
             .map(function (res) { return res.json(); }) // ...and calling .json() on the response to return data
-            .subscribe();
+            .subscribe(function (event) { return _this.editService.triggerUpdate(); });
     };
     PageService.prototype.deletePage = function (position) {
-        return this.http.delete('api/Page/' + position)
+        var _this = this;
+        this.http.delete('api/Page/' + position)
             .map(function (res) { return res.json(); }) // ...and calling .json() on the response to return data
-            .subscribe();
+            .subscribe(function (event) { return _this.editService.triggerUpdate(); });
     };
     ;
     PageService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"], __WEBPACK_IMPORTED_MODULE_4__edit_service__["a" /* EditService */]])
     ], PageService);
     return PageService;
 }());
@@ -1367,8 +1385,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
-var Subscription_1 = __webpack_require__(9);
+var Subject_1 = __webpack_require__(11);
+var Subscription_1 = __webpack_require__(10);
 /**
  * @class AsyncSubject<T>
  */
@@ -1426,9 +1444,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 var queue_1 = __webpack_require__(59);
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 var observeOn_1 = __webpack_require__(76);
 var ObjectUnsubscribedError_1 = __webpack_require__(70);
 var SubjectSubscription_1 = __webpack_require__(434);
@@ -2986,7 +3004,7 @@ NoopAnimationsModule.ctorParameters = function () { return []; };
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_page_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3006,8 +3024,20 @@ var AppComponent = (function () {
         this.page = "Didn't fetch yet.";
     }
     AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.fetchPages();
-        //console.log(this.page);
+        this.editService.updateNeeded.
+            subscribe(function (result) { return _this.updatePage(result); });
+    };
+    AppComponent.prototype.updatePage = function (trigger) {
+        console.log("There is a trigger change.");
+        if (trigger == true) {
+            console.log("We can fetch pages.");
+            this.fetchPages();
+        }
+    };
+    AppComponent.prototype.testUpdate = function () {
+        this.editService.triggerUpdate();
     };
     AppComponent.prototype.fetchPage = function (position) {
         var _this = this;
@@ -3015,22 +3045,17 @@ var AppComponent = (function () {
         this.pageService.getPage(position)
             .subscribe(function (page) {
             _this.page = page.details;
-            console.log("Fetched a page, here are the details: " + _this.page); //<-- not undefined anymore
+            console.log("Fetched a page, here are the details: " + _this.page);
         });
     };
     AppComponent.prototype.fetchPages = function () {
         var _this = this;
-        var result;
+        console.log("Starting slides download.");
         this.pageService.getPages()
             .subscribe(function (pages) {
             _this.pages = pages;
-            //console.log("Fetched pages count: " + this.pages.length);//<-- not undefined anymore
-            //console.log("First page: " + JSON.stringify(this.pages[0]));
             _this.editService.setPagesCount(_this.pages.length);
         });
-    };
-    AppComponent.prototype.displayData = function (data) {
-        //console.log(this.page);
     };
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -3053,7 +3078,7 @@ var AppComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GalleryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3133,7 +3158,7 @@ var GalleryComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PersonComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3213,7 +3238,7 @@ var PersonComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3291,7 +3316,7 @@ var ProductComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TeamComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3375,7 +3400,7 @@ var TeamComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TextComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -4894,7 +4919,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(2);
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 /**
  * @param scheduler
  * @return {Observable<TimeInterval<any>>|WebSocketSubject<T>|Observable<T>}
@@ -4959,7 +4984,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(2);
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 /**
  * @param scheduler
  * @return {Observable<Timestamp<any>>|WebSocketSubject<T>|Observable<T>}
@@ -10959,7 +10984,7 @@ function getBaseUrl() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_page_service__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_account_service__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_app_app_component__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_navmenu_navmenu_component__ = __webpack_require__(92);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_text_text_component__ = __webpack_require__(44);
@@ -11463,7 +11488,7 @@ var SearchableComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GallerySidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11564,6 +11589,7 @@ var GallerySidebarComponent = (function () {
         }
         //alert(output.get('details'));
         this.pageService.updateDetails(this.position, output);
+        this.editService.triggerUpdate();
     };
     GallerySidebarComponent.prototype.hideSidebar = function () {
         var template = 'Gallery';
@@ -11590,7 +11616,7 @@ var GallerySidebarComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PersonSidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11696,7 +11722,7 @@ var PersonSidebarComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductSidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11719,7 +11745,7 @@ var ProductSidebarComponent = (function () {
             title: '',
             mainText: '',
             subText: '',
-            photo: '',
+            productImgUrl: '',
             backgroundColor: ''
         };
     }
@@ -11747,13 +11773,13 @@ var ProductSidebarComponent = (function () {
             title: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"](this.model.title, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
             mainText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"](this.model.mainText, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
             subText: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"](this.model.subText, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
-            photo: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
+            productImgUrl: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required]),
             backgroundColor: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"](this.model.backgroundColor, [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required])
         });
     };
     ProductSidebarComponent.prototype.updateImage = function (ev) {
         var file = ev.target.files[0];
-        this.model.photo = file.name;
+        this.model.productImgUrl = file.name;
         this.imageFile = file;
     };
     ProductSidebarComponent.prototype.save = function (data) {
@@ -11798,7 +11824,7 @@ var ProductSidebarComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_page_service__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_edit_service__ = __webpack_require__(8);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -11834,53 +11860,53 @@ var SearchSidebarComponent = (function () {
         this.previews4 = 'Images//previews//gallery.PNG';
         this.template4 = 'gallery-component';
         this.textDetails = {
-            title: 'TextTitle',
-            mainText: 'MainText',
-            subText: 'SubText',
-            backgroundColor: '#ffffff',
-            buttonLeftText: 'leftText',
-            buttonRightText: 'rightText',
-            buttonLeftLink: 'http://localhost/leftlink',
-            buttonRightLink: 'http://localhost/rightlink'
+            title: 'Ваш заголовок текстового компонента',
+            mainText: 'Основной текст, который вы вставите',
+            subText: 'Дополнительный текст, который вы вставите',
+            backgroundColor: '#47A7F5',
+            buttonLeftText: 'Текст кнопки1',
+            buttonRightText: 'Текст кнопки2',
+            buttonLeftLink: 'http://вашассылкаккнопке1.com',
+            buttonRightLink: 'http://вашассылкаккнопке2.com'
         };
         this.teamDetails = {
-            title: 'TeamTitle',
-            mainText: 'MainText',
-            backgroundColor: '#ffffff',
-            teammate1_Name: 'DummyName1',
-            teammate1_Description: 'DummyDescription1',
-            teammate1_Link: 'https://localhost/firstLink',
+            title: 'Заголовок компонента команды',
+            mainText: 'Основной текст, описывающий вашу команду',
+            backgroundColor: '#FCD837',
+            teammate1_Name: 'Имя Фамилия вашего 1-го сокомандника',
+            teammate1_Description: 'Краткое описание вашего 1-го сокомандника',
+            teammate1_Link: 'https://ссылканапрофильвашегосокомандника1.com',
             teammate1_Photo: 'dummy6.png',
-            teammate2_Name: 'DummyName2',
-            teammate2_Description: 'DummyDescription2',
-            teammate2_Link: 'https://localhost/secondLink',
+            teammate2_Name: 'Имя Фамилия вашего 2-го сокомандника',
+            teammate2_Description: 'Краткое описание вашего 2-го сокомандника',
+            teammate2_Link: 'https://ссылканапрофильвашегосокомандника2.com',
             teammate2_Photo: 'dummy7.png',
         };
         this.productDetails = {
-            title: 'ProductTitle',
-            mainText: 'MainText',
-            subText: 'SubText',
+            title: 'Заголовок компонента продукта',
+            mainText: 'Основной текст, описывающий ваш продукт или проект',
+            subText: 'Дополнительный текст, описывающий ваш продукт или проект',
             productImgUrl: 'dummy5.png',
-            backgroundColor: '#ffffff'
+            backgroundColor: '#7986CB'
         };
         this.personDetails = {
-            title: 'PersonTitle',
-            mainText: 'MainText',
-            personName: 'DummyName',
-            age: '1337',
-            position: 'PersonPosition',
+            title: 'Заголовок компонента персоны',
+            mainText: 'Текст, выражающий мнение персоны',
+            personName: 'Имя Фамилия персоны',
+            age: '25',
+            position: 'Должность или статус персоны',
             photo: 'dummy4.png',
-            backgroundColor: '#ffffff'
+            backgroundColor: '#B3E5FC'
         };
         this.galleryDetails = {
-            title: 'GalleryTitle',
-            backgroundColor: '#ffffff',
+            title: 'Заголовок компонента галереи',
+            backgroundColor: '#E53935',
             imgUrl1: 'dummy1.png',
             imgUrl2: 'dummy1.png',
             imgUrl3: 'dummy1.png',
-            description1: 'Dummy description to project1',
-            description2: 'Dummy description to project2',
-            description3: 'Dummy description to project3'
+            description1: 'Описание 1й фотографии вашей галереи',
+            description2: 'Описание 2й фотографии вашей галереи',
+            description3: 'Описание 3й фотографии вашей галереи'
         };
     };
     SearchSidebarComponent.prototype.createPage = function (template) {
@@ -11937,7 +11963,7 @@ var SearchSidebarComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TeamSidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12066,7 +12092,7 @@ var TeamSidebarComponent = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TextSidebarComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_edit_service__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_page_service__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -12371,7 +12397,7 @@ exports = module.exports = __webpack_require__(13)(undefined);
 
 
 // module
-exports.push([module.i, ".masonry--h, .masonry--v {\r\n    margin-left: -8px;\r\n    counter-reset: brick;\r\n}\r\n\r\n.masonry {\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    margin-left: -8px; /* Adjustment for the gutter */\r\n}\r\n.masonry-brick {\r\n    flex: auto;\r\n    height: 250px;\r\n    min-width: 150px;\r\n    margin: 0 8px 8px 0; /* Some gutter */\r\n    background-color: #333;\r\n    color: white;\r\n    position: relative;\r\n}\r\n\r\n.masonry-brick:nth-child(4n+1) {\r\n    width: 250px;\r\n}\r\n.masonry-brick:nth-child(4n+2) {\r\n    width: 325px;\r\n}\r\n.masonry-brick:nth-child(4n+3) {\r\n    width: 180px;\r\n}\r\n.masonry-brick:nth-child(4n+4) {\r\n    width: 380px;\r\n}\r\n\r\n.masonry-img {\r\n    object-fit: cover;\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: 0.4s transform ease;\r\n}\r\n\r\n.product-gallery-text:active ~ .masonry-img {\r\n    transform: scale(1.25, 1.25);\r\n    -webkit-transform: scale(1.25, 1.25);\r\n    -moz-transform: scale(1.25, 1.25);\r\n    -o-transform: scale(1.25, 1.25);\r\n    -ms-transform: scale(1.25, 1.25);\r\n    z-index: 3;\r\n}\r\n\r\n.product-gallery-text {\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    filter: brightness(100%);\r\n    transition: 0.4s background-color ease, 0.4s transform ease;\r\n    transform: scale(1, 1);\r\n    -webkit-transform: scale(1, 1);\r\n    -moz-transform: scale(1, 1);\r\n    -o-transform: scale(1, 1);\r\n    -ms-transform: scale(1, 1);\r\n    background-color: rgba(255, 255, 255, 0.0);\r\n    z-index: 1;\r\n}\r\n\r\n.product-gallery-text:hover {\r\n    background-color: rgba(0,0,0,0.5);\r\n    cursor: pointer;\r\n}\r\n\r\n.product-gallery-text p {\r\n    color: white;\r\n    font-size: 28px;\r\n    opacity: 0;\r\n    transition: 0.7s opacity ease;\r\n    text-align: center;\r\n}\r\n\r\n.product-gallery-text:hover p {\r\n    opacity: 1.0;\r\n}\r\n\r\n.product-gallery-text:active {\r\n    transform: scale(1.25, 1.25);\r\n    -webkit-transform: scale(1.25, 1.25);\r\n    -moz-transform: scale(1.25, 1.25);\r\n    -o-transform: scale(1.25, 1.25);\r\n    -ms-transform: scale(1.25, 1.25);\r\n    z-index: 4;\r\n}", ""]);
+exports.push([module.i, ".masonry--h, .masonry--v {\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-left: -8px;\r\n    counter-reset: brick;\r\n}\r\n\r\n.masonry--h {\r\n    flex-direction: row;\r\n}\r\n\r\n.masonry--v {\r\n    flex-direction: column;\r\n}\r\n\r\n.masonry {\r\n    display: flex;\r\n    flex-flow: row wrap;\r\n    margin-left: -8px; /* Adjustment for the gutter */\r\n}\r\n.masonry-brick {\r\n    flex: auto;\r\n    height: 350px;\r\n    margin: 0 8px 8px 0; /* Some gutter */\r\n    background-color: #333;\r\n    color: white;\r\n    position: relative;\r\n}\r\n\r\n.masonry-brick:nth-child(4n+1) {\r\n    width: 250px;\r\n}\r\n.masonry-brick:nth-child(4n+2) {\r\n    width: 325px;\r\n}\r\n.masonry-brick:nth-child(4n+3) {\r\n    width: 180px;\r\n}\r\n.masonry-brick:nth-child(4n+4) {\r\n    width: 380px;\r\n}\r\n\r\n.masonry-img {\r\n    object-fit: cover;\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: 0.4s transform ease;\r\n}\r\n\r\n.product-gallery-text:active ~ .masonry-img {\r\n    transform: scale(1.25, 1.25);\r\n    -webkit-transform: scale(1.25, 1.25);\r\n    -moz-transform: scale(1.25, 1.25);\r\n    -o-transform: scale(1.25, 1.25);\r\n    -ms-transform: scale(1.25, 1.25);\r\n    z-index: 3;\r\n}\r\n\r\n.product-gallery-text {\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    top: 0;\r\n    bottom: 0;\r\n    left: 0;\r\n    right: 0;\r\n    filter: brightness(100%);\r\n    transition: 0.4s background-color ease, 0.4s transform ease;\r\n    transform: scale(1, 1);\r\n    -webkit-transform: scale(1, 1);\r\n    -moz-transform: scale(1, 1);\r\n    -o-transform: scale(1, 1);\r\n    -ms-transform: scale(1, 1);\r\n    background-color: rgba(255, 255, 255, 0.0);\r\n    z-index: 1;\r\n}\r\n\r\n.product-gallery-text:hover {\r\n    background-color: rgba(0,0,0,0.5);\r\n    cursor: pointer;\r\n}\r\n\r\n.product-gallery-text p {\r\n    color: white;\r\n    font-size: 28px;\r\n    opacity: 0;\r\n    transition: 0.7s opacity ease;\r\n    text-align: center;\r\n}\r\n\r\n.product-gallery-text:hover p {\r\n    opacity: 1.0;\r\n}\r\n\r\n.product-gallery-text:active {\r\n    transform: scale(1.25, 1.25);\r\n    -webkit-transform: scale(1.25, 1.25);\r\n    -moz-transform: scale(1.25, 1.25);\r\n    -o-transform: scale(1.25, 1.25);\r\n    -ms-transform: scale(1.25, 1.25);\r\n    z-index: 4;\r\n}", ""]);
 
 // exports
 
@@ -12385,7 +12411,7 @@ exports = module.exports = __webpack_require__(13)(undefined);
 
 
 // module
-exports.push([module.i, ".form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    position: fixed;\r\n    width: 400px;\r\n    height: 155px;\r\n    left: calc(50% - 200px);\r\n    top: calc(50% - 106px);\r\n    background: #edeff1;\r\n    margin: 0px auto;\r\n    padding-top: 20px;\r\n    border-radius: 10px;\r\n    -moz-border-radius: 10px;\r\n    -webkit-border-radius: 10px;\r\n    z-index: 7;\r\n\r\n    transition: 0.5s transform ease;\r\n\r\n    -webkit-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n}\r\n\r\n.form a {\r\n    text-align: center;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    display: block;\r\n    width: 309px;\r\n    height: 35px;\r\n    margin: 15px auto;\r\n    background: #fff;\r\n    border: 0px;\r\n    padding: 5px;\r\n    font-size: 16px;\r\n    border: 2px solid #fff;\r\n    transition: all 0.3s ease;\r\n    border-radius: 5px;\r\n    -moz-border-radius: 5px;\r\n    -webkit-border-radius: 5px;\r\n}\r\n\r\ninput[type=\"text\"]:focus {\r\n    border: 2px solid #1abc9d\r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    width: 314px;\r\n    height: 40px;\r\n    padding: 12px;\r\n    cursor: pointer;\r\n    margin: auto;\r\n    font-size: 17px;\r\n    transition: all 0.3s ease;\r\n}\r\n\r\na {\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n::-webkit-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n:-moz-placeholder { /* Firefox 18- */\r\n    color: gray;\r\n}\r\n\r\n::-moz-placeholder { /* Firefox 19+ */\r\n    color: gray;\r\n}\r\n\r\n:-ms-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n.closeWindow {\r\n    position: absolute;\r\n    width: 32px;\r\n    height: 32px;\r\n    top: -15px;\r\n    right: -37px;\r\n    background-image: url(" + __webpack_require__(421) + ");\r\n    background-repeat: round;\r\n    cursor: pointer;\r\n    transition: 0.2s transform ;\r\n}\r\n\r\n.closeWindow:hover {\r\n    transform: scale(1.25, 1.25);\r\n}\r\n\r\n#showSignIn:not(:checked) ~ .form {\r\n    transform: translateY(-100vh);\r\n}\r\n\r\n#showSignIn:checked ~ .form {\r\n    transform: translateY(0);\r\n}\r\n", ""]);
+exports.push([module.i, ".form {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    position: fixed;\r\n    width: 400px;\r\n    left: calc(50% - 200px);\r\n    top: calc(50% - 106px);\r\n    background: #edeff1;\r\n    margin: 0px auto;\r\n    padding-top: 20px;\r\n    border-radius: 10px;\r\n    -moz-border-radius: 10px;\r\n    -webkit-border-radius: 10px;\r\n    z-index: 7;\r\n\r\n    transition: 0.5s transform ease;\r\n\r\n    -webkit-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    -moz-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n    box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);\r\n}\r\n\r\n.form a {\r\n    text-align: center;\r\n}\r\n\r\ninput[type=\"text\"] {\r\n    display: block;\r\n    width: 309px;\r\n    height: 35px;\r\n    margin: 15px auto;\r\n    background: #fff;\r\n    border: 0px;\r\n    padding: 5px;\r\n    font-size: 16px;\r\n    border: 2px solid #fff;\r\n    transition: all 0.3s ease;\r\n    border-radius: 5px;\r\n    -moz-border-radius: 5px;\r\n    -webkit-border-radius: 5px;\r\n}\r\n\r\ninput[type=\"text\"]:focus {\r\n    border: 2px solid #1abc9d\r\n}\r\n\r\ninput[type=\"submit\"] {\r\n    width: 314px;\r\n    height: 40px;\r\n    padding: 12px;\r\n    cursor: pointer;\r\n    margin: auto;\r\n    font-size: 17px;\r\n    transition: all 0.3s ease;\r\n}\r\n\r\na {\r\n    transition: all 0.3s ease;\r\n}\r\n\r\n::-webkit-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n:-moz-placeholder { /* Firefox 18- */\r\n    color: gray;\r\n}\r\n\r\n::-moz-placeholder { /* Firefox 19+ */\r\n    color: gray;\r\n}\r\n\r\n:-ms-input-placeholder {\r\n    color: gray;\r\n}\r\n\r\n.closeWindow {\r\n    position: absolute;\r\n    width: 32px;\r\n    height: 32px;\r\n    top: -15px;\r\n    right: -37px;\r\n    background-image: url(" + __webpack_require__(421) + ");\r\n    background-repeat: round;\r\n    cursor: pointer;\r\n    transition: 0.2s transform ;\r\n}\r\n\r\n.closeWindow:hover {\r\n    transform: scale(1.25, 1.25);\r\n}\r\n\r\n#showSignIn:not(:checked) ~ .form {\r\n    transform: translateY(-100vh);\r\n}\r\n\r\n#showSignIn:checked ~ .form {\r\n    transform: translateY(0);\r\n}\r\n\r\n.signIn span {\r\n    font-size: 20px;\r\n    text-align: center;\r\n}\r\n\r\n.signIn .btn {\r\n    margin: 0;\r\n    width: 75px;\r\n    height: 35px;\r\n    margin-bottom: 20px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: center;\r\n}", ""]);
 
 // exports
 
@@ -12413,7 +12439,7 @@ exports = module.exports = __webpack_require__(13)(undefined);
 
 
 // module
-exports.push([module.i, ".person-component {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: stretch;\r\n    margin: auto;\r\n}\r\n\r\n.person-photo,\r\n.person-component-content {\r\n    width: 45%;\r\n}\r\n\r\n.person-component-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n}\r\n\r\n.person-photo {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    padding: 6%;\r\n}\r\n\r\n.person-photo img {\r\n    width: 100%;\r\n    height: 100%;\r\n    cursor: pointer;\r\n    box-shadow: 0;\r\n    transition: box-shadow 0.4s ease, border-radius 0.4s ease;\r\n    -webkit-border-radius: 30px;\r\n    -moz-border-radius: 30px;\r\n    border-radius: 30px;\r\n}\r\n\r\n.person-photo img:hover {\r\n    -webkit-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -moz-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -webkit-border-radius: 50px;\r\n    -moz-border-radius: 50px;\r\n    border-radius: 50px;\r\n}\r\n\r\n.person-component-title,\r\n.person-component-opinion {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n}\r\n\r\n.person-info {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-end;\r\n}\r\n\r\n.person-component-opinion,\r\n.person-info {\r\n    width: 100%;\r\n}\r\n\r\n.person-name {\r\n    display: flex;\r\n    flex-direction: row;\r\n}", ""]);
+exports.push([module.i, ".person-component {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    align-items: stretch;\r\n    margin: auto;\r\n}\r\n\r\n.person-photo,\r\n.person-component-content {\r\n    width: 45%;\r\n}\r\n\r\n.person-component-content {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n}\r\n\r\n.person-photo {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    padding: 6%;\r\n    max-height: 600px;\r\n    min-width: 600px;\r\n    max-width: 600px;\r\n    min-height: 600px;\r\n}\r\n\r\n.person-photo img {\r\n    width: 100%;\r\n    height: 100%;\r\n    cursor: pointer;\r\n    box-shadow: 0;\r\n    transition: box-shadow 0.4s ease, border-radius 0.4s ease;\r\n    -webkit-border-radius: 30px;\r\n    -moz-border-radius: 30px;\r\n    border-radius: 30px;\r\n}\r\n\r\n.person-photo img:hover {\r\n    -webkit-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -moz-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);\r\n    -webkit-border-radius: 50px;\r\n    -moz-border-radius: 50px;\r\n    border-radius: 50px;\r\n}\r\n\r\n.person-component-title,\r\n.person-component-opinion {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n}\r\n\r\n.person-info {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: flex-end;\r\n}\r\n\r\n.person-component-opinion,\r\n.person-info {\r\n    width: 100%;\r\n}\r\n\r\n.person-name {\r\n    display: flex;\r\n    flex-direction: row;\r\n}", ""]);
 
 // exports
 
@@ -12846,7 +12872,7 @@ module.exports = XmlEntities;
 /* 120 */
 /***/ (function(module, exports) {
 
-module.exports = "<!--<router-outlet></router-outlet>-->\r\n    <devbutton></devbutton>\r\n\r\n    <button class=\"btn button\" >ACTION!!!!!!!!!!</button>\r\n\r\n    <!--<dynamic-component *ngFor=\"let page of pages\" [page]=\"page\" [type]=\"page.pageTemplate\">\r\n\r\n        </dynamic-component>-->\r\n\r\n    <input type=\"checkbox\" id=\"showSearchSidebar\" />\r\n    <my-searchsidebar class=\"sidebar\"></my-searchsidebar>\r\n    <my-fab></my-fab>\r\n    <label class=\"grayout6\" for=\"showSearchSidebar\"></label>\r\n\r\n    <login></login>\r\n<div #slides *ngIf=\"pages; then fetchedSlides else predefinedSlides\"></div>\r\n    <ng-template #predefinedSlides>\r\n        <my-text class=\"component\"></my-text>\r\n        <my-team class=\"component\"></my-team>\r\n        <my-person class=\"component\"></my-person>\r\n        <my-product class=\"component\"></my-product>\r\n        <my-gallery class=\"component\"></my-gallery>\r\n    </ng-template>\r\n    <ng-template #fetchedSlides>\r\n        <dynamic-content *ngFor=\"let fetchedPage of pages\" [page]=\"fetchedPage\"></dynamic-content>\r\n    </ng-template>\r\n\r\n\r\n    <input type=\"checkbox\" id=\"showTextSidebar\" />\r\n    <my-textsidebar class=\"sidebar\"></my-textsidebar>  \r\n    <label class=\"grayout1\" for=\"showTextSidebar\"></label>\r\n\r\n    <input type=\"checkbox\" id=\"showTeamSidebar\" />\r\n    <my-teamsidebar class=\"sidebar\"></my-teamsidebar>\r\n    <label class=\"grayout2\" for=\"showTeamSidebar\"></label>\r\n\r\n    <input type=\"checkbox\" id=\"showPersonSidebar\" />\r\n    <my-personsidebar class=\"sidebar\"></my-personsidebar>\r\n    <label class=\"grayout3\" for=\"showPersonSidebar\"></label>\r\n\r\n    <input type=\"checkbox\" id=\"showProductSidebar\" />\r\n    <my-productsidebar class=\"sidebar\"></my-productsidebar>\r\n    <label class=\"grayout4\" for=\"showProductSidebar\"></label>\r\n\r\n    <input type=\"checkbox\" id=\"showGallerySidebar\" />\r\n    <my-gallerysidebar class=\"sidebar\"></my-gallerysidebar>\r\n    <label class=\"grayout5\" for=\"showGallerySidebar\"></label>\r\n\r\n\r\n    <my-footer></my-footer>\r\n\r\n    <span></span>";
+module.exports = "<!--<router-outlet></router-outlet>-->\r\n    <devbutton></devbutton>\r\n\r\n    <!--<button class=\"btn button\" >ACTION!!!!!!!!!!</button>-->\r\n\r\n    <!--<dynamic-component *ngFor=\"let page of pages\" [page]=\"page\" [type]=\"page.pageTemplate\">\r\n\r\n        </dynamic-component>-->\r\n\r\n    <input type=\"checkbox\" id=\"showSearchSidebar\" />\r\n    <my-searchsidebar class=\"sidebar\"></my-searchsidebar>\r\n    <my-fab></my-fab>\r\n    <label class=\"grayout6\" for=\"showSearchSidebar\"></label>\r\n\r\n    <login></login>\r\n<div #slides *ngIf=\"pages; then fetchedSlides else predefinedSlides\"></div>\r\n    <ng-template #predefinedSlides>\r\n        <my-text class=\"component\"></my-text>\r\n        <my-team class=\"component\"></my-team>\r\n        <my-person class=\"component\"></my-person>\r\n        <my-product class=\"component\"></my-product>\r\n        <my-gallery class=\"component\"></my-gallery>\r\n    </ng-template>\r\n    <ng-template #fetchedSlides>\r\n        <dynamic-content *ngFor=\"let fetchedPage of pages\" [page]=\"fetchedPage\"></dynamic-content>\r\n    </ng-template>\r\n\r\n\r\n    <input type=\"checkbox\" id=\"showTextSidebar\" />\r\n    <my-textsidebar class=\"sidebar\"></my-textsidebar>  \r\n    <label class=\"grayout1\" for=\"showTextSidebar\"></label>\r\n\r\n    <input type=\"checkbox\" id=\"showTeamSidebar\" />\r\n    <my-teamsidebar class=\"sidebar\"></my-teamsidebar>\r\n    <label class=\"grayout2\" for=\"showTeamSidebar\"></label>\r\n\r\n    <input type=\"checkbox\" id=\"showPersonSidebar\" />\r\n    <my-personsidebar class=\"sidebar\"></my-personsidebar>\r\n    <label class=\"grayout3\" for=\"showPersonSidebar\"></label>\r\n\r\n    <input type=\"checkbox\" id=\"showProductSidebar\" />\r\n    <my-productsidebar class=\"sidebar\"></my-productsidebar>\r\n    <label class=\"grayout4\" for=\"showProductSidebar\"></label>\r\n\r\n    <input type=\"checkbox\" id=\"showGallerySidebar\" />\r\n    <my-gallerysidebar class=\"sidebar\"></my-gallerysidebar>\r\n    <label class=\"grayout5\" for=\"showGallerySidebar\"></label>\r\n\r\n\r\n    <my-footer></my-footer>\r\n\r\n    <span></span>";
 
 /***/ }),
 /* 121 */
@@ -12888,7 +12914,7 @@ module.exports = "<script>\r\nfunction masonry(grid, gridCell, gridGutter, dGrid
 /* 127 */
 /***/ (function(module, exports) {
 
-module.exports = "<input type=\"checkbox\" id=\"showSignIn\"/>\r\n<div class=\"form signIn\">\r\n    <form #loginForm=\"ngForm\" (ngSubmit)=\"doLogin($event)\" style=\"position: relative\">\r\n\r\n        <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"password\" #name=\"ngModel\" name=\"password\" required/>\r\n\r\n        <button type=\"submit\" value=\"Login\" class=\"button btn\" [disabled]=\"!loginForm.form.valid\"></button>\r\n\r\n        <label for=\"showSignIn\" class=\"closeWindow\"></label>\r\n\r\n    </form>\r\n</div>";
+module.exports = "<input type=\"checkbox\" id=\"showSignIn\"/>\r\n<div class=\"form signIn\">\r\n    <!--<form #loginForm=\"ngForm\" (ngSubmit)=\"doLogin($event)\" style=\"position: relative\">\r\n\r\n        <input type=\"password\" placeholder=\"Password\" [(ngModel)]=\"password\" #name=\"ngModel\" name=\"password\" required/>\r\n\r\n        <button type=\"submit\" value=\"Login\" class=\"button btn\" [disabled]=\"!loginForm.form.valid\"></button>\r\n\r\n        <label for=\"showSignIn\" class=\"closeWindow\"></label>\r\n\r\n    </form>-->\r\n\r\n    <span class=\"display-2\">Working in progress! Awaiting on January...</span>\r\n    <label class=\"btn button\" for=\"showSignIn\">Close!</label>\r\n</div>";
 
 /***/ }),
 /* 128 */
@@ -14315,7 +14341,7 @@ var Reflect;
 // Subject imported before Observable to bypass circular dependency issue since
 // Subject extends Observable and Observable references Subject in it's
 // definition
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 exports.Subject = Subject_1.Subject;
 exports.AnonymousSubject = Subject_1.AnonymousSubject;
 /* tslint:enable:no-unused-variable */
@@ -14455,7 +14481,7 @@ __webpack_require__(273);
 __webpack_require__(274);
 __webpack_require__(275);
 /* tslint:disable:no-unused-variable */
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 exports.Subscription = Subscription_1.Subscription;
 var Subscriber_1 = __webpack_require__(2);
 exports.Subscriber = Subscriber_1.Subscriber;
@@ -14492,7 +14518,7 @@ exports.AjaxResponse = AjaxObservable_1.AjaxResponse;
 exports.AjaxError = AjaxObservable_1.AjaxError;
 exports.AjaxTimeoutError = AjaxObservable_1.AjaxTimeoutError;
 var asap_1 = __webpack_require__(58);
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 var queue_1 = __webpack_require__(59);
 var animationFrame_1 = __webpack_require__(394);
 var rxSubscriber_1 = __webpack_require__(426);
@@ -16750,7 +16776,7 @@ var Observable_1 = __webpack_require__(0);
 var tryCatch_1 = __webpack_require__(7);
 var isFunction_1 = __webpack_require__(71);
 var errorObject_1 = __webpack_require__(6);
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 var toString = Object.prototype.toString;
 function isNodeStyleEventEmitter(sourceObj) {
     return !!sourceObj && typeof sourceObj.addListener === 'function' && typeof sourceObj.removeListener === 'function';
@@ -16894,7 +16920,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var isFunction_1 = __webpack_require__(71);
 var Observable_1 = __webpack_require__(0);
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -17221,7 +17247,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var isNumeric_1 = __webpack_require__(28);
 var Observable_1 = __webpack_require__(0);
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 /**
  * We need this JSDoc comment for affecting ESDoc.
  * @extends {Ignored}
@@ -17630,7 +17656,7 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var isNumeric_1 = __webpack_require__(28);
 var Observable_1 = __webpack_require__(0);
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 var isScheduler_1 = __webpack_require__(16);
 var isDate_1 = __webpack_require__(27);
 /**
@@ -17990,10 +18016,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 var Subscriber_1 = __webpack_require__(2);
 var Observable_1 = __webpack_require__(0);
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 var root_1 = __webpack_require__(14);
 var ReplaySubject_1 = __webpack_require__(26);
 var tryCatch_1 = __webpack_require__(7);
@@ -18508,7 +18534,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 var Subscriber_1 = __webpack_require__(2);
 /**
  * Ignores source values for `duration` milliseconds, then emits the most recent
@@ -18846,7 +18872,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 var Subscriber_1 = __webpack_require__(2);
 var isScheduler_1 = __webpack_require__(16);
 /* tslint:enable:max-line-length */
@@ -19051,7 +19077,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 var subscribeToResult_1 = __webpack_require__(4);
 var OuterSubscriber_1 = __webpack_require__(3);
 /**
@@ -19209,7 +19235,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 var tryCatch_1 = __webpack_require__(7);
 var errorObject_1 = __webpack_require__(6);
 var OuterSubscriber_1 = __webpack_require__(3);
@@ -19711,7 +19737,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(2);
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 /**
  * Emits a value from the source Observable only after a particular time span
  * has passed without another source emission.
@@ -19915,7 +19941,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 var isDate_1 = __webpack_require__(27);
 var Subscriber_1 = __webpack_require__(2);
 var Notification_1 = __webpack_require__(30);
@@ -21159,7 +21185,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(2);
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 /**
  * Returns an Observable that mirrors the source Observable, but will call a specified function when
  * the source terminates on complete or error.
@@ -21255,9 +21281,9 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(2);
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 var Observable_1 = __webpack_require__(0);
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 var Map_1 = __webpack_require__(401);
 var FastMap_1 = __webpack_require__(399);
 /* tslint:enable:max-line-length */
@@ -22256,7 +22282,7 @@ function plucker(props, length) {
 
 "use strict";
 
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 var multicast_1 = __webpack_require__(20);
 /* tslint:enable:max-line-length */
 /**
@@ -22429,7 +22455,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 var tryCatch_1 = __webpack_require__(7);
 var errorObject_1 = __webpack_require__(6);
 var OuterSubscriber_1 = __webpack_require__(3);
@@ -22614,7 +22640,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 var tryCatch_1 = __webpack_require__(7);
 var errorObject_1 = __webpack_require__(6);
 var OuterSubscriber_1 = __webpack_require__(3);
@@ -22816,7 +22842,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(2);
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 /**
  * Emits the most recently emitted value from the source Observable within
  * periodic time intervals.
@@ -24505,7 +24531,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(2);
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 var throttle_1 = __webpack_require__(54);
 /**
  * Emits a value from the source Observable, then ignores subsequent source
@@ -24626,7 +24652,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 var isDate_1 = __webpack_require__(27);
 var Subscriber_1 = __webpack_require__(2);
 var TimeoutError_1 = __webpack_require__(62);
@@ -24715,7 +24741,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = __webpack_require__(8);
+var async_1 = __webpack_require__(9);
 var isDate_1 = __webpack_require__(27);
 var OuterSubscriber_1 = __webpack_require__(3);
 var subscribeToResult_1 = __webpack_require__(4);
@@ -24937,7 +24963,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 var OuterSubscriber_1 = __webpack_require__(3);
 var subscribeToResult_1 = __webpack_require__(4);
 /**
@@ -25054,7 +25080,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Subscriber_1 = __webpack_require__(2);
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 /**
  * Branch out the source Observable values as a nested Observable with each
  * nested Observable emitting at most `windowSize` values.
@@ -25190,8 +25216,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
-var async_1 = __webpack_require__(8);
+var Subject_1 = __webpack_require__(11);
+var async_1 = __webpack_require__(9);
 var Subscriber_1 = __webpack_require__(2);
 var isNumeric_1 = __webpack_require__(28);
 var isScheduler_1 = __webpack_require__(16);
@@ -25357,8 +25383,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
-var Subscription_1 = __webpack_require__(9);
+var Subject_1 = __webpack_require__(11);
+var Subscription_1 = __webpack_require__(10);
 var tryCatch_1 = __webpack_require__(7);
 var errorObject_1 = __webpack_require__(6);
 var OuterSubscriber_1 = __webpack_require__(3);
@@ -25543,7 +25569,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
+var Subject_1 = __webpack_require__(11);
 var tryCatch_1 = __webpack_require__(7);
 var errorObject_1 = __webpack_require__(6);
 var OuterSubscriber_1 = __webpack_require__(3);
@@ -25831,7 +25857,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 /**
  * A unit of work to be executed in a {@link Scheduler}. An action is typically
  * created from within a Scheduler and an RxJS user does not need to concern
@@ -26208,7 +26234,7 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var Observable_1 = __webpack_require__(0);
-var Subscription_1 = __webpack_require__(9);
+var Subscription_1 = __webpack_require__(10);
 var SubscriptionLoggable_1 = __webpack_require__(61);
 var applyMixins_1 = __webpack_require__(63);
 /**
@@ -26259,8 +26285,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = __webpack_require__(10);
-var Subscription_1 = __webpack_require__(9);
+var Subject_1 = __webpack_require__(11);
+var Subscription_1 = __webpack_require__(10);
 var SubscriptionLoggable_1 = __webpack_require__(61);
 var applyMixins_1 = __webpack_require__(63);
 /**

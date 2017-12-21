@@ -64,7 +64,7 @@ export class TextComponent implements OnInit {
         }
 
         this.pageService.deletePage(this.position);
-        this.editService.decreasePagesCount()
+        this.editService.decreasePagesCount()      
     }
 }
 
