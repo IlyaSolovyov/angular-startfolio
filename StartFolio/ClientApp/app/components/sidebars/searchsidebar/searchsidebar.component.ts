@@ -60,57 +60,57 @@ export class SearchSidebarComponent implements OnInit {
         this.template4  = 'gallery-component'
 
         this.textDetails = {
-            title:              'TextTitle',
-            mainText:           'MainText',
-            subText:            'SubText',
-            backgroundColor:    '#ffffff',
-            buttonLeftText:     'leftText',
-            buttonRightText:    'rightText',
-            buttonLeftLink:     'http://localhost/leftlink',
-            buttonRightLink:    'http://localhost/rightlink'
+            title:              'Ваш заголовок текстового компонента',
+            mainText:           'Основной текст, который вы вставите',
+            subText:            'Дополнительный текст, который вы вставите',
+            backgroundColor:    '#47A7F5',
+            buttonLeftText:     'Текст кнопки1',
+            buttonRightText:    'Текст кнопки2',
+            buttonLeftLink:     'http://вашассылкаккнопке1.com',
+            buttonRightLink:    'http://вашассылкаккнопке2.com'
         }
 
         this.teamDetails = {
-            title:                  'TeamTitle',
-            mainText:               'MainText',
-            backgroundColor:        '#ffffff',
-            teammate1_Name:         'DummyName1',
-            teammate1_Description:  'DummyDescription1',
-            teammate1_Link:         'https://localhost/firstLink',
+            title:                  'Заголовок компонента команды',
+            mainText:               'Основной текст, описывающий вашу команду',
+            backgroundColor:        '#FCD837',
+            teammate1_Name:         'Имя Фамилия вашего 1-го сокомандника',
+            teammate1_Description:  'Краткое описание вашего 1-го сокомандника',
+            teammate1_Link:         'https://ссылканапрофильвашегосокомандника1.com',
             teammate1_Photo:        'dummy6.png',
-            teammate2_Name:         'DummyName2',
-            teammate2_Description:  'DummyDescription2',
-            teammate2_Link:         'https://localhost/secondLink',
+            teammate2_Name:         'Имя Фамилия вашего 2-го сокомандника',
+            teammate2_Description:  'Краткое описание вашего 2-го сокомандника',
+            teammate2_Link:         'https://ссылканапрофильвашегосокомандника2.com',
             teammate2_Photo:        'dummy7.png',
         }
 
         this.productDetails = {
-            title:           'ProductTitle',
-            mainText:        'MainText',
-            subText:         'SubText',
-            productImgUrl:           'dummy5.png',
-            backgroundColor: '#ffffff'
+            title:           'Заголовок компонента продукта',
+            mainText:        'Основной текст, описывающий ваш продукт или проект',
+            subText:         'Дополнительный текст, описывающий ваш продукт или проект',
+            productImgUrl:   'dummy5.png',
+            backgroundColor: '#7986CB'
         }
 
         this.personDetails = {
-            title:           'PersonTitle',
-            mainText:        'MainText',
-            personName:      'DummyName',
-            age:             '1337',
-            position:        'PersonPosition',
+            title:           'Заголовок компонента персоны',
+            mainText:        'Текст, выражающий мнение персоны',
+            personName:      'Имя Фамилия персоны',
+            age:             '25',
+            position:        'Должность или статус персоны',
             photo:           'dummy4.png',
-            backgroundColor: '#ffffff'   
+            backgroundColor: '#B3E5FC'   
         }
 
         this.galleryDetails = {
-            title:           'GalleryTitle',
-            backgroundColor: '#ffffff',
+            title:           'Заголовок компонента галереи',
+            backgroundColor: '#E53935',
             imgUrl1:         'dummy1.png',
             imgUrl2:         'dummy1.png',
             imgUrl3:         'dummy1.png',
-            description1:    'Dummy description to project1',
-            description2:    'Dummy description to project2',
-            description3:    'Dummy description to project3'
+            description1:    'Описание 1й фотографии вашей галереи',
+            description2:    'Описание 2й фотографии вашей галереи',
+            description3:    'Описание 3й фотографии вашей галереи'
         }
 
     }
