@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent implements OnInit {
     pages: Observable<Page[]>;
-    page: string = "no response yet";
+    page: string = "Didn't fetch yet.";
     constructor(public pageService: PageService) {
     }
 
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
         this.pageService.getPage(0)
             .subscribe((page: Page) => {
                 this.page = page.details;
-                console.log("Fetched a page: " +this.page)//<-- not undefined anymore
+                console.log("Fetched a page, here are the details: " +this.page)//<-- not undefined anymore
             });
     }
 
