@@ -13,13 +13,13 @@ export class PageService {
 
     
     getPages() {
-        return this.http.get('localhost:57092/api/Page/')
-            .map((res: Response) => res.json());      
+        return this.http.get('localhost:57092/api/Page/');      
     }
 
     getPage(position: number) {
+        let response: string;
         return this.http.get('api/Page/' + position)
-            .map(response => response.json());
+            .map((res) => res.json())
     }
 
     addPage(page : Page)

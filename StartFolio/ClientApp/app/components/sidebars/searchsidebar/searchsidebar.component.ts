@@ -116,11 +116,11 @@ export class SearchSidebarComponent implements OnInit {
 
     createPage(template: string)
     {
-        this.pageService.getPages()
+   /*     this.pageService.getPages()
             .subscribe(
             resultArray => this.pagesArray = resultArray,
             error => console.log("Error :: " + error)
-        )
+        )*/
 
         let position = -1;
         //alert(position);
