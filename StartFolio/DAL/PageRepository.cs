@@ -6,6 +6,7 @@ using MongoDB.Driver;
 using StartFolio.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
+using MongoDB.Bson;
 
 namespace StartFolio.DAL
 {
@@ -34,8 +35,17 @@ namespace StartFolio.DAL
 
         public async Task<DeleteResult> RemovePage(string id)
         {
-            return await context.Pages.DeleteOneAsync(
+            int deletedElementPosition = context.Pages.Find(page => page.Id == id).First().Position;
+            DeleteResult result = await context.Pages.DeleteOneAsync(
                      Builders<Page>.Filter.Eq("Id", id));
+            for (int i = deletedElementPosition + 1; i <= (context.Pages.Count(new BsonDocument()) + 1); i++)
+            {
+                var filter = Builders<Page>.Filter.Eq(s => s.Position, i);
+                var update = Builders<Page>.Update
+                                    .Set(s => s.Position, i - 1);
+                await context.Pages.UpdateOneAsync(filter, update);
+            }
+            return result;
         }
         public async Task<UpdateResult> UpdatePagePosition(string id, int position)
         {

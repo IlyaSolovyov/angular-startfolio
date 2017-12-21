@@ -51,32 +51,17 @@ export class GalleryComponent implements OnInit {
         this.pageService.updatePosition(position, direction);
     }
 
-    deletePage()
-    {
+    deletePage() {
         let willDelete = confirm("Do you really want to delete this component?");
 
         if (!willDelete) {
             return;
         }
 
-        let elementToDelete: number = this.position;
-        let totalElements: number = -1;
-        this.editService.pagesCount.
-            subscribe(count => totalElements = count);
-
-        this.fixPositions(elementToDelete, totalElements);
-     //   this.pageService.deletePage(totalElements);
- 
-       // this.editService.decreasePagesCount()
+        this.pageService.deletePage(this.position);
+        this.editService.decreasePagesCount()
     }
 
-    fixPositions(deletedPosition: number, count: number)
-    {
-        let i: number;
-        for (i = deletedPosition + 1; i <= count; i++) {
-            this.pageService.updatePosition(i, -1);
-        }
-    }
 }
 interface Details
 {

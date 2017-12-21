@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d24511aa6eb36a2e792c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d46c0591b7423febddb7"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -941,7 +941,6 @@ var PageService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.set('Accept', 'application/json');
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["RequestOptions"]({ headers: headers });
-        console.log("Пытаемся поменять слайд " + position + " со слайдом " + (position + direction));
         return this.http.put('api/Page/' + position + "/Position", formData, options)
             .map(function (res) { return res.json(); }) // ...and calling .json() on the response to return data
             .subscribe();
@@ -3110,19 +3109,8 @@ var GalleryComponent = (function () {
         if (!willDelete) {
             return;
         }
-        var elementToDelete = this.position;
-        var totalElements = -1;
-        this.editService.pagesCount.
-            subscribe(function (count) { return totalElements = count; });
-        this.fixPositions(elementToDelete, totalElements);
-        //   this.pageService.deletePage(totalElements);
-        // this.editService.decreasePagesCount()
-    };
-    GalleryComponent.prototype.fixPositions = function (deletedPosition, count) {
-        var i;
-        for (i = deletedPosition + 1; i <= count; i++) {
-            this.pageService.updatePosition(i, -1);
-        }
+        this.pageService.deletePage(this.position);
+        this.editService.decreasePagesCount();
     };
     GalleryComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
