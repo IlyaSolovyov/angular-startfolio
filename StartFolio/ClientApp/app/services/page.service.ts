@@ -52,9 +52,21 @@ export class PageService {
             .subscribe();
     }
 
-    deletePage(position: number)
-    {
-        return this.http.delete('api/Page/' + position + "/Details");
+    updatePosition(position: number, direction: number) {
+        let formData = new FormData();
+        formData.append('newPosition', (position + direction).toString());
+        let headers = new Headers();
+        headers.set('Accept', 'application/json');
+        let options = new RequestOptions({ headers: headers });
+        return this.http.put('api/Page/' + position + "/Position", formData, options)
+            .map(res => res.json()) // ...and calling .json() on the response to return data
+            .subscribe();
     }
 
+    deletePage(position: number)
+    {
+        return this.http.delete('api/Page/' + position)
+            .subscribe();
+    };
+    
 }

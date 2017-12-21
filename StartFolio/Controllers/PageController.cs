@@ -67,8 +67,7 @@ namespace StartFolio.Controllers
         [HttpPut("{currentPosition}/position")]
         public async Task<IActionResult> UpdatePositionAsync(int currentPosition, [FromForm]int newPosition )
         {
-          //  int currentPosition = Int32.Parse(data["currentPosition"]);
-          //  int newPosition = Int32.Parse(data["newPosition"]);
+
             Page thisPage = await pageRepository.GetPage(currentPosition);
             Page swappedWithPage = await pageRepository.GetPage(newPosition);
 

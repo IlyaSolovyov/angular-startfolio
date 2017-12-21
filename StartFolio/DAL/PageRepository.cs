@@ -55,7 +55,7 @@ namespace StartFolio.DAL
 
         public async Task<IEnumerable<Page>> GetPagesAsync()
         {
-            return await context.Pages.Find(_ => true).ToListAsync();
+            return await context.Pages.Find(_ => true).SortBy(x=> x.Position).ToListAsync();
         }
     }
 }
