@@ -73,12 +73,12 @@ namespace StartFolio.Controllers
 
             if (thisPage==null || swappedWithPage == null)
             {
-                return Ok(0);
+                return Ok("Cannot move the page this way.");
             }
             await pageRepository.UpdatePagePosition(thisPage.Id, newPosition);
             await pageRepository.UpdatePagePosition(swappedWithPage.Id, currentPosition);
 
-            return Ok(1);
+            return Ok("Page successfully moved.");
 
         }
 
@@ -102,7 +102,7 @@ namespace StartFolio.Controllers
 
             Page page = await pageRepository.GetPage(position);
             await pageRepository.UpdatePageDetails(page.Id, details);
-            return Ok();
+            return Ok("Details successfully updated.");
         }
 
         // DELETE: api/Page/5
@@ -111,7 +111,7 @@ namespace StartFolio.Controllers
         {
             Page page = await pageRepository.GetPage(position);
             await pageRepository.RemovePage(page.Id);
-            return Ok();
+            return Ok("Page successfully deleted.");
         }
     }
 }

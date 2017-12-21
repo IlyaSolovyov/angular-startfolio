@@ -66,6 +66,7 @@ export class PageService {
     deletePage(position: number)
     {
         return this.http.delete('api/Page/' + position)
+            .map(res => res.json()) // ...and calling .json() on the response to return data
             .subscribe();
     };
     
