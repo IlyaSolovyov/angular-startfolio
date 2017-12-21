@@ -12,11 +12,17 @@ export class AppComponent implements OnInit {
     pages: Observable<Page[]>;
 
     constructor(public pageService: PageService) {
-
     }
 
     ngOnInit() {
-        this.pages = this.pageService.getPages();
+        this.pageService.getPages().subscribe(res => {
+            this.pages = res
+        });
+    }
+
+    getAction() {
+        
+        console.log(this.pages);
     }
 
 
