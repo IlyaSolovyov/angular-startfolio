@@ -13,11 +13,11 @@ export class PageService {
 
     
     getPages() {
-        return this.http.get('localhost:57092/api/Page/');      
+        return this.http.get('/api/Page/')
+            .map((res) => res.json());      
     }
 
     getPage(position: number) {
-        let response: string;
         return this.http.get('api/Page/' + position)
             .map((res) => res.json())
     }

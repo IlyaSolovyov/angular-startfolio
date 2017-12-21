@@ -15,22 +15,30 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getAction();
-        console.log(this.page);
+        this.fetchPages();
+        //console.log(this.page);
     }
 
-    getAction() {
+    fetchPage(position: number) {
         let result: string ;
-        this.pageService.getPage(0)
+        this.pageService.getPage(position)
             .subscribe((page: Page) => {
                 this.page = page.details;
                 console.log("Fetched a page, here are the details: " +this.page)//<-- not undefined anymore
             });
     }
 
+    fetchPages() {
+        let result: string;
+        this.pageService.getPages()
+            .subscribe((response: string) => {
+                console.log("Fetched pages: " + response)//<-- not undefined anymore
+            });
+    }
+
     displayData(data: string)
     {
-     console.log(this.page);
+     //console.log(this.page);
     }
 
 }
