@@ -1,0 +1,116 @@
+﻿.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    width: 400px;
+    left: calc(50% - 200px);
+    top: calc(50% - 106px);
+    background: #edeff1;
+    margin: 0px auto;
+    padding-top: 20px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    z-index: 7;
+
+    transition: 0.5s transform ease;
+
+    -webkit-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);
+    box-shadow: 4px 10px 36px 1px rgba(0,0,0,0.75);
+}
+
+.form a {
+    text-align: center;
+}
+
+input[type="text"] {
+    display: block;
+    width: 309px;
+    height: 35px;
+    margin: 15px auto;
+    background: #fff;
+    border: 0px;
+    padding: 5px;
+    font-size: 16px;
+    border: 2px solid #fff;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+input[type="text"]:focus {
+    border: 2px solid #1abc9d
+}
+
+input[type="submit"] {
+    width: 314px;
+    height: 40px;
+    padding: 12px;
+    cursor: pointer;
+    margin: auto;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+a {
+    transition: all 0.3s ease;
+}
+
+::-webkit-input-placeholder {
+    color: gray;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: gray;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+    color: gray;
+}
+
+:-ms-input-placeholder {
+    color: gray;
+}
+
+.closeWindow {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: -15px;
+    right: -37px;
+    background-image: url("../../../../wwwroot/assets/icons/close.svg");
+    background-repeat: round;
+    cursor: pointer;
+    transition: 0.2s transform ;
+}
+
+.closeWindow:hover {
+    transform: scale(1.25, 1.25);
+}
+
+#showSignIn:not(:checked) ~ .form {
+    transform: translateY(-100vh);
+}
+
+#showSignIn:checked ~ .form {
+    transform: translateY(0);
+}
+
+.signIn span {
+    font-size: 20px;
+    text-align: center;
+}
+
+.signIn .btn {
+    margin: 0;
+    width: 75px;
+    height: 35px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

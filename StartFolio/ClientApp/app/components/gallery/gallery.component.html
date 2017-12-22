@@ -1,0 +1,64 @@
+﻿<script>
+function masonry(grid, gridCell, gridGutter, dGridCol, tGridCol, mGridCol) {
+    var g = document.querySelector(grid),
+        gc = document.querySelectorAll(gridCell),
+        gcLength = gc.length,
+        gHeight = 0,
+        i;
+
+    for (i = 0; i < gcLength; ++i) {
+        gHeight += gc[i].offsetHeight + parseInt(gridGutter);
+    }
+
+    if (window.screen.width >= 1024)
+        g.style.height = gHeight / dGridCol + gHeight / (gcLength + 1) + "px";
+    else if (window.screen.width < 1024 && window.screen.width >= 768)
+        g.style.height = gHeight / tGridCol + gHeight / (gcLength + 1) + "px";
+    else
+        g.style.height = gHeight / mGridCol + gHeight / (gcLength + 1) + "px";
+}
+
+["resize", "load"].forEach(function (event) {
+    window.addEventListener(event, function () {
+        imagesLoaded(document.querySelector('.masonry'), function () {
+            // A maonsry grid with 8px gutter, with 3 columns on desktop, 2 on tablet, and 1 column on mobile devices.
+            masonry(".masonry", ".masonry-brick", 8, 3, 2, 1);
+        });
+    });
+
+var masonryElem = document.querySelector('.masonry');
+masonryElem.insertAdjacentHTML("afterend", "Loading...");
+var masonryPreloader = document.querySelector('.masonry-preloader');
+
+["resize", "load"].forEach(function(event) {
+  // Hiding the preloader
+  masonryElem.style.display="none";
+  window.addEventListener(event, function() {
+    imagesLoaded( document.querySelector('.masonry'), function() {
+      masonryElem.style.display="flex";
+      masonryPreloader.style.display="none";
+      // A masonry grid with 8px gutter, with 3 columns on desktop, 2 on tablet, and 1 column on mobile devices.
+      masonry(".masonry", ".masonry-brick", 8, 3, 2, 1);
+      console.log("Loaded");
+    });
+  }, false);
+});
+</script>
+
+<section class="gallery-component block-component {{model.backgroundColor}}" [style.background-color]="getBackgroundColor()">
+    <h2 class="gallery-title display-2">{{model.title}}</h2>
+
+    <div class="masonry masonry--h">
+        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.description1}}</p></article><img [src]="getImagePath(model.imgUrl1)" alt="img" class="masonry-img"/></div>
+        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.description2}}</p></article><img [src]="getImagePath(model.imgUrl2)" alt="img" class="masonry-img"/></div>
+        <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.description3}}</p></article><img [src]="getImagePath(model.imgUrl3)" alt="img" class="masonry-img"/></div>
+    </div>
+
+    <section class="btnSection">
+        <label class="round-btn material-red edit-btn" for="showGallerySidebar" (click)="editPage()"><edit-btn></edit-btn></label>
+        <label class="round-btn material-red up-btn" (click)="updatePosition(position, -1)"><up-btn></up-btn></label>
+        <label class="round-btn material-red down-btn"(click)="updatePosition(position, 1)"><down-btn></down-btn></label>
+        <label class="round-btn material-red trash-btn" (click)="deletePage()"><trash-btn></trash-btn></label>
+    </section>
+
+</section>

@@ -1,0 +1,14 @@
+﻿.hidden-devBtn {
+    transform: translateY(100px);
+}
+
+.visible-devBtn {
+    transform: translateY(20px);
+}
+
+.developerButton {
+    position: fixed;
+    bottom: 0;
+    z-index: 7;
+    transition: 0.2s transform ease;
+}

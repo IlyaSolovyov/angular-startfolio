@@ -1,0 +1,13 @@
+﻿<label class="optionTitle">{{indexNo}}</label>
+
+<label class="optionTitle">Name, surname</label>
+<input type="text" [(ngModel)]="teammate.name" #name="ngModel" required />
+
+<label class="optionTitle">Short description</label>
+<input type="text" [(ngModel)]="teammate.description" #description="ngModel" required />
+
+<label class="optionTitle">Link to profile</label>
+<input type="url" [(ngModel)]="teammate.link" #link="ngModel" required />
+
+<label class="optionTitle">Teammate photo</label>
+<input type="file" accept="image/*" (change)="updateImage($event)" required />

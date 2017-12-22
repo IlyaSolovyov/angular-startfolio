@@ -1,0 +1,36 @@
+﻿<section class="sidebar-header material-green">
+    <h2 class="display-1" style="color: white">Components</h2>
+</section>
+
+<section class="sidebar-content">
+
+    <section class="componentSearch">
+        <input type="search" class="searchField"/>
+        <img src="/assets/icons/search.svg" class="searchBtn"/>
+    </section>
+
+
+    <div class="horizontal-separator"></div>
+
+    <!--<h2 class="display-2" style="font-size: 20px">HERE WILL BE SEARCH RESULT!</h2>-->
+
+    <section class="available-components">
+        <searchable [componentTitle]="titles0"
+                    [previewLink]="previews0"
+                    (click) ="createPage(template0)"></searchable>
+        <searchable [componentTitle]="titles1"
+                    [previewLink]="previews1"
+                     (click) ="createPage(template1)"></searchable>
+        <searchable [componentTitle]="titles2"
+                    [previewLink]="previews2"
+                     (click) ="createPage(template2)"></searchable>
+        <searchable [componentTitle]="titles3"
+                    [previewLink]="previews3"
+                     (click) ="createPage(template3)"></searchable>
+        <searchable [componentTitle]="titles4"
+                    [previewLink]="previews4"
+                     (click) ="createPage(template4)"></searchable>
+
+    </section>
+
+</section>

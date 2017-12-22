@@ -1,0 +1,51 @@
+﻿.footer-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    padding: 20px;
+}
+
+.social-icons a img {
+    width: 32px;
+    height: 32px;
+    filter: invert(0%);
+    transition: filter linear 0.2s;
+}
+
+.social-icons a img:hover {
+    filter: invert(100%);
+}
+
+.publicy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.address, 
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.footer-cont-item {
+    padding: 5px 0;
+    font-family: Unineue-Light;
+    font-size: 16px;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.technical-info {
+    display: flex;
+    justify-content: center;
+}

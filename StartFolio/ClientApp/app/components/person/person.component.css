@@ -1,0 +1,74 @@
+﻿.person-component {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    margin: auto;
+}
+
+.person-photo,
+.person-component-content {
+    width: 45%;
+}
+
+.person-component-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.person-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6%;
+    max-height: 600px;
+    min-width: 600px;
+    max-width: 600px;
+    min-height: 600px;
+}
+
+.person-photo img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: 0;
+    transition: box-shadow 0.4s ease, border-radius 0.4s ease;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.person-photo img:hover {
+    -webkit-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);
+    -moz-box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);
+    box-shadow: 0px 2px 77px -9px rgba(184,180,184,1);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.person-component-title,
+.person-component-opinion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.person-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.person-component-opinion,
+.person-info {
+    width: 100%;
+}
+
+.person-name {
+    display: flex;
+    flex-direction: row;
+}

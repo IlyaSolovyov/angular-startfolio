@@ -1,0 +1,28 @@
+﻿<section class="sidebar-header material-blue">
+    <h2 class="display-1" style="color: white">Product component</h2>
+</section>
+
+<section class="sidebar-content">
+
+    <form class="Options" [formGroup]="productEditForm" (ngSubmit)="save(productEditForm.value)">
+
+        <label class="optionTitle">Text title</label>
+        <input type="text" formControlName="title"/>
+
+        <label class="optionTitle">Main text</label>
+        <textarea formControlName="mainText"></textarea>
+
+        <label class="optionTitle">Sub text</label>
+        <textarea formControlName="subText"></textarea>
+
+        <label class="optionTitle">Product demo photo</label>
+        <input type="file" accept="image/*" (change)="updateImage($event)" formControlName="productImgUrl"/>
+
+        <label class="optionTitle">Background color</label>
+        <input type="color" formControlName="backgroundColor"/>
+
+        <button class="btn button material-blue" type="submit" (сlick)="hideSidebar()">Submit</button>
+
+    </form>
+
+</section>

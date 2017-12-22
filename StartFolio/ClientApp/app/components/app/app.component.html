@@ -1,10 +1,55 @@
-<div class='container-fluid'>
-    <div class='row'>
-        <div class='col-sm-3'>
-            <nav-menu></nav-menu>
-        </div>
-        <div class='col-sm-9 body-content'>
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-</div>
+<!--<router-outlet></router-outlet>-->
+    <devbutton></devbutton>
+
+    <snackbar [message]="snackMessage"></snackbar>
+
+    <!--<button class="btn button" >ACTION!!!!!!!!!!</button>-->
+
+    <!--<dynamic-component *ngFor="let page of pages" [page]="page" [type]="page.pageTemplate">
+
+        </dynamic-component>-->
+
+    <input type="checkbox" id="showSearchSidebar" />
+    <my-searchsidebar class="sidebar"></my-searchsidebar>
+    <my-fab></my-fab>
+    <label class="grayout6" for="showSearchSidebar"></label>
+
+    <login></login>
+<div #slides *ngIf="isPages; then fetchedSlides else predefinedSlides"></div>
+    <ng-template #predefinedSlides>
+        <!--<my-text class="component"></my-text>
+        <my-team class="component"></my-team>
+        <my-person class="component"></my-person>
+        <my-product class="component"></my-product>
+        <my-gallery class="component"></my-gallery>-->
+        <intro class="component"></intro>
+    </ng-template>
+    <ng-template #fetchedSlides>
+        <dynamic-content *ngFor="let fetchedPage of pages" [page]="fetchedPage"></dynamic-content>
+    </ng-template>
+
+
+    <input type="checkbox" id="showTextSidebar" />
+    <my-textsidebar class="sidebar"></my-textsidebar>  
+    <label class="grayout1" for="showTextSidebar"></label>
+
+    <input type="checkbox" id="showTeamSidebar" />
+    <my-teamsidebar class="sidebar"></my-teamsidebar>
+    <label class="grayout2" for="showTeamSidebar"></label>
+
+    <input type="checkbox" id="showPersonSidebar" />
+    <my-personsidebar class="sidebar"></my-personsidebar>
+    <label class="grayout3" for="showPersonSidebar"></label>
+
+    <input type="checkbox" id="showProductSidebar" />
+    <my-productsidebar class="sidebar"></my-productsidebar>
+    <label class="grayout4" for="showProductSidebar"></label>
+
+    <input type="checkbox" id="showGallerySidebar" />
+    <my-gallerysidebar class="sidebar"></my-gallerysidebar>
+    <label class="grayout5" for="showGallerySidebar"></label>
+
+
+    <my-footer></my-footer>
+
+    <span></span>

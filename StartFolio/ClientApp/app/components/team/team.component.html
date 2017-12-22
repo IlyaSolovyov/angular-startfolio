@@ -1,0 +1,26 @@
+﻿<section class="team-component block-component {{model.backgroundColor}}" [style.background-color]="getBackgroundColor()">
+
+    <h2 class="team-component-title display-2">{{model.title}}</h2>
+
+    <article class="team-component-content main-text body-2 text-large">{{model.mainText}}</article>
+
+    <ul class="cards">
+        <teammate [name]       ="model.teammate1_Name" 
+                  [photo]      ="getImagePath(model.teammate1_Photo)" 
+                  [description]="model.teammate1_Description" 
+                  [profileLink]="model.teammate1_Link"></teammate>
+
+        <teammate [name]       ="model.teammate2_Name"
+                  [photo]      ="getImagePath(model.teammate2_Photo)"
+                  [description]="model.teammate2_Description"
+                  [profileLink]="model.teammate2_Link"></teammate>
+    </ul>
+
+    <section class="btnSection">
+        <label class="round-btn material-red edit-btn" for="showTeamSidebar" (click)="editPage()"><edit-btn></edit-btn></label>
+        <label class="round-btn material-red up-btn"  (click)="updatePosition(position, -1)"><up-btn></up-btn></label>
+        <label class="round-btn material-red down-btn" (click)="updatePosition(position, 1)"><down-btn></down-btn></label>
+        <label class="round-btn material-red trash-btn" (click)="deletePage()"><trash-btn></trash-btn></label>
+    </section>
+
+</section>
