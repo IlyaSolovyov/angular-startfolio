@@ -85,7 +85,8 @@ export class ProductSidebarComponent implements OnInit {
     hideSidebar() {
         let template = 'Product';
         (<HTMLInputElement>document.getElementById('show' + template + 'Sidebar')).checked = false;
-        alert(template + ' component was succesfully updated!');
+        (<HTMLInputElement>document.getElementById('showSnackbar')).checked = true;
+        setTimeout(() => { (<HTMLInputElement>document.getElementById('showSnackbar')).checked = false; }, 3000);
     }
 }
 

@@ -1,6 +1,8 @@
 <!--<router-outlet></router-outlet>-->
     <devbutton></devbutton>
 
+    <snackbar [message]="snackMessage"></snackbar>
+
     <!--<button class="btn button" >ACTION!!!!!!!!!!</button>-->
 
     <!--<dynamic-component *ngFor="let page of pages" [page]="page" [type]="page.pageTemplate">
@@ -13,13 +15,14 @@
     <label class="grayout6" for="showSearchSidebar"></label>
 
     <login></login>
-<div #slides *ngIf="pages; then fetchedSlides else predefinedSlides"></div>
+<div #slides *ngIf="isPages; then fetchedSlides else predefinedSlides"></div>
     <ng-template #predefinedSlides>
-        <my-text class="component"></my-text>
+        <!--<my-text class="component"></my-text>
         <my-team class="component"></my-team>
         <my-person class="component"></my-person>
         <my-product class="component"></my-product>
-        <my-gallery class="component"></my-gallery>
+        <my-gallery class="component"></my-gallery>-->
+        <intro class="component"></intro>
     </ng-template>
     <ng-template #fetchedSlides>
         <dynamic-content *ngFor="let fetchedPage of pages" [page]="fetchedPage"></dynamic-content>

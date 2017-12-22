@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
     pages: Page[];
     pageJsons: string[];
     page: string = "Didn't fetch yet.";
+    count: number;
+    isPages: boolean;
+    snackMessage: string = "Component was succesfully updated!";
+
     constructor(public pageService: PageService, public editService: EditService) {
     }
 
@@ -48,7 +52,13 @@ export class AppComponent implements OnInit {
         this.pageService.getPages()
             .subscribe((pages: Page[]) => {
                 this.pages = pages;
-                this.editService.setPagesCount(this.pages.length);
+                this.editService.setPagesCount(this.count = this.pages.length);
+
+                if (this.pages && this.count > 0) {
+                    this.isPages = true;
+                } else {
+                    this.isPages = false;
+                }
             });
     }
 }
