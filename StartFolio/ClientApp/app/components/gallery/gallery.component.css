@@ -1,6 +1,18 @@
 ﻿.masonry--h, .masonry--v {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-left: -8px;
     counter-reset: brick;
+}
+
+.masonry--h {
+    flex-direction: row;
+}
+
+.masonry--v {
+    flex-direction: column;
 }
 
 .masonry {
@@ -10,8 +22,7 @@
 }
 .masonry-brick {
     flex: auto;
-    height: 250px;
-    min-width: 150px;
+    height: 350px;
     margin: 0 8px 8px 0; /* Some gutter */
     background-color: #333;
     color: white;

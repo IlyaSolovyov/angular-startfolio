@@ -48,11 +48,15 @@
     justify-content: center;
 }
 
-.product-demo{
+.product-demo {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 6%;
+    max-height: 600px;
+    min-width: 600px;
+    max-width: 600px;
+    min-height: 600px;
 }
 
 .product-component-title,

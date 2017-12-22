@@ -48,6 +48,7 @@
     <None Remove="ClientApp\app\components\sidebars\searchsidebar\searchsidebar.component.ts" />
     <None Remove="ClientApp\app\components\sidebars\teamsidebar\teammate-form\teammate.ts" />
     <None Remove="ClientApp\app\components\sidebars\teamsidebar\teamsidebar.component.ts" />
+    <None Remove="ClientApp\app\components\snackbar\snackbar.component.ts" />
     <None Remove="ClientApp\app\components\teammate\teammate.component.ts" />
     <None Remove="ClientApp\app\components\team\team.component.ts" />
     <None Remove="ClientApp\app\devbutton\devbutton.component.ts" />
@@ -63,6 +64,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\searchable\searchable.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\sidebars\teamsidebar\teammate-form\teammate.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\sidebars\teamsidebar\teammate-form\teammateform.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\snackbar\snackbar.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\page.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\account.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\btns\down-btn\downbtn.component.ts" />

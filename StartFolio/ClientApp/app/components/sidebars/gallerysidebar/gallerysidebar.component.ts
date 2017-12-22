@@ -19,6 +19,7 @@ export class GallerySidebarComponent implements OnInit {
         this.populateFormFromModel();
         this.editService.editablePage.
             subscribe(page => this.updateEditPage(page));
+
     }
 
     updateEditPage(page: Page) {
@@ -29,6 +30,7 @@ export class GallerySidebarComponent implements OnInit {
             this.populateFormFromModel();
         }         
     }
+
 
     fetchDataToModel(details: string) {
         this.model = JSON.parse(details);
@@ -111,13 +113,15 @@ export class GallerySidebarComponent implements OnInit {
         }
         //alert(output.get('details'));
         this.pageService.updateDetails(this.position, output);
+        this.editService.triggerUpdate();
 
     }
 
     hideSidebar() {
         let template = 'Gallery';
-        (<HTMLInputElement>document.getElementById('show'+ template + 'Sidebar')).checked = false;
-        alert(template + ' component was succesfully updated!');
+        (<HTMLInputElement>document.getElementById('show' + template + 'Sidebar')).checked = false;
+        (<HTMLInputElement>document.getElementById('showSnackbar')).checked = true;
+        setTimeout(() => { (<HTMLInputElement>document.getElementById('showSnackbar')).checked = false; }, 3000);
     }
 }
 

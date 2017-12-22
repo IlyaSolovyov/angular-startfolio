@@ -18,7 +18,7 @@ import { TeamComponent } from './components/team/team.component';
 import { TeammateComponent } from './components/teammate/teammate.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FabComponent } from './fab/fab.component';
-//import { Page } from './page';
+
 import { TextSidebarComponent } from './components/sidebars/textsidebar/textsidebar.component';
 import { TeamSidebarComponent } from './components/sidebars/teamsidebar/teamsidebar.component';
 import { PersonSidebarComponent } from './components/sidebars/personsidebar/personsidebar.component';
@@ -35,8 +35,11 @@ import { EditButtonComponent } from './components/btns/editbtn/editbtn.component
 import { TrashButtonComponent } from './components/btns/trash-btn/trashbtn.component';
 import { UpButtonComponent } from './components/btns/up-btn/upbtn.component';
 import { DownButtonComponent } from './components/btns/down-btn/downbtn.component';
+import { DynamicComponent } from "./components/dynamic/dynamic.component";
+import { IntroComponent } from "./components/intro/intro.component";
+import { SnackbarComponent } from "./components/snackbar/snackbar.component";
 
-
+//import { Page } from './page';
 
 @NgModule({
     declarations: [
@@ -62,7 +65,10 @@ import { DownButtonComponent } from './components/btns/down-btn/downbtn.componen
         EditButtonComponent,
         TrashButtonComponent,
         UpButtonComponent,
-        DownButtonComponent
+        DownButtonComponent,
+        DynamicComponent,
+        IntroComponent,
+        SnackbarComponent
     ],
     imports: [
         BrowserModule,

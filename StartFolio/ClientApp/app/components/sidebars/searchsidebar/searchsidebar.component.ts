@@ -1,6 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Page } from '../../../page';
 import { PageService } from '../../../services/page.service';
+import { EditService } from "../../../services/edit.service";
 
 @Component({
     selector: 'my-searchsidebar',
@@ -34,7 +35,7 @@ export class SearchSidebarComponent implements OnInit {
 
     pagesArray: Page[];
 
-    constructor(public pageService: PageService) {
+    constructor(public pageService: PageService, public editService: EditService) {
     }
 
     ngOnInit() {
@@ -59,73 +60,76 @@ export class SearchSidebarComponent implements OnInit {
         this.template4  = 'gallery-component'
 
         this.textDetails = {
-            title:              'TextTitle',
-            mainText:           'MainText',
-            subText:            'SubText',
-            backgroundColor:    '#ffffff',
-            buttonLeftText:     'leftText',
-            buttonRightText:    'rightText',
-            buttonLeftLink:     'http://localhost/leftlink',
-            buttonRightLink:    'http://localhost/rightlink'
+            title:              'Ваш заголовок текстового компонента',
+            mainText:           'Основной текст, который вы вставите',
+            subText:            'Дополнительный текст, который вы вставите',
+            backgroundColor:    '#47A7F5',
+            buttonLeftText:     'Текст кнопки1',
+            buttonRightText:    'Текст кнопки2',
+            buttonLeftLink:     'http://вашассылкаккнопке1.com',
+            buttonRightLink:    'http://вашассылкаккнопке2.com'
         }
 
         this.teamDetails = {
-            title:                  'TeamTitle',
-            mainText:               'MainText',
-            backgroundColor:        '#ffffff',
-            teammate1_Name:         'DummyName1',
-            teammate1_Description:  'DummyDescription1',
-            teammate1_Link:         'https://localhost/firstLink',
-            teammate1_Photo:        'Images//dummy6.png',
-            teammate2_Name:         'DummyName2',
-            teammate2_Description:  'DummyDescription2',
-            teammate2_Link:         'https://localhost/secondLink',
-            teammate2_Photo:        'Images//dummy7.png',
+            title:                  'Заголовок компонента команды',
+            mainText:               'Основной текст, описывающий вашу команду',
+            backgroundColor:        '#FCD837',
+            teammate1_Name:         'Имя Фамилия вашего 1-го сокомандника',
+            teammate1_Description:  'Краткое описание вашего 1-го сокомандника',
+            teammate1_Link:         'https://ссылканапрофильвашегосокомандника1.com',
+            teammate1_Photo:        'dummy6.png',
+            teammate2_Name:         'Имя Фамилия вашего 2-го сокомандника',
+            teammate2_Description:  'Краткое описание вашего 2-го сокомандника',
+            teammate2_Link:         'https://ссылканапрофильвашегосокомандника2.com',
+            teammate2_Photo:        'dummy7.png',
         }
 
         this.productDetails = {
-            title:           'ProductTitle',
-            mainText:        'MainText',
-            subText:         'SubText',
-            photo:           'Images//dummy5.png',
-            backgroundColor: '#ffffff'
+            title:           'Заголовок компонента продукта',
+            mainText:        'Основной текст, описывающий ваш продукт или проект',
+            subText:         'Дополнительный текст, описывающий ваш продукт или проект',
+            productImgUrl:   'dummy5.png',
+            backgroundColor: '#7986CB'
         }
 
         this.personDetails = {
-            title:           'PersonTitle',
-            mainText:        'MainText',
-            personName:      'DummyName',
-            age:             '1337',
-            position:        'PersonPosition',
-            photo:           'Images//dummy4.png',
-            backgroundColor: '#ffffff'   
+            title:           'Заголовок компонента персоны',
+            mainText:        'Текст, выражающий мнение персоны',
+            personName:      'Имя Фамилия персоны',
+            age:             '25',
+            position:        'Должность или статус персоны',
+            photo:           'dummy4.png',
+            backgroundColor: '#B3E5FC'   
         }
 
         this.galleryDetails = {
-            title:           'GalleryTitle',
-            backgroundColor: '#ffffff',
-            imgUrl1:         'Images//dummy1.png',
-            imgUrl2:         'Images//dummy1.png',
-            imgUrl3:         'Images//dummy1.png',
-            description1:    'Dummy description to project1',
-            description2:    'Dummy description to project2',
-            description3:    'Dummy description to project3'
+            title:           'Заголовок компонента галереи',
+            backgroundColor: '#E53935',
+            imgUrl1:         'dummy1.png',
+            imgUrl2:         'dummy1.png',
+            imgUrl3:         'dummy1.png',
+            description1:    'Описание 1й фотографии вашей галереи',
+            description2:    'Описание 2й фотографии вашей галереи',
+            description3:    'Описание 3й фотографии вашей галереи'
         }
 
     }
 
     createPage(template: string)
     {
-        this.pageService.getPages()
+   /*     this.pageService.getPages()
             .subscribe(
             resultArray => this.pagesArray = resultArray,
             error => console.log("Error :: " + error)
-        )
+        )*/
+
+      
 
         let position = -1;
-        //alert(position);
+        this.editService.pagesCount.
+            subscribe(count => position=count);
         let details = '';
-  
+        position = position + 1;
         switch (template) {
             case 'text-component':
                 details = this.textDetails;
@@ -134,10 +138,10 @@ export class SearchSidebarComponent implements OnInit {
                 details = this.teamDetails;
                 break;
             case 'person-component':
-                details = this.productDetails;
+                details = this.personDetails;
                 break;
             case 'product-component':
-                details = this.personDetails;
+                details = this.productDetails;
                 break;
             case 'gallery-component':
                 details = this.galleryDetails;
@@ -146,7 +150,6 @@ export class SearchSidebarComponent implements OnInit {
 
         var page = new Page(position, template, JSON.stringify(details));
         this.pageService.addPage(page);
-
-        alert("Succesfully added new " + template + " to your web-site!");
+        this.editService.increasePagesCount();
     }
 }

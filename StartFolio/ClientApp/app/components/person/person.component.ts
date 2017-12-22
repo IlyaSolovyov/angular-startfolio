@@ -59,6 +59,7 @@ export class PersonComponent implements OnInit {
         }
 
         this.pageService.deletePage(this.position);
+        this.editService.decreasePagesCount()
     }
 
 }

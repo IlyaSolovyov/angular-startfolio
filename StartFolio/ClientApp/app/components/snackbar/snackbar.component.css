@@ -1,0 +1,41 @@
+﻿.paper-snackbar {
+    z-index: 10;
+    position: fixed;
+
+    width: 200px;
+    height: 50px;
+
+    bottom: -100px;
+    left: 25px;
+
+    background-color: rgba(0,0,0, 0.8);
+    color: #ffffff;
+    opacity: 1;
+
+    border-radius: 2.5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#showSnackbar:checked + .paper-snackbar {
+    animation: snackbarMove 3s;
+}
+
+@keyframes snackbarMove {
+    15% { 
+        bottom: 25px; 
+    }
+    80% {
+        opacity: 0.95;
+    }
+    95% {
+        opacity: 0;
+        bottom: 25px
+    }
+    100% {
+        opacity: 0;
+        bottom: -100px;
+    }
+}

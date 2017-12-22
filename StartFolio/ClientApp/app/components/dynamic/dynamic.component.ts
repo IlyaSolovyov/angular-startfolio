@@ -20,9 +20,9 @@ export class DynamicComponent implements OnInit, OnDestroy  {
     @ViewChild('container', { read: ViewContainerRef })
     container: ViewContainerRef;
 
-    @Input()
+    @Input() page: Page;
+
     type: string;
-    page: Page;
 
     private mappings = {
         'text-component': TextComponent,
@@ -44,6 +44,7 @@ export class DynamicComponent implements OnInit, OnDestroy  {
     }
 
     ngOnInit() {
+        this.type = this.page.pageTemplate;
         if (this.type) {
             let componentType = this.getComponentType(this.type);
 

@@ -46,7 +46,7 @@ var masonryPreloader = document.querySelector('.masonry-preloader');
 </script>
 
 <section class="gallery-component block-component {{model.backgroundColor}}" [style.background-color]="getBackgroundColor()">
-    <h2 class="gallery-titlte display-2">{{model.title}}</h2>
+    <h2 class="gallery-title display-2">{{model.title}}</h2>
 
     <div class="masonry masonry--h">
         <div class="masonry-brick masonry-brick--h"><article class="product-gallery-text"><p>{{model.description1}}</p></article><img [src]="getImagePath(model.imgUrl1)" alt="img" class="masonry-img"/></div>

@@ -48,12 +48,10 @@ export class GalleryComponent implements OnInit {
     }
 
     updatePosition(position: number, direction: number) {
-        console.log("Пытаемся поменять слайд " + position + " со слайдом " + (position + direction));
         this.pageService.updatePosition(position, direction);
     }
 
-    deletePage()
-    {
+    deletePage() {
         let willDelete = confirm("Do you really want to delete this component?");
 
         if (!willDelete) {
@@ -61,7 +59,9 @@ export class GalleryComponent implements OnInit {
         }
 
         this.pageService.deletePage(this.position);
+        this.editService.decreasePagesCount()
     }
+
 }
 interface Details
 {

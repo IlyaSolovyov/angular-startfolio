@@ -5,21 +5,24 @@ import "rxjs/Rx";
 import { Page } from "../page";
 import { Headers } from '@angular/http';
 import 'rxjs/add/operator/catch';
+import { EditService } from "./edit.service";
 
 @Injectable()
 export class PageService {
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private editService: EditService) { }
 
     
     getPages() {
-        return this.http.get('localhost:57092/api/Page/')
-            .map((res: Response) => res.json());      
+        this.editService.confirmUpdate();
+        return this.http.get('/api/Page/')
+            .map((res) => res.json());      
+        
     }
 
     getPage(position: number) {
         return this.http.get('api/Page/' + position)
-            .map(response => response.json());
+            .map((res) => res.json())
     }
 
     addPage(page : Page)
@@ -33,10 +36,9 @@ export class PageService {
         formData.append('pagetemplate', page.pageTemplate);
         formData.append('details', page.details);
 
-        return this.http.post('http://localhost:57092/api/Page', formData, options)
-                        .map(res => res.json()) // ...and calling .json() on the response to return data
-                        .subscribe();
-
+        this.http.post('http://localhost:57092/api/Page', formData, options)
+            .map(res => res.json()) // ...and calling .json() on the response to return data
+            .subscribe(event => this.editService.triggerUpdate());
     }
 
     updateDetails(position: number, formData: FormData) { 
@@ -47,9 +49,9 @@ export class PageService {
         headers.set('Accept', 'application/json');
         let options = new RequestOptions({ headers: headers });
         
-        return this.http.put('api/Page/' + position + "/Details", formData, options)
+        this.http.put('api/Page/' + position + "/Details", formData, options)
             .map(res => res.json()) // ...and calling .json() on the response to return data
-            .subscribe();
+            .subscribe(event => this.editService.triggerUpdate());
     }
 
     updatePosition(position: number, direction: number) {
@@ -58,16 +60,16 @@ export class PageService {
         let headers = new Headers();
         headers.set('Accept', 'application/json');
         let options = new RequestOptions({ headers: headers });
-        return this.http.put('api/Page/' + position + "/Position", formData, options)
+        this.http.put('api/Page/' + position + "/Position", formData, options)
             .map(res => res.json()) // ...and calling .json() on the response to return data
-            .subscribe();
+            .subscribe(event => this.editService.triggerUpdate());
     }
 
     deletePage(position: number)
     {
-        return this.http.delete('api/Page/' + position)
+        this.http.delete('api/Page/' + position)
             .map(res => res.json()) // ...and calling .json() on the response to return data
-            .subscribe();
+            .subscribe(event => this.editService.triggerUpdate());
     };
     
 }
