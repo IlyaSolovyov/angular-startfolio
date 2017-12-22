@@ -36,6 +36,8 @@ import { TrashButtonComponent } from './components/btns/trash-btn/trashbtn.compo
 import { UpButtonComponent } from './components/btns/up-btn/upbtn.component';
 import { DownButtonComponent } from './components/btns/down-btn/downbtn.component';
 import { DynamicComponent } from "./components/dynamic/dynamic.component";
+import { IntroComponent } from "./components/intro/intro.component";
+import { SnackbarComponent } from "./components/snackbar/snackbar.component";
 
 //import { Page } from './page';
 
@@ -64,7 +66,9 @@ import { DynamicComponent } from "./components/dynamic/dynamic.component";
         TrashButtonComponent,
         UpButtonComponent,
         DownButtonComponent,
-        DynamicComponent
+        DynamicComponent,
+        IntroComponent,
+        SnackbarComponent
     ],
     imports: [
         BrowserModule,
